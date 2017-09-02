@@ -1,9 +1,18 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a routerLink="/estudiantes" routerLinkActive="active">Estudiantes</a>
-  <a routerLink="/prestamos" routerLinkActive="active">Préstamos</a>
-  <a routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
-  <a>Cerrar sesión</a>
-</nav>
+<md-toolbar color="primary">
+
+  <span>{{title}}</span>
+  <span class="navbar-spacer"></span>
+  <div class="button-row">
+    <button md-button (click)="goToRoute('dashboard')">Dashboard</button>
+    <button md-button (click)="goToRoute('estudiantes')">Estudiantes</button>
+    <button md-button (click)="goToRoute('prestamos')">Préstamos</button>
+    <button md-button (click)="goToRoute('usuarios')">Usuarios</button>
+  </div>
+  <span class="navbar-spacer"></span>
+  <div class="button-row">
+    <button md-button>Cerrar Sesión</button>
+  </div>
+  
+</md-toolbar>
+
 <router-outlet></router-outlet>

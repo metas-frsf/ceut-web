@@ -13,6 +13,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './not-found.component';
 
+import {MdButton, MdButtonModule, MdGridList, MdGridTile, MdToolbarModule} from '@angular/material';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
@@ -21,7 +22,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 }
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RoutingModule],
+  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -29,7 +30,10 @@ export class MyHammerConfig extends HammerGestureConfig  {
     EstudiantesComponent,
     PageNotFoundComponent,
     PrestamosComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    MdGridList,
+    MdGridTile,
+    MdGridList
   ],
   bootstrap: [AppComponent],
   providers: [{
