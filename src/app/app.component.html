@@ -12,7 +12,21 @@
   <div class="button-row">
     <button md-button>Cerrar Sesión</button>
   </div>
-  
-</md-toolbar>
 
-<router-outlet></router-outlet>
+</md-toolbar>
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Shiba Inu</md-card-title>
+    <md-card-subtitle>Dog Breed</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <md-card-content>
+      <router-outlet></router-outlet>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+

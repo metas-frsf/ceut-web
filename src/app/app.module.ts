@@ -13,7 +13,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './not-found.component';
 
-import {MdButton, MdButtonModule, MdGridList, MdGridTile, MdToolbarModule} from '@angular/material';
+import {MdButton, MdButtonModule, MdCard, MdGridList, MdGridTile, MdToolbarModule} from '@angular/material';
+import {MdTable, MdTableModule} from "@angular/material/typings/table";
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
@@ -22,7 +23,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 }
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule],
+  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule, MdTableModule],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -31,9 +32,11 @@ export class MyHammerConfig extends HammerGestureConfig  {
     PageNotFoundComponent,
     PrestamosComponent,
     UsuariosComponent,
+    MdCard,
     MdGridList,
     MdGridTile,
-    MdGridList
+    MdGridList,
+    MdTable
   ],
   bootstrap: [AppComponent],
   providers: [{
