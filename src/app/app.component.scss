@@ -1,3 +1,9 @@
+app-root{
+  #app-container{
+    height: calc(100vh - 128px) !important;
+  }
+}
+
 .navbar-spacer{
   flex: 1 1 auto;
 }

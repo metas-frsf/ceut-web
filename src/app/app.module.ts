@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 import {MdButton, MdButtonModule, MdCard, MdGridList, MdGridTile, MdToolbarModule} from '@angular/material';
-import {MdTable, MdTableModule} from "@angular/material/typings/table";
+
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
@@ -23,7 +23,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 }
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule, MdTableModule],
+  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -35,8 +35,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MdCard,
     MdGridList,
     MdGridTile,
-    MdGridList,
-    MdTable
+    MdGridList
   ],
   bootstrap: [AppComponent],
   providers: [{
