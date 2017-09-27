@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, ViewEncapsulation, Inject} from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
+import {MD_DIALOG_DATA, MdDialog, MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-estudiantes',
@@ -21,7 +22,12 @@ export class EstudiantesComponent implements OnInit {
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
 
-  @ViewChild('filter') filter: ElementRef;
+  animal: string = 'León';
+  name: string = 'Santillán';
+
+  @ViewChild('filter') filter: ElementRef
+
+  constructor(public dialog: MdDialog){}
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
@@ -33,6 +39,34 @@ export class EstudiantesComponent implements OnInit {
         this.dataSource.filter = this.filter.nativeElement.value;
       });
   }
+
+  abrirModal(){
+    let dialogRef = this.dialog.open(AgregarEstudianteComponent, {
+      width: '500px',
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+}
+
+@Component({
+  selector: 'agregar-estudiante',
+  templateUrl: 'agregarEstudiante.component.html',
+})
+export class AgregarEstudianteComponent {
+
+  constructor(
+    public dialogRef: MdDialogRef<AgregarEstudianteComponent>,
+    @Inject(MD_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
 
 /** Constants used to fill up our data base. */

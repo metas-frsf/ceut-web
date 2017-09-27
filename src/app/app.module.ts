@@ -6,7 +6,7 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EstudiantesComponent } from './estudiantes/estudiantes.component';
+import {AgregarEstudianteComponent, EstudiantesComponent} from './estudiantes/estudiantes.component';
 import { PrestamosComponent } from './prestamos/prestamos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
@@ -73,6 +73,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
   ],
   declarations: [
     AppComponent,
+    AgregarEstudianteComponent,
     DashboardComponent,
     LoginComponent,
     EstudiantesComponent,
@@ -80,7 +81,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     PrestamosComponent,
     UsuariosComponent
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, AgregarEstudianteComponent],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig

@@ -58,39 +58,8 @@
     <md-card class="detail-right-card mat-elevation-z8">
       <md-card-content>
         <div class="">
-          <button md-raised-button color="primary">Agregar Nuevo</button>
+          <button md-raised-button color="primary" (click)="abrirModal()">Agregar Nuevo</button>
         </div>
-        <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
-          <div class="row">
-            <label for="name">Nombre:</label><br />
-            <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="surname">Apellido:</label><br />
-            <input id="surname" class="input" name="surname" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="email">Mail:</label><br />
-            <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="carrera">Carrera:</label><br />
-            <input id="carrera" class="input" name="carrera" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="documento">Documento:</label><br />
-            <input id="documento" class="input" name="documento" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="legajo">Legajo:</label><br />
-            <input id="legajo" class="input" name="legajo" type="text" value="" size="30" /><br />
-          </div>
-          <div class="row">
-            <label for="telefono">Telefono:</label><br />
-            <input id="telefono" class="input" name="telefono" type="text" value="" size="30" /><br />
-          </div>
-          <input id="cargar_button" type="submit" value="Cargar Estudiante" />
-        </form>
       </md-card-content>
     </md-card>
   </md-grid-tile>
