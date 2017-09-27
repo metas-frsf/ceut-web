@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RoutingModule } from './app-routing.module';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -13,7 +13,15 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './not-found.component';
 
-import {MdButton, MdButtonModule, MdCard, MdGridList, MdGridTile, MdToolbarModule} from '@angular/material';
+import { MdAutocompleteModule, MdButtonModule, MdButtonToggleModule, MdCardModule, MdCellDef, MdCheckboxModule, MdColumnDef,
+  MdGridList, MdGridTile, MdHeaderCellDef, MdHeaderRowDef, MdRowDef, MdTable, MdToolbarModule, MdChipsModule,
+  MdTableModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule, MdTabsModule, MdSortModule,
+  MdSnackBarModule, MdDialogModule, MdExpansionModule, MdGridListModule, MdIconModule, MdInputModule, MdListModule,
+  MdMenuModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule,
+  MdRippleModule, MdSidenavModule, MdSlideToggleModule, MdSliderModule} from '@angular/material';
+import {HttpModule} from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CdkTableModule} from '@angular/cdk/table';
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -23,7 +31,45 @@ export class MyHammerConfig extends HammerGestureConfig  {
 }
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RoutingModule, MdToolbarModule, MdButtonModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MdAutocompleteModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdTableModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdExpansionModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdPaginatorModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdRippleModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSlideToggleModule,
+    MdSliderModule,
+    MdSnackBarModule,
+    MdSortModule,
+    MdTabsModule,
+    MdToolbarModule,
+    MdTooltipModule,
+    MdNativeDateModule,
+    CdkTableModule,
+    RoutingModule
+  ],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -31,11 +77,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     EstudiantesComponent,
     PageNotFoundComponent,
     PrestamosComponent,
-    UsuariosComponent,
-    MdCard,
-    MdGridList,
-    MdGridTile,
-    MdGridList
+    UsuariosComponent
   ],
   bootstrap: [AppComponent],
   providers: [{

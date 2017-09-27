@@ -1,6 +1,24 @@
 app-root{
   #app-container{
-    height: calc(100vh - 128px) !important;
+    height: calc(100vh - 96px) !important;
+    padding: 8px;
+  }
+
+  .detail-right-card{
+    height: calc(100% - 64px);
+    widtH: calc(100% - 64px);
+  }
+
+  md-card{
+    .app-grid{
+      height: -webkit-fill-available;
+      widtH: -webkit-fill-available;
+      padding: 8px;
+    }
+  }
+
+  md-card-content{
+    height: 100%;
   }
 }
 
