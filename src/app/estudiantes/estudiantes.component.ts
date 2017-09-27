@@ -17,7 +17,7 @@ import 'rxjs/add/observable/fromEvent';
 })
 export class EstudiantesComponent implements OnInit {
 
-  displayedColumns = ['lu', 'nombre', 'carrera', 'color'];
+  displayedColumns = ['selection', 'lu', 'nombre', 'carrera', 'color'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
 

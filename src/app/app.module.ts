@@ -18,7 +18,8 @@ import { MdAutocompleteModule, MdButtonModule, MdButtonToggleModule, MdCardModul
   MdTableModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule, MdTabsModule, MdSortModule,
   MdSnackBarModule, MdDialogModule, MdExpansionModule, MdGridListModule, MdIconModule, MdInputModule, MdListModule,
   MdMenuModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule,
-  MdRippleModule, MdSidenavModule, MdSlideToggleModule, MdSliderModule} from '@angular/material';
+  MdRippleModule, MdSidenavModule, MdSlideToggleModule, MdSliderModule,
+  MatCheckboxModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -41,7 +42,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
-    MdCheckboxModule,
+    MatCheckboxModule,
     MdChipsModule,
     MdTableModule,
     MdDatepickerModule,

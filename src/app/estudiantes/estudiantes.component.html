@@ -14,6 +14,15 @@
             <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
 
+            <!-- Select Column -->
+            <ng-container mdColumnDef="selection">
+              <md-header-cell *mdHeaderCellDef> Selección </md-header-cell>
+              <md-cell *mdCellDef='let row'>
+                <md-checkbox>
+                </md-checkbox>
+              </md-cell>
+            </ng-container>
+
             <!-- ID Column -->
             <ng-container mdColumnDef="lu">
               <md-header-cell *mdHeaderCellDef> LU </md-header-cell>
