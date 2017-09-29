@@ -6,7 +6,7 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {AgregarEstudianteComponent, EstudiantesComponent} from './estudiantes/estudiantes.component';
+import { EstudiantesComponent} from './estudiantes/estudiantes.component';
 import { PrestamosComponent } from './prestamos/prestamos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
@@ -23,6 +23,7 @@ import { MdAutocompleteModule, MdButtonModule, MdButtonToggleModule, MdCardModul
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
+import {AgregarEstudianteComponent} from "./estudiantes/agregar-estudiante.component";
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
