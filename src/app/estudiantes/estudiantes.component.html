@@ -17,7 +17,7 @@
             <!-- Select Column -->
             <ng-container mdColumnDef="selection">
               <md-header-cell *mdHeaderCellDef> Selección </md-header-cell>
-              <md-cell *mdCellDef='let row'>
+              <md-cell *mdCellDef='let row' (click)="estudianteService.obtenerEstudiantePorId(row.id)">
                 <md-checkbox>
                 </md-checkbox>
               </md-cell>

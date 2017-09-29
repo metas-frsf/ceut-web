@@ -10,13 +10,14 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 import {MdDialog} from "@angular/material";
 import {AgregarEstudianteComponent} from "./agregar-estudiante.component";
-import {EstudianteData} from "../../shared/interfaces";
 import {BaseDeDatosEstudiantes, OrigenDeDatosEstudiantes} from "../../shared/classes";
+import {EstudianteService} from "../../shared/services";
 
 @Component({
   selector: 'app-estudiantes',
   templateUrl: './estudiantes.component.html',
   styleUrls: ['./estudiantes.component.scss'],
+  providers: [EstudianteService],
   encapsulation: ViewEncapsulation.None
 })
 export class EstudiantesComponent implements OnInit {
@@ -30,7 +31,7 @@ export class EstudiantesComponent implements OnInit {
 
   @ViewChild('filter') filter: ElementRef;
 
-  constructor(public dialog: MdDialog){}
+  constructor(public modalAgregarEstudiante: MdDialog, public estudianteService:EstudianteService){}
 
   ngOnInit() {
     this.dataSource = new OrigenDeDatosEstudiantes(this.exampleDatabase);
@@ -44,14 +45,16 @@ export class EstudiantesComponent implements OnInit {
   }
 
   abrirModal(){
-    let dialogRef = this.dialog.open(AgregarEstudianteComponent, {
-      width: '500px',
+    let referenciaModal = this.modalAgregarEstudiante.open(AgregarEstudianteComponent, {
+      width: '400px',
       data: { name: this.name, animal: this.animal }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    referenciaModal.afterClosed().subscribe(result => {
+      console.log('The modalAgregarEstudiante was closed');
       this.animal = result;
     });
   }
+
+
 }

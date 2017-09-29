@@ -2,37 +2,37 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {EstudianteData} from "./interfaces";
 import {DataSource} from "@angular/cdk/collections";
 import {Observable} from "rxjs/Observable";
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
+//Constantes usadas para generar los datos de la tabla
+const COLORES = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Florencia', 'Gustavo', 'Carlos', 'Irina', 'Amelia', 'Juan',
+const NOMBRES = ['Florencia', 'Gustavo', 'Carlos', 'Irina', 'Amelia', 'Juan',
   'Carolina', 'Azul', 'Isla', 'Oscar', 'Milagros', 'Aldo',
   'Luciana', 'Santiago', 'Paula', 'Victoria', 'Arturo', 'Tomás', 'Elizabeth'];
 const CARRERAS = ['Sistemas', 'Civil', 'Mecánica', 'Industrial', 'Eléctrica'];
 
-/** An example database that the data source uses to retrieve data for the table. */
+//Base de datos de ejemplo que el origen de datos utiliza para nutrir de datos a la tabla Estudiantes
 export class BaseDeDatosEstudiantes {
   /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<EstudianteData[]> = new BehaviorSubject<EstudianteData[]>([]);
   get data(): EstudianteData[] { return this.dataChange.value; }
 
   constructor() {
-    // Fill up the database with 100 users.
+    // Llena la base de datos con 100 estudiantes de ejemplo
     for (let i = 0; i < 100; i++) { this.agregarEstudiante(); }
   }
 
   /** Adds a new user to the database. */
   agregarEstudiante() {
-    const copiedData = this.data.slice();
-    copiedData.push(this.crearNuevoEstudiante());
-    this.dataChange.next(copiedData);
+    const datosCopiados = this.data.slice();
+    datosCopiados.push(this.crearNuevoEstudiante());
+    this.dataChange.next(datosCopiados);
   }
 
   /** Builds and returns a new User. */
   private crearNuevoEstudiante() {
     const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+      NOMBRES[Math.round(Math.random() * (NOMBRES.length - 1))] + ' ' +
+      NOMBRES[Math.round(Math.random() * (NOMBRES.length - 1))].charAt(0) + '.';
 
     return {
       // id: (this.data.length + 1).toString(),
@@ -40,7 +40,7 @@ export class BaseDeDatosEstudiantes {
       name: name,
       // progress: (Math.round(Math.random() * 1000)+18000).toString(),
       carrera: CARRERAS[Math.round(Math.random() * (CARRERAS.length - 1))],
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+      color: COLORES[Math.round(Math.random() * (COLORES.length - 1))]
     };
   }
 }

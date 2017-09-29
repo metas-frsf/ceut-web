@@ -25,7 +25,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
 import {AgregarEstudianteComponent} from "./estudiantes/agregar-estudiante.component";
 
-
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
     'swipe': {velocity: 0.4, threshold: 20} // override default settings
