@@ -6,6 +6,7 @@ import {MdGridListModule} from '@angular/material/typings/grid-list';
 import {MatTableModule} from '@angular/material/typings/table';
 import {CdkTableModule} from '@angular/cdk/table';
 import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     MdGridListModule,
     MatTableModule,
     CdkTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
   exports: [EstudiantesComponent, AgregarEstudianteComponent],
   declarations: [EstudiantesComponent, AgregarEstudianteComponent]

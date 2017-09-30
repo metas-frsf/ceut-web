@@ -1,30 +1,24 @@
 <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
   <md-form-field class="">
+    <input mdInput placeholder="Legajo" id="legajo" class="input" name="legajo" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <md-form-field class="">
     <input mdInput placeholder="Nombre" id="name" class="input" name="name" type="text" value="" size="30" /><br />
   </md-form-field>
-  <div class="row">
-    <label for="surname">Apellido:</label><br />
-    <input id="surname" class="input" name="surname" type="text" value="" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="email">Mail:</label><br />
-    <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="carrera">Carrera:</label><br />
-    <input id="carrera" class="input" name="carrera" type="text" value="" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="documento">Documento:</label><br />
-    <input id="documento" class="input" name="documento" type="text" value="" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="legajo">Legajo:</label><br />
-    <input id="legajo" class="input" name="legajo" type="text" value="" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="telefono">Telefono:</label><br />
-    <input id="telefono" class="input" name="telefono" type="text" value="" size="30" /><br />
-  </div>
-  <input id="cargar_button" type="submit" value="Cargar Estudiante" />
+  <md-form-field class="">
+    <input mdInput placeholder="Apellido" id="surname" class="input" name="surname" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <md-form-field class="">
+    <input mdInput placeholder="Mail" id="email" class="input" name="email" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <md-form-field class="">
+    <input mdInput placeholder="Carrera" id="carrera" class="input" name="carrera" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <md-form-field class="">
+    <input mdInput placeholder="Documento" id="documento" class="input" name="documento" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <md-form-field class="">
+    <input mdInput placeholder="Telefono" id="telefono" class="input" name="telefono" type="text" value="" size="30" /><br />
+  </md-form-field>
+  <button md-raised-button color="disabled"  (click)="abrirModal()">Cargar Estudiante</button>
 </form>
