@@ -17,7 +17,7 @@
             <!-- Select Column -->
             <ng-container mdColumnDef="selection">
               <md-header-cell *mdHeaderCellDef> Selección </md-header-cell>
-              <md-cell *mdCellDef='let row'>
+              <md-cell *mdCellDef='let row' (click)="estudianteService.obtenerEstudiantePorId(row.id)">
                 <md-checkbox>
                 </md-checkbox>
               </md-cell>
@@ -26,7 +26,7 @@
             <!-- ID Column -->
             <ng-container mdColumnDef="lu">
               <md-header-cell *mdHeaderCellDef> LU </md-header-cell>
-              <md-cell *mdCellDef='let row'> {{row.id}} </md-cell>
+              <md-cell *mdCellDef='let row' [style.width]="'50'"> {{row.id}} </md-cell>
             </ng-container>
 
             <!-- Progress Column -->

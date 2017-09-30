@@ -11,8 +11,8 @@ app-root{
 
   md-card{
     .app-grid{
-      height: -webkit-fill-available;
-      widtH: -webkit-fill-available;
+      height: stretch;
+      width: stretch;
       padding: 8px;
     }
   }
