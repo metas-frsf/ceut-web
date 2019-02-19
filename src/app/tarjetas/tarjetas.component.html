@@ -1,0 +1,33 @@
+<div class="row pt-2">
+  <div class="col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+
+    <div class="input-group">
+      <input class="form-control" name="searchBar" type="search" placeholder="Buscar..." aria-label="Search" [(ngModel)]="barraDeBusqueda" (ngModelChange)="filtrarTarjetas(barraDeBusqueda)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Sección de tarjetas fijas -->
+<div class="card-deck pt-2">
+  <div tarjeta-avisos class="mx-auto"></div>
+  <ng-container *ngFor="let card of listaTarjetasFijas">
+    <!-- TODO: Refinar feature de cambio de tamaño horizontal de tarjetas, haciéndolo programático -->
+    <div tarjeta-generica class="card shadow-nohover mx-auto" [ngClass]="{'card-link': card.link}" [card]="card"></div>
+  </ng-container>
+</div>
+
+<hr *ngIf="listaTarjetasFijas && listaTarjetasFijas.length">
+
+<div class="card-columns">
+
+  <ng-container *ngFor="let card of tarjetasMoviles">
+    <div *ngIf="card.enabled" tarjeta-generica class="card shadow-nohover mx-auto" [ngClass]="{'card-link': card.link}" [card]="card"></div>
+  </ng-container>
+
+</div>

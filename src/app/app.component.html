@@ -1,22 +1,45 @@
-<md-toolbar color="primary">
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <span>{{title}}</span>
-  <span class="navbar-spacer"></span>
-  <div class="button-row">
-    <button md-button (click)="goToRoute('dashboard')">Dashboard</button>
-    <button md-button (click)="goToRoute('estudiantes')">Estudiantes</button>
-    <button md-button (click)="goToRoute('prestamos')">Préstamos</button>
-    <button md-button (click)="goToRoute('usuarios')">Usuarios</button>
+  <div class="align-items-start">
+    <a *ngIf="!currentUser" class="navbar-brand pl-3" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Messenger" placement="right">
+      <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'">
+    </a>
   </div>
-  <span class="navbar-spacer"></span>
-  <div class="button-row">
-    <button md-button>Cerrar Sesión</button>
+  <div class="mx-auto d-inline-flex align-items-center">
+    <a class="navbar-brand" href="#"><img [src]="'assets/img/logo-ceut.png'"></a>
+
+    <!--<a class="navbar-brand pl-1" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Telegram" placement="bottom">-->
+    <!--<img id="telegram-icon" [src]="'assets/img/telegram-icon.png'">-->
+    <!--</a>-->
+    <!--<div class="input-group pl-5">-->
+    <!--<button class="btn btn-outline-primary" (click)="open(content)">Registrarse</button>-->
+    <!--</div>-->
+
+  </div>
+  <div class="align-items-end">
+    <a *ngIf="currentUser" class="btn btn-outline-primary active mr-3" routerLink="/home">Panel Principal</a>
+    <a *ngIf="currentUser" class="btn btn-outline-primary active" (click)="logout()">Salir</a>
+    <a *ngIf="!currentUser" class="btn btn-outline-primary active" routerLink="/login">Ingresar</a>
   </div>
 
-</md-toolbar>
-<md-card id="app-container">
-  <md-card-content>
-      <router-outlet></router-outlet>
-  </md-card-content>
-</md-card>
+</nav>
 
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>
+
+<!--<ng-template #content let-c="close" let-d="dismiss">-->
+<!--<div class="modal-header">-->
+<!--<h4 class="modal-title">Registro</h4>-->
+<!--<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">-->
+<!--<span aria-hidden="true">&times;</span>-->
+<!--</button>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<modal-registro-estudiantes></modal-registro-estudiantes>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="button" class="btn btn-outline-danger" (click)="c('Close click')">Cerrar</button>-->
+<!--<button type="button" class="btn btn-outline-success" (click)="c('Close click')">Guardar</button>-->
+<!--</div>-->
+<!--</ng-template>-->

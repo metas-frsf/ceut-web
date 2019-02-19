@@ -1,90 +1,53 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { RoutingModule } from './app-routing.module';
-import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { EstudiantesComponent} from './estudiantes/estudiantes.component';
-import { PrestamosComponent } from './prestamos/prestamos.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './not-found.component';
-
-import { MdAutocompleteModule, MdButtonModule, MdButtonToggleModule, MdCardModule, MdCellDef, MdCheckboxModule, MdColumnDef,
-  MdGridList, MdGridTile, MdHeaderCellDef, MdHeaderRowDef, MdRowDef, MdTable, MdToolbarModule, MdChipsModule,
-  MdTableModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule, MdTabsModule, MdSortModule,
-  MdSnackBarModule, MdDialogModule, MdExpansionModule, MdGridListModule, MdIconModule, MdInputModule, MdListModule,
-  MdMenuModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule,
-  MdRippleModule, MdSidenavModule, MdSlideToggleModule, MdSliderModule,
-  MatCheckboxModule} from '@angular/material';
-import {HttpModule} from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CdkTableModule} from '@angular/cdk/table';
-import {AgregarEstudianteComponent} from "./estudiantes/agregar-estudiante.component";
-
-export class MyHammerConfig extends HammerGestureConfig  {
-  overrides = <any>{
-    'swipe': {velocity: 0.4, threshold: 20} // override default settings
-  };
-}
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+// used to create fake backend
+import {ErrorInterceptor, JwtInterceptor} from './_helpers';
+import {AppComponent} from './app.component';
+import {routing} from './app.routing';
+import {AlertComponent} from './_components';
+import {HomeComponent} from './home';
+import {LoginComponent} from './login';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {RegisterComponent} from './register';
+import {RepairService} from '@app/_services/repair.service';
+import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
+import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
+import {WjInputModule} from 'wijmo/wijmo.angular2.input';
+import {TarjetasComponent} from '@app/tarjetas/tarjetas.component';
+import {TarjetasModule} from '@app/tarjetas/tarjetas.module';
+import {CardService} from '@app/_services/card.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
+    NgbModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MdAutocompleteModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MatCheckboxModule,
-    MdChipsModule,
-    MdTableModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSlideToggleModule,
-    MdSliderModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
-    MdNativeDateModule,
-    CdkTableModule,
-    RoutingModule
+    TarjetasModule,
+    WjInputModule,
+    WjGridModule,
+    WjGridFilterModule,
+    routing
   ],
   declarations: [
+    AlertComponent,
     AppComponent,
-    AgregarEstudianteComponent,
-    DashboardComponent,
+    HomeComponent,
     LoginComponent,
-    EstudiantesComponent,
-    PageNotFoundComponent,
-    PrestamosComponent,
-    UsuariosComponent
+    RegisterComponent,
   ],
-  bootstrap: [AppComponent, AgregarEstudianteComponent],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: MyHammerConfig
-  }]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    CardService
+
+    // provider used to create fake backend
+    // fakeBackendProvider
+  ],
+  bootstrap: [AppComponent]
 })
+
 export class AppModule { }

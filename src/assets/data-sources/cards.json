@@ -1,0 +1,917 @@
+[
+  {
+    "id": 1,
+    "link": "",
+    "icon": "/assets/img/calendar-2019.png",
+    "class": {
+      "card": "bg-pink text-white"
+    },
+    "title": "Calendario Académico",
+    "content": [
+      {
+        "title": "",
+        "description": "Consultá fechas de cursado, semanas de examen, feriados y receso para 2019."
+      },
+      {
+        "title": "Calendario anotado:",
+        "description": "Descargar",
+        "link": "https://frsfutneduar-my.sharepoint.com/personal/ceutfrsf_frsf_utn_edu_ar/Documents/RepoCEUT/Calendario%20Acad%C3%A9mico%202019%20-%20Imagen.png"
+      },
+      {
+        "title": "Resolución:",
+        "description": "Descargar",
+        "link": "https://frsfutneduar-my.sharepoint.com/personal/ceutfrsf_frsf_utn_edu_ar/Documents/RepoCEUT/Calendario%20Acad%C3%A9mico%202019%20-%20Resoluci%C3%B3n.pdf"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 2,
+    "link": "https://www.frsf.utn.edu.ar/uploads/dto-alumnado/Fechas_Ex%C3%A1menes.xlsx",
+    "icon": "/assets/img/mesas-febrero-2019.png",
+    "class": {
+      "card": "p-0 pb-0 bg-info text-light text-white"
+    },
+    "title": "",
+    "content": [],
+    "footer": {
+      "separator": true,
+      "class": "text-white pl-3 pr-3 mt-2 pt-0",
+      "content": "Clickeá para ver fecha y hora de las mesas. Recordá inscribirte por SysAcad antes de las 19:00 del día previo."
+    },
+    "enabled": true
+  },
+  {
+    "id": 3,
+    "link": "",
+    "icon": "/assets/img/clock.png",
+    "class": {
+      "card": "bg-success text-white"
+    },
+    "title": "Horarios",
+    "content": [
+      {
+        "title": "Alumnado:",
+        "description": "10:00 a 13:00 - 16:00 a 20:00"
+      },
+      {
+        "title": "Biblioteca:",
+        "description": "7:45 a 20:45"
+      },
+      {
+        "title": "Bienestar Estudiantil:",
+        "description": "10:00 a 20:00"
+      },
+      {
+        "title": "Casilla CEUT:",
+        "description": "9:00 a 12:00 - 15:00 a 21:00"
+      },
+      {
+        "title": "Fotocopiadora:",
+        "description": "8:00 a 20:00 - Sáb. 9:00 a 12:00"
+      },
+      {
+        "title": "Tesorería:",
+        "description": "15:00 a 19:00"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "link": "http://repoceut.com",
+    "icon": "/assets/img/cloud.png",
+    "class": {
+      "card": "bg-dark text-white"
+    },
+    "title": "Repositorio de Apuntes",
+    "content": [
+      {
+        "title": "",
+        "description": "Accedé al repositorio de apuntes del CEUT."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 5,
+    "link": "https://1drv.ms/b/s!AnfIMCgq9rpNhbl8ZC4SVrvWZGQbtQ",
+    "icon": "/assets/img/class.png",
+    "class": {
+      "card": "bg-primary text-white"
+    },
+    "title": "Comisiones para Ingresantes",
+    "content": [
+      {
+        "title": "",
+        "description": "Consultá tu comisión de cursado para el ingreso."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 6,
+    "link": "https://1drv.ms/b/s!AnfIMCgq9rpNhbl8ZC4SVrvWZGQbtQ",
+    "icon": "/assets/img/calendar.png",
+    "class": {
+      "card": "bg-unique text-white"
+    },
+    "title": "Calendario para Ingresantes",
+    "content": [
+      {
+        "title": "",
+        "description": "Consultá los días de cursado y examen de los cursillos para ingresantes durante febrero y marzo."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 7,
+    "link": "https://1drv.ms/b/s!AnfIMCgq9rpNhbprnb8xeCiEmbEYoA",
+    "icon": "/assets/img/progresar.png",
+    "class": {
+      "card": "bg-argentina-blue text-white"
+    },
+    "title": "Becas PROGRESAR",
+    "content": [
+      {
+        "title": "",
+        "description": "Todos los detalles sobre las últimas modificaciones de requisitos, líneas de becas, montos y más detalles del nuevo plan de Becas Progresar."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 8,
+    "link": "https://www.frsf.utn.edu.ar/estudiantes/becas",
+    "icon": "/assets/img/becas-sbe.png",
+    "class": {
+      "card": "bg-sbe-purple text-white"
+    },
+    "title": "Convocatoria Becas 2018",
+    "content": [
+      {
+        "title": "",
+        "description": "Toda la información sobre Becas de Servicio, I+D y Ayuda Económica de la Secretaría de Bienestar, más los formularios de inscripción."
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "text-white border-white",
+      "content": "(*) Presentar formularios impresos y firmados, más documentación necesaria en la oficina de SBE a partir del 05/02 y hasta el 12/03. Podés postularte hasta en tres destinos."
+    },
+    "enabled": false
+  },
+  {
+    "id": 9,
+    "link": "https://campusvirtual.frsf.utn.edu.ar/",
+    "icon": "/assets/img/campus-virtual.jpg",
+    "class": {
+      "card": "bg-campus-virtual"
+    },
+    "title": "",
+    "content": [
+      {
+        "title": "",
+        "description": "Accedé al Campus Virtual."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 10,
+    "link": "",
+    "icon": "/assets/img/sysacad-mobile.png",
+    "class": {
+      "card": "bg-donde-curso-app text-white"
+    },
+    "title": "SysAcad",
+    "content": [
+      {
+        "title": "",
+        "description": "Accedé a las versiones web y Android de SysAcad",
+        "link": ""
+      },
+      {
+        "title": "Versión web: ",
+        "description": "Acceder",
+        "link": "https://sysacad.frsf.utn.edu.ar/"
+      },
+      {
+        "title": "Versión Android:",
+        "description": "Descargar",
+        "link": "https://play.google.com/store/apps/details?id=com.Martinez.Facundo.Sysacad.Android"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": "(*) Versión no-oficial para Android desarrollada por Facundo Martínez (famartinez@frsf.utn.edu.ar)"
+    },
+    "enabled": true
+  },
+  {
+    "id": 11,
+    "link": "",
+    "icon": "/assets/img/copier.png",
+    "class": {
+      "card": "bg-secondary text-white"
+    },
+    "title": "Fotocopiadora",
+    "content": [
+      {
+        "title": "Mail:",
+        "description": "libreriautnsantafe@gmail.com"
+      },
+      {
+        "title": "Horario:",
+        "description": "8:00 a 22:00"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 12,
+    "link": "",
+    "icon": "/assets/img/donde_curso.png",
+    "class": {
+      "card": "bg-donde-curso-app text-white"
+    },
+    "title": "¿Dónde Curso?",
+    "content": [
+      {
+        "title": "Versión web: ",
+        "description": "Acceder",
+        "link": "https://www.frsf.utn.edu.ar/recursos-web/distribucion-de-aulas"
+      },
+      {
+        "title": "Versión Android: ",
+        "description": "Descargar",
+        "link": "https://play.google.com/store/apps/details?id=utnfrsf.dondecurso"
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "text-white",
+      "content": "App para Android ¿Dónde Curso?, desarrollada por Cóndor Mobile."
+    },
+    "enabled": true
+  },
+  {
+    "id": 13,
+    "link": "https://www.frsf.utn.edu.ar/investigacion-y-vinculacion/investigacion-y-vinculacion",
+    "icon": "/assets/img/microscope.png",
+    "class": {
+      "card": "bg-laboratorios"
+    },
+    "title": "Investigación y Vinculación",
+    "content": [
+      {
+        "title": "",
+        "description": "Centros, laboratorios y grupos de investigación de las diferentes ingenierías de nuestra facultad."
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "",
+      "content": "Consultá en esta sección las convocatorias a becas de I+D disponibles y la información sobre cómo dedicarte a la carrera de investigación en la FRSF."
+    },
+    "enabled": true
+  },
+  {
+    "id": 14,
+    "link": "mailto: elemilio@frsf.utn.edu.ar",
+    "icon": "/assets/img/emilio.png",
+    "class": {
+      "card": "p-0",
+      "content": "pl-3 pr-3"
+    },
+    "title": "",
+    "content": [
+      {
+        "title": "¡Suscribite!",
+        "description": "Clickeá el link, enviá un mail a elemilio@frsf.utn.edu.ar y recibí las novedades en tu casilla de correo."
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "pl-3 pr-3",
+      "content": "\"El Emilio\" es el boletín digital oficial de la UTN Santa Fe, el cual se recibe vía mail con todas las novedades sobre la facu y sus actividades."
+    },
+    "enabled": true
+  },
+  {
+    "id": 15,
+    "link": "",
+    "icon": "/assets/img/inscripciones.png",
+    "class": {
+      "card": "bg-primary text-white"
+    },
+    "title": "Inscripciones a Cursado",
+    "content": [
+      {
+        "title": "Ingresantes 2019: ",
+        "description": "Consultar en alumnado."
+      },
+      {
+        "title": "2° año en adelante: ",
+        "description": "04/03 al 10/03 vía SysAcad."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 16,
+    "link": "https://goo.gl/eRZSHM",
+    "icon": "/assets/img/tutor.png",
+    "class": {
+      "card": "blue-tutores text-white"
+    },
+    "title": "¿Querés ser Tutor?",
+    "content": [
+      {
+        "title": "",
+        "description": "Ya podés registrarte como aspirante para ser tutor de Análisis Matemático I, Física I, Álgebra y Geometría Analítica y Física (para Mecatrónica)."
+      },
+      {
+        "title": "Hacé click para acceder al formulario.",
+        "description": ""
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "",
+      "content": "Requisitos: ser alumno regular y tener aprobadas todas las asignaturas de primer año, Análisis Matemático II y Física II."
+    },
+    "enabled": true
+  },
+  {
+    "id": 17,
+    "link": "",
+    "icon": "/assets/img/becas_ceut.jpeg",
+    "class": {
+      "card": "p-0 pb-0"
+    },
+    "title": "",
+    "content": [],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 18,
+    "link": "",
+    "icon": "/assets/img/sandwich.png",
+    "class": {
+      "card": "bg-menu-universitario"
+    },
+    "title": "Menú Universitario",
+    "content": [
+      {
+        "title": "",
+        "description": "De lunes a viernes de 9:00 a 11:30, podés buscar tu descuento en el menú universitario en la casilla del CEUT"
+      },
+      {
+        "title": "Costo con descuento: ",
+        "description": "$50,00"
+      },
+      {
+        "title": "Costo regular: ",
+        "description": "$77,00"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 20,
+    "link": "http://elencocruzdelsur.wixsite.com/constelacioncreativa",
+    "icon": "/assets/img/teatro.png",
+    "class": {
+      "title": "title-teatro",
+      "card": "bg-teatro text-white"
+    },
+    "title": "Taller de Teatro Elenco 2018",
+    "content": [
+      {
+        "title": "Horarios:",
+        "description": ""
+      },
+      {
+        "title": "",
+        "description": "Jueves de 18:00 a 21:00 - Grupo A"
+      },
+      {
+        "title": "",
+        "description": "Viernes de 12:00 a 15:00 - Grupo B"
+      },
+      {
+        "title": "",
+        "description": "Clickeá y accedé al sitio web del del grupo de teatro de nuestra facu, \"Constelación Creativa Cruz del Sur\", donde podés enterarte de cómo inscribirte y sumarte al elenco."
+      },
+      {
+        "title": "Consultas:",
+        "description": "teatro@frsf.utn.edu.ar "
+      },
+      {
+        "title": "Director:",
+        "description": "diazfernandojose@hotmail.com"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 21,
+    "link": "",
+    "icon": "/assets/img/horarios.png",
+    "class": {
+      "card": "bg-secondary text-white pb-2"
+    },
+    "title": "Horarios 1er Cuatrimestre",
+    "content": [
+      {
+        "title": "Comisiones Especiales: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVTazBvWUljREYtM0VQRlE/root/content"
+      },
+      {
+        "title": "Civil: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVUUjIySGo1SG52blNKLUE/root/content"
+      },
+      {
+        "title": "Eléctrica: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVVMlZYZWdCRk1XeURJb2c/root/content"
+      },
+      {
+        "title": "Industrial: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZEVWd0tDUDUwcHFycEhsSVE/root/content"
+      },
+      {
+        "title": "Mecánica: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZEVXaWtNbElJc1lacURUYlE/root/content"
+      },
+      {
+        "title": "Sistemas: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZUFKUFlTTGVmY2Izb3BpN2c/root/content"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 22,
+    "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZUJISnpjcDl5R21tak1zeGc/root/content",
+    "icon": "/assets/img/bookshelf.png",
+    "class": {
+      "card": "bg-primary text-white"
+    },
+    "title": "¡Biblioteca CEUT!",
+    "content": [
+      {
+        "title": "",
+        "description": "Clickeá para descargarte la lista de libros disponibles para préstamos del CEUT."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 23,
+    "link": "",
+    "icon": "/assets/img/copies.png",
+    "class": {
+      "card": "bg-ceut text-white"
+    },
+    "title": "¡Becas de fotocopias!",
+    "content": [
+      {
+        "title": "",
+        "description": "Se abre la convocatoria a las becas de fotocopias, con 100 copias por mes para 100 estudiantes."
+      },
+      {
+        "title": "Convocatoria abierta hasta el 26/3.",
+        "description": ""
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "text-white",
+      "content": "¡Pasá a inscribite en la casilla del CEUT!"
+    },
+    "enabled": false
+  },
+  {
+    "id": 24,
+    "link": "",
+    "icon": "/assets/img/coro.png",
+    "class": {
+      "card": "bg-info text-white"
+    },
+    "title": "Taller UTN Coral",
+    "content": [
+      {
+        "title": "Días y Horarios:",
+        "description": ""
+      },
+      {
+        "title": "",
+        "description": "Jueves a las 20:30"
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "",
+      "content": "coro@frsf.utn.edu.ar / cultura@frsf.utn.edu.ar"
+    },
+    "enabled": true
+  },
+  {
+    "id": 25,
+    "link": "",
+    "icon": "/assets/img/lenguaje-expresivo.jpeg",
+    "class": {
+      "card": "bg-white"
+    },
+    "title": "Taller de Lenguaje Expresivo",
+    "content": [
+      {
+        "title": "Días y Horarios:",
+        "description": ""
+      },
+      {
+        "title": "",
+        "description": "Miércoles de 12:00 a 15:00"
+      },
+      {
+        "title": "¡Sumate a descubrir tu lado creativo!",
+        "description": ""
+      }
+    ],
+    "footer": {
+      "separator": true,
+      "class": "",
+      "content": "teatro@frsf.utn.edu.ar / fdiaz@frsf.utn.edu.ar"
+    },
+    "enabled": true
+  },
+  {
+    "id": 26,
+    "link": "",
+    "icon": "/assets/img/alumnado.png",
+    "class": {
+      "card": "bg-light pt-2 pb-2"
+    },
+    "title": "Alumnado",
+    "content": [
+      {
+        "title": "Horarios:",
+        "description": "10:00 a 13:00 - 16:00 a 20:00"
+      },
+      {
+        "title": "Tel: ",
+        "description": "(342) 460-1579 - Int. 5100/5110"
+      },
+      {
+        "title": "Sitio web:",
+        "description": "en este link",
+        "link": "https://www.frsf.utn.edu.ar/recursos-web/departamento-alumnado"
+      },
+      {
+        "title": "E-Mail: ",
+        "description": "alumnado@frsf.utn.edu.ar"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 27,
+    "link": "https://drive.google.com/uc?export=download&id=12dDHHLmWhP_E4zKdphfsVH_uZL8bRzT7",
+    "icon": "/assets/img/horarios-gym.png",
+    "class": {
+      "card": "bg-black p-0 pb-0 text-white",
+      "content": "pl-4 pr-4"
+    },
+    "title": "",
+    "content": [
+      {
+        "title": "Funcional: ",
+        "description": "inscripciones en la casilla del CEUT. Cupo de hasta 15 personas por turno."
+      },
+      {
+        "title": "Resto de deportes: ",
+        "description": "en secretaría de Bienestar Estudiantil."
+      },
+      {
+        "title": "Turnos libres: ",
+        "description": "coordinar con los profes."
+      }
+    ],
+    "footer": {
+      "separator": false,
+      "class": "text-white pl-4 pr-4 pb-2 pt-0",
+      "content": "(*) Hacé click para descargar la imagen de los horarios en tamaño completo."
+    },
+    "enabled": true
+  },
+  {
+    "id": 28,
+    "link": "",
+    "icon": "/assets/img/cafe.png",
+    "class": {
+      "title": "title-cafe-tecnologico",
+      "card": "bg-coffee text-light",
+      "content": "pt-2 pb-2"
+    },
+    "title": "2do Café Tecnológico",
+    "content": [
+      {
+        "title": "Ciudades Inteligentes: Impulsadas por las Redes Móviles 5G",
+        "description": ""
+      },
+      {
+        "title": "",
+        "description": "Viernes 4 de Mayo 14:30 Hs - Hall de la UTN FRSF"
+      },
+      {
+        "title": "",
+        "description": "Charlaremos sobre el impacto que generará la puesta en uso de las tecnologías 5G en el desarrollo de las Ciudades Inteligentes y sus efectos a nivel social y económico."
+      },
+      {
+        "title": "Más info:",
+        "description": "en este link",
+        "link": "http://bit.do/cafe-tecnologico"
+      },
+      {
+        "title": "Anotate:",
+        "description": "en este link",
+        "link": "http://bit.do/cafe-tecnologico"
+      }
+    ],
+    "footer": {
+      "separator": false,
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 29,
+    "link": "https://www.santafe.gov.ar/index.php/web/content/view/full/194520/(subtema)/93825",
+    "icon": "/assets/img/medio-boleto.png",
+    "class": {
+      "card": "p-0 pb-0 bg-medio-boleto text-light"
+    },
+    "title": "",
+    "content": [],
+    "footer": {
+      "separator": true,
+      "class": "text-white pl-4 pr-4 mt-2 pt-0",
+      "content": "(*) ¡Clickeá en la imagen para acceder a toda la información sobre el medio boleto interurbano!"
+    },
+    "enabled": true
+  },
+  {
+    "id": 30,
+    "link": "",
+    "icon": "/assets/img/encuesta-movilidad.png",
+    "class": {
+      "card": "bg-movilidad"
+    },
+    "title": "Encuesta de movilidad: Resultados",
+    "content": [
+      {
+        "title": "",
+        "description": "Te acercamos los resultados de la encuesta de movilidad, los cuales ya elevamos a las autoridades como parte del pedido para mejorar y ampliar los espacios de estacionamientos de bicicletas."
+      },
+      {
+        "title": "",
+        "description": "Podés también ver adjuntas las notas que elevamos al decano y a Bienestar Estudiantil como parte del pedido."
+      },
+      {
+        "title": "Nota Bienestar: ",
+        "description": "Ver",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbmZJTUNncTlycE5oZWdyUDY4RWMxcGt5cXIwRUE/root/content"
+      },
+      {
+        "title": "Nota Decano: ",
+        "description": "Ver",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbmZJTUNncTlycE5oZWdxMnhFdktYcFdCSW5aV1E/root/content"
+      },
+      {
+        "title": "Accedé al informe: ",
+        "description": "Ver",
+        "link": "https://drive.google.com/file/d/1V_iExpRUVM7GvZM0-Z30C--pRXwV-gNF/view?usp=drivesdk"
+      }
+    ],
+    "footer": {},
+    "enabled": true
+  },
+  {
+    "id": 31,
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSdBbEB6UQl8kKPcMY2BrvRdvJXsQC0ybNG6Nsiq92gBSXd_kg/viewform?fbzx=-4132123326987647000",
+    "icon": "/assets/img/guias.png",
+    "class": {
+      "card": "bg-guias",
+      "content": "text-white",
+      "title": "text-white"
+    },
+    "title": "Programa GUIAs",
+    "content": [
+      {
+        "title": "",
+        "description": "El programa GUÍAS está orientado a acompañar a los aspirantes e ingresantes de nuestra Facultad con la intención de minimizar las dificultades propias de la vida Universitaria."
+      },
+      {
+        "title": "",
+        "description": "El acompañamiento a nuestros pares y la preocupación por el medio que nos rodea hacen a la formación como estudiantes y futuros profesionales y son pilares importantes en la construcción de un proyecto de Universidad y de Sociedad."
+      },
+      {
+        "title": "Si sos estudiante de la facu y querés acompañar a los aspirantes e ingresantes clickeá en la tarjeta, llená el formulario y nos contactaremos a la brevedad.",
+        "description": ""
+      }
+    ],
+    "footer": {},
+    "enabled": true
+  },
+  {
+    "id": 32,
+    "link": "",
+    "icon": "/assets/img/horarios.png",
+    "class": {
+      "card": "bg-purple-horarios text-white pb-2"
+    },
+    "title": "Horarios 2do Cuatrimestre",
+    "content": [
+      {
+        "title": "Comisiones Especiales: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3cvcyFBbmZJTUNncTlycE5oZWxodlhxNHlPWkNhUE1oaGc/root/content"
+      },
+      {
+        "title": "Civil: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZWxrOEYyY01VRXRWZ09ZelE/root/content"
+      },
+      {
+        "title": "Eléctrica: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZWxpRlFOTDlLTkdEQ3JvbkE/root/content"
+      },
+      {
+        "title": "Industrial: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZWxqR1NhV3k3TmhFMTFSVkE/root/content"
+      },
+      {
+        "title": "Mecánica: ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZWxsVjVadmJhb29DLUI4Snc/root/content"
+      },
+      {
+        "title": "Sistemas (v7): ",
+        "description": "Descargar",
+        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZXBzMGlIem5VbDROUXJ3amc/root/content"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": false
+  },
+  {
+    "id": 33,
+    "link": "http://biblioteca.frsf.utn.edu.ar/",
+    "icon": "/assets/img/buscador-biblioteca.png",
+    "class": {
+      "card": "bg-dark text-white"
+    },
+    "title": "Buscador biblioteca UTN FRSF",
+    "content": [
+      {
+        "title": "",
+        "description": "Clickeá para acceder al catálogo de libros disponibles en la biblioteca de la UTN FRSF."
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": "(*) Recordá que el horario de biblioteca es de 7:45 a 20:45, de lunes a viernes."
+    },
+    "enabled": true
+  },
+  {
+    "id": 34,
+    "link": "",
+    "icon": "/assets/img/ceut-frsf.png",
+    "class": {
+      "card": "bg-primary text-white"
+    },
+    "title": "Contacto con el CEUT",
+    "content": [
+      {
+        "title": "Instagram:",
+        "description": "ig.com/ceut.frsf",
+        "link": "ig.com/ceut.frsf"
+      },
+      {
+        "title": "Facebook:",
+        "description": "fb.com/ceut.frsf",
+        "link": "fb.com/ceut.frsf"
+      },
+      {
+        "title": "Mail:",
+        "description": "ceutfrsf@frsf.utn.edu.ar",
+        "link": "mailto:ceutfrsf@frsf.utn.edu.ar"
+      },
+      {
+        "title": "Horarios:",
+        "description": "Lunes a Viernes de 9:00 a 13:00 y 15:00 a 21:00. Sábados de 9:00 a 12:00"
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  },
+  {
+    "id": 35,
+    "link": "http://notebook.ceut-frsf.info/",
+    "icon": "/assets/img/contract.png",
+    "class": {
+      "card": "bg-success text-white"
+    },
+    "title": "Formulario de préstamo de notebook CEUT",
+    "content": [
+      {
+        "title": "",
+        "description": "Accedé desde acá al formulario para tramitar el préstamo de la notebook cuando pases por el CEUT.",
+        "link": ""
+      }
+    ],
+    "footer": {
+      "class": "",
+      "content": ""
+    },
+    "enabled": true
+  }
+]

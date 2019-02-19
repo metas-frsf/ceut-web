@@ -1,0 +1,36 @@
+﻿<div class="card-deck">
+  <div class="card text-white bg-primary mb-3" (click)="goTo('prestamos')">
+    <div class="card-body">
+      <h5 class="card-title">✅ Gestión de Préstamos</h5>
+      <p class="card-text">Ingresar al menú de gestión de préstamos del CEUT</p>
+    </div>
+  </div>
+
+  <div class="card text-white bg-dark mb-3" (click)="goTo('tarjetas')">
+    <div class="card-body">
+      <h5 class="card-title">📣 Gestión de Tarjetas</h5>
+      <p class="card-text">Ingresar al menú de gestión de tarjetas de información</p>
+    </div>
+  </div>
+
+  <div class="card text-white bg-success mb-3 disabled">
+    <div class="card-body">
+      <h5 class="card-title">💻 Módulo a Desarrollar</h5>
+      <p class="card-text">(Agregado a futuro)</p>
+    </div>
+    <div class="card-footer bg-danger">
+      <small class="text-white">Módulo no disponible</small>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<h3>Usuarios registrados:</h3>
+<ul>
+  <li *ngFor="let user of users">
+    {{user.username}} ({{user.firstName}} {{user.lastName}})
+    <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>-->
+  </li>
+</ul>

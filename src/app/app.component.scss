@@ -1,27 +1,16 @@
-app-root{
-  #app-container{
-    height: calc(100vh - 96px) !important;
-    padding: 8px;
-  }
-
-  .detail-right-card{
-    height: calc(100% - 64px);
-    widtH: calc(100% - 64px);
-  }
-
-  md-card{
-    .app-grid{
-      height: stretch;
-      width: stretch;
-      padding: 8px;
-    }
-  }
-
-  md-card-content{
-    height: 100%;
+.navbar-nav {
+  .nav-item.disabled {
+    cursor: default;
   }
 }
 
-.navbar-spacer{
-  flex: 1 1 auto;
+.navbar-brand{
+  img{
+    max-width: 150px;
+    max-height: 50px;
+  }
+}
+
+body {
+  background-image: url("../assets/img/backgrounds/background.png");
 }

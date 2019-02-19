@@ -1,0 +1,33 @@
+<div class="card-body" [ngClass]="card.class.card" (click)="navigateToCard(card.link)">
+  <div class="row d-flex align-items-center">
+
+    <div [ngClass]="{'col-4': card.title, 'col-12': !card.title}">
+      <img class="w-100" [src]="baseUrl + card.icon" [ngClass]="card.class.image">
+    </div>
+    <div class="col-8" *ngIf="card.title">
+      <h4 class="card-title mb-0" [ngClass]="card.class.title">{{ card.title }}</h4>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-12" *ngIf="card.content.length">
+
+      <div class="mt-2 card-text text-justify" [ngClass]="card.class.content">
+        <p class="mb-2" *ngFor="let line of card.content">
+
+          <strong *ngIf="line.title">{{line.title + ' '}}</strong>
+          <a *ngIf="line.link" [href]="line.link">{{line.description}}</a>
+          <ng-container *ngIf="!line.link">{{line.description}}</ng-container>
+        </p>
+      </div>
+
+    </div>
+
+    <div *ngIf="card.footer.content" class="col-12">
+      <hr *ngIf="separator" class="mt-1 mb-1" [ngClass]="card.footer.class">
+      <p class="card-text text-justify" [ngClass]="card.footer.class"><small>{{card.footer.content}}</small></p>
+    </div>
+
+  </div>
+</div>
