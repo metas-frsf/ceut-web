@@ -13,7 +13,7 @@ export class TarjetasComponent implements OnInit {
   listaTarjetasFijas: Card[] = [];
   tarjetasMoviles: Card[] = [];
 
-  barraDeBusqueda: string;
+  barraDeBusqueda: string = '';
 
   constructor(private cardService: CardService) { }
 
@@ -26,7 +26,8 @@ export class TarjetasComponent implements OnInit {
    */
   getInformacionTarjetas() {
 
-    const observableTarjetas = this.cardService.getCardsFromJson(); // Observable de cards desde fuente externa (JSON)
+    // const observableTarjetas = this.cardService.getCardsFromJson(); // Observable de cards desde fuente externa (JSON)
+    const observableTarjetas = this.cardService.getAll(); // Observable de cards desde servidor (JSON)
     const suscripcionTarjetas = observableTarjetas.subscribe( // Suscripción al observable
       result => {
         this.listaTarjetas = result;

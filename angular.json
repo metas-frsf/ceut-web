@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "brillante": {
+    "ceut-frsf": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/brillante",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "brillante:build"
+            "browserTarget": "ceut-frsf:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "brillante:build:production"
+              "browserTarget": "ceut-frsf:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "brillante:build"
+            "browserTarget": "ceut-frsf:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "brillante-e2e": {
+    "ceut-frsf-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "brillante:serve"
+            "devServerTarget": "ceut-frsf:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "brillante:serve:production"
+              "devServerTarget": "ceut-frsf:serve:production"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "brillante"
+  "defaultProject": "ceut-frsf"
 }

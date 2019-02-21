@@ -12,11 +12,10 @@ export class CardService {
   }
 
   /**
-   * Obtiene todas las tarjetas de un archivo JSON y las devuelve para su procesamiento
+   * Obtiene todas las tarjetas desde el servidor y las devuelve para su procesamiento
    */
-  getCardsFromJson(): Observable<any> {
-    const url = '/assets/data-sources/cards.json';
-    return this.http.get(url);
+  getAll() {
+    return this.http.get<Card[]>(`/cards/getAll`);
   }
 
   // TODO: Implementar obtención de tarjetas desde lado del servidor

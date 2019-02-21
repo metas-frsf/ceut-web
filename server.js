@@ -14,10 +14,10 @@ app.use(cors());
 app.use(errorHandler);
 
 // Serve only the static files form the dist directory
-app.use(express.static('./dist/brillante'));
+app.use(express.static('./dist'));
 
 app.get('/', function(req,res) {
-  res.sendFile(path.join(__dirname,'/dist/brillante/index.html'));
+  res.sendFile(path.join(__dirname,'/dist/index.html'));
 });
 
 // use JWT auth to secure the api
@@ -25,14 +25,7 @@ app.use(jwt());
 
 // api routes
 app.use('/users', require('./server/users/users.controller'));
-
-//serve current port
-app.get('/backend', (req, res) => {
-  res.json([
-    {url: process.env.BACKEND_URL ? process.env.BACKEND_URL : 'http://localhost:4000'},
-    {env: process.env}
-    ]);
-});
+app.use('/cards', require('./server/cards/cards.controller'));
 
 // // start server
 // const port = process.env.NODE_ENV === 'production' ? 80 : 4000;

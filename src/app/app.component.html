@@ -1,30 +1,25 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
   <div class="align-items-start">
-    <a *ngIf="!currentUser" class="navbar-brand pl-3" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Messenger" placement="right">
+    <a *ngIf="!currentUser" class="navbar-brand p-1 m-0" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Messenger" placement="right">
       <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'">
+    </a>
+    <a *ngIf="!currentUser" class="navbar-brand p-1 m-0" href="https://instagram.com/ceut.frsf" ngbTooltip="Contactate vía Instagram" placement="right">
+      <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'">
     </a>
   </div>
   <div class="mx-auto d-inline-flex align-items-center">
     <a class="navbar-brand" href="#"><img [src]="'assets/img/logo-ceut.png'"></a>
-
-    <!--<a class="navbar-brand pl-1" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Telegram" placement="bottom">-->
-    <!--<img id="telegram-icon" [src]="'assets/img/telegram-icon.png'">-->
-    <!--</a>-->
-    <!--<div class="input-group pl-5">-->
-    <!--<button class="btn btn-outline-primary" (click)="open(content)">Registrarse</button>-->
-    <!--</div>-->
-
   </div>
   <div class="align-items-end">
-    <a *ngIf="currentUser" class="btn btn-outline-primary active mr-3" routerLink="/home">Panel Principal</a>
+    <a *ngIf="currentUser" class="btn btn-outline-primary active mr-1" routerLink="/home">Panel Principal</a>
     <a *ngIf="currentUser" class="btn btn-outline-primary active" (click)="logout()">Salir</a>
     <a *ngIf="!currentUser" class="btn btn-outline-primary active" routerLink="/login">Ingresar</a>
   </div>
 
 </nav>
 
-<div class="container mt-5">
+<div class="container mt-2">
   <router-outlet></router-outlet>
 </div>
 

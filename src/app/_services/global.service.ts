@@ -7,7 +7,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class GlobalService {
 
   private _httpHeaders = new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded'});
-  private _webApiUrl = `http://brillante.rolivencia.xyz/api/fix`;
+  private _webApiUrl = ``;
 
   constructor() { }
 
