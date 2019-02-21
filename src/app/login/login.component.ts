@@ -7,7 +7,9 @@ import { AlertService, AuthenticationService } from '@app/_services';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@environments/environment';
 
-@Component({templateUrl: 'login.component.html'})
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss']})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;

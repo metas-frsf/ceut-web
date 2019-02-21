@@ -46,5 +46,40 @@ a{
 
 .bg-teatro{
   background-size: cover;
-  background-image: url("../../assets/img/teatro.jpg");
+  background-image: url("../../assets/img/teatro-fondo.png");
+}
+
+#search-bar{
+
+  @media(max-width: 575px){
+    top: 70px;
+  }
+  @media(min-width: 576px){
+    top: 74px;
+  }
+
+  position: sticky;
+  height: 48px;
+  margin-left: -15px;
+  margin-right: -15px;
+  z-index: 3;
+
+  .input-group {
+    background-color: white;
+    position: sticky;
+    max-width: 350px;
+    z-index: 3;
+  }
+}
+
+#avisos, #contenido {
+  @media(max-width: 991px){
+    column-count: 1;
+  }
+  @media(min-width: 992px) and (max-width: 1199px){
+    column-count: 2;
+  }
+  @media(min-width: 1200px){
+    column-count: 3;
+  }
 }
