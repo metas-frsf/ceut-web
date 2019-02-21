@@ -15,12 +15,12 @@
       {
         "title": "Calendario anotado:",
         "description": "Descargar",
-        "link": "https://frsfutneduar-my.sharepoint.com/personal/ceutfrsf_frsf_utn_edu_ar/Documents/RepoCEUT/Calendario%20Acad%C3%A9mico%202019%20-%20Imagen.png"
+        "link": "https://frsfutneduar-my.sharepoint.com/:i:/g/personal/ceutfrsf_frsf_utn_edu_ar/EZgjU3VxzzRArvgglBjSCFwBHq8rflJwajCROfTYLS2IlA?e=pF6tLE"
       },
       {
         "title": "Resolución:",
         "description": "Descargar",
-        "link": "https://frsfutneduar-my.sharepoint.com/personal/ceutfrsf_frsf_utn_edu_ar/Documents/RepoCEUT/Calendario%20Acad%C3%A9mico%202019%20-%20Resoluci%C3%B3n.pdf"
+        "link": "https://frsfutneduar-my.sharepoint.com/:b:/g/personal/ceutfrsf_frsf_utn_edu_ar/EVDzelcgBPRGjn2SUjxK7TIBAjpILllApTV-zeiyBXttfQ?e=TSvm42"
       }
     ],
     "footer": {
@@ -56,7 +56,7 @@
     "content": [
       {
         "title": "Alumnado:",
-        "description": "10:00 a 13:00 - 16:00 a 20:00"
+        "description": "10 a 13 - 16 a 20"
       },
       {
         "title": "Biblioteca:",
@@ -64,19 +64,19 @@
       },
       {
         "title": "Bienestar Estudiantil:",
-        "description": "10:00 a 20:00"
+        "description": "10 a 20"
       },
       {
         "title": "Casilla CEUT:",
-        "description": "9:00 a 12:00 - 15:00 a 21:00"
+        "description": "9 a 12 - 15 a 21 (Viernes hasta las 20). Sábados: 9 a 12"
       },
       {
         "title": "Fotocopiadora:",
-        "description": "8:00 a 20:00 - Sáb. 9:00 a 12:00"
+        "description": "8 a 20 - Sábados: 9 a 12"
       },
       {
         "title": "Tesorería:",
-        "description": "15:00 a 19:00"
+        "description": "15 a 19"
       }
     ],
     "footer": {
@@ -252,7 +252,7 @@
       },
       {
         "title": "Horario:",
-        "description": "8:00 a 22:00"
+        "description": "8 a 20"
       }
     ],
     "footer": {
@@ -357,7 +357,7 @@
   },
   {
     "id": 16,
-    "link": "https://goo.gl/eRZSHM",
+    "link": "https://www.frsf.utn.edu.ar/estudiantes",
     "icon": "/assets/img/tutor.png",
     "class": {
       "card": "blue-tutores text-white"
@@ -366,10 +366,10 @@
     "content": [
       {
         "title": "",
-        "description": "Ya podés registrarte como aspirante para ser tutor de Análisis Matemático I, Física I, Álgebra y Geometría Analítica y Física (para Mecatrónica)."
+        "description": "Ya podés registrarte como aspirante para ser tutor de Análisis Matemático I, Física I, Álgebra y Geometría Analítica, más Matemática y Física (para Mecatrónica)."
       },
       {
-        "title": "Hacé click para acceder al formulario.",
+        "title": "Hacé click para acceder al formulario e información detallada.",
         "description": ""
       }
     ],
@@ -421,7 +421,7 @@
       "class": "",
       "content": ""
     },
-    "enabled": true
+    "enabled": false
   },
   {
     "id": 20,
@@ -431,7 +431,7 @@
       "title": "title-teatro",
       "card": "bg-teatro text-white"
     },
-    "title": "Taller de Teatro Elenco 2018",
+    "title": "Taller de Teatro Elenco 2019",
     "content": [
       {
         "title": "Horarios:",
@@ -439,11 +439,11 @@
       },
       {
         "title": "",
-        "description": "Jueves de 18:00 a 21:00 - Grupo A"
+        "description": "Jueves de 17:30 a 20:30"
       },
       {
         "title": "",
-        "description": "Viernes de 12:00 a 15:00 - Grupo B"
+        "description": "Viernes de 12:00 a 15:00"
       },
       {
         "title": "",
@@ -456,6 +456,10 @@
       {
         "title": "Director:",
         "description": "diazfernandojose@hotmail.com"
+      },
+      {
+        "title": "Costo Mensual:",
+        "description": "Público general: $500. Graduados, docentes y no docentes UTN: $300. Estudiantes UTN: sin costo."
       }
     ],
     "footer": {
@@ -475,40 +479,40 @@
     "content": [
       {
         "title": "Comisiones Especiales: ",
-        "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVTazBvWUljREYtM0VQRlE/root/content"
+        "description": "(Próximamente)",
+        "link": ""
       },
       {
         "title": "Civil: ",
         "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVUUjIySGo1SG52blNKLUE/root/content"
+        "link": "https://www.frsf.utn.edu.ar/uploads/dto-ing-civil/Horarios_1%C2%BA_Cuatrimestre_2019.pdf"
       },
       {
         "title": "Eléctrica: ",
-        "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZEVVMlZYZWdCRk1XeURJb2c/root/content"
+        "description": "(Próximamente)",
+        "link": ""
       },
       {
         "title": "Industrial: ",
-        "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZEVWd0tDUDUwcHFycEhsSVE/root/content"
+        "description": "(Próximamente)",
+        "link": ""
       },
       {
         "title": "Mecánica: ",
         "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZEVXaWtNbElJc1lacURUYlE/root/content"
+        "link": "https://frsfutneduar-my.sharepoint.com/:b:/g/personal/ceutfrsf_frsf_utn_edu_ar/EcjIkU2Nwj5DjaAQ4pFfZHsBCSR-uYaKAspMWJTeoE5KRA?e=78pYPN"
       },
       {
         "title": "Sistemas: ",
         "description": "Descargar",
-        "link": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZUFKUFlTTGVmY2Izb3BpN2c/root/content"
+        "link": "https://frsfutneduar-my.sharepoint.com/:b:/g/personal/ceutfrsf_frsf_utn_edu_ar/ETiSAS9dZ4BEiPg51h0gzXkBuLjs2GfMtB_Hyg0aoZLPyg?e=kcrH8z"
       }
     ],
     "footer": {
       "class": "",
       "content": ""
     },
-    "enabled": false
+    "enabled": true
   },
   {
     "id": 22,
@@ -570,7 +574,11 @@
       },
       {
         "title": "",
-        "description": "Jueves a las 20:30"
+        "description": "Jueves de 20:30 a 23:30"
+      },
+      {
+        "title": "Costo Mensual:",
+        "description": "Público general: $500. Graduados, docentes y no docentes UTN: $350. Estudiantes UTN: sin costo."
       }
     ],
     "footer": {
@@ -595,17 +603,26 @@
       },
       {
         "title": "",
-        "description": "Miércoles de 12:00 a 15:00"
+        "description": "Miércoles de 10:30 a 13:00"
       },
       {
         "title": "¡Sumate a descubrir tu lado creativo!",
         "description": ""
+      },
+      {
+        "title": "Formulario de Inscripción:",
+        "description": "Link",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSfr6fyMsQiNzOW6TMi_AI10oBN6EJhg4pwKi8fOpYlC1j-svg/viewform"
+      },
+      {
+        "title": "Costo Mensual:",
+        "description": "Público general: $500. Graduados, docentes y no docentes UTN: $300. Estudiantes UTN: sin costo."
       }
     ],
     "footer": {
       "separator": true,
       "class": "",
-      "content": "teatro@frsf.utn.edu.ar / fdiaz@frsf.utn.edu.ar"
+      "content": "Contacto: fdiaz@frsf.utn.edu.ar"
     },
     "enabled": true
   },
@@ -670,7 +687,7 @@
       "class": "text-white pl-4 pr-4 pb-2 pt-0",
       "content": "(*) Hacé click para descargar la imagen de los horarios en tamaño completo."
     },
-    "enabled": true
+    "enabled": false
   },
   {
     "id": 28,
@@ -884,7 +901,7 @@
       },
       {
         "title": "Horarios:",
-        "description": "Lunes a Viernes de 9:00 a 13:00 y 15:00 a 21:00. Sábados de 9:00 a 12:00"
+        "description": "Lunes a Viernes de 9 a 13 y 15 a 21 (Viernes hasta las 20). Sábados de 9 a 12"
       }
     ],
     "footer": {
