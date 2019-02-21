@@ -6,7 +6,7 @@
         <div class="text-center">
           <h2 class="card-title mb-0 p-3 text-white text-weight-bold" >{{ '¡Avisos importantes!' }}</h2>
         </div>
-        <ngb-carousel>
+        <ngb-carousel *ngIf="tarjetasAvisos.length > 0">
           <!--<ng-template ngbSlide>-->
           <!--<img class="w-100 h-100" src="../assets/img/backgrounds/isi.jpg" alt="Random second slide">-->
           <!--<div class="carousel-caption title-carreras">-->
@@ -43,40 +43,39 @@
             <!--<div class="carousel-caption">-->
             <!--</div>-->
           <!--</ng-template>-->
-          <ng-template ngbSlide>
-            <a href="https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3gvcyFBbmZJTUNncTlycE5oZUJISnpjcDl5R21tak1zeGc/root/content">
-              <img class="w-100" src="../assets/img/biblioteca-ceut.png" alt="Biblioteca CEUT">
-            </a>
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <a href="http://capacitacion.frsf.utn.edu.ar/">
-              <img class="w-100" src="../assets/img/cursos_extracurriculares.png" alt="Cursos Extracurriculares">
-            </a><div class="carousel-caption">
-          </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <a href="mailto:coro@frsf.utn.edu.ar">
-              <img class="w-100" src="../assets/img/coro-full.jpeg" alt="Coro">
-            </a>
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <a href="mailto:teatro@frsf.utn.edu.ar">
-              <img class="w-100" src="../assets/img/teatro-aviso.png" alt="Teatro">
-            </a>
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <a href="mailto:fdiaz@frsf.utn.edu.ar">
-              <img class="w-100" src="../assets/img/lenguaje-expresivo-aviso.png" alt="Lenguaje Expresivo">
-            </a>
-            <div class="carousel-caption">
-            </div>
-          </ng-template>
+          <ng-container  *ngFor="let tarjeta of tarjetasAvisos">
+
+            <ng-template ngbSlide *ngIf="tarjeta.enabled">
+
+              <a [href]="tarjeta.link">
+                <img class="w-100" [src]="tarjeta.image" [alt]="tarjeta.caption">
+              </a>
+              <div class="carousel-caption">
+              </div>
+            </ng-template>
+          </ng-container>
+
+          <!--<ng-template ngbSlide>-->
+            <!--<a href="mailto:coro@frsf.utn.edu.ar">-->
+              <!--<img class="w-100" src="../assets/img/coro-full.jpeg" alt="Coro">-->
+            <!--</a>-->
+            <!--<div class="carousel-caption">-->
+            <!--</div>-->
+          <!--</ng-template>-->
+          <!--<ng-template ngbSlide>-->
+            <!--<a href="mailto:teatro@frsf.utn.edu.ar">-->
+              <!--<img class="w-100" src="../assets/img/teatro-aviso.png" alt="Teatro">-->
+            <!--</a>-->
+            <!--<div class="carousel-caption">-->
+            <!--</div>-->
+          <!--</ng-template>-->
+          <!--<ng-template ngbSlide>-->
+            <!--<a href="mailto:fdiaz@frsf.utn.edu.ar">-->
+              <!--<img class="w-100" src="../assets/img/lenguaje-expresivo-aviso.png" alt="Lenguaje Expresivo">-->
+            <!--</a>-->
+            <!--<div class="carousel-caption">-->
+            <!--</div>-->
+          <!--</ng-template>-->
           <!--<ng-template ngbSlide>-->
           <!--<img class="w-100" src="../assets/img/becas_ceut.jpeg" alt="Becas CEUT">-->
           <!--<div class="carousel-caption">-->
