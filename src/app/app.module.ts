@@ -11,13 +11,13 @@ import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RegisterComponent} from './register';
-import {RepairService} from '@app/_services/repair.service';
 import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
 import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
-import {TarjetasComponent} from '@app/tarjetas/tarjetas.component';
 import {TarjetasModule} from '@app/tarjetas/tarjetas.module';
 import {CardService} from '@app/_services/card.service';
+// import {ElectivasComponent} from './electivas/electivas.component';
+// import {ElectivasService} from '@app/_services/electivas.service';
 
 @NgModule({
   imports: [
@@ -38,11 +38,13 @@ import {CardService} from '@app/_services/card.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    // ElectivasComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    CardService
+    CardService,
+    // ElectivasService
 
     // provider used to create fake backend
     // fakeBackendProvider
