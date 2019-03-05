@@ -287,7 +287,7 @@
     </ng-container>
 
     <ng-container *ngIf="carreraElegida.id !== 'basicas'">
-      <p class="text-justify">Para completar el plan de estudio de {{carreraElegida.nombreCompleto}}, necesitás un total de {{ carreraElegida.horasTotales}} créditos en electivas. Podés armar tu plan de cursado de electivas y ver tu total de créditos marcándolas en la lista de abajo.</p>
+      <p class="text-justify">Para completar el plan de estudio de {{carreraElegida.nombreCompleto}}, necesitás un total de {{ carreraElegida.horasTotales}} créditos en electivas. Podés armar tu plan de cursado de electivas y ver tu total de créditos marcándolas en la lista de abajo. Pulsando en el + podés ver la info completa de cada electiva.</p>
     </ng-container>
     <p class="text-justify">Podés filtrar la lista de materias por cuatrimestre usando los botones que están arriba.</p>
 
@@ -301,7 +301,7 @@
       <ng-container *ngIf="carreraElegida.id === 'industrial'">🧡</ng-container>
       <ng-container *ngIf="carreraElegida.id === 'mecanica'">💚</ng-container>
       <ng-container *ngIf="carreraElegida.id === 'sistemas'">💛</ng-container>
-      desde los consejeros estudiantiles de METAs, para brindarte una mejor experiencia  en tu tránsito por la facu.</p>
+      desde las consejeras y los consejeros estudiantiles de METAs, para brindarte una mejor experiencia en tu tránsito por la facu.</p>
 
     <h4 id="badge-bienvenida" class="text-center font-weight-bold mt-3 mb-3"><span class="w-100 p-2 badge" [ngClass]="estilosDeCarrera(carreraElegida.id)">¡Te deseamos un excelente inicio de cursado!</span></h4>
 

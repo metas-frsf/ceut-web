@@ -9,7 +9,6 @@ import {GlobalService} from '@app/_services/global.service';
   styleUrls: ['./electivas.component.scss']
 })
 
-
 export class ElectivasComponent implements OnInit {
 
   anchoDelDisplay: any;
@@ -161,15 +160,15 @@ export class ElectivasComponent implements OnInit {
   }
 
   navegarInstagram() {
-    this.document.location.href = `https://instagram.com/${this.carreraElegida.contacto.instagram}`;
+    window.open(`https://instagram.com/${this.carreraElegida.contacto.instagram}`, '_blank');
   }
 
   navegarMessenger() {
-    this.document.location.href = `https://m.me/${this.carreraElegida.contacto.messenger}`;
+    window.open(`https://m.me/${this.carreraElegida.contacto.messenger}`, '_blank');
   }
 
   navegarWhatsapp() {
-    this.document.location.href = `"https://api.whatsapp.com/send?phone="${this.carreraElegida.contacto.whatsapp}`;
+    window.open(`"https://api.whatsapp.com/send?phone="${this.carreraElegida.contacto.whatsapp}`, '_blank');
   }
 
   limpiarEstado(electiva: Electiva) {
