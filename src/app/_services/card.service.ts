@@ -44,13 +44,6 @@ export class CardService {
     return this.fixedCardListIds;
   }
 
-  /**
-   * Genera un orden aleatorio para las tarjetas
-   */
-  shuffleOrder(): number {
-    return .5 - Math.random();
-  }
-
   filtrarTarjetas(cardList: Card[], textToSearch: string) {
     const textoToSearchLowerCase = textToSearch.toLowerCase();
 

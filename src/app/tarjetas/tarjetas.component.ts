@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {CardService} from '@app/_services/card.service';
 import {Card} from '@app/_models/card';
+import {GlobalService} from '@app/_services/global.service';
 
 @Component({
   selector: 'tarjetas',
@@ -15,7 +16,7 @@ export class TarjetasComponent implements OnInit {
 
   barraDeBusqueda: string = '';
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.getInformacionTarjetas();
@@ -37,7 +38,7 @@ export class TarjetasComponent implements OnInit {
         suscripcionTarjetas.unsubscribe();
       },
       () =>{
-        this.listaTarjetas.sort(this.cardService.shuffleOrder);
+        this.listaTarjetas.sort(this.globalService.shuffleOrder);
 
         //Obtenemos las tarjetas del cuerpo y las fijadas en el header, si existen
         this.tarjetasMoviles = this.cardService.getAssortedCardList(this.listaTarjetas);

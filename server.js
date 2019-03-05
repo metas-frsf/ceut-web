@@ -20,12 +20,25 @@ app.get('/', function(req,res) {
   res.sendFile(path.join(__dirname,'/dist/index.html'));
 });
 
+app.get('/electivas', function(req,res) {
+  res.sendFile(path.join(__dirname,'/dist/index.html'));
+});
+
+app.get('/home', function(req,res) {
+  res.sendFile(path.join(__dirname,'/dist/index.html'));
+});
+
+app.get('/login', function(req,res) {
+  res.sendFile(path.join(__dirname,'/dist/index.html'));
+});
+
 // use JWT auth to secure the api
 app.use(jwt());
 
 // api routes
 app.use('/users', require('./server/users/users.controller'));
 app.use('/cards', require('./server/cards/cards.controller'));
+app.use('/api/electivas', require('./server/electivas/electivas.controller'));
 
 // // start server
 // const port = process.env.NODE_ENV === 'production' ? 80 : 4000;

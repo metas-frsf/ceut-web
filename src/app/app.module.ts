@@ -16,8 +16,8 @@ import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {TarjetasModule} from '@app/tarjetas/tarjetas.module';
 import {CardService} from '@app/_services/card.service';
-// import {ElectivasComponent} from './electivas/electivas.component';
-// import {ElectivasService} from '@app/_services/electivas.service';
+import {ElectivasComponent} from './electivas/electivas.component';
+import {ElectivasService} from '@app/_services/electivas.service';
 
 @NgModule({
   imports: [
@@ -38,13 +38,13 @@ import {CardService} from '@app/_services/card.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    // ElectivasComponent
+    ElectivasComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     CardService,
-    // ElectivasService
+    ElectivasService
 
     // provider used to create fake backend
     // fakeBackendProvider

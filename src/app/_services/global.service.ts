@@ -26,4 +26,11 @@ export class GlobalService {
   set webApiUrl(value: string) {
     this._webApiUrl = value;
   }
+
+  /**
+   * Genera un orden aleatorio
+   */
+  shuffleOrder(): number {
+    return .5 - Math.random();
+  }
 }
