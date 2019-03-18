@@ -19,12 +19,11 @@ export class TarjetaGenericaComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateToCard(url:string) {
+  navigateToCard(url: string) {
     if (url) {
       this.document.location.href = url;
       // window.open(url,'_blank');
     }
   }
-
 
 }
