@@ -60,7 +60,7 @@
       },
       {
         "title": "Biblioteca:",
-        "description": "7:45 a 20:45"
+        "description": "12:00 a 21:00"
       },
       {
         "title": "Bienestar Estudiantil:",
@@ -872,11 +872,15 @@
     "class": {
       "card": "bg-dark text-white"
     },
-    "title": "Buscador biblioteca UTN FRSF",
+    "title": "Biblioteca UTN FRSF",
     "content": [
       {
         "title": "",
         "description": "Clickeá para acceder al catálogo de libros disponibles en la biblioteca de la UTN FRSF."
+      },
+      {
+        "title": "Horarios de Biblioteca:",
+        "description": "12:00 a 21:00"
       }
     ],
     "footer": {
