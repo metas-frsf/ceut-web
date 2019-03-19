@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class CardService {
 
-  private fixedCardListIds = [2, 3]; // Cartas fijadas en la parte superior
+  private fixedCardListIds = [3, 18]; // Cartas fijadas en la parte superior
 
   constructor(public http: HttpClient) {
   }

@@ -410,18 +410,18 @@
       },
       {
         "title": "Costo con descuento: ",
-        "description": "$50,00"
+        "description": "$60,00"
       },
       {
         "title": "Costo regular: ",
-        "description": "$77,00"
+        "description": "$89,00"
       }
     ],
     "footer": {
       "class": "",
       "content": ""
     },
-    "enabled": false
+    "enabled": true
   },
   {
     "id": 20,
