@@ -56,7 +56,7 @@
     "content": [
       {
         "title": "Alumnado:",
-        "description": "10 a 13 - 16 a 20"
+        "description": "10:00 a 13:00 - 16:00 a 20:00"
       },
       {
         "title": "Biblioteca:",
@@ -64,19 +64,19 @@
       },
       {
         "title": "Bienestar Estudiantil:",
-        "description": "10 a 20"
+        "description": "10:00 a 20:00"
       },
       {
         "title": "Casilla CEUT:",
-        "description": "9 a 12 - 15 a 21 (Viernes hasta las 20). Sábados: 9 a 12"
+        "description": "09:00 a 12:00 - 15:00 a 21:00 (Viernes hasta las 20:00). Sábados: 09:00 a 12:00"
       },
       {
         "title": "Fotocopiadora:",
-        "description": "8 a 20 - Sábados: 9 a 12"
+        "description": "8:00 a 22:00 - Sábados: 9:00 a 12:00"
       },
       {
         "title": "Tesorería:",
-        "description": "15 a 19"
+        "description": "15:00 a 19:00"
       }
     ],
     "footer": {
@@ -252,7 +252,7 @@
       },
       {
         "title": "Horario:",
-        "description": "8 a 20"
+        "description": "08:00 a 20:00"
       }
     ],
     "footer": {
