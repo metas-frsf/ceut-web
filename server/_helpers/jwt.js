@@ -11,6 +11,7 @@ function jwt() {
       '/backend',
       '/cards/getAll',
       '/api/electivas/get',
+      '/api/keys/get',
       '/electivas',
     ]
   });

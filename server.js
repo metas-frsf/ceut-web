@@ -39,6 +39,7 @@ app.use(jwt());
 app.use('/users', require('./server/users/users.controller'));
 app.use('/cards', require('./server/cards/cards.controller'));
 app.use('/api/electivas', require('./server/electivas/electivas.controller'));
+app.use('/api/keys', require('server/keys/keys.controller'));
 
 // // start server
 // const port = process.env.NODE_ENV === 'production' ? 80 : 4000;

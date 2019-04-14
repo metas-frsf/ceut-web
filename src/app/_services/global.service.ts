@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpHeaders, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +33,6 @@ export class GlobalService {
   shuffleOrder(): number {
     return .5 - Math.random();
   }
+
+
 }

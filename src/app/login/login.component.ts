@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { AlertService, AuthenticationService } from '@app/_services';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@environments/environment';
+import * as wjcCore from 'wijmo/wijmo';
 
 @Component({
   templateUrl: 'login.component.html',
