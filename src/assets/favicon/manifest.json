@@ -1,5 +1,9 @@
 {
- "name": "App",
+ "name": "Web del CEUT - UTN FRSF",
+
+  "default_locale": "es_419",
+  "description": "Aplicación web del Centro de Estudiantes de la UTN Facultad Regional Santa Fe. Posee información y recursos de utilidad, académicos y extracurriculares, para los estudiantes de la facultad.",
+
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
