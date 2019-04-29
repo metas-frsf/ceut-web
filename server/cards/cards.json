@@ -31,8 +31,8 @@
   },
   {
     "id": 2,
-    "link": "https://www.frsf.utn.edu.ar/uploads/dto-alumnado/Fechas_Ex%C3%A1menes.xlsx",
-    "icon": "/assets/img/mesas-febrero-2019.png",
+    "link": "https://www.frsf.utn.edu.ar/uploads/dto-alumnado/Fechas_de_Ex%C3%A1menes.xlsx",
+    "icon": "/assets/img/mesas-mayo-2019.png",
     "class": {
       "card": "p-0 pb-0 bg-info text-light text-white"
     },
