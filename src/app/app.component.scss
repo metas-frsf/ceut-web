@@ -37,6 +37,11 @@
 
 #app-container {
   min-height: calc( 100vh - 74px);
+
+  @media(max-width: 576px){
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 body {

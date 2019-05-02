@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpHeaders, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +26,13 @@ export class GlobalService {
   set webApiUrl(value: string) {
     this._webApiUrl = value;
   }
+
+  /**
+   * Genera un orden aleatorio
+   */
+  shuffleOrder(): number {
+    return .5 - Math.random();
+  }
+
+
 }

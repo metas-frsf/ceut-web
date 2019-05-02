@@ -1,17 +1,16 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { environment } from '@environments/environment';
 import { User } from '@app/_models';
+import {GlobalService} from '@app/_services/global.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private globalService: GlobalService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -39,4 +38,10 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+  getKeys(key: string) {
+    const headers = this.globalService.httpHeaders;
+    const params = new HttpParams().append('key', key);
+    return this.http.get<string>(`/api/keys/get`, {headers, params});
+  }
 }
