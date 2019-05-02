@@ -54,9 +54,9 @@ a{
   @media(max-width: 575px){
     top: 70px;
   }
-  @media(min-width: 576px){
-    top: 74px;
-  }
+  //@media(min-width: 576px) and (max-width: 768px){
+  //  top: 74px;
+  //}
 
   position: sticky;
   height: 48px;

@@ -18,6 +18,7 @@ import {TarjetasModule} from '@app/tarjetas/tarjetas.module';
 import {CardService} from '@app/_services/card.service';
 import {ElectivasComponent} from './electivas/electivas.component';
 import {ElectivasService} from '@app/_services/electivas.service';
+import {DeportesComponent} from '@app/deportes/deportes.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {ElectivasService} from '@app/_services/electivas.service';
   declarations: [
     AlertComponent,
     AppComponent,
+    DeportesComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,

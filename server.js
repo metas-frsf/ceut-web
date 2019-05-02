@@ -28,6 +28,10 @@ app.get('/home', function(req,res) {
   res.sendFile(path.join(__dirname,'/dist/index.html'));
 });
 
+app.get('/deportes', function(req,res) {
+  res.sendFile(path.join(__dirname,'/dist/index.html'));
+});
+
 app.get('/login', function(req,res) {
   res.sendFile(path.join(__dirname,'/dist/index.html'));
 });

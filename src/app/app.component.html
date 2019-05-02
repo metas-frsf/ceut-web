@@ -23,16 +23,17 @@
       </a>
     </div>
 
-    <!--<div class="align-items-start align-items-sm-center">-->
-    <!--<a class="navbar-brand" href="#"><img [src]="'assets/img/logo-ceut.png'"></a>-->
-    <!--</div>-->
-
-    <div class="align-items-center">
-      <a class="navbar-brand" href="#"><img [src]="'assets/img/logo-metas.png'"></a>
+    <div class="align-items-start align-items-sm-center">
+      <a class="navbar-brand" href="#"><img [src]="'assets/img/logo-ceut.png'"></a>
+      <a class="navbar-brand ml-3 d-none d-md-inline" href="/deportes"><img [src]="'assets/img/deportes/jeut.png'"></a>
     </div>
 
+    <!--<div class="align-items-center">-->
+    <!--<a class="navbar-brand" href="#"><img [src]="'assets/img/logo-metas.png'"></a>-->
+    <!--</div>-->
+
     <!-- TODO: Borrar d-none del div de abajo para CEUT -->
-    <div class="d-none align-items-end">
+    <div class="align-items-end">
 
       <div ngbDropdown class="d-inline-block d-md-none" placement="bottom-right">
         <button class="btn btn-outline-primary rounded-0" id="dropdownBasic1" ngbDropdownToggle>
@@ -49,6 +50,11 @@
             <a class="dropdown-item d-flex align-items-center" href="https://instagram.com/ceut.frsf">
               <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'">
               <label class="pl-3 mb-0">Instagram CEUT FRSF</label>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item d-flex align-items-center" href="/deportes" ngbTooltip="JEUT 2019 - 1C" placement="right">
+              <img id="jeut-icon" [src]="'assets/img/deportes/jeut.png'">
+              <label class="pl-3 mb-0">JEUT</label>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item d-flex align-items-center" href="https://m.me/ceut.frsf" ngbTooltip="Escribinos vía Messenger" placement="right">
@@ -91,10 +97,10 @@
         </ng-container>
 
         <ng-container *ngIf="!currentUser" >
-          <a class="btn btn-outline-primary active" routerLink="/login">
+          <a class="btn btn-outline-primary active mr-3" routerLink="/login">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Ingresar
           </a>
-          <a class="btn btn-outline-primary active" routerLink="/electivas">
+          <a class="btn btn-outline-primary active mr-3" routerLink="/electivas">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
           </a>
         </ng-container>

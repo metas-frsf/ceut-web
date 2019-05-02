@@ -1,0 +1,52 @@
+<div class="w-100 text-center mb-4">
+  <img class="w-50 w-md-100 mt-3 mt-md-0" [src]="'assets/img/deportes/jeut.png'" />
+</div>
+
+<ngb-tabset>
+  <ngb-tab *ngFor="let deporte of listaDeportes">
+    <ng-template ngbTabTitle>
+      <b>
+        <img [src]="'assets/img/deportes/' + deporte.icono" />
+      </b>
+    </ng-template>
+
+    <ng-template ngbTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h5>{{ deporte.nombre }}</h5>
+          </div>
+          <div class="card-text">
+            <p>Días y horarios: {{ deporte.horario }}</p>
+            <p *ngFor="let parrafo of deporte.descripcion">
+              {{ parrafo }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="card-title">
+      <h5>Actividades libres</h5>
+    </div>
+    <div class="card-text">
+      <p>sdasdsads</p>
+      <p>sdasdsads</p>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="card-title">
+      <h5>Reglas generales</h5>
+    </div>
+    <div class="card-text">
+      <p>Acá va la info de los costos, reglas, inscripción y etc.</p>
+    </div>
+  </div>
+</div>
