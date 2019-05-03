@@ -1,4 +1,12 @@
 app-deportes{
+
+  #container{
+    @media(min-width: 992px){
+      width: 600px;
+
+    }
+  }
+
   ngb-tabset{
     .nav-tabs .nav-item{
       img{
