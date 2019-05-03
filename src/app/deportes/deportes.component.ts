@@ -36,21 +36,25 @@ export class DeportesComponent implements OnInit {
     {
       icono: 'lol.png',
       nombre: 'League of Legends',
-      horario: 'Semana del 13/5 al 17/5 - Horarios a convenir',
-      equipos: '',
-      reglas: '',
-      descripcion: ['League ', 'League ']
+      horario: 'Semana del 14/5 al 17/5 - Fixture con partidas desde las 22:00',
+      equipos: 'Cada equipo estará compuesto por 5 personas, pudiendo ser a los sumo 3 de cada equipo externos a la facultad, Se jugarán las partidas en el mapa Grieta del Invocador.',
+      reglas: 'Se jugará en dos zonas de 4 equipos cada una. Cada equipo jugará contra los 3 restantes de su zona',
+      descripcion: ['Todos los partidos excepto la final se disputarán fuera de la facultad, en la semana desde el 14/5 al 17/5, comenzando desde las 22:00 en un fixture que se adjuntará a la brevedad.']
     },
     {
       icono: 'cs.png',
       nombre: 'Counter-Strike 1.6',
-      horario: 'Viernes 17/5 - Horarios a definir',
-      descripcion: ['Counter', 'Counter']
+      horario: 'Viernes 17/5 - Comenzando desde las 10:00',
+      equipos: 'Se jugará en equipos de 3 personas cada uno.',
+      reglas: 'El torneo constará de 8 equipos con dos zonas de 4 cada una. En cada zona los equipos jugarán entre sí, clasificando los dos mejores a la semifinal.',
+      descripcion: ['Se jugarán al mejor de 3 partidas de 5, en cinco mapas ya predefinidos. Cada partida constará de 9 rondas de un minuto y medio, siendo ganador el equipo que gane 5 rondas de 9', 'Los mapas elegidos para formar parte del torneo son iceworld, de_dust2_largo, aim_map, awp_map, fy_pool_day, fy_snow y mini_dust_pro.']
     },
     {
       icono: 'volleyball.png',
       nombre: 'Volley',
       horario: 'Miércoles 15/5 - 16:00 a 17:30',
+      equipos: '',
+      reglas: '',
       descripcion: ['Se jugarán 6 partidos de 2 tiempos de 5 minutos cada uno.', 'El torneo constará de 6 equipos de 6 jugadores.']
     },
     {

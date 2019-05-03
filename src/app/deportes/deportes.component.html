@@ -18,6 +18,8 @@
           </div>
           <div class="card-text">
             <p>Días y horarios: {{ deporte.horario }}</p>
+            <p>Equipos: {{ deporte.equipos }}</p>
+            <p>Reglas: {{ deporte.reglas }}</p>
             <p *ngFor="let parrafo of deporte.descripcion">
               {{ parrafo }}
             </p>
