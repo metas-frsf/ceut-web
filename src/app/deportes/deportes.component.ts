@@ -29,9 +29,9 @@ export class DeportesComponent implements OnInit {
       icono: 'truco.png',
       nombre: 'Truco',
       horario: 'Viernes 17/5 - Desde las 10:00',
-      equipos: '',
-      reglas: '',
-      descripcion: ['Cada equipo contará con dos jugadores']
+      equipos: 'Los equipos estarán compuestos por dos personas',
+      reglas: 'Habrá 4 grupos de 4 equipos cada uno que competirán en formato todos contra todos, pasando a fase eliminatoria los dos mejores de cada grupo',
+      descripcion: ['']
     },
     {
       icono: 'lol.png',
@@ -53,27 +53,33 @@ export class DeportesComponent implements OnInit {
       icono: 'volleyball.png',
       nombre: 'Volley',
       horario: 'Miércoles 15/5 - 16:00 a 17:30',
-      equipos: '',
-      reglas: '',
-      descripcion: ['Se jugarán 6 partidos de 2 tiempos de 5 minutos cada uno.', 'El torneo constará de 6 equipos de 6 jugadores.']
+      equipos: 'Los equipos estarán compuestos por 6 personas',
+      reglas: 'Habrá 2 grupos de 3 equipos cada uno en el que competirán todos contra todos, pasando a la final el mejor equipo de cada grupo, jugandose el tercer puesto entre los equipos que quedaran en segunda posición en cada grupo. Los partidos serán de dos tiempos de 5 minutos cada uno',
+      descripcion: ['']
     },
     {
       icono: 'handball.png',
       nombre: 'Handball',
       horario: 'Viernes',
-      descripcion: ['Handball', 'Handball']
+      equipos: 'Los equipos estarán compuestos por 7 personas',
+      reglas: 'Habrá 2 grupos de 3 equipos cada uno en el que competirán todos contra todos, pasando a la final el mejor equipo de cada grupo, jugandose el tercer puesto entre los equipos que quedaran en segunda posición en cada grupo. Los partidos serán de dos tiempos de 5 minutos cada uno',
+      descripcion: ['']
     },
     {
       icono: 'ping-pong.png',
       nombre: 'Ping Pong',
       horario: 'Viernes',
-      descripcion: ['Ping ', 'Ping ']
+      equipos: 'Los equipos estarán compuestos por dos personas',
+      reglas: 'Habrá 4 grupos de 4 equipos cada uno que competirán en formato todos contra todos, pasando a fase eliminatoria los dos mejores de cada grupo',
+      descripcion: ['']
     },
     {
       icono: 'ajedrez.png',
       nombre: 'Ajedrez',
       horario: 'Viernes',
-      descripcion: ['Ajedrez', 'Ajedrez']
+      equipos: '',
+      reglas: '',
+      descripcion: ['']
     },
   ];
 
