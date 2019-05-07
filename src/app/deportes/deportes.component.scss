@@ -3,7 +3,15 @@ app-deportes{
   #container{
     @media(min-width: 992px){
       width: 640px;
+    }
+  }
 
+  #jeut-logo{
+    @media(max-width: 767px){
+      width: 50%;
+    }
+    @media(min-width: 768px){
+      width: 35%;
     }
   }
 
