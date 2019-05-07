@@ -20,13 +20,26 @@
             <div class="card-text">
               <p>📅 <strong>Días y horarios:</strong> {{ deporte.horario }}</p>
               <p>👫 <strong>Equipos:</strong> {{ deporte.equipos }}</p>
-              <p>🏆 <strong>Premios:</strong> {{ deporte.premios }}</p>
+              <p *ngIf="deporte.premios">🏆 <strong>Premios:</strong> {{ deporte.premios }}</p>
               <p>📜 <strong>Reglas:</strong> {{ deporte.reglas }}</p>
               <p *ngFor="let parrafo of deporte.descripcion">
                 {{ parrafo }}
               </p>
-              <p> ¿Ya pagaste la inscripción para participar del torneo de League of Legends?</p>
-              <p> Sumate al canal de Discord de estudiantes de la UTN FRSF <a href=""></a></p>
+
+              <ng-container *ngIf="deporte.nombre === 'League of Legends'">
+                <hr>
+                <p> ¿Ya pagaste la inscripción para participar del torneo de League of Legends?</p>
+                <p> Sumate al canal de Discord de estudiantes de la UTN FRSF <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a></p>
+                <p> Inscribí a tu equipo vía Battlefy para poder participar del torneo y hacer streaming por Twitch.tv en el canal del CEUT <a href="https://battlefy.com/ceut-frsf/jeut-2019-1er-cuatrimestre/5cd02a7deb092b0338d76e4c/info"><b>en este link</b></a></p>
+              </ng-container>
+
+              <ng-container *ngIf="deporte.nombre === 'Counter-Strike 1.6'">
+                <hr>
+                <p> ¿Ya pagaste la inscripción para participar del torneo de Counter-Strike 1.6?</p>
+                <p> Sumate al canal de Discord de estudiantes de la UTN FRSF <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a></p>
+                <p> Inscribí a tu equipo vía Battlefy para poder participar del torneo y hacer streaming por Twitch.tv en el canal del CEUT <a href="https://battlefy.com/ceut-frsf/jeut-2019-1er-cuatrimestre/5cd0e123f0745f0344ac661f/info"><b>en este link</b></a></p>
+              </ng-container>
+
             </div>
           </div>
         </div>
