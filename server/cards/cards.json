@@ -31,7 +31,7 @@
   },
   {
     "id": 2,
-    "link": "https://www.frsf.utn.edu.ar/uploads/dto-alumnado/Fechas_de_Ex%C3%A1menes.xlsx",
+    "link": "https://www.frsf.utn.edu.ar/uploads/dto-alumnado/Fecha_de_Ex%C3%A1menes.xlsx",
     "icon": "/assets/img/mesas-mayo-2019.jpg",
     "class": {
       "card": "p-0 pb-0 bg-info text-light text-white"
@@ -147,7 +147,7 @@
   },
   {
     "id": 7,
-    "link": "https://1drv.ms/b/s!AnfIMCgq9rpNhbprnb8xeCiEmbEYoA",
+    "link": "https://becasprogresar.educacion.gob.ar",
     "icon": "/assets/img/progresar.png",
     "class": {
       "card": "bg-argentina-blue text-white"
@@ -156,14 +156,14 @@
     "content": [
       {
         "title": "",
-        "description": "Todos los detalles sobre las últimas modificaciones de requisitos, líneas de becas, montos y más detalles del nuevo plan de Becas Progresar."
+        "description": "Clickeando podés chequear si resultaste beneficiario de la beca Progresar."
       }
     ],
     "footer": {
       "class": "",
       "content": ""
     },
-    "enabled": false
+    "enabled": true
   },
   {
     "id": 8,
