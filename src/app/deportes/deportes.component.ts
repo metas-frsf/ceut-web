@@ -11,7 +11,7 @@ export class DeportesComponent implements OnInit {
     {
       icono: 'futbol.png',
       nombre: 'Fútbol 5',
-      horario: 'Miércoles 15/5 - 13:00 a 16:00 / Viernes 17/5 - 12:00 a 13:30',
+      horario: 'Miércoles 15/5 - 13:00 a 16:00 / Viernes 17/5 - 13:30 a 15:00',
       equipos:
         'El torneo constará de 8 equipos de 7 jugadores (5 + 2 suplentes).',
       premios:
@@ -24,7 +24,7 @@ export class DeportesComponent implements OnInit {
     {
       icono: 'volleyball.png',
       nombre: 'Volley',
-      horario: 'Miércoles 15/5 - 16:00 a 17:30 / Viernes 17/5 - 13:30 a 16:00',
+      horario: 'Miércoles 15/5 - 16:00 a 17:30 / Viernes 17/5 - 15:30 a 18:00',
       equipos: 'Los equipos estarán compuestos por 6 personas.',
       premios:
         '1er Puesto: Llaveros y 4 packs de cervezas. 2do puesto: Llaveros y 2 packs de cervezas. 3er puesto: Llaveros y 1 pack de cervezas.',
@@ -35,7 +35,7 @@ export class DeportesComponent implements OnInit {
     {
       icono: 'handball.png',
       nombre: 'Handball',
-      horario: 'Viernes 17/5 - 9:30 a 12:00',
+      horario: 'Viernes 17/5 - 9:00 a 11:00',
       equipos: 'Los equipos estarán compuestos por 7 personas.',
       premios:
         '1er Puesto: Llaveros y 4 packs de cervezas. 2do puesto: Llaveros y 2 packs de cervezas. 3er puesto: Llaveros y 1 pack de cervezas.',
@@ -46,7 +46,7 @@ export class DeportesComponent implements OnInit {
     {
       icono: 'basket.png',
       nombre: 'Básquet',
-      horario: 'Viernes 17/5 - 16:00 a 17:30',
+      horario: 'Viernes 17/5 - 11:30 a 13:30',
       equipos:
         'El torneo constará de 8 equipos de 3 jugadores (5 + 2 suplentes).',
       premios:
