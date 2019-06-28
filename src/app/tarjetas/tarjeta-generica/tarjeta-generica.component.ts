@@ -22,7 +22,6 @@ export class TarjetaGenericaComponent implements OnInit {
   navigateToCard(url: string) {
     if (url) {
       this.document.location.href = url;
-      // window.open(url,'_blank');
     }
   }
 

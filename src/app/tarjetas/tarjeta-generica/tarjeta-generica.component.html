@@ -25,7 +25,7 @@
     </div>
 
     <div *ngIf="card.footer.content" class="col-12">
-      <hr *ngIf="separator" class="mt-1 mb-1" [ngClass]="card.footer.class">
+      <hr *ngIf="card.footer.separator" class="mt-1 mb-1" [ngClass]="card.footer.class">
       <p class="card-text text-justify" [ngClass]="card.footer.class"><small>{{card.footer.content}}</small></p>
     </div>
 

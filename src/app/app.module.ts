@@ -9,45 +9,32 @@ import {routing} from './app.routing';
 import {AlertComponent} from './_components';
 import {HomeComponent} from './home';
 import {LoginComponent} from './login';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {RegisterComponent} from './register';
-import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
-import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
-import {WjInputModule} from 'wijmo/wijmo.angular2.input';
-import {TarjetasModule} from '@app/tarjetas/tarjetas.module';
-import {CardService} from '@app/_services/card.service';
-import {ElectivasComponent} from './electivas/electivas.component';
-import {ElectivasService} from '@app/_services/electivas.service';
-import {DeportesComponent} from '@app/deportes/deportes.component';
+import {NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {RegisterComponent} from '@app/register';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
+    NgbDropdownModule,
+    NgbTooltipModule,
     ReactiveFormsModule,
-    TarjetasModule,
-    WjInputModule,
-    WjGridModule,
-    WjGridFilterModule,
+    // WjInputModule,
+    // WjGridModule,
+    // WjGridFilterModule,
     routing
   ],
   declarations: [
     AlertComponent,
     AppComponent,
-    DeportesComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
-    ElectivasComponent
+    RegisterComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    CardService,
-    ElectivasService
-
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
     // provider used to create fake backend
     // fakeBackendProvider
   ],
