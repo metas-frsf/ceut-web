@@ -13,7 +13,7 @@ export class ElectivasComponent implements OnInit {
 
   anchoDelDisplay: any;
 
-  filtroCuatrimestre: Periodo = {anual: true, primero: true, segundo: false};
+  filtroCuatrimestre: Periodo = {anual: false, primero: false, segundo: true};
   electivas = [];
   electivasFiltradas = [];
   carreraElegida: Carrera;
