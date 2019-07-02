@@ -2,6 +2,8 @@ import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {ElectivasService} from '@app/_services/electivas.service';
 import {DOCUMENT} from '@angular/common';
 import {GlobalService} from '@app/_services/global.service';
+import {Moment} from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-electivas',
@@ -13,7 +15,7 @@ export class ElectivasComponent implements OnInit {
 
   anchoDelDisplay: any;
 
-  filtroCuatrimestre: Periodo = {anual: false, primero: false, segundo: true};
+  filtroCuatrimestre: Periodo = this.inicializarFiltroCuatrimestre();
   electivas = [];
   electivasFiltradas = [];
   carreraElegida: Carrera;
@@ -84,8 +86,7 @@ export class ElectivasComponent implements OnInit {
     'Nunca debes tener miedo de lo que estás haciendo cuando es correcto. - Marie Curie',
     'El peor enemigo del conocimiento no es la ignorancia, es la ilusión del conocimiento. - Stephen Hawking',
     'En algún lugar algo increíble está esperando ser descubierto. - Carl Sagan'
-
-  ]
+  ];
 
   contadorCursadas: number = 0;
   contadorAprobadas: number = 0;
@@ -123,7 +124,28 @@ export class ElectivasComponent implements OnInit {
       this.calculadoraVisible = false;
       this.bienvenidaVisible = true;
     }
+  }
 
+  /**
+   * Devuelve el filtro inicial para el cuatrimestre o la modalidad anual de las electivas
+   * En caso de la fecha actual encontrarse en el primer semestre (antes del 1ro de julio del año), filtra las electivas anuales y del primer cuatrimestre
+   * En caso de que la fecha actual sea del segundo semestre, filtra las electivas del segundo cuatrimestre
+   */
+  inicializarFiltroCuatrimestre(): Periodo {
+    const fechaDeHoy: Moment = moment();
+    // fechaBisagra representa el primero de julio del año actual, pivote para saber si estamos en el primer o segundo cuatrimestre
+    const fechaBisagra: Moment = moment(`07/01/${fechaDeHoy.year()}`);
+    const estamosEnPrimerSemestre: boolean = fechaDeHoy.isSameOrBefore(fechaBisagra);
+    const filtroInicial: Periodo = {anual: false, primero: false, segundo: false};
+
+    if (estamosEnPrimerSemestre) {
+      filtroInicial.anual = true;
+      filtroInicial.primero = true;
+    } else {
+      filtroInicial.segundo = true;
+    }
+
+    return filtroInicial;
   }
 
   seleccionarCarrera(idCarrera: string) {
