@@ -1,15 +1,19 @@
 'use strict';
 
-const fs = require('fs');
-const path = require ('path');
+const firebaseConnector = require('../_helpers/firebase');
 
-let rawdata = fs.readFileSync(path.resolve(__dirname, 'cards.json'), 'UTF-8');
-let cards = JSON.parse(rawdata);
+const database = firebaseConnector.connect("metas-frsf");
+const cardsReference = database.ref("cards");
+let cards = [];
+
+cardsReference.once("value", function(snapshot){
+  cards = snapshot.val();
+});
+
+const getAll = async () => cards;
+const getById = async (id) => cards.filter(Card => Card.id === id).pop();
 
 module.exports = {
-  getAll
+  getAll,
+  getById
 };
-
-async function getAll() {
-  return cards;
-}

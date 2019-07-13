@@ -16,23 +16,9 @@ app.use(errorHandler);
 // Serve only the static files form the dist directory
 app.use(express.static('./dist'));
 
-app.get('/', function(req,res) {
-  res.sendFile(path.join(__dirname,'/dist/index.html'));
-});
+const rutasAccesibles = ['/', '/electivas', '/home', '/deportes', '/login', '/tarjetas'];
 
-app.get('/electivas', function(req,res) {
-  res.sendFile(path.join(__dirname,'/dist/index.html'));
-});
-
-app.get('/home', function(req,res) {
-  res.sendFile(path.join(__dirname,'/dist/index.html'));
-});
-
-app.get('/deportes', function(req,res) {
-  res.sendFile(path.join(__dirname,'/dist/index.html'));
-});
-
-app.get('/login', function(req,res) {
+app.get(rutasAccesibles, function(req,res) {
   res.sendFile(path.join(__dirname,'/dist/index.html'));
 });
 
@@ -44,12 +30,6 @@ app.use('/users', require('./server/users/users.controller'));
 app.use('/cards', require('./server/cards/cards.controller'));
 app.use('/api/electivas', require('./server/electivas/electivas.controller'));
 app.use('/api/keys', require('server/keys/keys.controller'));
-
-// // start server
-// const port = process.env.NODE_ENV === 'production' ? 80 : 4000;
-// const server = app.listen(port, function () {
-//     console.log('Server listening on port ' + port);
-// });
 
 // Start the app by listening on the default Heroku port
 const port = process.env.PORT ? process.env.PORT : 4000;

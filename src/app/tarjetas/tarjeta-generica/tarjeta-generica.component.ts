@@ -14,9 +14,11 @@ export class TarjetaGenericaComponent implements OnInit {
   // baseUrl = '/ceut-frsf';
   baseUrl = '';
 
-  constructor(@Inject(DOCUMENT) private document: any) { }
+  constructor(@Inject(DOCUMENT) private document: any) {
+  }
 
   ngOnInit() {
+    console.log(this.card);
   }
 
   navigateToCard(url: string) {

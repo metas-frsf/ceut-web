@@ -11,7 +11,7 @@
   </div>
   <div class="row">
 
-    <div class="col-12" *ngIf="card.content.length">
+    <div class="col-12" *ngIf="card.content && card.content.length">
 
       <div class="mt-2 card-text text-justify" [ngClass]="card.class.content">
         <p class="mb-2" *ngFor="let line of card.content">
@@ -24,7 +24,7 @@
 
     </div>
 
-    <div *ngIf="card.footer.content" class="col-12">
+    <div *ngIf="card.footer && card.footer.content" class="col-12">
       <hr *ngIf="card.footer.separator" class="mt-1 mb-1" [ngClass]="card.footer.class">
       <p class="card-text text-justify" [ngClass]="card.footer.class"><small>{{card.footer.content}}</small></p>
     </div>
