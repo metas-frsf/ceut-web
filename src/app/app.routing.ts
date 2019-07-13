@@ -8,14 +8,14 @@ import {DeportesComponent} from '@app/deportes/deportes.component';
 import {ElectivasComponent} from '@app/electivas/electivas.component';
 
 const appRoutes: Routes = [
-  { path: 'tarjetas', loadChildren: './tarjetas/tarjetas.module#TarjetasModule'},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'home', loadChildren: './tarjetas/tarjetas.module#TarjetasModule'},
+  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'deportes', loadChildren: './deportes/deportes.module#DeportesModule' },
   { path: 'electivas', loadChildren: './electivas/electivas.module#ElectivasModule' },
   // otherwise redirect to dashboard
-  { path: '', redirectTo: 'tarjetas', pathMatch: 'full' },
-  { path: '**', redirectTo: 'tarjetas' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -7,7 +7,6 @@ import {ErrorInterceptor, JwtInterceptor} from './_helpers';
 import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {AlertComponent} from './_components';
-import {DashboardComponent} from './dashboard';
 import {LoginComponent} from './login';
 import {NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {RegisterComponent} from '@app/register';
@@ -20,15 +19,11 @@ import {RegisterComponent} from '@app/register';
     NgbDropdownModule,
     NgbTooltipModule,
     ReactiveFormsModule,
-    // WjInputModule,
-    // WjGridModule,
-    // WjGridFilterModule,
     routing
   ],
   declarations: [
     AlertComponent,
     AppComponent,
-    DashboardComponent,
     LoginComponent,
     RegisterComponent
   ],

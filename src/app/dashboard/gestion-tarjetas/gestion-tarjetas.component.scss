@@ -1,0 +1,19 @@
+.list-group-item {
+  &:hover {
+    cursor: pointer;
+    background-color: darkblue;
+  }
+}
+
+#left-card, #right-card{
+  .card-body{
+    height: 700px;
+  }
+}
+
+#right-card{
+  #card-list-container{
+    overflow-y: auto;
+    max-height: 600px;
+  }
+}
