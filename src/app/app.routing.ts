@@ -1,5 +1,5 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home';
+import { DashboardComponent } from './dashboard';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { AuthGuard } from './_guards';
@@ -9,11 +9,11 @@ import {ElectivasComponent} from '@app/electivas/electivas.component';
 
 const appRoutes: Routes = [
   { path: 'tarjetas', loadChildren: './tarjetas/tarjetas.module#TarjetasModule'},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'deportes', loadChildren: './deportes/deportes.module#DeportesModule' },
   { path: 'electivas', loadChildren: './electivas/electivas.module#ElectivasModule' },
-  // otherwise redirect to home
+  // otherwise redirect to dashboard
   { path: '', redirectTo: 'tarjetas', pathMatch: 'full' },
   { path: '**', redirectTo: 'tarjetas' }
 ];

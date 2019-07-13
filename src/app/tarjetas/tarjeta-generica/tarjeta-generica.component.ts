@@ -18,7 +18,6 @@ export class TarjetaGenericaComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.card);
   }
 
   navigateToCard(url: string) {

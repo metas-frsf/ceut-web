@@ -1,12 +1,10 @@
-﻿import {Component, enableProdMode, OnInit} from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+﻿import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
-import { AlertService, AuthenticationService } from '@app/_services';
+import {AlertService, AuthenticationService} from '@app/_services';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '@environments/environment';
-import * as wjcCore from 'wijmo/wijmo';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -26,7 +24,7 @@ export class LoginComponent implements OnInit {
     private http: HttpClient
   ) {
 
-    // redirect to home if already logged in
+    // redirect to dashboard if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
@@ -39,7 +37,7 @@ export class LoginComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
   // convenience getter for easy access to form fields

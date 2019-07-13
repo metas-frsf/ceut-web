@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Card} from '@app/_models/card';
+import { environment } from '../../environments/environment';
 
 // TODO: Hacer globales los headers
 const headers = new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded'});
@@ -17,13 +18,13 @@ export class CardService {
    * Obtiene todas las tarjetas desde el servidor y las devuelve para su procesamiento
    */
   getAll() {
-    return this.http.get<Card[]>(`/cards/getAll`);
+    return this.http.get<Card[]>(`${environment.apiUrl}/cards/getAll`);
   }
 
   getById(id: number) {
     const params = new HttpParams()
       .set('id', id.toString());
-    return this.http.get<Card>(`cards/getById`, {headers: headers, params: params});
+    return this.http.get<Card>(`${environment.apiUrl}/cards/getById`, {headers: headers, params: params});
   }
 
   /**

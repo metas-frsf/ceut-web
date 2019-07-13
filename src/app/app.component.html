@@ -69,7 +69,7 @@
           </ng-container>
 
           <ng-container *ngIf="currentUser">
-            <a class="dropdown-item d-flex align-items-center" routerLink="/home">
+            <a class="dropdown-item d-flex align-items-center" routerLink="/dashboard">
               <i class="fa fa-2x fa-columns" aria-hidden="true"></i>
               <label class="pl-3 mb-0">Panel Principal</label>
             </a>
@@ -88,7 +88,7 @@
           <a class="btn btn-outline-primary active mr-1" routerLink="/electivas">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
           </a>
-          <a class="btn btn-outline-primary active mr-1" routerLink="/home">
+          <a class="btn btn-outline-primary active mr-1" routerLink="/dashboard">
             <i class="fa fa-columns mr-2" aria-hidden="true"></i>Panel Principal
           </a>
           <a class="btn btn-outline-primary active" (click)="logout()">

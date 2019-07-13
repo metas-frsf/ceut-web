@@ -7,10 +7,10 @@ import {UserService, AuthenticationService, AlertService} from '@app/_services';
 import {Router} from '@angular/router';
 
 @Component(
-  { templateUrl: 'home.component.html',
-    styleUrls: ['./home.component.scss']
+  { templateUrl: 'dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss']
   })
-export class HomeComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
   currentUser: User;
   currentUserSubscription: Subscription;
   users: User[] = [];

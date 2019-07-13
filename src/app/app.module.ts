@@ -7,7 +7,7 @@ import {ErrorInterceptor, JwtInterceptor} from './_helpers';
 import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {AlertComponent} from './_components';
-import {HomeComponent} from './home';
+import {DashboardComponent} from './dashboard';
 import {LoginComponent} from './login';
 import {NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {RegisterComponent} from '@app/register';
@@ -28,7 +28,7 @@ import {RegisterComponent} from '@app/register';
   declarations: [
     AlertComponent,
     AppComponent,
-    HomeComponent,
+    DashboardComponent,
     LoginComponent,
     RegisterComponent
   ],
