@@ -110,7 +110,7 @@
             />
           </div>
           <div id="card-list-container" class="input-group input-group-sm">
-            <div *ngIf="cards && cards.length" class="btn-group-vertical w-100">
+            <div *ngIf="filteredCards && filteredCards.length" class="btn-group-vertical w-100">
               <button
                 *ngFor="let card of filteredCards"
                 class="text-left btn btn-outline-secondary"
