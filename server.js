@@ -17,6 +17,12 @@ app.use(errorHandler);
 app.use(express.static('./dist'));
 
 const rutasAccesibles = ['/', '/electivas', '/home', '/deportes', '/login', '/tarjetas'];
+const rutasApi = [
+  {path: "/users", controller: "./server/users/users.controller"},
+  {path: "/cards", controller: "./server/cards/cards.controller"},
+  {path: "/api/electivas", controller: "./server/electivas/electivas.controller"},
+  {path: "/api/keys", controller: "server/keys/keys.controller"}
+];
 
 app.get(rutasAccesibles, function(req,res) {
   res.sendFile(path.join(__dirname,'/dist/index.html'));
@@ -26,10 +32,9 @@ app.get(rutasAccesibles, function(req,res) {
 app.use(jwt());
 
 // api routes
-app.use('/users', require('./server/users/users.controller'));
-app.use('/cards', require('./server/cards/cards.controller'));
-app.use('/api/electivas', require('./server/electivas/electivas.controller'));
-app.use('/api/keys', require('server/keys/keys.controller'));
+for(const ruta of rutasApi){
+  app.use(ruta.path, require(ruta.controller));
+}
 
 // Start the app by listening on the default Heroku port
 const port = process.env.PORT ? process.env.PORT : 4000;
