@@ -1,7 +1,9 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Card} from '@app/_models/card';
-import {Observable} from 'rxjs';
+
+// TODO: Hacer globales los headers
+const headers = new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded'});
 
 @Injectable()
 export class CardService {
@@ -18,9 +20,10 @@ export class CardService {
     return this.http.get<Card[]>(`/cards/getAll`);
   }
 
-  // TODO: Implementar obtención de tarjetas desde lado del servidor
-  getTarjetas(): Observable<any> {
-    return this.http.get('/tarjetas');
+  getById(id: number) {
+    const params = new HttpParams()
+      .set('id', id.toString());
+    return this.http.get<Card>(`cards/getById`, {headers: headers, params: params});
   }
 
   /**
