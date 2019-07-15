@@ -27,12 +27,12 @@ export class GestionTarjetasComponent implements OnInit {
   }
 
   selectCard(id: number) {
-    this.selectedCard = this.cards.filter(Card => Card.id === id).pop();
+    this.selectedCard = this.cards.filter(card => card.id === id).pop();
   }
 
   filter(searchString: string) {
-    this.filteredCards = this.cards.filter(Card =>
-      Card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
+    this.filteredCards = this.cards.filter(card =>
+      card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
     );
   }
 

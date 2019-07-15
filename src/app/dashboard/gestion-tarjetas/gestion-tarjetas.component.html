@@ -6,8 +6,12 @@
           <div class="row no-gutters">
             <div class="col-4">Vista Previa</div>
             <div class="col-8 text-right">
-              <button class="btn btn-sm btn-outline-danger">Revertir Cambios 🔙</button>
-              <button class="ml-2 btn btn-sm btn-outline-success">Guardar 💾</button>
+              <button class="btn btn-sm btn-outline-danger">
+                Revertir Cambios 🔙
+              </button>
+              <button class="ml-2 btn btn-sm btn-outline-success">
+                Guardar 💾
+              </button>
             </div>
           </div>
         </div>
@@ -16,13 +20,9 @@
             Seleccione una tarjeta de la lista
           </ng-container>
           <ng-container *ngIf="selectedCard">
-            <div
-              tarjeta-generica
-              class="card shadow-nohover mx-auto"
-              [card]="selectedCard"
-            ></div>
+            <app-tarjeta-generica [card]="selectedCard"></app-tarjeta-generica>
             <hr />
-            <span><strong>Nro. de Id: </strong>{{selectedCard.id}}</span>
+            <span><strong>Nro. de Id: </strong>{{ selectedCard.id }}</span>
             <div class="input-group input-group-sm mb-2">
               <div class="form-check form-check-inline">
                 <input
@@ -106,7 +106,10 @@
             />
           </div>
           <div id="card-list-container" class="input-group input-group-sm">
-            <div *ngIf="filteredCards && filteredCards.length" class="btn-group-vertical w-100">
+            <div
+              *ngIf="filteredCards && filteredCards.length"
+              class="btn-group-vertical w-100"
+            >
               <button
                 *ngFor="let card of filteredCards"
                 class="text-left btn btn-outline-secondary"

@@ -9,7 +9,7 @@ import { DOCUMENT } from "@angular/common";
 import { Card } from "@app/_models/card";
 
 @Component({
-  selector: "[tarjeta-generica]",
+  selector: "app-tarjeta-generica",
   templateUrl: "./tarjeta-generica.component.html",
   styleUrls: [
     "../tarjetas.component.scss",

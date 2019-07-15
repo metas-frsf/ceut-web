@@ -1,10 +1,11 @@
-<div class="bg-primary shadow-nohover mx-auto p-0 h-100 rounded-0">
+<div class="card bg-primary shadow-nohover mx-auto p-0 h-100 rounded-0">
   <div class="card-body p-0 w-100">
-
     <div class="row">
       <div class="col-12">
         <div class="text-center">
-          <h2 class="card-title mb-0 p-3 text-white text-weight-bold" >{{ '¡Avisos importantes!' }}</h2>
+          <h2 class="card-title mb-0 p-3 text-white text-weight-bold">
+            {{ "¡Avisos importantes!" }}
+          </h2>
         </div>
         <ngb-carousel *ngIf="tarjetasAvisos.length > 0">
           <!--<ng-template ngbSlide>-->
@@ -37,44 +38,45 @@
           <!--</div>-->
           <!--</ng-template>-->
           <!--<ng-template ngbSlide>-->
-            <!--<a href="https://goo.gl/MSZFhX">-->
-              <!--<img class="w-100" src="../assets/img/ceut_paro_docente.jpg" alt="Paro Docente">-->
-            <!--</a>-->
-            <!--<div class="carousel-caption">-->
-            <!--</div>-->
+          <!--<a href="https://goo.gl/MSZFhX">-->
+          <!--<img class="w-100" src="../assets/img/ceut_paro_docente.jpg" alt="Paro Docente">-->
+          <!--</a>-->
+          <!--<div class="carousel-caption">-->
+          <!--</div>-->
           <!--</ng-template>-->
-          <ng-container  *ngFor="let tarjeta of tarjetasAvisos">
-
+          <ng-container *ngFor="let tarjeta of tarjetasAvisos">
             <ng-template ngbSlide *ngIf="tarjeta.enabled">
-
               <a [href]="tarjeta.link">
-                <img class="w-100" [src]="tarjeta.image" [alt]="tarjeta.caption">
+                <img
+                  class="w-100"
+                  [src]="tarjeta.image"
+                  [alt]="tarjeta.caption"
+                />
               </a>
-              <div class="carousel-caption">
-              </div>
+              <div class="carousel-caption"></div>
             </ng-template>
           </ng-container>
 
           <!--<ng-template ngbSlide>-->
-            <!--<a href="mailto:coro@frsf.utn.edu.ar">-->
-              <!--<img class="w-100" src="../assets/img/coro-full.jpeg" alt="Coro">-->
-            <!--</a>-->
-            <!--<div class="carousel-caption">-->
-            <!--</div>-->
+          <!--<a href="mailto:coro@frsf.utn.edu.ar">-->
+          <!--<img class="w-100" src="../assets/img/coro-full.jpeg" alt="Coro">-->
+          <!--</a>-->
+          <!--<div class="carousel-caption">-->
+          <!--</div>-->
           <!--</ng-template>-->
           <!--<ng-template ngbSlide>-->
-            <!--<a href="mailto:teatro@frsf.utn.edu.ar">-->
-              <!--<img class="w-100" src="../assets/img/teatro-aviso.png" alt="Teatro">-->
-            <!--</a>-->
-            <!--<div class="carousel-caption">-->
-            <!--</div>-->
+          <!--<a href="mailto:teatro@frsf.utn.edu.ar">-->
+          <!--<img class="w-100" src="../assets/img/teatro-aviso.png" alt="Teatro">-->
+          <!--</a>-->
+          <!--<div class="carousel-caption">-->
+          <!--</div>-->
           <!--</ng-template>-->
           <!--<ng-template ngbSlide>-->
-            <!--<a href="mailto:fdiaz@frsf.utn.edu.ar">-->
-              <!--<img class="w-100" src="../assets/img/lenguaje-expresivo-aviso.png" alt="Lenguaje Expresivo">-->
-            <!--</a>-->
-            <!--<div class="carousel-caption">-->
-            <!--</div>-->
+          <!--<a href="mailto:fdiaz@frsf.utn.edu.ar">-->
+          <!--<img class="w-100" src="../assets/img/lenguaje-expresivo-aviso.png" alt="Lenguaje Expresivo">-->
+          <!--</a>-->
+          <!--<div class="carousel-caption">-->
+          <!--</div>-->
           <!--</ng-template>-->
           <!--<ng-template ngbSlide>-->
           <!--<img class="w-100" src="../assets/img/becas_ceut.jpeg" alt="Becas CEUT">-->
@@ -105,6 +107,5 @@
         </ngb-carousel>
       </div>
     </div>
-
   </div>
 </div>

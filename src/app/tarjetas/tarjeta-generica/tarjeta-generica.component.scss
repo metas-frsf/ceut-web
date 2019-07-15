@@ -1,5 +1,5 @@
-div[tarjeta-generica] {
-  &.card {
+app-tarjeta-generica {
+  .card {
     max-width: 350px;
 
     &.double-size {
@@ -18,26 +18,27 @@ div[tarjeta-generica] {
 
   //Modifiers:
 
-  &.card-rounded-top {
+  .card-rounded-top {
     border-top-left-radius: 0.75rem !important;
     border-top-right-radius: 0.75rem !important;
   }
 
-  &.card-rounded-bottom {
+  .card-rounded-bottom {
     border-bottom-left-radius: 0.75rem !important;
     border-bottom-right-radius: 0.75rem !important;
   }
 
-  &.card-rounded {
+  .card-rounded {
     border-radius: 0.75rem !important;
   }
 
-  &.text-black {
+  .text-black {
     color: black;
   }
 
-  &.shadow-nohover {
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  .shadow-nohover {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
