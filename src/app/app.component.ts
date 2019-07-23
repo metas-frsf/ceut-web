@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   private rutasCeut = ["/home", "/dashboard", "/deportes", "/login"];
   private rutasMetas = ["/electivas"];
 
-  private paginaActiva;
+  private _paginaActiva;
 
   constructor(
     private router: Router,
@@ -67,5 +67,13 @@ export class AppComponent implements OnInit {
 
   get nombreDeBienvenida() {
     return `${this.currentUser.avatar} ${this.currentUser.firstName}`;
+  }
+
+  get paginaActiva() {
+    return this._paginaActiva;
+  }
+
+  set paginaActiva(value) {
+    this._paginaActiva = value;
   }
 }
