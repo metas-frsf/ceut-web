@@ -4,6 +4,7 @@ import { DOCUMENT } from "@angular/common";
 import { GlobalService } from "@app/_services/global.service";
 import { Moment } from "moment";
 import * as moment from "moment";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-electivas",
@@ -123,7 +124,8 @@ export class ElectivasComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: any,
     private electivasService: ElectivasService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private router: Router
   ) {
     this.seleccionarCarrera("basicas"); // Inicializamos cargando las materias básicas, comunes a las carreras
   }

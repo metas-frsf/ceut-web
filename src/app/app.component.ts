@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 import { AuthenticationService } from "./_services";
 import { User } from "./_models";
 
@@ -14,13 +14,24 @@ import * as wjcCore from "wijmo/wijmo";
 export class AppComponent implements OnInit {
   currentUser: User;
 
-  routingLinks = [
-    { label: "Inicio", link: "inicio", enabled: true },
-    { label: "Clientes", link: "clientes", enabled: false },
-    { label: "Reparaciones", link: "reparaciones", enabled: true },
-    { label: "Caja", link: "caja", enabled: false },
-    { label: "Stock", link: "stock", enabled: false }
-  ];
+  private paginaCeut = {
+    nombre: "CEUT",
+    messenger: "ceut.frsf",
+    instagram: "ceut.frsf",
+    logo: "logo-ceut.png"
+  };
+
+  private paginaMetas = {
+    nombre: "METAs",
+    messenger: "metas.frsf",
+    instagram: "metas.frsf",
+    logo: "logo-metas.png"
+  };
+
+  private rutasCeut = ["/home", "/dashboard", "/deportes", "/login"];
+  private rutasMetas = ["/electivas"];
+
+  private paginaActiva;
 
   constructor(
     private router: Router,
@@ -29,6 +40,18 @@ export class AppComponent implements OnInit {
     this.authenticationService.currentUser.subscribe(
       x => (this.currentUser = x)
     );
+
+    this.paginaActiva = { nombre: "", messenger: "", instagram: "", logo: "" };
+
+    router.events.subscribe(route => {
+      if (route instanceof NavigationEnd) {
+        if (this.rutasMetas.includes(route.urlAfterRedirects)) {
+          this.paginaActiva = this.paginaMetas;
+        } else {
+          this.paginaActiva = this.paginaCeut;
+        }
+      }
+    });
   }
 
   ngOnInit() {
@@ -42,7 +65,7 @@ export class AppComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
-  get welcomeName() {
+  get nombreDeBienvenida() {
     return `${this.currentUser.avatar} ${this.currentUser.firstName}`;
   }
 }
