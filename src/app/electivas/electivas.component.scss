@@ -1,11 +1,11 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+@import url(~fullpage.js/dist/fullpage.min.css);
 
 #icono-carrera {
   width: 125px;
   height: 125px;
   margin-top: -25px;
   border-radius: 4px;
-
 }
 
 #filtro-cuatrimestres {
@@ -16,44 +16,43 @@
   background-color: #e9ecef;
   height: 48px;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: -25px;
   }
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     margin-top: 0;
   }
 }
 
-#icono-calculadora{
+#icono-calculadora {
   width: 48px;
   height: 48px;
   margin-top: -25px;
   margin-right: 15px;
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     display: inline-flex !important;
   }
   @extend .justify-content-center;
 }
 
-#icono-ayuda{
+#icono-ayuda {
   height: 48px;
   width: 48px;
   margin-left: 15px;
   margin-top: -25px;
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     display: inline-flex !important;
   }
   @extend .justify-content-center;
 }
 
 #dropdown-carrera {
-
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     width: calc(100% - 150px);
     display: inline-flex !important;
     margin-top: -25px;
   }
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     width: 225px;
     margin-top: -30px;
   }
@@ -73,20 +72,19 @@
 #container {
   //margin-top: 1rem;
 
-  @media(max-width: 575px){
+  @media (max-width: 575px) {
     margin-top: 3rem;
   }
-  @media(min-width: 575px) and (max-width:991px){
+  @media (min-width: 575px) and (max-width: 991px) {
     margin-top: 3rem;
   }
-  @media(min-width: 992px){
+  @media (min-width: 992px) {
     margin-top: 3rem;
   }
-
 }
 
 #recomendacion-pantalla {
-  margin-bottom: 2.4rem
+  margin-bottom: 2.4rem;
 }
 
 #redes-sociales {
@@ -95,11 +93,11 @@
   //@media(max-width: 991px and min-width: 768px){
   //
   //}
-  @media(min-width: 992px){
+  @media (min-width: 992px) {
     width: 225px;
   }
 
-  img{
+  img {
     max-height: 40px;
     max-width: 40px;
   }
@@ -111,59 +109,63 @@
   }
 }
 
-.tarjeta-electiva{
-  .row{
-    @media(max-width: 575px){
+.tarjeta-electiva {
+  .row {
+    @media (max-width: 575px) {
       min-height: 105px;
     }
-    @media(min-width: 576px) and (max-width: 767px) {
+    @media (min-width: 576px) and (max-width: 767px) {
       min-height: 90px;
     }
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       min-height: 60px;
     }
   }
 }
 
-.horario{
-  @media(max-width: 767px){
+.horario {
+  @media (max-width: 767px) {
     font-size: 0.95rem;
   }
 }
 
-.bg-basicas{
-  background-color: #0097D0;
-  box-shadow: 0 4px 20px 0 rgba(0, 151, 208, 0.14), 0 7px 10px -5px rgba(0, 151, 208, 0.4);
+.bg-basicas {
+  background-color: #0097d0;
+  box-shadow: 0 4px 20px 0 rgba(0, 151, 208, 0.14),
+    0 7px 10px -5px rgba(0, 151, 208, 0.4);
   color: #fff;
 }
 
-.bg-civil{
+.bg-civil {
   background-color: #812893;
-  box-shadow: 0 4px 20px 0 rgba(129, 40, 147, 0.14), 0 7px 10px -5px rgba(129, 40, 147, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(129, 40, 147, 0.14),
+    0 7px 10px -5px rgba(129, 40, 147, 0.4);
   color: #fff;
 }
 
-.bg-electrica{
-  background-color: #FF0000;
-  box-shadow: 0 4px 20px 0 rgba(255, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 0, 0, 0.4);
+.bg-electrica {
+  background-color: #ff0000;
+  box-shadow: 0 4px 20px 0 rgba(255, 0, 0, 0.14),
+    0 7px 10px -5px rgba(255, 0, 0, 0.4);
   color: #fff;
 }
 
-.bg-industrial{
+.bg-industrial {
   background-color: #f57c00;
-  box-shadow: 0 4px 20px 0 rgba(245, 124, 0, 0.14), 0 7px 10px -5px rgba(245, 124, 0, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(245, 124, 0, 0.14),
+    0 7px 10px -5px rgba(245, 124, 0, 0.4);
   color: #fff;
 }
-.bg-mecanica{
+.bg-mecanica {
   background-color: #015128;
-  box-shadow: 0 4px 20px 0 rgba(34, 164, 56, 0.14), 0 7px 10px -5px rgba(34, 164, 56, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(34, 164, 56, 0.14),
+    0 7px 10px -5px rgba(34, 164, 56, 0.4);
   color: #fff;
 }
 
-.bg-sistemas{
-  background-color: #FFDE01;
-  box-shadow: 0 4px 20px 0 rgba(255, 222, 1, 0.14), 0 7px 10px -5px rgba(255, 222, 1, 0.4);
+.bg-sistemas {
+  background-color: #ffde01;
+  box-shadow: 0 4px 20px 0 rgba(255, 222, 1, 0.14),
+    0 7px 10px -5px rgba(255, 222, 1, 0.4);
   color: #000;
 }
-
-
