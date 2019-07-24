@@ -208,6 +208,12 @@ export class ElectivasComponent implements OnInit {
     this.bienvenidaVisible = !this.ayudaVisible;
   }
 
+  verVistaPrincipal() {
+    this.ayudaVisible = false;
+    this.calculadoraVisible = false;
+    this.bienvenidaVisible = true;
+  }
+
   cerrarRecomendacion() {
     this.recomendacionPantalla = false;
   }

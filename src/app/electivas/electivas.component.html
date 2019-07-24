@@ -435,35 +435,45 @@
 </ng-template>
 
 <ng-template #filtroCuatrimestres>
+  <div class="pt-2 px-2 pb-0 text-center">
+    Filtrá las electivas según cuándo se dictan:
+  </div>
+
   <div id="filtro-cuatrimestres" class="p-2 mt-2 mb-2 mb-md-0 rounded shadow">
     <span class="ml-2 d-none d-xl-inline font-weight-bold mr-3">Filtro:</span>
 
     <div class="btn-group btn-group-toggle">
-      <label class="btn btn-sm btn-outline-dark" ngbButtonLabel>
+      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
         <input
           type="checkbox"
           ngbButton
           [(ngModel)]="filtroCuatrimestre.anual"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
+        <ng-container *ngIf="filtroCuatrimestre.anual">✔️ </ng-container>
+        <ng-container *ngIf="!filtroCuatrimestre.anual">❌ </ng-container>
         Anual
       </label>
-      <label class="btn btn-sm btn-outline-dark" ngbButtonLabel>
+      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
         <input
           type="checkbox"
           ngbButton
           [(ngModel)]="filtroCuatrimestre.primero"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
+        <ng-container *ngIf="filtroCuatrimestre.primero">✔️ </ng-container>
+        <ng-container *ngIf="!filtroCuatrimestre.primero">❌ </ng-container>
         1er Cuatrimestre
       </label>
-      <label class="btn btn-sm btn-outline-dark" ngbButtonLabel>
+      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
         <input
           type="checkbox"
           ngbButton
           [(ngModel)]="filtroCuatrimestre.segundo"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
+        <ng-container *ngIf="filtroCuatrimestre.segundo">✔️ </ng-container>
+        <ng-container *ngIf="!filtroCuatrimestre.segundo">❌ </ng-container>
         2do Cuatrimestre
       </label>
     </div>
@@ -535,6 +545,7 @@
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
       class="rounded-left d-sm-none btn font-weight-bold"
+      (click)="verVistaPrincipal()"
     >
       {{ carreraElegida.nombreCorto }}
     </button>
