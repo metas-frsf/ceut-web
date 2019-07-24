@@ -8,12 +8,10 @@ import {
   NgbDropdownModule
 } from "@ng-bootstrap/ng-bootstrap";
 import { ElectivasService } from "@app/_services/electivas.service";
-import { AngularFullpageModule } from "@fullpage/angular-fullpage";
 
 @NgModule({
   declarations: [ElectivasComponent],
   imports: [
-    AngularFullpageModule,
     CommonModule,
     FormsModule,
     ElectivasRoutingModule,
