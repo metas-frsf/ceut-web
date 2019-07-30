@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon server.js",
-    "build": "ng build --aot --prod",
+    "build": "ng build",
     "build-prod": "ng build --aot --prod",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:fix": "pretty-quick --staged",
