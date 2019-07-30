@@ -10,7 +10,7 @@ const headers = new HttpHeaders({
 
 @Injectable()
 export class CardService {
-  private fixedCardListIds = [3, 2]; // Cartas fijadas en la parte superior
+  private fixedCardListIds = [3, 2, 32]; // Cartas fijadas en la parte superior
 
   constructor(public http: HttpClient) {}
 
