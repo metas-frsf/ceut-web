@@ -1,38 +1,8 @@
-﻿const config = require('server-config.json');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+﻿const config = require("server-config.json");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-// users hardcoded for simplicity, store in a db for production applications
-
-const users =  [
-  {
-    firstName: 'Ramiro',
-    lastName: 'Olivencia',
-    username: 'rolivencia',
-    password: '$2a$10$fgB5dXfJw7dLLzGGGmyJJe2vX5lGJayJ3GW0EMzrx0tPuZ./C24De',
-    id: 1,
-    token: '',
-    avatar: '🧑🏻'
-  },
-  {
-    firstName: 'Leandro',
-    lastName: 'Pochettino',
-    username: 'lpochettino',
-    password: '$2a$10$JlMs0xCnt7i6wGKBMjbKpeX8gano7d3a/sMOmty8N2YqbIU/QQOge',
-    id: 2,
-    token: '',
-    avatar: '🧑🏻'
-  },
-  {
-    firstName: 'Florencia',
-    lastName: 'Grimaldi',
-    username: 'fgrimaldi',
-    password: '$2a$10$ay3401gzi0.d/.1rKg7A0.15f2IMWnGKYHXOq7DqPGlX.NqXahNm2',
-    id: 3,
-    token: '',
-    avatar: '👩🏻'
-  }
-];
+const connection = require("server/_helpers/mysql-connector");
 
 module.exports = {
   authenticate,
@@ -40,20 +10,50 @@ module.exports = {
 };
 
 async function authenticate({ username, password }) {
-  const user = users.find(u => u.username === username.toLowerCase() && bcrypt.compareSync(password, u.password, 10));
-  if (user) {
-    const token = jwt.sign({ sub: user.id }, config.secret);
-    const { password, ...userWithoutPassword } = user;
-    return {
-      ...userWithoutPassword,
-      token
-    };
-  }
+  return new Promise((resolve, reject) => {
+    connection().query(
+      `SELECT * FROM user WHERE user_name = '${username}'`,
+      (err, result) => {
+        if (err) reject(error);
+        const user = result.pop();
+        const encryptedPassword = bcrypt.compareSync(
+          password,
+          user.password,
+          10
+        );
+        if (user && encryptedPassword) {
+          const token = jwt.sign({ sub: user.id }, config.secret);
+          const returnedUser = {
+            id: user.id,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            username: user.user_name,
+            token: token,
+            avatar: user.avatar
+          };
+          resolve(returnedUser);
+        }
+      }
+    );
+  });
 }
 
 async function getAll() {
-  return users.map(u => {
-    const { password, ...userWithoutPassword } = u;
-    return userWithoutPassword;
+  return new Promise((resolve, reject) => {
+    connection().query(`SELECT * FROM user`, (err, result) => {
+      if (err) reject(error);
+      if (result && result.length) {
+        resolve(
+          result.map(userRow => ({
+            id: userRow.id,
+            firstName: userRow.first_name,
+            lastName: userRow.last_name,
+            username: userRow.user_name,
+            token: "",
+            avatar: userRow.avatar
+          }))
+        );
+      }
+    });
   });
 }
