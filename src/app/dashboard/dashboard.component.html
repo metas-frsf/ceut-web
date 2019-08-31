@@ -6,10 +6,15 @@
     </div>
   </div>
 
-  <div class="card text-white bg-dark mb-3" (click)="goTo('dashboard/gestion-tarjetas')">
+  <div
+    class="card text-white bg-dark mb-3"
+    (click)="goTo('dashboard/gestion-tarjetas')"
+  >
     <div class="card-body">
       <h5 class="card-title">📣 Gestión de Tarjetas</h5>
-      <p class="card-text">Ingresar al menú de gestión de tarjetas de información</p>
+      <p class="card-text">
+        Ingresar al menú de gestión de tarjetas de información
+      </p>
     </div>
   </div>
 
@@ -22,15 +27,14 @@
       <small class="text-white">Módulo no disponible</small>
     </div>
   </div>
-
 </div>
 
-<hr>
+<hr />
 
 <h3>Usuarios registrados:</h3>
 <ul>
   <li *ngFor="let user of users">
-    {{user.username}} ({{user.firstName}} {{user.lastName}})
+    {{ user.userName }} ({{ user.firstName }} {{ user.lastName }})
     <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>-->
   </li>
 </ul>
