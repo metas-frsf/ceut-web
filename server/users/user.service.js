@@ -1,7 +1,9 @@
 ﻿const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("server-config.json");
+
 const User = require("./user.model");
+const Role = require("./role.model");
 
 module.exports = {
   authenticate,
@@ -10,6 +12,15 @@ module.exports = {
 
 async function authenticate({ userName, password }) {
   const user = await User().findOne({
+    include: [
+      {
+        model: Role(),
+        required: true,
+        attributes: ["id", "description"],
+        through: { attributes: [] }
+      }
+    ],
+
     where: {
       userName: userName
     }
