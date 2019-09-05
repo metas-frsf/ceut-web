@@ -1,9 +1,9 @@
-const config = JSON.parse(process.env.SERVER_CONFIG);
+const environment = require("server/_helpers/environment");
 
 module.exports = {
   get
 };
 
 async function get(key) {
-  return config.keys[key];
+  return environment.serverConfig.keys[key];
 }

@@ -1,7 +1,6 @@
 ﻿const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config = JSON.parse(process.env.SERVER_CONFIG);
-
+const environment = require("server/_helpers/environment");
 const User = require("./user.model");
 const Role = require("./role.model");
 
@@ -32,7 +31,7 @@ async function authenticate({ userName, password }) {
     bcrypt.compareSync(password, user.dataValues.password, 10)
       ? resolve({
           ...user.dataValues,
-          token: jwt.sign({ sub: user.id }, config.secret)
+          token: jwt.sign({ sub: user.id }, environment.serverConfig.secret)
         })
       : reject(error);
   });

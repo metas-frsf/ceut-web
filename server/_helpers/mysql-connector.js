@@ -1,8 +1,8 @@
-const config = JSON.parse(process.env.SERVER_CONFIG);
+const environment = require("./environment");
 const Sequelize = require("sequelize");
 
 const mysql = require("mysql2");
-const ceutDatabase = config.databases.mysql.databases
+const ceutDatabase = environment.serverConfig.databases.mysql.databases
   .filter(db => db.id === "ceut-frsf")
   .pop();
 

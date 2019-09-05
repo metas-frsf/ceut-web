@@ -1,11 +1,11 @@
-const config = JSON.parse(process.env.SERVER_CONFIG);
-const cuenta = config.airtable.cuentas
+const environment = require("server/_helpers/environment");
+const cuenta = environment.serverConfig.airtable.cuentas
   .filter(Cuenta => Cuenta.id === "metas")
   .pop();
 //Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
 const airtable = require("airtable");
 airtable.configure({
-  endpointUrl: config.airtable.endpointUrl,
+  endpointUrl: environment.serverConfig.airtable.endpointUrl,
   apiKey: cuenta.key
 });
 

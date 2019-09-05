@@ -1,9 +1,4 @@
 ﻿require("rootpath")();
-
-const dotenv = require("dotenv");
-dotenv.config();
-const configObject = JSON.parse(process.env.SERVER_CONFIG);
-
 const express = require("express");
 const app = express();
 const cors = require("cors");

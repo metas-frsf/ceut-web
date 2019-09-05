@@ -1,8 +1,8 @@
-const config = JSON.parse(process.env.SERVER_CONFIG);
+const environment = require("./environment");
 const firebaseAdmin = require("firebase-admin");
 
 const connect = projectId => {
-  const serviceAccount = config.databases.firebase.databases
+  const serviceAccount = environment.serverConfig.databases.firebase.databases
     .filter(Database => Database.project_id === projectId)
     .pop();
 
