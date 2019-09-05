@@ -1,5 +1,5 @@
-const expressJwt = require('express-jwt');
-const config = require('server-config.json');
+const expressJwt = require("express-jwt");
+const config = JSON.parse(process.env.SERVER_CONFIG);
 
 module.exports = jwt;
 
@@ -8,13 +8,13 @@ function jwt() {
   return expressJwt({ secret }).unless({
     path: [
       // public routes that don't require authentication
-      '/users/authenticate',
-      '/backend',
-      '/cards/getAll',
-      '/api/electivas/get',
-      '/api/keys/get',
-      '/electivas',
-      '/deportes'
+      "/users/authenticate",
+      "/backend",
+      "/cards/getAll",
+      "/api/electivas/get",
+      "/api/keys/get",
+      "/electivas",
+      "/deportes"
     ]
   });
 }

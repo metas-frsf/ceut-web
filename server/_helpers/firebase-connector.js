@@ -1,4 +1,4 @@
-const config = require("server-config.json");
+const config = JSON.parse(process.env.SERVER_CONFIG);
 const firebaseAdmin = require("firebase-admin");
 
 const connect = projectId => {

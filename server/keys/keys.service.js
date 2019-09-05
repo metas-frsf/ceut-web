@@ -1,4 +1,4 @@
-const config = require('server-config.json');
+const config = JSON.parse(process.env.SERVER_CONFIG);
 
 module.exports = {
   get

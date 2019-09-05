@@ -1,6 +1,6 @@
 ﻿const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config = require("server-config.json");
+const config = JSON.parse(process.env.SERVER_CONFIG);
 
 const User = require("./user.model");
 const Role = require("./role.model");
