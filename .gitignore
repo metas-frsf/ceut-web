@@ -3,6 +3,7 @@
 # project config
 server-config.json
 .env
+
 # compiled output
 /dist
 /tmp
