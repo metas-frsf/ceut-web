@@ -9,7 +9,7 @@ if (!("error" in result)) {
 } else {
   environment = {};
   _.each(process.env, (value, key) => (environment[key] = value));
-  environment.serverConfig = JSON.parse(result.parsed.SERVER_CONFIG);
+  environment.serverConfig = JSON.parse(environment.SERVER_CONFIG);
 }
 
 module.exports = environment;
