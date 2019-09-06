@@ -24,7 +24,7 @@ export class DeportesComponent implements OnInit {
       icono: "volleyball.png",
       nombre: "Volley",
       horario: "Viernes 20/9 - Desde las 15:30",
-      equipos: "Los equipos estarán compuestos por 6 personas.",
+      equipos: "Los equipos estarán compuestos por 4 personas.",
       premios: "",
       reglas:
         "Habrá 2 grupos de 3 equipos cada uno en el que competirán todos contra todos, pasando a la final el mejor equipo de cada grupo, jugándose el tercer puesto entre los equipos que queden en segunda posición en cada grupo. El día viernes se jugarán la final y el tercer puesto. Los partidos serán de dos tiempos de 5 minutos cada uno",
@@ -34,7 +34,7 @@ export class DeportesComponent implements OnInit {
       icono: "handball.png",
       nombre: "Handball",
       horario: "Viernes 20/9 - Desde las 9:00",
-      equipos: "Los equipos estarán compuestos por 7 personas.",
+      equipos: "Los equipos estarán compuestos por 5 personas.",
       premios: "",
       reglas:
         "Habrá 2 grupos de 3 equipos cada uno en el que competirán todos contra todos, pasando a la final el mejor equipo de cada grupo, jugándose el tercer puesto entre los equipos que quedaran en segunda posición en cada grupo. Los partidos serán de dos tiempos de 5 minutos cada uno",
@@ -44,8 +44,7 @@ export class DeportesComponent implements OnInit {
       icono: "basket.png",
       nombre: "Básquet",
       horario: "Viernes 20/9 - Desde las 11:30",
-      equipos:
-        "El torneo constará de 8 equipos de 3 jugadores (5 + 2 suplentes).",
+      equipos: "El torneo constará de 8 equipos de 3 jugadores.",
       premios: "",
       reglas: "Se jugarán 6 partidos de 7 minutos cada uno.",
       descripcion: []
@@ -115,13 +114,13 @@ export class DeportesComponent implements OnInit {
     {
       icono: "jigsaw.png",
       nombre: "Actividades libres",
-      horario: "Jueves 19/9 y Viernes 20/9, desde las 11:00",
+      horario: "Jueves 19/9 y Viernes 20/9, desde las 15:00",
       equipos:
         "Dependiendo de la actividad, se podrá jugar individualmente o en equipos",
-      premios: "",
+      premios: "¡Muchos premios sorpresa!",
       reglas: "",
       descripcion: [
-        "Durante la JEUT, se podrán realizar diversas actividades libres, consistentes en juegos variados. Entre las actividades disponibles, estarán el Delegado, el Twister, Carreras de Bolsas, Fútbol-Tenis, Metegol, Carrera de Cascos, Tesoro Escondido, Pictionary, Jack, Uno, Chancho, Apilar Vasos y ¡un Jenga Gigante!"
+        "Durante la JEUT, se podrán realizar diversas actividades libres, consistentes en juegos variados. Entre las actividades disponibles, estarán el Delegado, el Twister, Carreras de Bolsas, Fútbol-Tenis, Metegol, Carrera de Cascos, Tesoro Escondido, Pictionary, Jack, Uno, Chancho, Apilar Vasos y ¡un Jenga Gigante!. Estas actividades no tienen costo de inscripción."
       ]
     }
   ];

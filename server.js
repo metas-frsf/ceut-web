@@ -22,7 +22,8 @@ const rutasAccesibles = [
   "/dashboard",
   "/deportes",
   "/login",
-  "/home"
+  "/home",
+  "/jeut"
 ];
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
