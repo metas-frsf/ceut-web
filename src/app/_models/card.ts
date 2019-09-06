@@ -1,6 +1,6 @@
 export class Card {
   id: number;
-  link: string;
+  link: string | Link;
   icon: string;
   class: CardCssClasses;
   title: string;
@@ -20,11 +20,16 @@ export class CardCssClasses {
 export class CardContent {
   title: string;
   description: string;
-  link?: string;
+  link: string | Link;
 }
 
 export class Footer {
   separator?: boolean;
   class: string;
   content: string;
+}
+
+export class Link {
+  type: string;
+  url: string;
 }

@@ -1,13 +1,13 @@
-<div id="container">
+<div id="container" class="mx-auto">
   <div class="w-100 text-center mb-4">
-    <img id="jeut_logo" class="mt-3" [src]="'assets/img/deportes/jeut.png'"/>
+    <img id="jeut_logo" class="mt-3" [src]="'assets/img/deportes/jeut.png'" />
   </div>
 
   <ngb-tabset>
     <ngb-tab *ngFor="let deporte of listaDeportes">
       <ng-template ngbTabTitle>
         <b>
-          <img [src]="'assets/img/deportes/' + deporte.icono"/>
+          <img [src]="'assets/img/deportes/' + deporte.icono" />
         </b>
       </ng-template>
 
@@ -20,26 +20,53 @@
             <div class="card-text">
               <p>📅 <strong>Días y horarios:</strong> {{ deporte.horario }}</p>
               <p>👫 <strong>Equipos:</strong> {{ deporte.equipos }}</p>
-              <p *ngIf="deporte.premios">🏆 <strong>Premios:</strong> {{ deporte.premios }}</p>
+              <p *ngIf="deporte.premios">
+                🏆 <strong>Premios:</strong> {{ deporte.premios }}
+              </p>
               <p>📜 <strong>Reglas:</strong> {{ deporte.reglas }}</p>
               <p *ngFor="let parrafo of deporte.descripcion">
                 {{ parrafo }}
               </p>
 
               <ng-container *ngIf="deporte.nombre === 'League of Legends'">
-                <hr>
-                <p> ¿Ya pagaste la inscripción para participar del torneo de League of Legends?</p>
-                <p> Sumate al canal de Discord de estudiantes de la UTN FRSF <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a></p>
-                <p> Inscribí a tu equipo vía Battlefy para poder participar del torneo y hacer streaming por Twitch.tv en el canal del CEUT <a href="https://battlefy.com/ceut-frsf/jeut-2019-1er-cuatrimestre/5cd02a7deb092b0338d76e4c/info"><b>en este link</b></a></p>
+                <hr />
+                <p>
+                  ¿Ya pagaste la inscripción para participar del torneo de
+                  League of Legends?
+                </p>
+                <p>
+                  Sumate al canal de Discord de estudiantes de la UTN FRSF
+                  <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a>
+                </p>
+                <p>
+                  Inscribí a tu equipo vía Battlefy para poder participar del
+                  torneo y hacer streaming por Twitch.tv en el canal del CEUT
+                  <a
+                    href="https://battlefy.com/ceut-frsf/jeut-2019-1er-cuatrimestre/5cd02a7deb092b0338d76e4c/info"
+                    ><b>en este link</b></a
+                  >
+                </p>
               </ng-container>
 
               <ng-container *ngIf="deporte.nombre === 'Counter-Strike 1.6'">
-                <hr>
-                <p> ¿Ya pagaste la inscripción para participar del torneo de Counter-Strike 1.6?</p>
-                <p> Sumate al canal de Discord de estudiantes de la UTN FRSF <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a></p>
-                <p> Inscribí a tu equipo vía Battlefy para poder participar del torneo y hacer streaming por Twitch.tv en el canal del CEUT <a href="https://battlefy.com/ceut-frsf/jeut-2019-1er-cuatrimestre/5cd0e123f0745f0344ac661f/info"><b>en este link</b></a></p>
+                <hr />
+                <p>
+                  ¿Ya pagaste la inscripción para participar del torneo de
+                  Counter-Strike 1.6?
+                </p>
+                <p>
+                  Sumate al canal de Discord de estudiantes de la UTN FRSF
+                  <a href="https://discord.gg/d5q5QdG"><b>en este link</b></a>
+                </p>
+                <p>
+                  Inscribí a tu equipo vía Battlefy para poder participar del
+                  torneo y hacer streaming por Twitch.tv en el canal del CEUT
+                  <a
+                    href="https://battlefy.com/ceut-frsf/torneo-5vs5-jeut-2019-2do-cuatrimestre/5d6e948697939e35bb9eb01e/info?infoTab=rules"
+                    ><b>en este link</b></a
+                  >
+                </p>
               </ng-container>
-
             </div>
           </div>
         </div>
@@ -53,8 +80,18 @@
         <h5>Inscripciones e Info General</h5>
       </div>
       <div class="card-text">
-        <p>📄 Las actividades de la JEUT se llevarán adelante a la par de la Semana de la Salud los días miércoles 15/5 y viernes 17/5, a excepción del torneo de League of Legends, que se llevará adelante durante toda la semana, desde el lunes 13/5 hasta el viernes 17/5.</p>
-        <p>🎫 Si te anotás a una única actividad con premios, el costo de la inscripción es de $60. Si te anotás a dos actividades, el costo único de inscripción para participar de las dos es de $80.</p>
+        <p>
+          📄 Las actividades de la JEUT se llevarán adelante durante los días
+          jueves 19/9 y viernes 20/9, a excepción del torneo de League of
+          Legends, que se llevará adelante desde el 14/9 hasta el 29/9.
+        </p>
+        <p>
+          🎫 El costo de inscripción es de $60 y se incluyen consumiciones de
+          bebida para la fiesta "Ilógica", la cual se llevará adelante en la
+          explada de la facultad a partir de las 19:00 del viernes 20/9. Para
+          los primeros, segundos y terceros puestos de cada deporte, se
+          incluirán además consumiciones de comida.
+        </p>
       </div>
     </div>
   </div>

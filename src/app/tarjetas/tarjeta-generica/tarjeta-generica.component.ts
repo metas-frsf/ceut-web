@@ -6,7 +6,8 @@ import {
   ViewEncapsulation
 } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
-import { Card } from "@app/_models/card";
+import { Card, Link } from "@app/_models/card";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-tarjeta-generica",
@@ -23,13 +24,26 @@ export class TarjetaGenericaComponent implements OnInit {
   @Input() card: Card;
   baseUrl = "";
 
-  constructor(@Inject(DOCUMENT) private document: any) {}
+  constructor(
+    @Inject(DOCUMENT) private document: any,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
-  navigateToCard(url: string) {
-    if (url) {
-      this.document.location.href = url;
+  navigate(link: string | Link) {
+    if (link) {
+      if (typeof link === "object") {
+        if (link.type === "internal") {
+          this.router.navigate([link.url]);
+        } else if (link.type === "external") {
+          this.document.location.href = link.url;
+        }
+      }
+      //Deprecated: Fallback case, where only a string was defined in the link attribute
+      else if (typeof link === "string") {
+        this.document.location.href = link;
+      }
     }
   }
 }

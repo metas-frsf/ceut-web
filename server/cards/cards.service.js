@@ -13,7 +13,13 @@ cardsReference.once("value", function(snapshot) {
 const getAll = async () => cards;
 const getById = async id => cards.filter(Card => Card.id === id).pop();
 
+const create = async card => {
+  const ref = database.ref("card-objects");
+  const key = ref.push().key;
+};
+
 module.exports = {
   getAll,
-  getById
+  getById,
+  create
 };
