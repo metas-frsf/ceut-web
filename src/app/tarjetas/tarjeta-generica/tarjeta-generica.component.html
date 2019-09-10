@@ -23,7 +23,7 @@
         <div class="mt-2 card-text text-justify" [ngClass]="card.class.content">
           <p class="mb-2" *ngFor="let line of card.content">
             <strong *ngIf="line.title">{{ line.title + " " }}</strong>
-            <a *ngIf="line.link" (click)="navigate(line.link)">{{
+            <a *ngIf="line.link" href="" (click)="navigate(line.link)">{{
               line.description
             }}</a>
             <ng-container *ngIf="!line.link">{{
