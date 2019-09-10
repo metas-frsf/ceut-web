@@ -1,43 +1,43 @@
 //This one must be always kept as the last line of the file
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 
-.bg-teatro{
+.bg-teatro {
   background-size: cover;
   background-image: url("../../assets/img/teatro-fondo.png");
 }
 
-#search-bar{
-
-  @media(max-width: 575px){
-    top: 70px;
-  }
-  //@media(min-width: 576px) and (max-width: 768px){
-  //  top: 74px;
-  //}
-
+#search-bar {
+  top: 74px;
   position: sticky;
   height: 48px;
-  margin-left: -15px;
-  margin-right: -15px;
   z-index: 3;
+
+  @media (min-width: 576px) {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 
   .input-group {
     background-color: white;
     position: sticky;
-    max-width: 350px;
     z-index: 3;
+
+    @media (min-width: 576px) {
+      max-width: 350px;
+    }
   }
 }
 
-#avisos, #contenido {
-  @media(max-width: 991px){
+#avisos,
+#contenido {
+  @media (max-width: 991px) {
     column-count: 1;
   }
-  @media(min-width: 992px) and (max-width: 1199px){
+  @media (min-width: 992px) and (max-width: 1199px) {
     column-count: 2;
   }
-  @media(min-width: 1200px){
+  @media (min-width: 1200px) {
     column-count: 3;
   }
 }

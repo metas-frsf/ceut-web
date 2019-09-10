@@ -1,12 +1,16 @@
-.navbar {
+#navbar {
   position: sticky;
+  height: 74px;
+}
+
+.navbar {
   width: 100%;
   top: 0;
   z-index: 4;
 
-  @media(max-width: 575px){
-    height: 70px;
-  }
+  //@media(max-width: 575px){
+  //  height: 70px;
+  //}
 }
 
 .navbar-nav {
@@ -15,14 +19,14 @@
   }
 }
 
-.navbar-brand{
-  img{
+.navbar-brand {
+  img {
     max-width: 150px;
 
-    @media(max-width: 420px){
+    @media (max-width: 420px) {
       max-height: 40px;
     }
-    @media(min-width: 420px){
+    @media (min-width: 420px) {
       max-height: 50px;
     }
   }
@@ -30,15 +34,16 @@
 
 #app {
   background-image: url("../assets/img/backgrounds/background.png");
-  box-shadow: 0 12px 12px 16px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 12px 16px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 100vh;
 }
 
 #app-container {
-  min-height: calc( 100vh - 74px);
+  min-height: calc(100vh - 74px);
 
-  @media(max-width: 576px){
+  @media (max-width: 576px) {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -49,7 +54,8 @@ body {
 }
 
 [ngbDropdownMenu] {
-  img, i{
+  img,
+  i {
     height: 32px;
     max-height: 32px;
   }

@@ -63,14 +63,19 @@ export class CardService {
 
     const filterByContent = cardList.filter(
       card =>
+        card.content &&
         card.content.filter(ContentLine => {
           const inTitle =
+            ContentLine.title &&
             ContentLine.title.toLowerCase().indexOf(textoToSearchLowerCase) !==
-            -1;
+              -1;
+
           const inDescription =
+            ContentLine.description &&
             ContentLine.description
               .toLowerCase()
               .indexOf(textoToSearchLowerCase) !== -1;
+
           return inTitle || inDescription;
         }).length
     );
