@@ -1,9 +1,14 @@
-#login-card{
+@import "../../assets/scss/layout";
 
-  @media(max-width: 420px){
+#login-container {
+  @extend .viewport-height;
+}
+
+#login-card {
+  @media (max-width: 420px) {
     max-width: 300px;
   }
-  @media(min-width: 421px){
+  @media (min-width: 421px) {
     width: 400px;
   }
 }

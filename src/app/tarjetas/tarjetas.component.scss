@@ -12,11 +12,8 @@
   position: sticky;
   height: 48px;
   z-index: 3;
-
-  @media (min-width: 576px) {
-    margin-left: -15px;
-    margin-right: -15px;
-  }
+  margin-left: -15px;
+  margin-right: -15px;
 
   .input-group {
     background-color: white;

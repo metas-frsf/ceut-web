@@ -1,52 +1,32 @@
-#navbar {
-  position: sticky;
-  height: 74px;
-}
+@import "../assets/scss/layout";
 
-.navbar {
-  width: 100%;
+#header-container {
+  margin-left: -15px;
+  margin-right: -15px;
   top: 0;
+  position: sticky;
   z-index: 4;
-
-  //@media(max-width: 575px){
-  //  height: 70px;
-  //}
 }
 
-.navbar-nav {
-  .nav-item.disabled {
-    cursor: default;
-  }
-}
-
-.navbar-brand {
-  img {
-    max-width: 150px;
-
-    @media (max-width: 420px) {
-      max-height: 40px;
-    }
-    @media (min-width: 420px) {
-      max-height: 50px;
-    }
-  }
-}
-
-#app {
+#main-container {
   background-image: url("../assets/img/backgrounds/background.png");
   box-shadow: 0 12px 12px 16px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 100vh;
+  @extend .viewport-height;
 }
 
-#app-container {
-  min-height: calc(100vh - 74px);
+#outlet-container {
+  @extend .viewport-height;
 
   @media (max-width: 576px) {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+}
+
+#inner-container {
+  @extend .viewport-height;
 }
 
 body {

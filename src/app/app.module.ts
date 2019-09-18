@@ -13,6 +13,7 @@ import {
   NgbTooltipModule
 } from "@ng-bootstrap/ng-bootstrap";
 import { RegisterComponent } from "@app/register";
+import { MainHeaderComponent } from "@app/_components/main-header/main-header.component";
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { RegisterComponent } from "@app/register";
   declarations: [
     AlertComponent,
     AppComponent,
+    MainHeaderComponent,
     LoginComponent,
     RegisterComponent
   ],

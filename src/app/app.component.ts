@@ -15,14 +15,14 @@ export class AppComponent implements OnInit {
   currentUser: User;
 
   private paginaCeut = {
-    nombre: "CEUT",
+    name: "CEUT",
     messenger: "ceut.frsf",
     instagram: "ceut.frsf",
     logo: "logo-ceut.png"
   };
 
   private paginaMetas = {
-    nombre: "METAs",
+    name: "METAs",
     messenger: "metas.frsf",
     instagram: "metas.frsf",
     logo: "logo-metas.png"
@@ -41,8 +41,6 @@ export class AppComponent implements OnInit {
       x => (this.currentUser = x)
     );
 
-    this.paginaActiva = { nombre: "", messenger: "", instagram: "", logo: "" };
-
     router.events.subscribe(route => {
       if (route instanceof NavigationEnd) {
         if (this.rutasMetas.includes(route.urlAfterRedirects)) {
@@ -54,11 +52,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.authenticationService
-      .getKeys("wijmo")
-      .subscribe(Key => wjcCore.setLicenseKey(Key));
-  }
+  ngOnInit() {}
 
   logout() {
     this.authenticationService.logout();
