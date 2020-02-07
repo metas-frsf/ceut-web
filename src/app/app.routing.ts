@@ -3,17 +3,27 @@ import { LoginComponent } from "./login";
 import { AuthGuard } from "./_guards";
 
 const appRoutes: Routes = [
-  { path: "home", loadChildren: "./tarjetas/tarjetas.module#TarjetasModule" },
+  {
+    path: "home",
+    loadChildren: () =>
+      import("./tarjetas/tarjetas.module").then(m => m.TarjetasModule)
+  },
   {
     path: "dashboard",
-    loadChildren: "./dashboard/dashboard.module#DashboardModule",
+    loadChildren: () =>
+      import("./dashboard/dashboard.module").then(m => m.DashboardModule),
     canActivate: [AuthGuard]
   },
   { path: "login", component: LoginComponent },
-  { path: "jeut", loadChildren: "./deportes/deportes.module#DeportesModule" },
+  {
+    path: "jeut",
+    loadChildren: () =>
+      import("./deportes/deportes.module").then(m => m.DeportesModule)
+  },
   {
     path: "electivas",
-    loadChildren: "./electivas/electivas.module#ElectivasModule"
+    loadChildren: () =>
+      import("./electivas/electivas.module").then(m => m.ElectivasModule)
   },
   // otherwise redirect to dashboard
   { path: "", redirectTo: "home", pathMatch: "full" },

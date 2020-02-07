@@ -6,13 +6,17 @@ const routes: Routes = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
   {
     path: "gestion-tarjetas",
-    loadChildren:
-      "./gestion-tarjetas/gestion-tarjetas.module#GestionTarjetasModule"
+    loadChildren: () =>
+      import("./gestion-tarjetas/gestion-tarjetas.module").then(
+        m => m.GestionTarjetasModule
+      )
   },
   {
     path: "calculadora",
-    loadChildren:
-      "./copies-calculator/copies-calculator.module#CopiesCalculatorModule"
+    loadChildren: () =>
+      import("./copies-calculator/copies-calculator.module").then(
+        m => m.CopiesCalculatorModule
+      )
   }
 ];
 
