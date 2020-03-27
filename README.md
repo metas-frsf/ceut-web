@@ -8,7 +8,9 @@ Run `npm install -g @angular/cli` to install Angular CLI as a global package. Th
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` to locally run the client project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `nodemon server.js` to run the server project. The local client will use the server API located at `http://localhost:4000` by default
 
 ## Code scaffolding
 
