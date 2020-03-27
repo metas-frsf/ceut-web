@@ -24,7 +24,7 @@
     "@angular/platform-browser": "^9.0.0",
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/router": "^9.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^5.2.1",
+    "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "airtable": "^0.6.0",
     "ajv": "^6.11.0",
     "ajv-keywords": "^3.4.1",
