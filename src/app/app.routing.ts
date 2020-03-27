@@ -25,6 +25,13 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./electivas/electivas.module").then(m => m.ElectivasModule)
   },
+  {
+    path: "manual-ingresante",
+    loadChildren: () =>
+      import("./manual-ingresante/manual-ingresante.module").then(
+        m => m.ManualIngresanteModule
+      )
+  },
   // otherwise redirect to dashboard
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", redirectTo: "home" }
