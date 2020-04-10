@@ -11,7 +11,7 @@
       placeholder="Buscar..."
       aria-label="Search"
       [(ngModel)]="barraDeBusqueda"
-      (ngModelChange)="filtrarTarjetas(barraDeBusqueda)"
+      (ngModelChange)="cardService.applyFilter(barraDeBusqueda)"
     />
   </div>
 </div>
@@ -20,16 +20,16 @@
 <div id="avisos" class="card-columns text-center mt-2">
   <!--Mostrar tarjeta de avisos sólo cuando la búsqueda está vacía-->
   <!--  <app-tarjeta-avisos *ngIf="barraDeBusqueda.length === 0"></app-tarjeta-avisos>-->
-  <ng-container *ngFor="let card of listaTarjetasFijas">
+  <ng-container *ngFor="let card of cardService.fixedCards">
     <!-- TODO: Refinar feature de cambio de tamaño horizontal de tarjetas, haciéndolo programático -->
     <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
   </ng-container>
 </div>
 
-<hr *ngIf="listaTarjetasFijas && listaTarjetasFijas.length" />
+<hr *ngIf="cardService.fixedCards.length" />
 
 <div id="contenido" class="card-columns text-center">
-  <ng-container *ngFor="let card of tarjetasMoviles">
+  <ng-container *ngFor="let card of cardService.assortedCards">
     <app-tarjeta-generica
       *ngIf="card.enabled"
       [card]="card"

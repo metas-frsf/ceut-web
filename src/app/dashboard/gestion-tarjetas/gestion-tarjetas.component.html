@@ -93,7 +93,12 @@
     </div>
     <div id="right-card" class="col-5">
       <div class="card mb-3">
-        <div class="card-header">Lista de Tarjetas</div>
+        <div class="card-header d-flex justify-content-between">
+          <div>Lista de Tarjetas</div>
+          <button class="btn btn-sm btn-danger" (click)="migrate()">
+            Migrar
+          </button>
+        </div>
         <div class="card-body">
           <div class="input-group input-group-sm mb-2">
             <div class="input-group-prepend">

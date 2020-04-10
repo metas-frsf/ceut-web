@@ -10,28 +10,30 @@ import { CardService } from "@app/_services/card.service";
 })
 export class GestionTarjetasComponent implements OnInit {
   private _selectedCard: Card;
-  private cards: Card[];
   private _filteredCards: Card[];
   private _search: string = "";
 
   constructor(public cardService: CardService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  migrate() {
     this.cardService
-      .getAll()
+      .migrate()
       .toPromise()
-      .then(Cards => {
-        this.cards = Cards;
-        this.filteredCards = this.cards;
+      .then(result => {
+        console.log();
       });
   }
 
   selectCard(id: number) {
-    this.selectedCard = this.cards.filter(card => card.id === id).pop();
+    this.selectedCard = this.cardService.cards
+      .filter(card => card.id === id)
+      .pop();
   }
 
   filter(searchString: string) {
-    this.filteredCards = this.cards.filter(card =>
+    this.filteredCards = this.cardService.cards.filter(card =>
       card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
     );
   }
