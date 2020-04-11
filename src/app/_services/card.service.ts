@@ -58,7 +58,9 @@ export class CardService {
   toArray(cards: Object) {
     let cardArray = [];
     for (const card in cards) {
-      cardArray = cardArray.concat(cards[card]);
+      if (cards.hasOwnProperty(card)) {
+        cardArray = cardArray.concat(cards[card]);
+      }
     }
     return cardArray;
   }
