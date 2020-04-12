@@ -2,6 +2,7 @@ const environment = require("server/_helpers/environment");
 const cuenta = environment.serverConfig.airtable.cuentas
   .filter(Cuenta => Cuenta.id === "metas")
   .pop();
+
 //Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
 const airtable = require("airtable");
 airtable.configure({
@@ -9,7 +10,7 @@ airtable.configure({
   apiKey: cuenta.key
 });
 
-const base = cuenta.bases.filter(Base => Base.nombre).pop();
+const base = cuenta.bases.filter(Base => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
 const baseConnection = airtable.base(base.url);
 
 module.exports = {

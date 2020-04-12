@@ -12,6 +12,8 @@ function jwt() {
       "/backend",
       "/cards/getAll",
       "/api/electivas/get",
+      "/api/deportes/get",
+      "/api/deportes/getAll",
       "/api/keys/get",
       "/electivas",
       "/deportes"

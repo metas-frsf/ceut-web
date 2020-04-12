@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { DeportesService } from "@app/_services/deportes.service";
+import { Deporte } from "@app/_models/deportes";
 
 @Component({
   selector: "app-deportes",
@@ -124,19 +126,17 @@ export class DeportesComponent implements OnInit {
       ]
     }
   ];
+  listaDeportesNew: Deporte[] = []; //TODO: Renombrar esto
 
-  constructor() {}
+  constructor(public deportesService: DeportesService) {}
 
-  ngOnInit() {}
-}
-
-export class Deporte {
-  icono: string;
-  nombre: string;
-  horario: string;
-  equipos?: string;
-  premios: string;
-  reglas?: string;
-  descripcion: string[];
-  link?: string;
+  ngOnInit() {
+    this.deportesService
+      .getAll()
+      .toPromise()
+      .then(deportes => {
+        this.listaDeportesNew = deportes;
+        console.log(deportes);
+      });
+  }
 }

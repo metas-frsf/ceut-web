@@ -22,8 +22,7 @@ const rutasAccesibles = [
   "/dashboard",
   "/deportes",
   "/login",
-  "/home",
-  "/jeut"
+  "/home"
 ];
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
@@ -31,6 +30,10 @@ const rutasApi = [
   {
     path: "/api/electivas",
     controller: "./server/electivas/electivas.controller"
+  },
+  {
+    path: "/api/deportes",
+    controller: "./server/deportes/deportes.controller"
   },
   { path: "/api/keys", controller: "server/keys/keys.controller" }
 ];

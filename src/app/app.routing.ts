@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   },
   { path: "login", component: LoginComponent },
   {
-    path: "jeut",
+    path: "deportes",
     loadChildren: () =>
       import("./deportes/deportes.module").then(m => m.DeportesModule)
   },
