@@ -1,13 +1,13 @@
 <div class="mt-2">
   <div class="row">
-    <div class="col-7">
-      <div id="left-card" class="card mb-3">
+    <div id="left-card" class="col-5">
+      <div class="card mb-3">
         <div class="card-header">
           <div class="row no-gutters">
             <div class="col-4">Vista Previa</div>
             <div class="col-8 text-right">
               <button class="btn btn-sm btn-outline-danger">
-                Revertir Cambios 🔙
+                Deshacer 🔙
               </button>
               <button class="ml-2 btn btn-sm btn-outline-success">
                 Guardar 💾
@@ -21,108 +21,165 @@
           </ng-container>
           <ng-container *ngIf="selectedCard">
             <app-tarjeta-generica [card]="selectedCard"></app-tarjeta-generica>
-            <hr />
-            <span><strong>Nro. de Id: </strong>{{ selectedCard.id }}</span>
-            <div class="input-group input-group-sm mb-2">
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [(ngModel)]="selectedCard.enabled"
-                  id="estadoTarjeta"
-                />
-                <label class="form-check-label" for="estadoTarjeta">
-                  Tarjeta habilitada
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [(ngModel)]="selectedCard.title"
-                  id="mostrarTitulo"
-                />
-                <label class="form-check-label" for="mostrarTitulo">
-                  Mostrar título
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [(ngModel)]="selectedCard.title"
-                  id="mostrarContenido"
-                />
-                <label class="form-check-label" for="mostrarContenido">
-                  Incluir contenido
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [(ngModel)]="selectedCard.footer"
-                  id="mostrarFooter"
-                />
-                <label class="form-check-label" for="mostrarFooter">
-                  Incluir footer
-                </label>
-              </div>
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Título</span>
-              </div>
-              <input class="form-control" [(ngModel)]="selectedCard.title" />
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Link</span>
-              </div>
-              <input class="form-control" [(ngModel)]="selectedCard.link" />
-            </div>
-            <div class="input-group input-group-sm">
-              <div class="input-group-prepend">
-                <span class="input-group-text">URL Ícono</span>
-              </div>
-              <input class="form-control" [(ngModel)]="selectedCard.icon" />
-            </div>
           </ng-container>
         </div>
       </div>
     </div>
-    <div id="right-card" class="col-5">
+    <div id="right-card" class="col-7">
       <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
           <div>Lista de Tarjetas</div>
+          <input
+            class="form-control form-control-sm px-2 w-50"
+            placeholder="Buscar..."
+            [(ngModel)]="search"
+            (ngModelChange)="cardService.applyFilter(search)"
+          />
           <button class="btn btn-sm btn-danger" (click)="migrate()">
             Migrar
           </button>
         </div>
         <div class="card-body">
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Buscar:</span>
-            </div>
-            <input
-              class="form-control"
-              [(ngModel)]="search"
-              (ngModelChange)="filter(search)"
-            />
-          </div>
           <div id="card-list-container" class="input-group input-group-sm">
             <div
-              *ngIf="filteredCards && filteredCards.length"
+              *ngIf="cardService.sortedCards.length"
               class="btn-group-vertical w-100"
             >
               <button
-                *ngFor="let card of filteredCards"
+                *ngFor="let card of cardService.sortedCards"
                 class="text-left btn btn-outline-secondary"
                 type="button"
                 (click)="selectCard(card.id)"
               >
                 {{ card.title }}
               </button>
+            </div>
+          </div>
+          <hr class="mt-1 mb-1" />
+          <div id="selected-card-data" *ngIf="selectedCard">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group input-group-sm mb-2">
+                  <span class="mr-3"
+                    ><strong>Nro. de Id: </strong>{{ selectedCard.id }}</span
+                  >
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="selectedCard.enabled"
+                      id="estadoTarjeta"
+                    />
+                    <label class="form-check-label" for="estadoTarjeta">
+                      Habilitada
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="selectedCard.title"
+                      id="mostrarTitulo"
+                    />
+                    <label class="form-check-label" for="mostrarTitulo">
+                      Ver título
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="selectedCard.title"
+                      id="mostrarContenido"
+                    />
+                    <label class="form-check-label" for="mostrarContenido">
+                      Ver contenido
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [(ngModel)]="selectedCard.footer"
+                      id="mostrarFooter"
+                    />
+                    <label class="form-check-label" for="mostrarFooter">
+                      Footer
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-1 mb-1" />
+            <div class="row">
+              <div class="col-6">
+                <label><strong>General:</strong></label>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Título</span>
+                  </div>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="selectedCard.title"
+                  />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Link de Tarjeta</span>
+                  </div>
+                  <input class="form-control" [(ngModel)]="selectedCard.link" />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">URL Ícono</span>
+                  </div>
+                  <input class="form-control" [(ngModel)]="selectedCard.icon" />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <button class="btn btn-sm btn-primary w-100">
+                    Editar Contenido
+                  </button>
+                </div>
+              </div>
+              <div class="col-6">
+                <label><strong>Clases CSS:</strong></label>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Título</span>
+                  </div>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="selectedCard.class.title"
+                  />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Tarjeta</span>
+                  </div>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="selectedCard.class.card"
+                  />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Contenido</span>
+                  </div>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="selectedCard.class.content"
+                  />
+                </div>
+                <div class="input-group input-group-sm mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Imagen</span>
+                  </div>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="selectedCard.class.image"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

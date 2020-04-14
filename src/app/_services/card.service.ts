@@ -10,6 +10,14 @@ const headers = new HttpHeaders({
 
 @Injectable()
 export class CardService {
+  get sortedCards(): any[] {
+    return this._sortedCards;
+  }
+
+  set sortedCards(value: any[]) {
+    this._sortedCards = value;
+  }
+
   get fixedCards(): any[] {
     return this._fixedCards;
   }
@@ -25,17 +33,18 @@ export class CardService {
     this._assortedCards = value;
   }
 
-  get cards(): any[] {
-    return this._cards;
+  get rawCards(): any[] {
+    return this._rawCards;
   }
 
-  set cards(value: any[]) {
-    this._cards = value;
+  set rawCards(value: any[]) {
+    this._rawCards = value;
   }
 
   private fixedCardListIds = [2, 3, 18]; // Cartas fijadas en la parte superior
 
-  private _cards = [];
+  private _rawCards = [];
+  private _sortedCards = [];
   private _fixedCards = [];
   private _assortedCards = [];
 
@@ -50,9 +59,10 @@ export class CardService {
     const cardDatabase = await this.http
       .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
       .toPromise();
-    this.cards = this.toArray(cardDatabase);
-    this.fixedCards = this.getFixedCards(this.cards);
-    this.assortedCards = this.getAssortedCardList(this.cards);
+    this.rawCards = this.toArray(cardDatabase);
+    this.sortedCards = [].concat(this.rawCards).sort(this.sortByTitleAsc);
+    this.fixedCards = this.getFixedCards(this.rawCards);
+    this.assortedCards = this.getAssortedCardList(this.rawCards);
   }
 
   toArray(cards: Object) {
@@ -76,6 +86,16 @@ export class CardService {
       headers: headers,
       params: params
     });
+  }
+
+  sortByTitleAsc(a: Card, b: Card): number {
+    if (a.title > b.title) {
+      return 1;
+    } else if (a.title < b.title) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 
   /**
@@ -149,7 +169,9 @@ export class CardService {
    * @param textToSearch substring del texto que se desea buscar en títulos o contenido de tarjetas
    */
   applyFilter(textToSearch: string) {
-    const filteredList = this.filter(this.cards, textToSearch);
+    const filteredList = this.filter(this.rawCards, textToSearch);
+
+    this.sortedCards = [].concat(filteredList).sort(this.sortByTitleAsc);
 
     this.assortedCards = filteredList.filter(
       card => !this.getFixedCardListIds().includes(card.id)

@@ -27,13 +27,13 @@ export class GestionTarjetasComponent implements OnInit {
   }
 
   selectCard(id: number) {
-    this.selectedCard = this.cardService.cards
+    this.selectedCard = this.cardService.sortedCards
       .filter(card => card.id === id)
       .pop();
   }
 
   filter(searchString: string) {
-    this.filteredCards = this.cardService.cards.filter(card =>
+    this.filteredCards = this.cardService.sortedCards.filter(card =>
       card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
     );
   }
