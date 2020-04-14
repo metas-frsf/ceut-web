@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup
 
-Run `npm install -g @angular/cli` to install Angular CLI as a global package. Then, run `npm install` to install all the npm dependencies. Once installed, you can run the development server and/or build the project.
+Run `npm install -g @angular/cli nodemon` to install Angular CLI and nodemon as global packages. Then, run `npm install` to install all the npm dependencies. Once installed, you can run the development server and/or build the project.
 
 ## Development server
 
