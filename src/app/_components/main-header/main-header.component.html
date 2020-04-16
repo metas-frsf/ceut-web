@@ -16,6 +16,7 @@
           <img
             id="messenger-icon"
             [src]="'assets/img/facebook-messenger.png'"
+            [alt]="'Logo Messenger'"
           />
         </a>
         <a
@@ -25,14 +26,18 @@
           ngbTooltip="Contactate vía Instagram"
           placement="right"
         >
-          <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'" />
+          <img
+            id="instagram-icon"
+            [src]="'assets/img/instagram-icon.png'"
+            [alt]="'Logo Instagram'"
+          />
         </a>
       </ng-container>
     </div>
 
     <div class="align-items-start align-items-sm-center">
       <a class="navbar-brand" routerLink="/"
-        ><img [src]="'assets/img/' + activePage.logo"
+        ><img [src]="'assets/img/' + activePage.logo" [alt]="'Logo CEUT FRSF'"
       /></a>
     </div>
 
@@ -68,6 +73,7 @@
               <img
                 id="instagram-icon"
                 [src]="'assets/img/instagram-icon.png'"
+                [alt]="'Logo Instagram'"
               />
               <label class="pl-3 mb-0">Instagram CEUT FRSF</label>
             </a>
@@ -81,6 +87,7 @@
               <img
                 id="messenger-icon"
                 [src]="'assets/img/facebook-messenger.png'"
+                [alt]="'Logo Messenger'"
               />
               <label class="pl-3 mb-0">Messenger CEUT FRSF</label>
             </a>
@@ -115,31 +122,22 @@
 
       <div class="d-none d-md-flex">
         <ng-container *ngIf="currentUser">
-          <a
-            class="btn btn-outline-primary active mr-1"
-            routerLink="/electivas"
-          >
+          <a class="btn btn-primary mr-1" routerLink="/electivas">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
           </a>
-          <a
-            class="btn btn-outline-primary active mr-1"
-            routerLink="/dashboard"
-          >
+          <a class="btn btn-primary mr-1" routerLink="/dashboard">
             <i class="fa fa-columns mr-2" aria-hidden="true"></i>Panel Principal
           </a>
-          <a class="btn btn-outline-primary active" (click)="logout()">
+          <a class="btn btn-primary" (click)="logout()">
             <i class="fa fa-sign-out-alt mr-2" aria-hidden="true"></i>Salir
           </a>
         </ng-container>
 
         <ng-container *ngIf="!currentUser">
-          <a class="btn btn-outline-primary active mr-3" routerLink="/login">
+          <a class="btn btn-primary mr-3" routerLink="/login">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Ingresar
           </a>
-          <a
-            class="btn btn-outline-primary active mr-3"
-            routerLink="/electivas"
-          >
+          <a class="btn btn-primary mr-3" routerLink="/electivas">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
           </a>
         </ng-container>
