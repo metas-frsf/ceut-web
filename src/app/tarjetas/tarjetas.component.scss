@@ -2,12 +2,26 @@
 
 @import "~bootstrap/scss/bootstrap.scss";
 
+.card-body {
+  border-radius: 1rem;
+}
+
+.card {
+  border-radius: 1rem;
+  border: none;
+}
+
+.p-0 img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
 .bg-teatro {
   background-size: cover;
   background-image: url("../../assets/img/teatro-fondo.png");
 }
 
-.jeut-d{
+.jeut-d {
   background-size: cover;
   background-image: url("../../assets/img/jeut-d.jpeg");
 }
