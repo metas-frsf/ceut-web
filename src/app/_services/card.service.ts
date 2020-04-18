@@ -33,17 +33,17 @@ export class CardService {
     this._assortedCards = value;
   }
 
-  get rawCards(): any[] {
+  get rawCards(): Object {
     return this._rawCards;
   }
 
-  set rawCards(value: any[]) {
+  set rawCards(value: Object) {
     this._rawCards = value;
   }
 
   private fixedCardListIds = [2, 3, 18]; // Cartas fijadas en la parte superior
 
-  private _rawCards = [];
+  private _rawCards: Object = {};
   private _sortedCards = [];
   private _fixedCards = [];
   private _assortedCards = [];
@@ -59,10 +59,12 @@ export class CardService {
     const cardDatabase = await this.http
       .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
       .toPromise();
-    this.rawCards = this.toArray(cardDatabase);
-    this.sortedCards = [].concat(this.rawCards).sort(this.sortByTitleAsc);
-    this.fixedCards = this.getFixedCards(this.rawCards);
-    this.assortedCards = this.getAssortedCardList(this.rawCards);
+    // const arrayCards = this.toArray(cardDatabase); //TODO: #Issue 28 - Comment out and work with the array - Incoming object is a Firebase nested object
+    const arrayCards = cardDatabase;
+    // this.rawCards = cardDatabase; //TODO: #Issue 28 - Comment out and work with the array - Incoming object is a Firebase nested object
+    this.sortedCards = [].concat(arrayCards).sort(this.sortByTitleAsc);
+    this.fixedCards = this.getFixedCards(arrayCards);
+    this.assortedCards = this.getAssortedCardList(arrayCards);
   }
 
   toArray(cards: Object) {
@@ -104,7 +106,8 @@ export class CardService {
   getAssortedCardList(cards: Card[]) {
     return cards
       .slice(0)
-      .filter(card => this.fixedCardListIds.indexOf(card.id) === -1);
+      .filter(card => this.fixedCardListIds.indexOf(card.id) === -1)
+      .sort(this.shuffleOrder);
   }
 
   /**
@@ -169,7 +172,7 @@ export class CardService {
    * @param textToSearch substring del texto que se desea buscar en títulos o contenido de tarjetas
    */
   applyFilter(textToSearch: string) {
-    const filteredList = this.filter(this.rawCards, textToSearch);
+    const filteredList = this.filter(this.toArray(this.rawCards), textToSearch);
 
     this.sortedCards = [].concat(filteredList).sort(this.sortByTitleAsc);
 
@@ -191,5 +194,12 @@ export class CardService {
           .indexOf(obj[propertyToCheck]) === pos
       );
     });
+  }
+
+  /**
+   * Genera un orden aleatorio para las tarjetas
+   */
+  shuffleOrder(): number {
+    return 0.5 - Math.random();
   }
 }
