@@ -8,6 +8,7 @@ export class Card {
   footer: Footer;
   enabled: boolean;
   modifiable?: boolean;
+  name?: string;
 }
 
 export class CardCssClasses {

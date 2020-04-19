@@ -3,21 +3,20 @@
 const firebaseConnector = require("../_helpers/firebase-connector");
 
 const database = firebaseConnector.connect("metas-frsf");
-const cardsReference = database.ref("cards"); //FIXME: #Issue 28 - Cambiar esto a "cards" una vez terminada la migración
+const cardsReference = database.ref("newCards"); //FIXME: #Issue 28 - Cambiar esto a "cards" una vez terminada la migración
 
-let cards = [];
-
-//TODO: #Issue 28 - Resolver para devolver ordenada la lista de tarjetas por título
-// cardsReference.orderByChild("title").on("child_added", function(snapshot) {
-//   cards = cards.concat(snapshot.val());
-// });
+let cards = {};
 
 const retrieveCards = () => {
-  return cardsReference.once("value");
+  cards = {};
+  return cardsReference.orderByChild("title").once("value");
 };
 
 const cardSnapshot = snapshot => {
-  cards = snapshot.val();
+  snapshot.forEach(card => {
+    //cards = cards.concat(card.val());
+    cards[card.key] = card.val();
+  });
 };
 
 const loadCards = async () => {
@@ -28,23 +27,33 @@ const showError = e => {
   console.error(e);
 };
 
-const getAll = async function(orderBy) {
+const getAll = async function() {
   await loadCards();
   return cards;
 };
 
-const getById = async id => cards.filter(Card => Card.id === id).pop();
+const getById = async function(id) {
+  await loadCards();
+  return cards.filter(Card => Card.id === id).pop();
+};
 
 const create = async card => {
   const ref = database.ref("card-objects");
-  ref.push().set(card);
+  await ref.push().set(card);
 };
 
-const migrate = async () => {
+const migrate = () => {
+  const baseRef = database.ref("cards");
   const ref = database.ref("newCards");
-  for (const card of cards) {
-    ref.push().set(card);
-  }
+
+  //TODO: #Issue 28 - Resolver para devolver ordenada la lista de tarjetas por título
+  baseRef.once("value", function(snapshot) {
+    cards = snapshot.val();
+    for (const card of cards) {
+      card.name = card.title;
+      ref.push().set(card);
+    }
+  });
 };
 
 module.exports = {

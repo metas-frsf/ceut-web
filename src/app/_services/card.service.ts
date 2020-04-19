@@ -60,8 +60,8 @@ export class CardService {
       .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
       .toPromise();
     // const arrayCards = this.toArray(cardDatabase); //TODO: #Issue 28 - Comment out and work with the array - Incoming object is a Firebase nested object
-    const arrayCards = cardDatabase;
-    // this.rawCards = cardDatabase; //TODO: #Issue 28 - Comment out and work with the array - Incoming object is a Firebase nested object
+    const arrayCards = this.toArray(cardDatabase);
+    this.rawCards = cardDatabase; //TODO: #Issue 28 - Comment out and work with the array - Incoming object is a Firebase nested object
     this.sortedCards = [].concat(arrayCards).sort(this.sortByTitleAsc);
     this.fixedCards = this.getFixedCards(arrayCards);
     this.assortedCards = this.getAssortedCardList(arrayCards);
