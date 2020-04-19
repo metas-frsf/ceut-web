@@ -9,6 +9,7 @@ export class Card {
   enabled: boolean;
   modifiable?: boolean;
   name?: string;
+  key?: string;
 }
 
 export class CardCssClasses {

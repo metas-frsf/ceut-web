@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 
 // TODO: Hacer globales los headers
 const headers = new HttpHeaders({
-  "Content-Type": "application/x-www-form-urlencoded"
+  "Content-Type": "application/x-www-form-urlencoded",
 });
 
 @Injectable()
@@ -71,6 +71,7 @@ export class CardService {
     let cardArray = [];
     for (const card in cards) {
       if (cards.hasOwnProperty(card)) {
+        cards[card].key = card;
         cardArray = cardArray.concat(cards[card]);
       }
     }
@@ -86,7 +87,7 @@ export class CardService {
     const params = new HttpParams().set("id", id.toString());
     return this.http.get<Card>(`${environment.apiUrl}/cards/getById`, {
       headers: headers,
-      params: params
+      params: params,
     });
   }
 
@@ -106,7 +107,7 @@ export class CardService {
   getAssortedCardList(cards: Card[]) {
     return cards
       .slice(0)
-      .filter(card => this.fixedCardListIds.indexOf(card.id) === -1)
+      .filter((card) => this.fixedCardListIds.indexOf(card.id) === -1)
       .sort(this.shuffleOrder);
   }
 
@@ -114,7 +115,9 @@ export class CardService {
    * Obtiene las tarjetas fijadas para ubicar en la parte superior de la vista principal
    */
   getFixedCards(cards: Card[]) {
-    return cards.filter(card => this.fixedCardListIds.indexOf(card.id) !== -1);
+    return cards.filter(
+      (card) => this.fixedCardListIds.indexOf(card.id) !== -1
+    );
   }
 
   /**
@@ -128,13 +131,13 @@ export class CardService {
     const textoToSearchLowerCase = textToSearch.toLowerCase();
 
     const filterByTitle = cards.filter(
-      card => card.title.toLowerCase().indexOf(textoToSearchLowerCase) !== -1
+      (card) => card.title.toLowerCase().indexOf(textoToSearchLowerCase) !== -1
     );
 
     const filterByContent = cards.filter(
-      card =>
+      (card) =>
         card.content &&
-        card.content.filter(ContentLine => {
+        card.content.filter((ContentLine) => {
           const inTitle =
             ContentLine.title &&
             ContentLine.title.toLowerCase().indexOf(textoToSearchLowerCase) !==
@@ -150,7 +153,7 @@ export class CardService {
         }).length
     );
 
-    const filterByFooter = cards.filter(card => {
+    const filterByFooter = cards.filter((card) => {
       if (card.footer && card.footer.content) {
         return (
           card.footer.content.toLowerCase().indexOf(textoToSearchLowerCase) !==
@@ -177,10 +180,10 @@ export class CardService {
     this.sortedCards = [].concat(filteredList).sort(this.sortByTitleAsc);
 
     this.assortedCards = filteredList.filter(
-      card => !this.getFixedCardListIds().includes(card.id)
+      (card) => !this.getFixedCardListIds().includes(card.id)
     );
 
-    this.fixedCards = filteredList.filter(card =>
+    this.fixedCards = filteredList.filter((card) =>
       this.getFixedCardListIds().includes(card.id)
     );
   }
@@ -190,7 +193,7 @@ export class CardService {
       return (
         arr
 
-          .map(mapObj => mapObj[propertyToCheck])
+          .map((mapObj) => mapObj[propertyToCheck])
           .indexOf(obj[propertyToCheck]) === pos
       );
     });
