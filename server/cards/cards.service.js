@@ -3,7 +3,7 @@
 const firebaseConnector = require("../_helpers/firebase-connector");
 
 const database = firebaseConnector.connect("metas-frsf");
-const cardsReference = database.ref("newCards"); //FIXME: Issue #28 - Cambiar esto a "cards" una vez terminada la migración
+const cardsReference = database.ref("cards"); //FIXME: Issue #28 - Cambiar esto a "cards" una vez terminada la migración
 
 let cards = {};
 
@@ -42,20 +42,22 @@ const create = async (card) => {
 };
 
 async function update({ key, ...card }) {
-  const ref = database.ref("cards");
-  return ref.child(key).update({ title: card.title, enabled: card.enabled });
+  // const ref = database.ref("cards");
+  // return ref.child(key).set(card);
+  console.log("Key:" + key);
+  console.log("Card:");
+  console.log(card);
 }
 
 //FIXME - Issue #28 - Eliminar código relacionado a la migración
 const migrate = () => {
   const baseRef = database.ref("cards");
-  const ref = database.ref("newCards");
+  const ref = database.ref("cards");
 
   baseRef.once("value", function (snapshot) {
     cards = snapshot.val();
-    for (const card of cards) {
-      card.name = card.title;
-      ref.push().set(card);
+    for (const card in cards) {
+      ref.push().set(cards[card]);
     }
   });
 };
