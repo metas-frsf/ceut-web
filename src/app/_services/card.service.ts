@@ -66,6 +66,16 @@ export class CardService {
     this.assortedCards = this.getAssortedCardList(arrayCards);
   }
 
+  /** Envía una tarjeta al servidor para actualizar sus datos
+   * @param card - Tarjeta a actualizar
+   */
+  async update(card: Card) {
+    const result = await this.http
+      .put<Card>(`${environment.apiUrl}/cards/update`, card)
+      .toPromise();
+    console.log(result);
+  }
+
   toArray(cards: Object) {
     let cardArray = [];
     for (const card in cards) {

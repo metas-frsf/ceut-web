@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import { Card } from "@app/_models/card";
 import { CardService } from "@app/_services/card.service";
 import { Component, OnInit } from "@angular/core";
@@ -27,6 +28,13 @@ export class GestionTarjetasComponent implements OnInit {
     this.filteredCards = this.cardService.sortedCards.filter((card) =>
       card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
     );
+  }
+
+  update(card: Card) {
+    const updatedCard = _.clone(card);
+    this.cardService.update(updatedCard).then((result) => {
+      console.log(result);
+    });
   }
 
   get selectedCard(): Card {
