@@ -4,7 +4,6 @@ const cardsService = require("./cards.service");
 
 // routes
 router.get("/getAll", getAll);
-router.get("/migrate", migrate);
 router.put("/update", update);
 
 module.exports = router;
@@ -12,13 +11,6 @@ module.exports = router;
 function getAll(req, res, next) {
   cardsService
     .getAll()
-    .then((cards) => res.json(cards))
-    .catch((err) => next(err));
-}
-
-function migrate(req, res, next) {
-  cardsService
-    .migrate()
     .then((cards) => res.json(cards))
     .catch((err) => next(err));
 }

@@ -3,7 +3,7 @@
 const firebaseConnector = require("../_helpers/firebase-connector");
 
 const database = firebaseConnector.connect("metas-frsf");
-const cardsReference = database.ref("cards"); //FIXME: Issue #28 - Cambiar esto a "cards" una vez terminada la migración
+const cardsReference = database.ref("cards");
 
 let cards = {};
 
@@ -49,23 +49,9 @@ async function update({ key, ...card }) {
   console.log(card);
 }
 
-//FIXME - Issue #28 - Eliminar código relacionado a la migración
-const migrate = () => {
-  const baseRef = database.ref("cards");
-  const ref = database.ref("cards");
-
-  baseRef.once("value", function (snapshot) {
-    cards = snapshot.val();
-    for (const card in cards) {
-      ref.push().set(cards[card]);
-    }
-  });
-};
-
 module.exports = {
   getAll,
   getById,
   create,
-  migrate,
   update,
 };

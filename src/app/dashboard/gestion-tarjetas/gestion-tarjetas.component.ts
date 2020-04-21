@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
 import { Card } from "@app/_models/card";
 import { CardService } from "@app/_services/card.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-gestion-tarjetas",
   templateUrl: "./gestion-tarjetas.component.html",
   styleUrls: ["./gestion-tarjetas.component.scss"],
-  providers: [CardService]
+  providers: [CardService],
 })
 export class GestionTarjetasComponent implements OnInit {
   private _selectedCard: Card;
@@ -17,23 +17,14 @@ export class GestionTarjetasComponent implements OnInit {
 
   ngOnInit() {}
 
-  migrate() {
-    this.cardService
-      .migrate()
-      .toPromise()
-      .then(result => {
-        console.log();
-      });
-  }
-
   selectCard(id: number) {
     this.selectedCard = this.cardService.sortedCards
-      .filter(card => card.id === id)
+      .filter((card) => card.id === id)
       .pop();
   }
 
   filter(searchString: string) {
-    this.filteredCards = this.cardService.sortedCards.filter(card =>
+    this.filteredCards = this.cardService.sortedCards.filter((card) =>
       card.title.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())
     );
   }
