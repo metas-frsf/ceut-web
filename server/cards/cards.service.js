@@ -43,10 +43,7 @@ const create = async (card) => {
 
 async function update({ key, ...card }) {
   const ref = database.ref("cards");
-  console.log("Key:" + key);
-  console.log("Card:");
-  console.log(card);
-  return ref.child(key).set(card);
+  return ref.child(key).update(card);
 }
 
 module.exports = {
