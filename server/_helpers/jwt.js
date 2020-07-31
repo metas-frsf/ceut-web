@@ -16,7 +16,8 @@ function jwt() {
       "/api/deportes/getAll",
       "/api/keys/get",
       "/electivas",
-      "/deportes"
+      "/deportes",
+      "/calendario"
     ]
   });
 }
