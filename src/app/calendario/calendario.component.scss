@@ -1,0 +1,58 @@
+.mes {
+  color: white;
+  background: #212121;
+}
+
+.col-md-4 {
+  border-radius: 15px;
+}
+
+.table {
+  background: white;
+  text-align: center;
+}
+
+td,
+th {
+  border-top: none;
+  padding: 5px 0;
+}
+
+.feriado {
+  font-weight: bold;
+  color: #bd1013;
+}
+
+.inscripciones {
+  background: #fa7921;
+}
+
+.cuatrimestre {
+  background: #e55934;
+}
+
+.inicioPrimero {
+  background: #fde74c;
+}
+
+.examenes {
+  background: #5bc0eb;
+}
+
+.inscripcionesF {
+  background: #9bc53d;
+}
+
+.referencias {
+  position: fixed;
+  bottom: 0;
+  
+  td {
+  margin: 1px;
+  font-size: 10px;
+  font-weight: bold;
+  border: none;
+  padding: 3px;
+}
+
+
