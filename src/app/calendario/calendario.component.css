@@ -1,6 +1,6 @@
 .mes {
   color: white;
-  background: orangered;
+  background: #212121;
 }
 
 .col-md-4 {
@@ -20,27 +20,27 @@ th {
 
 .feriado {
   font-weight: bold;
-  color: #7e191b;
+  color: #bd1013;
 }
 
 .inscripciones {
-  background: #ffec95;
+  background: #fa7921;
 }
 
 .cuatrimestre {
-  background: #facfe2;
+  background: #e55934;
 }
 
 .inicioPrimero {
-  background: #e3ea9d;
+  background: #fde74c;
 }
 
 .examenes {
-  background: #bbe3eb;
+  background: #5bc0eb;
 }
 
 .inscripcionesF {
-  background: #e1d5e9;
+  background: #9bc53d;
 }
 
 .referencias {
