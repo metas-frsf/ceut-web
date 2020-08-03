@@ -41,7 +41,7 @@ export class CardService {
     this._rawCards = value;
   }
 
-  private fixedCardListIds = [2, 3, 18]; // Cartas fijadas en la parte superior
+  private fixedCardListIds = [2, 3, 4]; // Cartas fijadas en la parte superior
 
   private _rawCards: Object = {};
   private _sortedCards = [];
