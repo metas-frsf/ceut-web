@@ -28,12 +28,14 @@ app.use(express.static("./dist"));
 
 const rutasAccesibles = [
   "/",
+  "/calendario",
   "/electivas",
   "/dashboard",
   "/deportes",
   "/login",
   "/home",
 ];
+
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
   { path: "/cards", controller: "./server/cards/cards.controller" },
