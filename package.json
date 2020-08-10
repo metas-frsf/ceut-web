@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon server.js",
+    "serve-ssl": "ng serve --ssl --ssl-key ./src/assets/certificates/localhost.key  --ssl-cert ./src/assets/certificates/localhost.crt",
     "build": "ng build --aot --prod",
     "build-prod": "ng build --aot --prod",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
