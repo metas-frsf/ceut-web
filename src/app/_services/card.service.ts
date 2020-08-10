@@ -135,7 +135,9 @@ export class CardService {
     const textoToSearchLowerCase = textToSearch.toLowerCase();
 
     const filterByTitle = cards.filter(
-      (card) => card.title.toLowerCase().indexOf(textoToSearchLowerCase) !== -1
+      (card) =>
+        card.title &&
+        card.title.toLowerCase().indexOf(textoToSearchLowerCase) !== -1
     );
 
     const filterByContent = cards.filter(
