@@ -3,13 +3,11 @@ import { NavigationEnd, Router } from "@angular/router";
 import { AuthenticationService } from "./_services";
 import { User } from "./_models";
 
-import * as wjcCore from "wijmo/wijmo";
-
 @Component({
   selector: "app-ceut-frsf",
   templateUrl: "app.component.html",
   styleUrls: ["./app.component.scss"],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   currentUser: User;
@@ -18,14 +16,14 @@ export class AppComponent implements OnInit {
     name: "CEUT",
     messenger: "ceut.frsf",
     instagram: "ceut.frsf",
-    logo: "logo-ceut.png"
+    logo: "logo-ceut.png",
   };
 
   private paginaMetas = {
     name: "METAs",
     messenger: "metas.frsf",
     instagram: "metas.frsf",
-    logo: "logo-metas.png"
+    logo: "logo-metas.png",
   };
 
   private rutasCeut = ["/home", "/dashboard", "/deportes", "/login"];
@@ -38,10 +36,10 @@ export class AppComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(
-      x => (this.currentUser = x)
+      (x) => (this.currentUser = x)
     );
 
-    router.events.subscribe(route => {
+    router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
         if (this.rutasMetas.includes(route.urlAfterRedirects)) {
           this.paginaActiva = this.paginaMetas;
