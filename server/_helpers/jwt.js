@@ -5,7 +5,7 @@ module.exports = jwt;
 
 function jwt() {
   const { secret } = environment.serverConfig;
-  return expressJwt({ secret }).unless({
+  return expressJwt({ secret: secret, algorithms: ["HS256"] }).unless({
     path: [
       // public routes that don't require authentication
       "/users/authenticate",
@@ -17,7 +17,7 @@ function jwt() {
       "/api/keys/get",
       "/electivas",
       "/deportes",
-      "/calendario"
-    ]
+      "/calendario",
+    ],
   });
 }
