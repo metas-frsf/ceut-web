@@ -4,6 +4,10 @@
 server-config.json
 .env
 
+# Sanity
+/db/node_modules
+/db/dist
+
 # compiled output
 /dist
 /tmp

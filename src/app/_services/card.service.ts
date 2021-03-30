@@ -59,11 +59,11 @@ export class CardService {
     const cardDatabase = await this.http
       .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
       .toPromise();
-    const arrayCards = this.toArray(cardDatabase);
+    // const arrayCards = this.toArray(cardDatabase);
     this.rawCards = cardDatabase;
-    this.sortedCards = [].concat(arrayCards).sort(this.sortByTitleAsc);
-    this.fixedCards = this.getFixedCards(arrayCards);
-    this.assortedCards = this.getAssortedCardList(arrayCards);
+    this.sortedCards = [].concat(cardDatabase).sort(this.sortByTitleAsc);
+    this.fixedCards = this.getFixedCards(cardDatabase);
+    this.assortedCards = this.getAssortedCardList(cardDatabase);
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos
