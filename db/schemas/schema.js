@@ -13,7 +13,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // Add your own types here
     {
-      title: "Tarjetas de la Landing Page",
+      title: "Tarjetas móviles",
       name: "cards",
       type: "document",
       preview: {
@@ -180,7 +180,24 @@ export default createSchema({
       title: "Tarjetas fijas en parte superior",
       name: "fixedCards",
       type: "document",
-      fields: [{ title: "ID", name: "id", type: "number" }],
+      preview: {
+        prepare(selection) {
+          return {
+            title: "IDs de tarjetas fijadas en parte superior de landing page",
+          };
+        },
+      },
+      fields: [
+        {
+          title: "Tarjetas fijadas",
+          name: "cards",
+          type: "array",
+          of: [{ title: "ID", name: "id", type: "number" }],
+          validation: (Rule) => [
+            Rule.max(3).error("Máximo de hasta 3 tarjetas fijadas"),
+          ],
+        },
+      ],
     },
   ]),
 });
