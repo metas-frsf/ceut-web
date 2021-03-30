@@ -1,0 +1,33 @@
+{
+  "name": "ceutfrsf",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Ramiro Olivencia <ramiro@olivencia.com.ar>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.7.2",
+    "@sanity/components": "^2.2.6",
+    "@sanity/core": "^2.7.2",
+    "@sanity/default-layout": "^2.7.2",
+    "@sanity/default-login": "^2.7.0",
+    "@sanity/desk-tool": "^2.7.2",
+    "@sanity/vision": "^2.7.3",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceut-frsf/ceut-frsf.git"
+  }
+}
