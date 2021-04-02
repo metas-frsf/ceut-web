@@ -31,7 +31,7 @@ export class Footer {
   content: string;
 }
 
-export type Link = {
+export interface Link {
   type: string;
   url: string;
-};
+}
