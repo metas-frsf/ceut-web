@@ -59,7 +59,7 @@ export class CardService {
     const cardDatabase = await this.http
       .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
       .toPromise();
-    // const arrayCards = this.toArray(cardDatabase);
+
     this.rawCards = cardDatabase;
     this.sortedCards = [].concat(cardDatabase).sort(this.sortByTitleAsc);
     this.fixedCards = this.getFixedCards(cardDatabase);
@@ -111,8 +111,7 @@ export class CardService {
   getAssortedCardList(cards: Card[]) {
     return cards
       .slice(0)
-      .filter((card) => this.fixedCardListIds.indexOf(card.id) === -1)
-      .sort(this.shuffleOrder);
+      .filter((card) => this.fixedCardListIds.indexOf(card.id) === -1);
   }
 
   /**
@@ -203,12 +202,5 @@ export class CardService {
           .indexOf(obj[propertyToCheck]) === pos
       );
     });
-  }
-
-  /**
-   * Genera un orden aleatorio para las tarjetas
-   */
-  shuffleOrder(): number {
-    return 0.5 - Math.random();
   }
 }
