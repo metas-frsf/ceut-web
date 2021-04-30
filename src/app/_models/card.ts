@@ -22,7 +22,7 @@ export class CardCssClasses {
 export class CardContent {
   title: string;
   description: string;
-  link: string | Link;
+  link: Link;
 }
 
 export class Footer {
@@ -31,7 +31,7 @@ export class Footer {
   content: string;
 }
 
-export class Link {
+export interface Link {
   type: string;
   url: string;
 }
