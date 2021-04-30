@@ -38,14 +38,15 @@ export default createSchema({
           title: "Title",
           name: "title",
           type: "string",
-          description: "Título de la tarjeta en vista de la página",
+          description:
+            "Título de la tarjeta en vista de la página. No se muestra el título si se deja en blanco.",
         },
         {
           title: "ID",
           name: "id",
           type: "number",
           description:
-            "Número identificador de la tarjeta. No se puede repetir",
+            "Número identificador de la tarjeta. No se puede repetir.",
         },
         {
           title: "Enabled",
@@ -53,21 +54,21 @@ export default createSchema({
           type: "boolean",
           layout: "checkbox",
           description:
-            "Determina si la tarjeta actual se muestra o no en la vista",
+            "Determina si la tarjeta actual se muestra o no en la vista.",
         },
         {
           title: "Modifiable",
           name: "modifiable",
           type: "boolean",
           readOnly: "true",
-          description: "Determina si la tarjeta actual es o no modificable",
+          description: "Determina si la tarjeta actual es o no modificable.",
         },
         {
           title: "Link",
           name: "link",
           type: "object",
           description:
-            "Si lo posee, determina el enlace al que se redirecciona cuando se clickea en una tarjeta",
+            "Si lo posee, determina el enlace al que se redirecciona cuando se clickea en una tarjeta. Afecta a la tarjeta por completo, lo que implica que un link único puede asignarse en este nivel. Pueden asignarse varios links en texto en la sección 'Contenido'.",
           fields: [
             {
               title: "Type",
@@ -88,7 +89,7 @@ export default createSchema({
           name: "icon",
           type: "string",
           description:
-            "Enlace web a una imagen que corresponde al ícono que se mostrará en la tarjeta",
+            "Enlace web a una imagen que corresponde al ícono que se mostrará en la tarjeta.",
         },
         {
           title: "CSS Classes",
@@ -122,7 +123,8 @@ export default createSchema({
           title: "Content",
           name: "content",
           type: "array",
-          description: "Contenido de la tarjeta",
+          description:
+            "Contenido de la tarjeta. Cada parte del contenido se divide en una línea con Título y Descripción. Puede asignarse a la descripción un link, en caso de que sea necesario. Sino, se muestra como texto plano.",
           of: [
             {
               type: "object",
