@@ -16,12 +16,10 @@ app-deportes {
     }
   }
 
-  ngb-tabset {
-    .nav-tabs .nav-item {
-      img {
-        max-width: 30px;
-        max-height: 30px;
-      }
+  .nav-tabs .nav-item {
+    img {
+      max-width: 30px;
+      max-height: 30px;
     }
   }
 }
