@@ -41,7 +41,7 @@ export class CardService {
     this._rawCards = value;
   }
 
-  private fixedCardListIds = [2, 3, 4]; // Cartas fijadas en la parte superior
+  private fixedCardListIds = [31, 3, 4]; // Cartas fijadas en la parte superior // TODO: #62 - Migrar a Sanity
 
   private _rawCards: Object = {};
   private _sortedCards = [];
