@@ -75,15 +75,15 @@
             <ng-container *ngTemplateOutlet="redesSociales"> </ng-container>
           </ng-container>
 
-          <div class="mx-4 d-none d-lg-block">
-            <button
-              class="w-100 font-weight-bold btn p-1"
-              [ngClass]="estilosDeCarrera(carreraElegida.id)"
-              (click)="toggleModalPresentacion()"
-            >
-              Vista de Presentación
-            </button>
-          </div>
+          <!--          <div class="mx-4 d-none d-lg-block">-->
+          <!--            <button-->
+          <!--              class="w-100 font-weight-bold btn p-1"-->
+          <!--              [ngClass]="estilosDeCarrera(carreraElegida.id)"-->
+          <!--              (click)="toggleModalPresentacion()"-->
+          <!--            >-->
+          <!--              Vista de Presentación-->
+          <!--            </button>-->
+          <!--          </div>-->
 
           <ng-container *ngIf="anchoDelDisplay < 992 && anchoDelDisplay >= 768">
             <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
@@ -533,7 +533,7 @@
       <span
         class="w-100 p-2 badge"
         [ngClass]="estilosDeCarrera(carreraElegida.id)"
-        >¡Te deseamos un excelente primer cuatrimestre!</span
+        >¡Te deseamos un excelente segundo cuatrimestre!</span
       >
     </h4>
   </div>
