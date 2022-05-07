@@ -26,21 +26,10 @@ app.use(errorHandler);
 // Serve only the static files form the dist directory
 app.use(express.static("./dist"));
 
-const rutasAccesibles = [
-  "/",
-  "/calendario",
-  "/dashboard",
-  "/deportes",
-  "/login",
-  "/home",
-];
+const rutasAccesibles = ["/", "/calendario", "/dashboard", "/login", "/home"];
 
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
-  {
-    path: "/api/deportes",
-    controller: "./server/deportes/deportes.controller",
-  },
 ];
 
 app.get(rutasAccesibles, function (req, res) {

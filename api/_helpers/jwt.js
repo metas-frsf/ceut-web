@@ -11,9 +11,6 @@ function jwt() {
       "/users/authenticate",
       "/backend",
       "/cards/getAll",
-      "/api/deportes/get",
-      "/api/deportes/getAll",
-      "/deportes",
       "/calendario",
     ],
   });
