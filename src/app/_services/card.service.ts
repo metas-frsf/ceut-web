@@ -66,9 +66,6 @@ export class CardService {
     this.sortedCards = [].concat(cardDatabase).sort(sortByTitleAsc);
     this.fixedCards = this.getFixedCards(cardDatabase);
     this.assortedCards = this.getAssortedCardList(cardDatabase);
-
-    const aux = await this.getById(41).toPromise();
-    console.log(aux);
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos
@@ -78,7 +75,6 @@ export class CardService {
     const result = await this.http
       .put<Card>(`${apiPrefix}/update`, card)
       .toPromise();
-    console.log(result);
   }
 
   public getById(id: number): Observable<Card> {
