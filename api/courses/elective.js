@@ -15,7 +15,6 @@ const baseConnection = airtable.base(base.url);
 
 export default async function get(req, res) {
   const { carrera } = req.query;
-  console.log(carrera);
   const carreraElegida = carrera ? carrera : "Sistemas";
   const electivas = await obtenerElectivasDesdeAirtable(carreraElegida);
   res.json(electivas);
