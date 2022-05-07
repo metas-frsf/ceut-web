@@ -29,7 +29,6 @@ app.use(express.static("./dist"));
 const rutasAccesibles = [
   "/",
   "/calendario",
-  "/electivas",
   "/dashboard",
   "/deportes",
   "/login",
@@ -38,10 +37,6 @@ const rutasAccesibles = [
 
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
-  {
-    path: "/api/electivas",
-    controller: "./server/electivas/electivas.controller",
-  },
   {
     path: "/api/deportes",
     controller: "./server/deportes/deportes.controller",
