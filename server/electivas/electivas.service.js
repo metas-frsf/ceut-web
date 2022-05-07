@@ -1,20 +1,20 @@
-const environment = require("server/_helpers/environment");
+const environment = require("api/_helpers/environment");
 const cuenta = environment.serverConfig.airtable.cuentas
-  .filter(Cuenta => Cuenta.id === "metas")
+  .filter((Cuenta) => Cuenta.id === "metas")
   .pop();
 
 //Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
 const airtable = require("airtable");
 airtable.configure({
   endpointUrl: environment.serverConfig.airtable.endpointUrl,
-  apiKey: cuenta.key
+  apiKey: cuenta.key,
 });
 
-const base = cuenta.bases.filter(Base => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
+const base = cuenta.bases.filter((Base) => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
 const baseConnection = airtable.base(base.url);
 
 module.exports = {
-  get
+  get,
 };
 
 async function get(carrera) {
@@ -31,8 +31,8 @@ async function obtenerElectivasDesdeAirtable(carreraElegida) {
       .eachPage(
         (records, fetchNextPage) => {
           result = records
-            .map(Record => Record.fields)
-            .map(Electiva => ({
+            .map((Record) => Record.fields)
+            .map((Electiva) => ({
               vistaCompleta: false,
               cursada: false,
               aprobada: false,
@@ -52,11 +52,11 @@ async function obtenerElectivasDesdeAirtable(carreraElegida) {
               cursadasParaCursar: Electiva["Cursadas para Cursar"],
               comentarios: Electiva["Comentarios"]
                 ? Electiva["Comentarios"].split("\n")
-                : []
+                : [],
             }));
           fetchNextPage();
         },
-        error => {
+        (error) => {
           if (error) {
             console.error(error);
             reject(error);

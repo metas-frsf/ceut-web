@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connector = require("server/_helpers/mysql-connector");
+const connector = require("api/_helpers/mysql-connector");
 const sequelizeConnector = connector.sequelizeConnector();
 
 const Role = require("./role.model");
@@ -15,68 +15,68 @@ User.init(
       type: Sequelize.INTEGER,
       primaryKey: true,
       allowNull: false,
-      field: "id"
+      field: "id",
     },
     firstName: {
       type: Sequelize.STRING,
       allowNull: false,
-      field: "first_name"
+      field: "first_name",
     },
     lastName: {
       type: Sequelize.STRING,
       allowNull: false,
-      field: "last_name"
+      field: "last_name",
     },
     userName: {
       type: Sequelize.STRING,
       unique: true,
       allowNull: false,
-      field: "user_name"
+      field: "user_name",
     },
     avatar: {
       type: Sequelize.STRING,
       allowNull: true,
-      field: "avatar"
+      field: "avatar",
     },
     password: {
       type: Sequelize.STRING,
       allowNull: false,
-      field: "password"
+      field: "password",
     },
     createdAt: {
       type: Sequelize.DATE,
       allowNull: false,
-      field: "created_at"
+      field: "created_at",
     },
     updatedAt: {
       type: Sequelize.DATE,
       allowNull: false,
-      field: "updated_at"
+      field: "updated_at",
     },
     enabled: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      field: "enabled"
+      field: "enabled",
     },
     deleted: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      field: "deleted"
-    }
+      field: "deleted",
+    },
   },
   {
     sequelize: sequelizeConnector,
-    modelName: "user"
+    modelName: "user",
   }
 );
 
 // Mediante las dos llamadas siguientes, se define en Sequelize la relación N a M entre Role y User
 User.belongsToMany(Role(), {
   through: userRole(),
-  foreignKey: "id_user"
+  foreignKey: "id_user",
 });
 
 Role().belongsToMany(User, {
   through: userRole(),
-  foreignKey: "id_role"
+  foreignKey: "id_role",
 });

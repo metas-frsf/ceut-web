@@ -1,7 +1,7 @@
-const environment = require("server/_helpers/environment");
+const environment = require("api/_helpers/environment");
 
 module.exports = {
-  get
+  get,
 };
 
 async function get(key) {

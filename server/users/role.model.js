@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connector = require("server/_helpers/mysql-connector");
+const connector = require("api/_helpers/mysql-connector");
 const sequelizeConnector = connector.sequelizeConnector();
 
 module.exports = () => Role;
@@ -12,36 +12,36 @@ Role.init(
       type: Sequelize.INTEGER,
       primaryKey: true,
       allowNull: false,
-      field: "id"
+      field: "id",
     },
     description: {
       type: Sequelize.STRING,
       allowNull: false,
-      field: "description"
+      field: "description",
     },
     createdAt: {
       type: Sequelize.DATE,
       allowNull: false,
-      field: "created_at"
+      field: "created_at",
     },
     updatedAt: {
       type: Sequelize.DATE,
       allowNull: false,
-      field: "updated_at"
+      field: "updated_at",
     },
     enabled: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      field: "enabled"
+      field: "enabled",
     },
     deleted: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      field: "deleted"
-    }
+      field: "deleted",
+    },
   },
   {
     sequelize: sequelizeConnector,
-    modelName: "role"
+    modelName: "role",
   }
 );

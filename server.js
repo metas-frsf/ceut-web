@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const jwt = require("server/_helpers/jwt");
-const errorHandler = require("server/_helpers/error-handler");
+const jwt = require("api/_helpers/jwt");
+const errorHandler = require("api/_helpers/error-handler");
 const path = require("path");
 
 const http = require("http");
@@ -47,7 +47,6 @@ const rutasApi = [
     path: "/api/deportes",
     controller: "./server/deportes/deportes.controller",
   },
-  { path: "/api/keys", controller: "server/keys/keys.controller" },
 ];
 
 app.get(rutasAccesibles, function (req, res) {

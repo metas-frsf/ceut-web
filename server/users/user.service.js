@@ -1,12 +1,12 @@
 ﻿const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const environment = require("server/_helpers/environment");
+const environment = require("api/_helpers/environment");
 const User = require("./user.model");
 const Role = require("./role.model");
 
 module.exports = {
   authenticate,
-  getAll
+  getAll,
 };
 
 async function authenticate({ userName, password }) {
@@ -16,13 +16,13 @@ async function authenticate({ userName, password }) {
         model: Role(),
         required: true,
         attributes: ["id", "description"],
-        through: { attributes: [] }
-      }
+        through: { attributes: [] },
+      },
     ],
 
     where: {
-      userName: userName
-    }
+      userName: userName,
+    },
   });
 
   return new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ async function authenticate({ userName, password }) {
     bcrypt.compareSync(password, user.dataValues.password, 10)
       ? resolve({
           ...user.dataValues,
-          token: jwt.sign({ sub: user.id }, environment.serverConfig.secret)
+          token: jwt.sign({ sub: user.id }, environment.serverConfig.secret),
         })
       : reject(error);
   });
