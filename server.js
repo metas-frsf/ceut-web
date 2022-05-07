@@ -38,7 +38,6 @@ const rutasAccesibles = [
 
 const rutasApi = [
   { path: "/users", controller: "./server/users/users.controller" },
-  { path: "/cards", controller: "./server/cards/cards.controller" },
   {
     path: "/api/electivas",
     controller: "./server/electivas/electivas.controller",

@@ -1,12 +1,14 @@
 import { Card } from "@app/_models/card";
-import { environment } from "@environments/environment";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 // TODO: Hacer globales los headers
 const headers = new HttpHeaders({
   "Content-Type": "application/x-www-form-urlencoded",
 });
+
+const apiPrefix: string = "api/cards";
 
 @Injectable()
 export class CardService {
@@ -57,13 +59,16 @@ export class CardService {
    */
   async getAll() {
     const cardDatabase = await this.http
-      .get<Card[]>(`${environment.apiUrl}/cards/getAll`)
+      .get<Card[]>(`${apiPrefix}/active`)
       .toPromise();
 
     this.rawCards = cardDatabase;
-    this.sortedCards = [].concat(cardDatabase).sort(this.sortByTitleAsc);
+    this.sortedCards = [].concat(cardDatabase).sort(sortByTitleAsc);
     this.fixedCards = this.getFixedCards(cardDatabase);
     this.assortedCards = this.getAssortedCardList(cardDatabase);
+
+    const aux = await this.getById(41).toPromise();
+    console.log(aux);
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos
@@ -71,44 +76,23 @@ export class CardService {
    */
   async update(card: Card) {
     const result = await this.http
-      .put<Card>(`${environment.apiUrl}/cards/update`, card)
+      .put<Card>(`${apiPrefix}/update`, card)
       .toPromise();
     console.log(result);
   }
 
-  toArray(cards: Object) {
-    let cardArray = [];
-    for (const card in cards) {
-      if (cards.hasOwnProperty(card)) {
-        cards[card].key = card;
-        cardArray = cardArray.concat(cards[card]);
-      }
-    }
-    return cardArray;
-  }
-
-  getById(id: number) {
+  public getById(id: number): Observable<Card> {
     const params = new HttpParams().set("id", id.toString());
-    return this.http.get<Card>(`${environment.apiUrl}/cards/getById`, {
+    return this.http.get<Card>(`${apiPrefix}/getById`, {
       headers: headers,
       params: params,
     });
   }
 
-  sortByTitleAsc(a: Card, b: Card): number {
-    if (a.title > b.title) {
-      return 1;
-    } else if (a.title < b.title) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-
   /**
    * Obtiene todas las tarjetas no fijadas, para mostrar en el cuerpo principal de la página
    */
-  getAssortedCardList(cards: Card[]) {
+  private getAssortedCardList(cards: Card[]) {
     return cards
       .slice(0)
       .filter((card) => this.fixedCardListIds.indexOf(card.id) === -1);
@@ -117,7 +101,7 @@ export class CardService {
   /**
    * Obtiene las tarjetas fijadas para ubicar en la parte superior de la vista principal
    */
-  getFixedCards(cards: Card[]) {
+  private getFixedCards(cards: Card[]) {
     return cards.filter(
       (card) => this.fixedCardListIds.indexOf(card.id) !== -1
     );
@@ -126,11 +110,11 @@ export class CardService {
   /**
    * Obtener los IDs de las tarjetas fijadas
    */
-  getFixedCardListIds(): number[] {
+  private getFixedCardListIds(): number[] {
     return this.fixedCardListIds;
   }
 
-  filter(cards: Card[], textToSearch: string) {
+  private filter(cards: Card[], textToSearch: string) {
     const textoToSearchLowerCase = textToSearch.toLowerCase();
 
     const filterByTitle = cards.filter(
@@ -180,9 +164,9 @@ export class CardService {
    * @param textToSearch substring del texto que se desea buscar en títulos o contenido de tarjetas
    */
   applyFilter(textToSearch: string) {
-    const filteredList = this.filter(this.toArray(this.rawCards), textToSearch);
+    const filteredList = this.filter(toArray(this.rawCards), textToSearch);
 
-    this.sortedCards = [].concat(filteredList).sort(this.sortByTitleAsc);
+    this.sortedCards = [].concat(filteredList).sort(sortByTitleAsc);
 
     this.assortedCards = filteredList.filter(
       (card) => !this.getFixedCardListIds().includes(card.id)
@@ -193,7 +177,7 @@ export class CardService {
     );
   }
 
-  removeDuplicates(arrayWithDuplicates, propertyToCheck) {
+  private removeDuplicates(arrayWithDuplicates, propertyToCheck) {
     return arrayWithDuplicates.filter((obj, pos, arr) => {
       return (
         arr
@@ -202,5 +186,26 @@ export class CardService {
           .indexOf(obj[propertyToCheck]) === pos
       );
     });
+  }
+}
+
+function toArray(cards: Object): Card[] {
+  let cardArray = [];
+  for (const card in cards) {
+    if (cards.hasOwnProperty(card)) {
+      cards[card].key = card;
+      cardArray = cardArray.concat(cards[card]);
+    }
+  }
+  return cardArray;
+}
+
+function sortByTitleAsc(a: Card, b: Card): number {
+  if (a.title > b.title) {
+    return 1;
+  } else if (a.title < b.title) {
+    return -1;
+  } else {
+    return 0;
   }
 }
