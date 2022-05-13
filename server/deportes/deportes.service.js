@@ -1,21 +1,21 @@
-const environment = require("server/_helpers/environment");
+const environment = require("api/_helpers/environment");
 const cuenta = environment.serverConfig.airtable.cuentas
-  .filter(Cuenta => Cuenta.id === "ceut")
+  .filter((Cuenta) => Cuenta.id === "ceut")
   .pop();
 
 //Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
 const airtable = require("airtable");
 airtable.configure({
   endpointUrl: environment.serverConfig.airtable.endpointUrl,
-  apiKey: cuenta.key
+  apiKey: cuenta.key,
 });
 
-const base = cuenta.bases.filter(Base => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
+const base = cuenta.bases.filter((Base) => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
 const baseConnection = airtable.base(base.url);
 
 module.exports = {
   get,
-  getAll
+  getAll,
 };
 
 /**
@@ -40,10 +40,10 @@ async function getAll() {
       .select({ view: "Grid view" })
       .eachPage(
         (records, fetchNextPage) => {
-          result = records.map(Record => Record.fields);
+          result = records.map((Record) => Record.fields);
           fetchNextPage();
         },
-        error => {
+        (error) => {
           if (error) {
             console.error(error);
             reject(error);

@@ -1,6 +1,6 @@
 "use strict";
 
-const sanityConnector = require("../_helpers/sanity-connector");
+const sanityConnector = require("api/_helpers/sanity-connector");
 
 const showError = (e) => {
   console.error(e);

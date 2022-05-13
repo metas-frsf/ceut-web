@@ -14,7 +14,6 @@ function jwt() {
       "/api/electivas/get",
       "/api/deportes/get",
       "/api/deportes/getAll",
-      "/api/keys/get",
       "/electivas",
       "/deportes",
       "/calendario",

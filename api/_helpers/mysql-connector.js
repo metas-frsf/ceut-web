@@ -3,14 +3,14 @@ const Sequelize = require("sequelize");
 
 const mysql = require("mysql2");
 const ceutDatabase = environment.serverConfig.databases.mysql.databases
-  .filter(db => db.id === "ceut-frsf")
+  .filter((db) => db.id === "ceut-frsf")
   .pop();
 
 const mySqlConnection = mysql.createConnection({
   host: ceutDatabase.host,
   user: ceutDatabase.user,
   database: ceutDatabase.database,
-  password: ceutDatabase.password
+  password: ceutDatabase.password,
 });
 
 const sequelizeConnection = new Sequelize(
@@ -22,8 +22,8 @@ const sequelizeConnection = new Sequelize(
     dialect: "mysql",
     define: {
       freezeTableName: true,
-      timestamps: true
-    }
+      timestamps: true,
+    },
   }
 );
 
