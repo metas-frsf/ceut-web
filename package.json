@@ -12,7 +12,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-serve": "npm run-script build && npm run-script start"
+    "build-serve": "npm run-script build && npm run-script start",
+    "vercel": "vercel dev"
   },
   "private": true,
   "dependencies": {
