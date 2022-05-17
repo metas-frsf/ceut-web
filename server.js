@@ -28,21 +28,12 @@ app.use(express.static("./dist"));
 
 const rutasAccesibles = ["/", "/calendario", "/dashboard", "/login", "/home"];
 
-const rutasApi = [
-  { path: "/users", controller: "./server/users/users.controller" },
-];
-
 app.get(rutasAccesibles, function (req, res) {
   res.sendFile(path.join(__dirname, "/dist/index.html"));
 });
 
 // use JWT auth to secure the api
 app.use(jwt());
-
-// api routes
-for (const ruta of rutasApi) {
-  app.use(ruta.path, require(ruta.controller));
-}
 
 // Start the app by listening on the default Heroku port
 const port = process.env.PORT ? process.env.PORT : 4000;

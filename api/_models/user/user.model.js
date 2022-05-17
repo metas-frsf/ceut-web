@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connector = require("api/_helpers/mysql-connector");
+const connector = require("../../_helpers/mysql-connector");
 const sequelizeConnector = connector.sequelizeConnector();
 
 const Role = require("./role.model");
