@@ -29,7 +29,7 @@
     "@ng-bootstrap/ng-bootstrap": "^9.1.1",
     "@sanity/client": "^2.7.1",
     "airtable": "^0.7.2",
-    "ajv": "^6.11.0",
+    "ajv": "^6.12.3",
     "ajv-keywords": "^3.4.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
