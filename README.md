@@ -7,13 +7,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup
 
-Run `npm install -g @angular/cli nodemon` to install Angular CLI and nodemon as global packages. Then, run `npm install` to install all the npm dependencies. Once installed, you can run the development server and/or build the project.
+Run `npm install -g @angular/cli vercel` to install Angular and Vercel CLIs as global packages.
+Then, run `npm install` to install all the npm dependencies. Once installed, you can run the development server and/or build the project.
 
 ## Development server
 
-Run `ng serve` to locally run the client project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-Run `nodemon server.js` to run the server project. The local client will use the server API located at `http://localhost:4000` by default
+Run `vercel dev` to locally run the client project. This command will serve the Vercel APIs and the Angular app.
+Then navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -34,7 +34,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## To run NodeJS server:
-
-Run nodemon server.js on the command prompt
