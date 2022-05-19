@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { GlobalService } from "@app/_services/global.service";
-import { environment } from "@environments/environment";
 import { Carrera, Periodo } from "@app/electivas/electivas.model";
 import * as moment from "moment";
 import { Moment } from "moment";
 
+const apiPrefix: string = "api/courses";
+
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class ElectivasService {
   constructor(private http: HttpClient, private global: GlobalService) {}
@@ -16,9 +17,9 @@ export class ElectivasService {
     const headers = this.global.httpHeaders;
     const params = new HttpParams().append("carrera", carrera);
 
-    return this.http.get<any[]>(`${environment.apiUrl}/api/electivas/get`, {
+    return this.http.get<any[]>(`${apiPrefix}/elective`, {
       headers,
-      params
+      params,
     });
   }
 
@@ -32,7 +33,7 @@ export class ElectivasService {
       "Un ser humano debe convertir la información en inteligencia o en conocimiento. Aquí hemos tendido a olvidar que ningún ordenador formulará nunca una pregunta nueva. - Grace Hopper",
       "Nunca debes tener miedo de lo que estás haciendo cuando es correcto. - Marie Curie",
       "El peor enemigo del conocimiento no es la ignorancia, es la ilusión del conocimiento. - Stephen Hawking",
-      "En algún lugar algo increíble está esperando ser descubierto. - Carl Sagan"
+      "En algún lugar algo increíble está esperando ser descubierto. - Carl Sagan",
     ];
   }
 
@@ -48,8 +49,8 @@ export class ElectivasService {
         contacto: {
           instagram: "metas.frsf",
           messenger: "metas.frsf",
-          whatsapp: ""
-        }
+          whatsapp: "",
+        },
       },
       {
         id: "civil",
@@ -61,8 +62,8 @@ export class ElectivasService {
         contacto: {
           instagram: "consejerosdecivil",
           messenger: "consejeros.civil",
-          whatsapp: ""
-        }
+          whatsapp: "",
+        },
       },
       {
         id: "electrica",
@@ -74,8 +75,8 @@ export class ElectivasService {
         contacto: {
           instagram: "consejeroselectrica",
           messenger: "consejeroselectrica.metas",
-          whatsapp: ""
-        }
+          whatsapp: "",
+        },
       },
       {
         id: "industrial",
@@ -87,8 +88,8 @@ export class ElectivasService {
         contacto: {
           instagram: "industrialconsejeros",
           messenger: "consejeroselectrica.metas",
-          whatsapp: ""
-        }
+          whatsapp: "",
+        },
       },
       {
         id: "mecanica",
@@ -100,8 +101,8 @@ export class ElectivasService {
         contacto: {
           instagram: "mecanicametas",
           messenger: "metas.mecanica.frsf",
-          whatsapp: ""
-        }
+          whatsapp: "",
+        },
       },
       {
         id: "sistemas",
@@ -113,9 +114,9 @@ export class ElectivasService {
         contacto: {
           instagram: "ps_metas.frsf",
           messenger: "psutnfrsf",
-          whatsapp: ""
-        }
-      }
+          whatsapp: "",
+        },
+      },
     ];
   }
 
@@ -134,7 +135,7 @@ export class ElectivasService {
     const filtroInicial: Periodo = {
       anual: false,
       primero: false,
-      segundo: false
+      segundo: false,
     };
 
     if (estamosEnPrimerSemestre) {

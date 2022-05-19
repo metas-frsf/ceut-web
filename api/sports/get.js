@@ -1,4 +1,4 @@
-const environment = require("api/_helpers/environment");
+const environment = require("../_helpers/environment");
 const cuenta = environment.serverConfig.airtable.cuentas
   .filter((Cuenta) => Cuenta.id === "ceut")
   .pop();
@@ -13,29 +13,29 @@ airtable.configure({
 const base = cuenta.bases.filter((Base) => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
 const baseConnection = airtable.base(base.url);
 
-module.exports = {
-  get,
-  getAll,
-};
-
 /**
  * Devuelve un deporte particular, en base a su nombre
  * @param deporte - String del deporte
  * @returns {Promise<Array>}
  */
-async function get(deporte) {
+//TODO: Mover a su propio archivo [id].js
+async function getById(deporte) {
   //TODO: Implementar este método
   return [];
 }
 
-// TODO: Borrar los console.log - 12/04/2020 - RO
 /**
  * Devuelve todos los deportes
  * @returns {Promise<Array>}
  */
-async function getAll() {
-  let result = [];
+export default async function get(req, res) {
+  const deportes = await obtenerDeportesDesdeAirtable();
+  res.json(deportes);
+}
+
+async function obtenerDeportesDesdeAirtable() {
   return new Promise((resolve, reject) => {
+    let result = [];
     baseConnection("deportes")
       .select({ view: "Grid view" })
       .eachPage(
@@ -45,10 +45,8 @@ async function getAll() {
         },
         (error) => {
           if (error) {
-            console.error(error);
             reject(error);
           } else {
-            console.log(result);
             resolve(result);
           }
         }

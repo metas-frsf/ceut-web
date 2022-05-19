@@ -3,7 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { User } from "@app/_models";
-import { environment } from "@environments/environment";
+
+const apiPrefix: string = "api/users";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
@@ -23,7 +24,7 @@ export class AuthenticationService {
 
   login(userName: string, password: string) {
     return this.http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, {
+      .post<any>(`${apiPrefix}/authenticate`, {
         userName,
         password,
       })

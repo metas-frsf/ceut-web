@@ -11,11 +11,6 @@ function jwt() {
       "/users/authenticate",
       "/backend",
       "/cards/getAll",
-      "/api/electivas/get",
-      "/api/deportes/get",
-      "/api/deportes/getAll",
-      "/electivas",
-      "/deportes",
       "/calendario",
     ],
   });
