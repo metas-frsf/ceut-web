@@ -2,7 +2,6 @@ import { Component, HostListener, Inject, OnInit } from "@angular/core";
 import { ElectivasService } from "@app/_services/electivas.service";
 import { DOCUMENT } from "@angular/common";
 import { GlobalService } from "@app/_services/global.service";
-import { Moment } from "moment";
 
 import { Router } from "@angular/router";
 import { Carrera, Electiva, Periodo } from "@app/electivas/electivas.model";
@@ -10,7 +9,7 @@ import { Carrera, Electiva, Periodo } from "@app/electivas/electivas.model";
 @Component({
   selector: "app-ectivas",
   templateUrl: "./electivas.component.html",
-  styleUrls: ["./electivas.component.scss"]
+  styleUrls: ["./electivas.component.scss"],
 })
 export class ElectivasComponent implements OnInit {
   anchoDelDisplay: any;
@@ -77,16 +76,16 @@ export class ElectivasComponent implements OnInit {
     this.contadorAprobadas = 0;
     this.contadorCursadas = 0;
     this.carreraElegida = this.carreras
-      .filter(carrera => carrera.id === idCarrera)
+      .filter((carrera) => carrera.id === idCarrera)
       .pop();
     this.electivas = [];
     this.electivasFiltradas = [];
     this.electivasService.getByCarrera(this.carreraElegida.airTable).subscribe(
-      response => {
+      (response) => {
         this.electivas = response;
         this.filtrarPorCuatrimestre(this.filtroCuatrimestre);
       },
-      error => console.error(error)
+      (error) => console.error(error)
     );
     this.fraseSeleccionada = this.frases
       .sort(this.globalService.shuffleOrder)
@@ -153,8 +152,8 @@ export class ElectivasComponent implements OnInit {
 
   calcularCursadas() {
     const horasElectivasCursadas = this.electivas
-      .filter(electiva => electiva.cursada)
-      .map(electiva => electiva.creditos);
+      .filter((electiva) => electiva.cursada)
+      .map((electiva) => electiva.creditos);
     this.contadorCursadas = horasElectivasCursadas.length
       ? horasElectivasCursadas.reduce((Suma, Horas) => Suma + Horas)
       : 0;
@@ -162,8 +161,8 @@ export class ElectivasComponent implements OnInit {
 
   calcularAprobadas() {
     const horasElectivasAprobadas = this.electivas
-      .filter(electiva => electiva.aprobada)
-      .map(electiva => electiva.creditos);
+      .filter((electiva) => electiva.aprobada)
+      .map((electiva) => electiva.creditos);
     this.contadorAprobadas = horasElectivasAprobadas.length
       ? horasElectivasAprobadas.reduce((Suma, Horas) => Suma + Horas)
       : 0;
@@ -174,17 +173,21 @@ export class ElectivasComponent implements OnInit {
 
     if (filtro.primero) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter(card => card.cuatrimestre === "1er Cuatrimestre")
+        this.electivas.filter(
+          (card) => card.cuatrimestre === "1er Cuatrimestre"
+        )
       );
     }
     if (filtro.segundo) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter(card => card.cuatrimestre === "2do Cuatrimestre")
+        this.electivas.filter(
+          (card) => card.cuatrimestre === "2do Cuatrimestre"
+        )
       );
     }
     if (filtro.anual) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter(card => card.cuatrimestre === "Anual")
+        this.electivas.filter((card) => card.cuatrimestre === "Anual")
       );
     }
 
