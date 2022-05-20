@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+﻿import { Component, ViewEncapsulation } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { AuthenticationService } from "./_services";
 import { User } from "./_models";
@@ -9,7 +9,7 @@ import { User } from "./_models";
   styleUrls: ["./app.component.scss"],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   currentUser: User;
 
   private paginaCeut = {
@@ -49,8 +49,6 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit() {}
 
   logout() {
     this.authenticationService.logout();

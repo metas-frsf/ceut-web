@@ -1,10 +1,4 @@
-import {
-  Component,
-  Inject,
-  Input,
-  OnInit,
-  ViewEncapsulation
-} from "@angular/core";
+import { Component, Inject, Input, ViewEncapsulation } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { Card, Link } from "@app/_models/card";
 import { Router } from "@angular/router";
@@ -16,11 +10,11 @@ import { Router } from "@angular/router";
     "../tarjetas.component.scss",
     "../../../assets/scss/colors.scss",
     "../../../assets/scss/fonts.scss",
-    "./tarjeta-generica.component.scss"
+    "./tarjeta-generica.component.scss",
   ],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class TarjetaGenericaComponent implements OnInit {
+export class TarjetaGenericaComponent {
   @Input() card: Card;
   baseUrl = "";
 
@@ -28,8 +22,6 @@ export class TarjetaGenericaComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private router: Router
   ) {}
-
-  ngOnInit() {}
 
   navigate(link: string | Link) {
     if (link) {

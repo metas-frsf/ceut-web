@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import { Card } from "@app/_models/card";
 import { CardService } from "@app/_services/card.service";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-gestion-tarjetas",
@@ -9,14 +9,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./gestion-tarjetas.component.scss"],
   providers: [CardService],
 })
-export class GestionTarjetasComponent implements OnInit {
+export class GestionTarjetasComponent {
   private _selectedCard: Card;
   private _filteredCards: Card[];
   private _search: string = "";
 
   constructor(public cardService: CardService) {}
-
-  ngOnInit() {}
 
   selectCard(id: number) {
     this.selectedCard = this.cardService.sortedCards

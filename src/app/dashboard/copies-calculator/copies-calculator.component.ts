@@ -1,12 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-copies-calculator",
   templateUrl: "./copies-calculator.component.html",
-  styleUrls: ["./copies-calculator.component.scss"]
+  styleUrls: ["./copies-calculator.component.scss"],
 })
-export class CopiesCalculatorComponent implements OnInit {
+export class CopiesCalculatorComponent {
   constructor() {}
-
-  ngOnInit() {}
 }
