@@ -1,15 +1,13 @@
 import { CardService } from "@app/_services/card.service";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-tarjetas",
   templateUrl: "./tarjetas.component.html",
-  styleUrls: ["./tarjetas.component.scss"]
+  styleUrls: ["./tarjetas.component.scss"],
 })
-export class TarjetasComponent implements OnInit {
+export class TarjetasComponent {
   barraDeBusqueda: string = "";
 
   constructor(public cardService: CardService) {}
-
-  ngOnInit() {}
 }

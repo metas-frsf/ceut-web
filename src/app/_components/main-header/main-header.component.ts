@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { User } from "@app/_models";
 import { Router } from "@angular/router";
 import { AuthenticationService } from "@app/_services";
@@ -6,9 +6,9 @@ import { AuthenticationService } from "@app/_services";
 @Component({
   selector: "app-main-header",
   templateUrl: "./main-header.component.html",
-  styleUrls: ["./main-header.component.scss"]
+  styleUrls: ["./main-header.component.scss"],
 })
-export class MainHeaderComponent implements OnInit {
+export class MainHeaderComponent {
   @Input() activePage = { name: "", messenger: "", instagram: "", logo: "" };
   currentUser: User;
 
@@ -18,16 +18,16 @@ export class MainHeaderComponent implements OnInit {
       label: "Clientes",
       route: "/client-dashboard",
       enabled: true,
-      visible: true
+      visible: true,
     },
     {
       label: "Reparaciones",
       route: "repair-dashboard",
       enabled: true,
-      visible: true
+      visible: true,
     },
     { label: "Caja", route: "/caja", enabled: false, visible: true },
-    { label: "Stock", route: "/stock", enabled: false, visible: true }
+    { label: "Stock", route: "/stock", enabled: false, visible: true },
   ];
 
   private _userLinks = [
@@ -37,17 +37,17 @@ export class MainHeaderComponent implements OnInit {
       label: "Celulares",
       route: "/smartphones",
       enabled: false,
-      visible: true
+      visible: true,
     },
     { label: "Reparaciones", route: "/repairs", enabled: true, visible: true },
     {
       label: "Servicio a empresas",
       route: "enterprise",
       enabled: true,
-      visible: true
+      visible: true,
     },
     { label: "Novedades", route: "news", enabled: false, visible: true },
-    { label: "Contacto", route: "contact", enabled: true, visible: true }
+    { label: "Contacto", route: "contact", enabled: true, visible: true },
   ];
 
   constructor(
@@ -55,13 +55,8 @@ export class MainHeaderComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(
-      x => (this.currentUser = x)
+      (x) => (this.currentUser = x)
     );
-  }
-
-  ngOnInit() {
-    // localStorage.clear('users');
-    // localStorage.setItem('users', JSON.stringify(this.usersList));
   }
 
   logout() {
