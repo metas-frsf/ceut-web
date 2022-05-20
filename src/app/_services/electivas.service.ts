@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { GlobalService } from "@app/_services/global.service";
 import { Carrera, Periodo } from "@app/electivas/electivas.model";
-import * as moment from "moment";
-import { Moment } from "moment";
+import * as dayjs from "dayjs";
+import { Dayjs } from "dayjs";
 
 const apiPrefix: string = "api/courses";
 
@@ -126,12 +126,12 @@ export class ElectivasService {
    * En caso de que la fecha actual sea del segundo semestre, filtra las electivas del segundo cuatrimestre
    */
   inicializarFiltroCuatrimestre(): Periodo {
-    const fechaDeHoy: Moment = moment();
+    const fechaDeHoy: Dayjs = dayjs();
+
     // fechaBisagra representa el primero de julio del año actual, pivote para saber si estamos en el primer o segundo cuatrimestre
-    const fechaBisagra: Moment = moment(`07/01/${fechaDeHoy.year()}`);
-    const estamosEnPrimerSemestre: boolean = fechaDeHoy.isSameOrBefore(
-      fechaBisagra
-    );
+    const fechaBisagra: Dayjs = dayjs(`07/01/${fechaDeHoy.year()}`);
+    const estamosEnPrimerSemestre: boolean = fechaDeHoy.isBefore(fechaBisagra);
+
     const filtroInicial: Periodo = {
       anual: false,
       primero: false,
