@@ -26,6 +26,11 @@ export function filterCardsBySearchText(
   cards: Card[],
   textToSearch: string
 ): Card[] {
+  // Si el texto para filtrar es la cadena vacía, devolver la lista original.
+  if (!textToSearch) {
+    return cards;
+  }
+
   const textoToSearchLowerCase = textToSearch.toLowerCase();
 
   const filterByTitle = cards.filter(
