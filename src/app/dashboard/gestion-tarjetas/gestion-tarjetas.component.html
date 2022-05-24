@@ -41,12 +41,9 @@
         </div>
         <div class="card-body">
           <div id="card-list-container" class="input-group input-group-sm">
-            <div
-              *ngIf="cardService.sortedCards.length"
-              class="btn-group-vertical w-100"
-            >
+            <div *ngIf="cards.length" class="btn-group-vertical w-100">
               <button
-                *ngFor="let card of cardService.sortedCards"
+                *ngFor="let card of cards"
                 class="text-left btn btn-outline-secondary"
                 type="button"
                 (click)="selectCard(card.id)"
