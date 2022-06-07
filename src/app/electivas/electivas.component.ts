@@ -1,10 +1,8 @@
-import { Component, HostListener, Inject, OnInit } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 import { ElectivasService } from "@app/_services/electivas.service";
-import { DOCUMENT } from "@angular/common";
 import { GlobalService } from "@app/_services/global.service";
-
-import { Router } from "@angular/router";
 import { Carrera, Electiva, Periodo } from "@app/electivas/electivas.model";
+import { CareerService } from "@app/_services/career.service";
 
 @Component({
   selector: "app-ectivas",
@@ -31,21 +29,17 @@ export class ElectivasComponent implements OnInit {
 
   fraseSeleccionada: string = ""; // Frase motivacional mostrada en displays grandes (mayores a 992px)
 
-  vistaDePresentacion: boolean = false;
-
-  config: any;
-  fullpage_api: any;
-
   constructor(
-    @Inject(DOCUMENT) private document: any,
+    private careerService: CareerService,
     private electivasService: ElectivasService,
-    private globalService: GlobalService,
-    private router: Router
+    private globalService: GlobalService
   ) {
-    this.carreras = this.electivasService.getCarreras();
+    this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
     this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();
-    this.seleccionarCarrera("basicas"); // Inicializamos cargando las materias básicas, comunes a las carreras
+    // Inicializamos cargando la carrera de Civil, por default.
+    // TODO: Hacer que se guarde en localStorage la última carrera visitada
+    this.seleccionarCarrera("civil");
   }
 
   ngOnInit() {
@@ -219,9 +213,5 @@ export class ElectivasComponent implements OnInit {
 
   cerrarRecomendacion() {
     this.recomendacionPantalla = false;
-  }
-
-  toggleModalPresentacion() {
-    this.vistaDePresentacion = !this.vistaDePresentacion;
   }
 }

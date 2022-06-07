@@ -10,10 +10,11 @@ import { AlertComponent } from "./_components";
 import { LoginComponent } from "./login";
 import {
   NgbDropdownModule,
-  NgbTooltipModule
+  NgbTooltipModule,
 } from "@ng-bootstrap/ng-bootstrap";
 import { RegisterComponent } from "@app/register";
 import { MainHeaderComponent } from "@app/_components/main-header/main-header.component";
+import { CareerService } from "@app/_services/career.service";
 
 @NgModule({
   imports: [
@@ -23,19 +24,20 @@ import { MainHeaderComponent } from "@app/_components/main-header/main-header.co
     NgbDropdownModule,
     NgbTooltipModule,
     ReactiveFormsModule,
-    routing
+    routing,
   ],
   declarations: [
     AlertComponent,
     AppComponent,
     MainHeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    CareerService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
