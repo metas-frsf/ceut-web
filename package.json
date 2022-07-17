@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^13.3.9",
     "@angular/platform-browser-dynamic": "^13.3.9",
     "@angular/router": "^13.3.9",
+    "@auth0/auth0-angular": "^1.10.0",
     "@ng-bootstrap/ng-bootstrap": "^11.0.1",
     "@sanity/client": "^2.7.1",
     "airtable": "^0.7.2",
