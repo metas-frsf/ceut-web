@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private router: Router,
     private userService: UserService
   ) {
-    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+    this.currentUserSubscription = this.authenticationService.currentUser$.subscribe(user => {
       this.currentUser = user;
     });
   }

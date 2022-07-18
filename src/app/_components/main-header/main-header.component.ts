@@ -54,7 +54,7 @@ export class MainHeaderComponent {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    this.authenticationService.currentUser.subscribe(
+    this.authenticationService.currentUser$.subscribe(
       (x) => (this.currentUser = x)
     );
   }
