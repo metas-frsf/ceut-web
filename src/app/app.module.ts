@@ -1,4 +1,4 @@
-﻿import { NgModule } from "@angular/core";
+﻿import { APP_INITIALIZER, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
@@ -41,6 +41,13 @@ import { AuthenticationService } from "@app/_services";
   providers: [
     AuthenticationService,
     CareerService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (authenticationService: AuthenticationService) => () =>
+        authenticationService.init(),
+      deps: [AuthenticationService],
+      multi: true,
+    },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
