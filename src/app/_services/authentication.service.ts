@@ -9,20 +9,21 @@ const apiPrefix: string = "api/users";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
+
   get currentUser$(): Observable<User> {
-    return this.currentUserSubject.asObservable();
+    return this._currentUser$.asObservable();
   }
 
-  private currentUserSubject: BehaviorSubject<User>;
+  private _currentUser$: BehaviorSubject<User>;
 
   constructor(private auth0Service: AuthService, private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(
+    this._currentUser$ = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem("currentUser"))
     );
   }
 
   public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+    return this._currentUser$.value;
   }
 
   public loginWithRedirect() {
@@ -36,7 +37,7 @@ export class AuthenticationService {
         map((user) => {
           if (user) {
             localStorage.setItem("currentUser", JSON.stringify(user));
-            this.currentUserSubject.next(user);
+            this._currentUser$.next(user);
           }
           return user;
         })
@@ -55,7 +56,7 @@ export class AuthenticationService {
           if (user && user.token) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem("currentUser", JSON.stringify(user));
-            this.currentUserSubject.next(user);
+            this._currentUser$.next(user);
           }
 
           return user;
@@ -66,7 +67,7 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
-    this.currentUserSubject.next(null);
+    this._currentUser$.next(null);
     this.auth0Service.logout({ federated: true });
   }
 }
