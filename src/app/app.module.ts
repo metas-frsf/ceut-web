@@ -12,7 +12,6 @@ import {
   NgbDropdownModule,
   NgbTooltipModule,
 } from "@ng-bootstrap/ng-bootstrap";
-import { RegisterComponent } from "@app/register";
 import { MainHeaderComponent } from "@app/_components/main-header/main-header.component";
 import { CareerService } from "@app/_services/career.service";
 import { AuthModule } from "@auth0/auth0-angular";
@@ -37,7 +36,6 @@ import { environment } from "@environments/environment";
     AppComponent,
     MainHeaderComponent,
     LoginComponent,
-    RegisterComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
