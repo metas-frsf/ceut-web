@@ -1,1 +1,1 @@
-﻿export * from './auth.guard';
+﻿export * from "./authority-guard.service";

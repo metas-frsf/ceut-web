@@ -1,5 +1,6 @@
 ﻿import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "@auth0/auth0-angular";
+import { AuthorityGuard } from "@app/_guards";
 
 const appRoutes: Routes = [
   {
@@ -11,7 +12,7 @@ const appRoutes: Routes = [
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AuthorityGuard],
   },
   //TODO: Volver funcional nuevamente cuando se planifique #117 o ante la necesidad de una nueva JEUT
   // {
