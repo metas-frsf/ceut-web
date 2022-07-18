@@ -16,6 +16,7 @@ import { MainHeaderComponent } from "@app/_components/main-header/main-header.co
 import { CareerService } from "@app/_services/career.service";
 import { AuthModule } from "@auth0/auth0-angular";
 import { environment } from "@environments/environment";
+import { AuthenticationService } from "@app/_services";
 
 @NgModule({
   imports: [
@@ -38,9 +39,10 @@ import { environment } from "@environments/environment";
     LoginComponent,
   ],
   providers: [
+    AuthenticationService,
+    CareerService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    CareerService,
   ],
   bootstrap: [AppComponent],
 })
