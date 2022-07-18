@@ -9,6 +9,7 @@ const apiPrefix: string = "api/users";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
+
   public get currentUserValue(): User {
     return this._currentUser$.value;
   }
@@ -29,19 +30,26 @@ export class AuthenticationService {
     this.assignCurrentUser();
   }
 
-  public getUserProfileUsingAuthProvider(): Observable<User> {
-    return this.auth0Service.user$.pipe(
-      switchMap((user) => {
-        return user ? this.loginWithEmail(user.email) : of(null);
-      })
-    );
-  }
-
   public loginWithRedirect() {
     this.auth0Service.loginWithRedirect();
   }
 
-  public loginWithEmail(email: string): Observable<User> {
+  public logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem("currentUser");
+    this._currentUser$.next(null);
+    this.auth0Service.logout({ federated: true });
+  }
+
+  private getUserProfileUsingAuthProvider(): Observable<User> {
+    return this.auth0Service.user$.pipe(
+      switchMap((user) => {
+        return user ? this.authenticateWithEmail(user.email) : of(null);
+      })
+    );
+  }
+
+  private authenticateWithEmail(email: string): Observable<User> {
     return this.http
       .post<any>(`${apiPrefix}/authenticateWithEmail`, { email })
       .pipe(
@@ -53,33 +61,6 @@ export class AuthenticationService {
           return user;
         })
       );
-  }
-
-  public loginWithUserNameAndPassword(userName: string, password: string) {
-    return this.http
-      .post<any>(`${apiPrefix}/authenticate`, {
-        userName,
-        password,
-      })
-      .pipe(
-        map((user) => {
-          // login successful if there's a jwt token in the response
-          if (user && user.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem("currentUser", JSON.stringify(user));
-            this._currentUser$.next(user);
-          }
-
-          return user;
-        })
-      );
-  }
-
-  public logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem("currentUser");
-    this._currentUser$.next(null);
-    this.auth0Service.logout({ federated: true });
   }
 
   private assignCurrentUser() {
