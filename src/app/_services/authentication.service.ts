@@ -1,7 +1,7 @@
 ﻿import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { BehaviorSubject, Observable, of } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import { User } from "@app/_models";
 import { AuthService } from "@auth0/auth0-angular";
 
@@ -9,6 +9,9 @@ const apiPrefix: string = "api/users";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
+  public get currentUserValue(): User {
+    return this._currentUser$.value;
+  }
 
   get currentUser$(): Observable<User> {
     return this._currentUser$.asObservable();
@@ -22,15 +25,23 @@ export class AuthenticationService {
     );
   }
 
-  public get currentUserValue(): User {
-    return this._currentUser$.value;
+  public init() {
+    this.assignCurrentUser();
+  }
+
+  public getUserProfileUsingAuthProvider(): Observable<User> {
+    return this.auth0Service.user$.pipe(
+      switchMap((user) => {
+        return user ? this.loginWithEmail(user.email) : of(null);
+      })
+    );
   }
 
   public loginWithRedirect() {
     this.auth0Service.loginWithRedirect();
   }
 
-  public loginWithEmail(email: string) {
+  public loginWithEmail(email: string): Observable<User> {
     return this.http
       .post<any>(`${apiPrefix}/authenticateWithEmail`, { email })
       .pipe(
@@ -64,10 +75,21 @@ export class AuthenticationService {
       );
   }
 
-  logout() {
+  public logout() {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
     this._currentUser$.next(null);
     this.auth0Service.logout({ federated: true });
+  }
+
+  private assignCurrentUser() {
+    const subscription = this.getUserProfileUsingAuthProvider().subscribe(
+      (user) => {
+        if (user) {
+          this._currentUser$.next(user);
+          subscription.unsubscribe();
+        }
+      }
+    );
   }
 }
