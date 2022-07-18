@@ -7,7 +7,6 @@ import { ErrorInterceptor, JwtInterceptor } from "./_helpers";
 import { AppComponent } from "./app.component";
 import { routing } from "./app.routing";
 import { AlertComponent } from "./_components";
-import { LoginComponent } from "./login";
 import {
   NgbDropdownModule,
   NgbTooltipModule,
@@ -32,12 +31,7 @@ import { AuthenticationService } from "@app/_services";
       clientId: environment.auth0.clientId,
     }),
   ],
-  declarations: [
-    AlertComponent,
-    AppComponent,
-    MainHeaderComponent,
-    LoginComponent,
-  ],
+  declarations: [AlertComponent, AppComponent, MainHeaderComponent],
   providers: [
     AuthenticationService,
     CareerService,

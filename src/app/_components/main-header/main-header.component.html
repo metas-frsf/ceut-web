@@ -58,13 +58,13 @@
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <ng-container *ngIf="!currentUser">
-            <a
+            <button
               class="dropdown-item d-flex align-items-center"
-              routerLink="/login"
+              (click)="login()"
             >
               <i class="fa fa-2x fa-sign-in-alt" aria-hidden="true"></i>
               <label class="pl-3 mb-0">Ingresar</label>
-            </a>
+            </button>
             <div class="dropdown-divider"></div>
             <a
               class="dropdown-item d-flex align-items-center"
@@ -134,9 +134,9 @@
         </ng-container>
 
         <ng-container *ngIf="!currentUser">
-          <a class="btn btn-primary mr-3" routerLink="/login">
+          <button class="btn btn-primary mr-3" (click)="login()">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Ingresar
-          </a>
+          </button>
           <a class="btn btn-primary mr-3" routerLink="/electivas">
             <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
           </a>

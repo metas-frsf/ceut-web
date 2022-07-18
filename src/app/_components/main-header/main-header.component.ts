@@ -59,7 +59,11 @@ export class MainHeaderComponent {
     );
   }
 
-  logout() {
+  public login() {
+    this.authenticationService.loginWithRedirect();
+  }
+
+  public logout() {
     this.authenticationService.logout();
     this.router.navigate(["/"]);
   }

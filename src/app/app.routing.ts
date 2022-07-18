@@ -1,6 +1,5 @@
 ﻿import { RouterModule, Routes } from "@angular/router";
-import { LoginComponent } from "./login";
-import { AuthGuard } from "./_guards";
+import { AuthGuard } from "@auth0/auth0-angular";
 
 const appRoutes: Routes = [
   {
@@ -14,7 +13,6 @@ const appRoutes: Routes = [
       import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
     canActivate: [AuthGuard],
   },
-  { path: "login", component: LoginComponent },
   //TODO: Volver funcional nuevamente cuando se planifique #117 o ante la necesidad de una nueva JEUT
   // {
   //   path: "deportes",
