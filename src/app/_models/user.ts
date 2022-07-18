@@ -6,4 +6,5 @@
   lastName: string;
   token: string;
   avatar: string;
+  email: string;
 }
