@@ -1,10 +1,10 @@
-const User = require("../_models/user/user.model");
+const { User } = require("../_models/user/user.model");
 const Role = require("../_models/user/role.model");
 
 export default async function authenticateWithEmail(req, res) {
   const { email } = req.body;
 
-  const user = await User().findOne({
+  const user = await User.findOne({
     attributes: {
       exclude: [
         "password",

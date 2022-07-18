@@ -1,4 +1,4 @@
-const User = require("../_models/user/user.model");
+const { User } = require("../_models/user/user.model");
 const Role = require("../_models/user/role.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -7,7 +7,7 @@ const environment = require("../_helpers/environment");
 export default async function authenticate(req, res) {
   const { userName, password } = req.body;
 
-  const user = await User().findOne({
+  const user = await User.findOne({
     raw: true,
     include: [
       {
