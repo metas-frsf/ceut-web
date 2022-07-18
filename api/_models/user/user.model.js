@@ -38,6 +38,11 @@ User.init(
       allowNull: true,
       field: "avatar",
     },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      field: "email",
+    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,
