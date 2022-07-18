@@ -25,7 +25,6 @@
     "@ng-bootstrap/ng-bootstrap": "^11.0.1",
     "@sanity/client": "^2.7.1",
     "airtable": "^0.7.2",
-    "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.22.5",
     "dayjs": "^1.11.2",
