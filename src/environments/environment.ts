@@ -5,6 +5,10 @@
 export const environment = {
   production: false,
   apiUrl: "",
+  auth0: {
+    domain: "ceut-frsf.us.auth0.com",
+    clientId: "ajD0mHPA3DjcxakMVuLrWw1Rm354SFir",
+  },
 };
 
 /*

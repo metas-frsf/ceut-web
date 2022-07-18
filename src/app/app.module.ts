@@ -15,6 +15,8 @@ import {
 import { RegisterComponent } from "@app/register";
 import { MainHeaderComponent } from "@app/_components/main-header/main-header.component";
 import { CareerService } from "@app/_services/career.service";
+import { AuthModule } from "@auth0/auth0-angular";
+import { environment } from "@environments/environment";
 
 @NgModule({
   imports: [
@@ -25,6 +27,10 @@ import { CareerService } from "@app/_services/career.service";
     NgbTooltipModule,
     ReactiveFormsModule,
     routing,
+    AuthModule.forRoot({
+      domain: environment.auth0.domain,
+      clientId: environment.auth0.clientId,
+    }),
   ],
   declarations: [
     AlertComponent,
