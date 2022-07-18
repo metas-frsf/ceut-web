@@ -9,7 +9,6 @@ const apiPrefix: string = "api/users";
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
-
   get currentUser$(): Observable<User> {
     return this.currentUserSubject.asObservable();
   }
@@ -26,7 +25,25 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(userName: string, password: string) {
+  public loginWithRedirect() {
+    this.auth0Service.loginWithRedirect();
+  }
+
+  public loginWithEmail(email: string) {
+    return this.http
+      .post<any>(`${apiPrefix}/authenticateWithEmail`, { email })
+      .pipe(
+        map((user) => {
+          if (user) {
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            this.currentUserSubject.next(user);
+          }
+          return user;
+        })
+      );
+  }
+
+  public loginWithUserNameAndPassword(userName: string, password: string) {
     return this.http
       .post<any>(`${apiPrefix}/authenticate`, {
         userName,
@@ -50,5 +67,6 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
     this.currentUserSubject.next(null);
+    this.auth0Service.logout({ federated: true });
   }
 }
