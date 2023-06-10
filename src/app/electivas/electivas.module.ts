@@ -3,10 +3,7 @@ import { CommonModule } from "@angular/common";
 import { ElectivasRoutingModule } from "./electivas-routing.module";
 import { ElectivasComponent } from "@app/electivas/electivas.component";
 import { FormsModule } from "@angular/forms";
-import {
-  NgbButtonsModule,
-  NgbDropdownModule
-} from "@ng-bootstrap/ng-bootstrap";
+import { NgbDropdownModule } from "@ng-bootstrap/ng-bootstrap";
 import { ElectivasService } from "@app/_services/electivas.service";
 
 @NgModule({
@@ -16,8 +13,7 @@ import { ElectivasService } from "@app/_services/electivas.service";
     FormsModule,
     ElectivasRoutingModule,
     NgbDropdownModule,
-    NgbButtonsModule
   ],
-  providers: [ElectivasService]
+  providers: [ElectivasService],
 })
 export class ElectivasModule {}
