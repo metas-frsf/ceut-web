@@ -63,7 +63,7 @@ export class GestionTarjetasComponent implements OnInit {
 
   update(card: Card) {
     const updatedCard = _.clone(card);
-    this.cardService.update(updatedCard).then((result) => {
+    this.cardService.update(updatedCard).subscribe((result) => {
       console.log(result);
     });
   }

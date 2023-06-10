@@ -42,22 +42,18 @@ export class CardService {
   /**
    * Obtiene todas las tarjetas desde el servidor y las devuelve para su procesamiento
    */
-  public async getAll() {
-    const cardDatabase: ICardCollections = await this.http
-      .get<ICardCollections>(`${apiPrefix}/active`)
-      .toPromise();
-
-    this._rawCards = cardDatabase;
-    this.assignLists(this._rawCards);
+  public getAll() {
+    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe((x) => {
+      this._rawCards = x;
+      this.assignLists(this._rawCards);
+    });
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos
    * @param card - Tarjeta a actualizar
    */
-  public async update(card: Card) {
-    const result = await this.http
-      .put<Card>(`${apiPrefix}/update`, card)
-      .toPromise();
+  public update(card: Card) {
+    return this.http.put<Card>(`${apiPrefix}/update`, card);
   }
 
   public getById(id: number): Observable<Card> {
