@@ -17,7 +17,7 @@
 </div>
 
 <!-- Sección de tarjetas fijas -->
-<div id="avisos" class="card-columns text-center mt-2">
+<div id="avisos" class="text-center mt-2">
   <!--Mostrar tarjeta de avisos sólo cuando la búsqueda está vacía-->
   <!--  <app-tarjeta-avisos *ngIf="barraDeBusqueda.length === 0"></app-tarjeta-avisos>-->
   <ng-container *ngFor="let card of cardService.fixedCards">
@@ -28,7 +28,7 @@
 
 <hr *ngIf="cardService.fixedCards.length" />
 
-<div id="contenido" class="card-columns text-center">
+<div id="contenido" class="text-center">
   <ng-container *ngFor="let card of cardService.assortedCards">
     <app-tarjeta-generica
       *ngIf="card.enabled"

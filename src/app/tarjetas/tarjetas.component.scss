@@ -9,6 +9,14 @@
   border: none;
 }
 
+app-tarjeta-generica,
+app-tarjeta-avisos {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
 .p-0 img {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -45,6 +53,7 @@
 
 #avisos,
 #contenido {
+  column-gap: 10px;
   @media (max-width: 991px) {
     column-count: 1;
   }
