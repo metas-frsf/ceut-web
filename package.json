@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^16.0.5",
     "@angular/platform-browser-dynamic": "^16.0.5",
     "@angular/router": "^16.0.5",
-    "@ng-bootstrap/ng-bootstrap": "^14.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^15.0.1",
     "@popperjs/core": "^2.10.2",
     "@sanity/client": "^2.7.1",
     "airtable": "^0.7.2",
