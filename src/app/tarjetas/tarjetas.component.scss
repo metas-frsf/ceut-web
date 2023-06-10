@@ -1,7 +1,5 @@
 //This one must be always kept as the last line of the file
 
-@import "~bootstrap/scss/bootstrap.scss";
-
 .card-body {
   border-radius: 1rem;
 }
@@ -9,6 +7,14 @@
 .card {
   border-radius: 1rem;
   border: none;
+}
+
+app-tarjeta-generica,
+app-tarjeta-avisos {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
+  margin-bottom: 16px;
 }
 
 .p-0 img {
@@ -47,6 +53,7 @@
 
 #avisos,
 #contenido {
+  column-gap: 10px;
   @media (max-width: 991px) {
     column-count: 1;
   }

@@ -4,7 +4,7 @@
     class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center"
   >
     <!-- TODO: Borrar d-none del div de abajo para CEUT -->
-    <div class="align-items-start mr-3">
+    <div class="align-items-start me-3">
       <ng-container *ngIf="!currentUser">
         <a
           *ngIf="!currentUser"
@@ -21,7 +21,7 @@
         </a>
         <a
           *ngIf="!currentUser"
-          class="navbar-brand p-1 m-0 ml-sm-3"
+          class="navbar-brand p-1 m-0 ms-sm-3"
           [href]="'https://instagram.com/' + activePage.instagram"
           ngbTooltip="Contactate vía Instagram"
           placement="right"
@@ -63,7 +63,7 @@
               routerLink="/login"
             >
               <i class="fa fa-2x fa-sign-in-alt" aria-hidden="true"></i>
-              <label class="pl-3 mb-0">Ingresar</label>
+              <label class="ps-3 mb-0">Ingresar</label>
             </a>
             <div class="dropdown-divider"></div>
             <a
@@ -75,7 +75,7 @@
                 [src]="'assets/img/instagram-icon.png'"
                 [alt]="'Logo Instagram'"
               />
-              <label class="pl-3 mb-0">Instagram CEUT FRSF</label>
+              <label class="ps-3 mb-0">Instagram CEUT FRSF</label>
             </a>
             <div class="dropdown-divider"></div>
             <a
@@ -89,7 +89,7 @@
                 [src]="'assets/img/facebook-messenger.png'"
                 [alt]="'Logo Messenger'"
               />
-              <label class="pl-3 mb-0">Messenger CEUT FRSF</label>
+              <label class="ps-3 mb-0">Messenger CEUT FRSF</label>
             </a>
             <div class="dropdown-divider"></div>
             <a
@@ -97,7 +97,7 @@
               routerLink="/electivas"
             >
               <i class="fa fa-2x fa-sign-in-alt" aria-hidden="true"></i>
-              <label class="pl-3 mb-0">Electivas</label>
+              <label class="ps-3 mb-0">Electivas</label>
             </a>
           </ng-container>
 
@@ -107,14 +107,14 @@
               routerLink="/dashboard"
             >
               <i class="fa fa-2x fa-columns" aria-hidden="true"></i>
-              <label class="pl-3 mb-0">Panel Principal</label>
+              <label class="ps-3 mb-0">Panel Principal</label>
             </a>
             <a
               class="dropdown-item d-flex align-items-center"
               (click)="logout()"
             >
               <i class="fa fa-2x fa-sign-out-alt" aria-hidden="true"></i>
-              <label class="pl-3 mb-0">Salir</label>
+              <label class="ps-3 mb-0">Salir</label>
             </a>
           </ng-container>
         </div>
@@ -122,23 +122,23 @@
 
       <div class="d-none d-md-flex">
         <ng-container *ngIf="currentUser">
-          <a class="btn btn-primary mr-1" routerLink="/electivas">
-            <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
+          <a class="btn btn-primary me-1" routerLink="/electivas">
+            <i class="fa fa-sign-in-alt me-2" aria-hidden="true"></i>Electivas
           </a>
-          <a class="btn btn-primary mr-1" routerLink="/dashboard">
-            <i class="fa fa-columns mr-2" aria-hidden="true"></i>Panel Principal
+          <a class="btn btn-primary me-1" routerLink="/dashboard">
+            <i class="fa fa-columns me-2" aria-hidden="true"></i>Panel Principal
           </a>
           <a class="btn btn-primary" (click)="logout()">
-            <i class="fa fa-sign-out-alt mr-2" aria-hidden="true"></i>Salir
+            <i class="fa fa-sign-out-alt me-2" aria-hidden="true"></i>Salir
           </a>
         </ng-container>
 
         <ng-container *ngIf="!currentUser">
-          <a class="btn btn-primary mr-3" routerLink="/login">
-            <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Ingresar
+          <a class="btn btn-primary me-3" routerLink="/login">
+            <i class="fa fa-sign-in-alt me-2" aria-hidden="true"></i>Ingresar
           </a>
-          <a class="btn btn-primary mr-3" routerLink="/electivas">
-            <i class="fa fa-sign-in-alt mr-2" aria-hidden="true"></i>Electivas
+          <a class="btn btn-primary me-3" routerLink="/electivas">
+            <i class="fa fa-sign-in-alt me-2" aria-hidden="true"></i>Electivas
           </a>
         </ng-container>
       </div>

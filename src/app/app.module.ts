@@ -10,6 +10,7 @@ import { AlertComponent } from "./_components";
 import { LoginComponent } from "./login";
 import {
   NgbDropdownModule,
+  NgbModule,
   NgbTooltipModule,
 } from "@ng-bootstrap/ng-bootstrap";
 import { RegisterComponent } from "@app/register";
@@ -22,6 +23,7 @@ import { CareerService } from "@app/_services/career.service";
     FormsModule,
     HttpClientModule,
     NgbDropdownModule,
+    NgbModule,
     NgbTooltipModule,
     ReactiveFormsModule,
     routing,

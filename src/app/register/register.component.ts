@@ -1,22 +1,28 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+// ToDo: Migrar formularios para que estén tipados
+
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from "@angular/forms";
 import { first } from "rxjs/operators";
 
 import {
   AlertService,
   UserService,
-  AuthenticationService
+  AuthenticationService,
 } from "@app/_services";
 
 @Component({ templateUrl: "register.component.html" })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
   loading = false;
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
@@ -33,7 +39,7 @@ export class RegisterComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       userName: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      password: ["", [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -55,11 +61,11 @@ export class RegisterComponent implements OnInit {
       .register(this.registerForm.value)
       .pipe(first())
       .subscribe(
-        data => {
+        (data) => {
           this.alertService.success("Registration successful", true);
           this.router.navigate(["/login"]);
         },
-        error => {
+        (error) => {
           this.alertService.error(error);
           this.loading = false;
         }
