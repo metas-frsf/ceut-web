@@ -2,6 +2,7 @@
   "name": "ceut-frsf",
   "version": "2.0.0",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "ng": "ng",
     "serve": "vercel dev",
     "build": "ng build --aot --configuration production",
