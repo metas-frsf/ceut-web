@@ -38,6 +38,11 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./calendario/calendario.module").then((m) => m.CalendarioModule),
   },
+  {
+    path: "padron",
+    loadChildren: () =>
+      import("./padron/padron.module").then((m) => m.PadronModule),
+  },
   // otherwise redirect to dashboard
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", redirectTo: "home" },

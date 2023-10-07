@@ -1,0 +1,19 @@
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center">
+      <div class="card-header">
+        <h2>CONSULTA DE PADRÓN 2023</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="consultarGoogleSheets()">
+          <div class="mb-3">
+            <label for="dni" class="form-label">Número de DNI</label>
+            <input type="text" class="form-control" id="dni" aria-describedby="dniHelp" name="dni" [(ngModel)]="dni">
+            <div id="dniHelp" class="form-text">Sin puntos ni guiones.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">🔎 Consultar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
