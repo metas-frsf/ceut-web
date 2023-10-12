@@ -1,19 +1,11 @@
-const environment = require("./environment");
-const Sequelize = require("sequelize");
+import { environment } from "./environment";
+import { Sequelize } from "sequelize";
 
-const mysql = require("mysql2");
 const ceutDatabase = environment.serverConfig.databases.mysql.databases
   .filter((db) => db.id === "ceut-frsf")
   .pop();
 
-const mySqlConnection = mysql.createConnection({
-  host: ceutDatabase.host,
-  user: ceutDatabase.user,
-  database: ceutDatabase.database,
-  password: ceutDatabase.password,
-});
-
-const sequelizeConnection = new Sequelize(
+const sequelizeConnector = new Sequelize(
   ceutDatabase.database,
   ceutDatabase.user,
   ceutDatabase.password,
@@ -27,12 +19,4 @@ const sequelizeConnection = new Sequelize(
   }
 );
 
-module.exports = { mysqlConnector, sequelizeConnector };
-
-function mysqlConnector() {
-  return mySqlConnection;
-}
-
-function sequelizeConnector() {
-  return sequelizeConnection;
-}
+module.exports = { sequelizeConnector };

@@ -1,8 +1,5 @@
-const Sequelize = require("sequelize");
-const connector = require("../../_helpers/mysql-connector");
-const sequelizeConnector = connector.sequelizeConnector();
-
-module.exports = () => Role;
+import { sequelizeConnector } from "../../_helpers/mysql-connector";
+import { Sequelize } from "sequelize";
 
 class Role extends Sequelize.Model {}
 
@@ -45,3 +42,5 @@ Role.init(
     modelName: "role",
   }
 );
+
+module.exports = { Role };

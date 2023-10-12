@@ -1,5 +1,5 @@
-const environment = require("../_helpers/environment");
-const { google } = require("googleapis");
+import { environment } from "../_helpers/environment";
+import { googleapis } from "googleapis";
 
 const apiKey = environment.google.apiKey;
 const clientId = environment.google.clientId;
@@ -11,7 +11,7 @@ export default async function get(req, res) {
 
 async function obtenerPadronDesdeGoogleSheets() {
   return new Promise((resolve, reject) => {
-    const sheets = google.sheets({ version: "v4", auth: apiKey });
+    const sheets = googleapis.sheets({ version: "v4", auth: apiKey });
 
     sheets.spreadsheets.values.get(
       {
@@ -26,7 +26,7 @@ async function obtenerPadronDesdeGoogleSheets() {
             legajo: row[0],
             dni: row[1],
             name: row[2],
-            carrera: row[3]
+            carrera: row[3],
           };
         });
         resolve(result);

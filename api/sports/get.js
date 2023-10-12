@@ -1,10 +1,11 @@
-const environment = require("../_helpers/environment");
+import airtable from "airtable";
+import { environment } from "../_helpers/environment";
+
 const cuenta = environment.serverConfig.airtable.cuentas
   .filter((Cuenta) => Cuenta.id === "ceut")
   .pop();
 
 //Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
-const airtable = require("airtable");
 airtable.configure({
   endpointUrl: environment.serverConfig.airtable.endpointUrl,
   apiKey: cuenta.key,

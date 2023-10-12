@@ -1,4 +1,4 @@
-const sanityConnector = require("../_helpers/sanity-connector");
+import sanityConnector from "../_helpers/sanity-connector";
 
 export default async function getById(req, res) {
   const { id } = req.query;

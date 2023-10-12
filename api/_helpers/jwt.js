@@ -1,11 +1,9 @@
-const expressJwt = require("express-jwt");
-const environment = require("./environment");
-
-module.exports = jwt;
+import { environment } from "./environment";
+import { expressjwt } from "express-jwt";
 
 function jwt() {
   const { secret } = environment.serverConfig;
-  return expressJwt({ secret: secret, algorithms: ["HS256"] }).unless({
+  return expressjwt({ secret: secret, algorithms: ["HS256"] }).unless({
     path: [
       // public routes that don't require authentication
       "/users/authenticate",
@@ -15,3 +13,5 @@ function jwt() {
     ],
   });
 }
+
+module.exports = jwt;
