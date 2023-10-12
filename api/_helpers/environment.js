@@ -11,6 +11,7 @@ if (!("error" in result)) {
   environment.sanity.projectId = result.parsed.SANITY_PROJECT_ID;
   environment.sanity.dataset = result.parsed.SANITY_DATASET;
 
+  environment.google = {};
   environment.google.apiKey = result.parsed.GOOGLE_API_KEY;
   environment.google.clientId = result.parsed.GOOGLE_CLIENT_ID;
 } else {
@@ -21,6 +22,7 @@ if (!("error" in result)) {
   environment.sanity.projectId = process.env.SANITY_PROJECT_ID;
   environment.sanity.dataset = process.env.SANITY_DATASET;
 
+  environment.google = {};
   environment.google.apiKey = process.env.GOOGLE_API_KEY;
   environment.google.clientId = process.env.GOOGLE_CLIENT_ID;
 }
