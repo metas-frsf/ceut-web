@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { PadronRoutingModule } from './padron-routing.module';
-import { PadronComponent } from './padron.component';
+import { PadronRoutingModule } from "./padron-routing.module";
+import { PadronComponent } from "./padron.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [PadronComponent],
   imports: [
     CommonModule,
-    PadronRoutingModule
-  ]
+    FormsModule,
+    PadronRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
-export class PadronModule { }
+export class PadronModule {}
