@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 const result = dotenv.config().parsed;
 export let environment;
 
-if (!("error" in result)) {
+if (!!result.error) {
   environment = result.parsed;
   environment.serverConfig = JSON.parse(result.parsed.SERVER_CONFIG);
 
