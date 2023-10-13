@@ -24,3 +24,34 @@
     </div>
   </div>
 </div>
+
+<div class="row mt-2" *ngIf="consultado && votante!==null">
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center">
+      <div class="card-header bg-success text-light">
+        <h2>Tschopp, Juan Blas</h2>
+      </div>
+      <div class="card-body">
+        <b>DNI:</b> 42.530.052 <br />
+        <b>Legajo:</b> 26063 <br />
+        <b>Carrera:</b> Ing. Sist. Inf. <br />
+        <br />
+        <b>Habilitado/a para votar</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2" *ngIf="consultado && votante===null">
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center">
+      <div class="card-header bg-danger text-light">
+        <h2>DNI no encontrado</h2>
+      </div>
+      <div class="card-body">
+        No encontramos tu DNI en el padrón. <br />
+        Contactate con la Junta Electoral antes del 20/10.
+      </div>
+    </div>
+  </div>
+</div>

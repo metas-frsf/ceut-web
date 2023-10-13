@@ -1,4 +1,5 @@
 import { Component, inject } from "@angular/core";
+import { Estudiante } from "@app/_models/padron";
 import { PadronService } from "@app/_services/padron.service";
 
 @Component({
@@ -8,6 +9,8 @@ import { PadronService } from "@app/_services/padron.service";
 })
 export class PadronComponent {
   dni: string;
+  consultado: boolean = false;
+  votante: Estudiante = null;
 
   private padronService = inject(PadronService);
 
@@ -22,5 +25,6 @@ export class PadronComponent {
         console.log(error);
       }
     );
+    this.consultado = true;
   }
 }
