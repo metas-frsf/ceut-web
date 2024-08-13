@@ -66,7 +66,7 @@ export class CareerService {
         iconClass: "fa-laptop",
         nombreCompleto: "Ingeniería en Sistemas",
         nombreCorto: "Ing. en Sistemas",
-        horasTotales: 44,
+        horasTotales: 40,
         airTable: "Sistemas",
         contacto: {
           instagram: "ps_metas.frsf",
