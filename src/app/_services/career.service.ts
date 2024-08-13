@@ -69,8 +69,8 @@ export class CareerService {
         horasTotales: 40,
         airTable: "Sistemas",
         contacto: {
-          instagram: "ps_metas.frsf",
-          messenger: "psutnfrsf",
+          instagram: "sistemas_metas.frsf",
+          messenger: "",
           whatsapp: "",
         },
       },
