@@ -26,7 +26,7 @@ export class AppComponent {
     logo: "logo-metas.png",
   };
 
-  private rutasCeut = ["/home", "/dashboard", "/deportes", "/login"];
+  private rutasCeut = ["/home", "/dashboard", "/login"];
   private rutasMetas = ["/electivas"];
 
   private _paginaActiva;

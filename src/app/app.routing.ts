@@ -15,12 +15,6 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: "login", component: LoginComponent },
-  //TODO: Volver funcional nuevamente cuando se planifique #117 o ante la necesidad de una nueva JEUT
-  // {
-  //   path: "deportes",
-  //   loadChildren: () =>
-  //     import("./deportes/deportes.module").then((m) => m.DeportesModule),
-  // },
   {
     path: "electivas",
     loadChildren: () =>
