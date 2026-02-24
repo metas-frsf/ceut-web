@@ -1,7 +1,5 @@
-﻿import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
-import { AuthenticationService } from "./_services";
-import { User } from "./_models";
 
 @Component({
   selector: "app-ceut-frsf",
@@ -10,8 +8,6 @@ import { User } from "./_models";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  currentUser: User;
-
   private paginaCeut = {
     name: "CEUT",
     messenger: "ceut.frsf",
@@ -26,19 +22,12 @@ export class AppComponent {
     logo: "logo-metas.png",
   };
 
-  private rutasCeut = ["/home", "/dashboard", "/login"];
+  private rutasCeut = ["/home"];
   private rutasMetas = ["/electivas"];
 
   private _paginaActiva;
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    this.authenticationService.currentUser.subscribe(
-      (x) => (this.currentUser = x)
-    );
-
+  constructor(private router: Router) {
     router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
         if (this.rutasMetas.includes(route.urlAfterRedirects)) {
@@ -48,15 +37,6 @@ export class AppComponent {
         }
       }
     });
-  }
-
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(["/login"]);
-  }
-
-  get nombreDeBienvenida() {
-    return `${this.currentUser.avatar} ${this.currentUser.firstName}`;
   }
 
   get paginaActiva() {
