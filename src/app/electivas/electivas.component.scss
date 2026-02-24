@@ -106,6 +106,12 @@
   }
 }
 
+.card-body-electivas {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 550px);
+}
+
 .tarjeta-electiva {
   .row {
     @media (max-width: 575px) {

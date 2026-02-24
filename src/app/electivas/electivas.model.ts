@@ -10,7 +10,7 @@ export class Carrera {
   nombreCompleto: string;
   nombreCorto: string;
   horasTotales: number;
-  airTable: string;
+  carrera: string;
   contacto?: Contacto;
 }
 

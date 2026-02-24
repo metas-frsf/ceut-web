@@ -92,7 +92,7 @@
       </div>
     </div>
 
-    <div class="card-body pt-0">
+    <div class="card-body card-body-electivas pt-0">
       <!-- Header de la lista de tarjetas. No se muestran para tamaños menores a sm -->
       <div class="d-none d-sm-flex row no-gutters bg-light mb-2 ps-2 pe-2">
         <div class="col-3 col-md-2 col-lg-2">&nbsp;</div>
@@ -104,6 +104,11 @@
           <b>Horarios</b>
         </div>
       </div>
+
+      <app-loading-spinner
+        *ngIf="cargando"
+        mensaje="Cargando electivas..."
+      ></app-loading-spinner>
 
       <!-- Lista de tarjetas -->
       <div
@@ -400,7 +405,7 @@
     </div>
 
     <hr class="mt-1 mb-1" />
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
       <ng-container *ngIf="contadorAprobadas === 0">
         Para calcular, podés marcar materias como cursadas o aprobadas marcando
         en el botón ▼ a la izquierda de cada electiva
@@ -425,10 +430,10 @@
     class="card rounded-0 shadow mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2 d-none d-lg-block"
     *ngIf="carreraElegida.id === 'basicas' || contadorAprobadas === 0"
   >
-    <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem">
       <b>Cita recomendada:</b>
     </p>
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
       {{ fraseSeleccionada }}
     </p>
   </div>
@@ -597,13 +602,13 @@
       />
     </h5>
     <p class="text-justify">
-      Consultá a los consejeros METAs de
+      Consultá a METAs
       {{
         carreraElegida.nombreCompleto.split(" ")[
           carreraElegida.nombreCompleto.split(" ").length - 1
         ]
       }}
-      en nuestras redes:
+      vía Instagram:
     </p>
     <div class="row no-gutters mb-2 text-center">
       <div class="col" *ngIf="carreraElegida.contacto.messenger">

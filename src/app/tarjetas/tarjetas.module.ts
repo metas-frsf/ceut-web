@@ -6,6 +6,7 @@ import {TarjetaAvisosModule} from './tarjeta-avisos/tarjeta-avisos.module';
 import {TarjetaGenericaModule} from './tarjeta-generica/tarjeta-generica.module';
 import {CardService} from '@app/_services/card.service';
 import {TarjetasRoutingModule} from '@app/tarjetas/tarjetas-routing.module';
+import {LoadingSpinnerModule} from '@app/_components/loading-spinner/loading-spinner.module';
 
 @NgModule({
   declarations: [TarjetasComponent],
@@ -14,7 +15,8 @@ import {TarjetasRoutingModule} from '@app/tarjetas/tarjetas-routing.module';
     FormsModule,
     TarjetaAvisosModule,
     TarjetaGenericaModule,
-    TarjetasRoutingModule
+    TarjetasRoutingModule,
+    LoadingSpinnerModule,
   ],
   providers: [
     CardService

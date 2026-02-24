@@ -34,6 +34,7 @@ export class CardService {
   private _sortedCards = [];
   private _fixedCards = [];
   private _assortedCards = [];
+  cargando: boolean = false;
 
   constructor(public http: HttpClient) {
     this.getAll();
@@ -43,10 +44,17 @@ export class CardService {
    * Obtiene todas las tarjetas desde el servidor y las devuelve para su procesamiento
    */
   public getAll() {
-    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe((x) => {
-      this._rawCards = x;
-      this.assignLists(this._rawCards);
-    });
+    this.cargando = true;
+    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe(
+      (x) => {
+        this._rawCards = x;
+        this.assignLists(this._rawCards);
+        this.cargando = false;
+      },
+      () => {
+        this.cargando = false;
+      }
+    );
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos

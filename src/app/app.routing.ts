@@ -1,6 +1,4 @@
-﻿import { RouterModule, Routes } from "@angular/router";
-import { LoginComponent } from "./login";
-import { AuthGuard } from "./_guards";
+import { RouterModule, Routes } from "@angular/router";
 
 const appRoutes: Routes = [
   {
@@ -8,19 +6,6 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./tarjetas/tarjetas.module").then((m) => m.TarjetasModule),
   },
-  {
-    path: "dashboard",
-    loadChildren: () =>
-      import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
-    canActivate: [AuthGuard],
-  },
-  { path: "login", component: LoginComponent },
-  //TODO: Volver funcional nuevamente cuando se planifique #117 o ante la necesidad de una nueva JEUT
-  // {
-  //   path: "deportes",
-  //   loadChildren: () =>
-  //     import("./deportes/deportes.module").then((m) => m.DeportesModule),
-  // },
   {
     path: "electivas",
     loadChildren: () =>
@@ -38,7 +23,6 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./calendario/calendario.module").then((m) => m.CalendarioModule),
   },
-  // otherwise redirect to dashboard
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", redirectTo: "home" },
 ];
