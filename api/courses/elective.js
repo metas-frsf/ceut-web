@@ -33,12 +33,12 @@ export default async function get(req, res) {
     creditos: e.creditos,
     cuatrimestre: e.cuatrimestre,
     horarios: e.horarios ? e.horarios.split("\n") : [],
-    docentes: e.docentes,
+    docentes: e.docentes ? e.docentes.split(", ") : [],
     actividades: e.instanciasDeEvaluacion,
     tipoDeAprobacion: e.tipoDeAprobacion,
-    aprobadasParaRendir: e.aprobadasParaRendir?.join(", "),
-    aprobadasParaCursar: e.aprobadasParaCursar?.join(", "),
-    cursadasParaCursar: e.cursadasParaCursar?.join(", "),
+    aprobadasParaRendir: e.aprobadasParaRendir || [],
+    aprobadasParaCursar: e.aprobadasParaCursar || [],
+    cursadasParaCursar: e.cursadasParaCursar || [],
     comentarios: e.comentarios ? e.comentarios.split("\n") : [],
   }));
 
