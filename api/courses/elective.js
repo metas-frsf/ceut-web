@@ -1,5 +1,11 @@
 const sanityConnector = require("../_helpers/sanity-connector");
 
+const TIPO_APROBACION_LABELS = {
+  promocionDirecta: "Promoción directa",
+  regularOPromocion: "Regular o Promoción directa",
+  soloPromocion: "Sólo Promoción directa",
+};
+
 export default async function get(req, res) {
   const { carrera } = req.query;
   const carreraElegida = carrera ? carrera : "Sistemas";
@@ -35,7 +41,8 @@ export default async function get(req, res) {
     horarios: e.horarios ? e.horarios.split("\n") : [],
     docentes: e.docentes ? e.docentes.split(", ") : [],
     actividades: e.instanciasDeEvaluacion,
-    tipoDeAprobacion: e.tipoDeAprobacion,
+    tipoDeAprobacion:
+      TIPO_APROBACION_LABELS[e.tipoDeAprobacion] || e.tipoDeAprobacion,
     aprobadasParaRendir: e.aprobadasParaRendir || [],
     aprobadasParaCursar: e.aprobadasParaCursar || [],
     cursadasParaCursar: e.cursadasParaCursar || [],
