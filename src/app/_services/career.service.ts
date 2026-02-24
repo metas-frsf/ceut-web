@@ -18,7 +18,7 @@ export class CareerService {
         carrera: "Civil",
         contacto: {
           instagram: "consejerosdecivil",
-          messenger: "consejeros.civil",
+          messenger: "",
           whatsapp: "",
         },
       },
@@ -31,7 +31,7 @@ export class CareerService {
         carrera: "Eléctrica",
         contacto: {
           instagram: "consejeroselectrica",
-          messenger: "consejeroselectrica.metas",
+          messenger: "",
           whatsapp: "",
         },
       },
@@ -44,7 +44,7 @@ export class CareerService {
         carrera: "Industrial",
         contacto: {
           instagram: "industrialconsejeros",
-          messenger: "consejeroselectrica.metas",
+          messenger: "",
           whatsapp: "",
         },
       },
@@ -57,7 +57,7 @@ export class CareerService {
         carrera: "Mecánica",
         contacto: {
           instagram: "mecanicametas",
-          messenger: "metas.mecanica.frsf",
+          messenger: "",
           whatsapp: "",
         },
       },
