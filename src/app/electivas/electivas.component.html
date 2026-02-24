@@ -115,7 +115,7 @@
         class="tarjeta-electiva card rounded-0 shadow-sm mb-2"
         *ngFor="let electiva of electivasFiltradas"
       >
-        <div class="row no-gutters h-100">
+        <div class="row no-gutters">
           <!-- Botón desplegable y marcador de estado -->
           <div
             class="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column align-items-center justify-content-center"
@@ -246,35 +246,35 @@
           <hr class="mt-1 mb-1" />
           <div class="row no-gutters">
             <div
-              class="col-6 col-md-3 col-xl-2 ps-2 pe-1 pe-md-0 ps-lg-3 ps-xl-4"
+              class="col-6 col-md-3 col-xl-2 ps-3 pe-1 pe-md-0 ps-lg-3 ps-xl-4"
             >
               <div
                 class="mb-2"
                 *ngIf="electiva.docentes && electiva.docentes.length"
               >
-                <p class="font-weight-bold mb-1">Docentes:</p>
+                <p class="mb-1"><b>Docentes:</b></p>
                 <p *ngFor="let docente of electiva.docentes" class="mb-1">
                   {{ docente }}
                 </p>
               </div>
               <div class="mb-2" *ngIf="electiva.nivel || electiva.cuatrimestre">
-                <p class="font-weight-bold mb-1">Se dicta en:</p>
+                <p class="mb-1"><b>Se dicta en:</b></p>
                 <p class="mb-1">{{ electiva.nivel }}° Nivel</p>
                 <p class="mb-1">{{ electiva.cuatrimestre }}</p>
               </div>
               <div class="mb-2 d-block d-md-none" *ngIf="electiva.area">
-                <p class="mb-1 font-weight-bold">Área:</p>
+                <p class="mb-1"><b>Área:</b></p>
                 <p class="text-justify">{{ electiva.area }}</p>
               </div>
               <div class="mb-2" *ngIf="electiva.tipoDeAprobacion">
-                <p class="font-weight-bold mb-1">Tipo de Aprobación:</p>
+                <p class="mb-1"><b>Tipo de Aprobación:</b></p>
                 <p class="mb-1">{{ electiva.tipoDeAprobacion }}</p>
               </div>
               <div
                 class="mb-2 d-block d-md-none"
                 *ngIf="electiva.actividades && electiva.actividades.length"
               >
-                <p class="mb-1 font-weight-bold">Instancias de Evaluación:</p>
+                <p class="mb-1"><b>Instancias de Evaluación:</b></p>
                 <p class="text-justify">{{ electiva.actividades }}</p>
               </div>
             </div>
@@ -285,7 +285,7 @@
                   electiva.cursadasParaCursar.length
                 "
               >
-                <p class="font-weight-bold mb-1">Cursadas para Cursar:</p>
+                <p class="mb-1"><b>Cursadas para Cursar:</b></p>
                 <p
                   *ngFor="let correlativa of electiva.cursadasParaCursar"
                   class="mb-1"
@@ -299,7 +299,7 @@
                   electiva.aprobadasParaCursar.length
                 "
               >
-                <p class="font-weight-bold mb-1">Aprobadas para Cursar:</p>
+                <p class="mb-1"><b>Aprobadas para Cursar:</b></p>
                 <p
                   *ngFor="let correlativa of electiva.aprobadasParaCursar"
                   class="mb-1"
@@ -313,7 +313,7 @@
                   electiva.aprobadasParaRendir.length
                 "
               >
-                <p class="font-weight-bold mb-1">Aprobadas para Rendir:</p>
+                <p class="mb-1"><b>Aprobadas para Rendir:</b></p>
                 <p
                   *ngFor="let correlativa of electiva.aprobadasParaRendir"
                   class="mb-1"
@@ -324,7 +324,7 @@
             </div>
             <div class="col-12 col-md-5 col-xl-5 ps-2 pe-2 pe-lg-3 pe-xl-4">
               <div class="d-none d-md-block" *ngIf="electiva.area">
-                <p class="mb-1 font-weight-bold">Área:</p>
+                <p class="mb-1"><b>Área:</b></p>
                 <p class="text-justify">{{ electiva.area }}</p>
               </div>
 
@@ -332,7 +332,7 @@
                 class="d-none d-md-block"
                 *ngIf="electiva.actividades && electiva.actividades.length"
               >
-                <p class="mb-1 font-weight-bold">Instancias de Evaluación:</p>
+                <p class="mb-1"><b>Instancias de Evaluación:</b></p>
                 <p class="text-justify">{{ electiva.actividades }}</p>
               </div>
 
@@ -340,7 +340,7 @@
                 *ngIf="electiva.comentarios && electiva.comentarios.length"
               >
                 <hr class="d-md-none mt-1 mb-1" />
-                <p class="mb-1 font-weight-bold">Comentarios de Estudiantes:</p>
+                <p class="mb-1"><b>Comentarios de Estudiantes:</b></p>
                 <p
                   class="mb-1 text-justify"
                   *ngFor="let comentario of electiva.comentarios"
