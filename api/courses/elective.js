@@ -1,66 +1,46 @@
-const environment = require("../_helpers/environment");
-const cuenta = environment.serverConfig.airtable.cuentas
-  .filter((Cuenta) => Cuenta.id === "metas")
-  .pop();
-
-//Se configura el objeto Airtable para hacer las consultas y obtener datos con los métodos
-const airtable = require("airtable");
-airtable.configure({
-  endpointUrl: environment.serverConfig.airtable.endpointUrl,
-  apiKey: cuenta.key,
-});
-
-const base = cuenta.bases.filter((Base) => Base.nombre).pop(); // Arreglar esta asquerosidad. No permite tener más de una BD - RO - 12/04/2020
-const baseConnection = airtable.base(base.url);
+const sanityConnector = require("../_helpers/sanity-connector");
 
 export default async function get(req, res) {
   const { carrera } = req.query;
   const carreraElegida = carrera ? carrera : "Sistemas";
-  const electivas = await obtenerElectivasDesdeAirtable(carreraElegida);
-  res.json(electivas);
-}
 
-async function obtenerElectivasDesdeAirtable(carreraElegida) {
-  return new Promise((resolve, reject) => {
-    let result = [];
-    baseConnection(carreraElegida)
-      .select({ view: "Grid view" })
-      .eachPage(
-        (records, fetchNextPage) => {
-          result = records
-            .map((Record) => Record.fields)
-            .map((Electiva) => ({
-              vistaCompleta: false,
-              cursada: false,
-              aprobada: false,
-              nombre: Electiva["Materia"],
-              nivel: Electiva["Nivel"],
-              area: Electiva["Área"],
-              creditos: Electiva["Créditos"],
-              cuatrimestre: Electiva["Cuatrimestre"],
-              horarios: Electiva["Horarios"]
-                ? Electiva["Horarios"].split("\n")
-                : [],
-              docentes: Electiva["Docentes"],
-              actividades: Electiva["Instancias de Evaluación"],
-              tipoDeAprobacion: Electiva["Tipo de Aprobacion"],
-              aprobadasParaRendir: Electiva["Aprobadas para Rendir"],
-              aprobadasParaCursar: Electiva["Aprobadas para Cursar"],
-              cursadasParaCursar: Electiva["Cursadas para Cursar"],
-              comentarios: Electiva["Comentarios"]
-                ? Electiva["Comentarios"].split("\n")
-                : [],
-            }));
-          fetchNextPage();
-        },
-        (error) => {
-          if (error) {
-            console.error(error);
-            reject(error);
-          } else {
-            resolve(result);
-          }
-        }
-      );
-  });
+  const electivas = await sanityConnector.client.fetch(
+    `*[_type == "materia" && esElectiva == true && carrera->nombre == $carrera]{
+      nombre,
+      nivel,
+      "area": area->nombre,
+      creditos,
+      cuatrimestre,
+      horarios,
+      docentes,
+      instanciasDeEvaluacion,
+      tipoDeAprobacion,
+      "cursadasParaCursar": cursadasParaCursar[]->nombre,
+      "aprobadasParaCursar": aprobadasParaCursar[]->nombre,
+      "aprobadasParaRendir": aprobadasParaRendir[]->nombre,
+      comentarios
+    }`,
+    { carrera: carreraElegida }
+  );
+
+  const result = electivas.map((e) => ({
+    vistaCompleta: false,
+    cursada: false,
+    aprobada: false,
+    nombre: e.nombre,
+    nivel: e.nivel,
+    area: e.area,
+    creditos: e.creditos,
+    cuatrimestre: e.cuatrimestre,
+    horarios: e.horarios ? e.horarios.split("\n") : [],
+    docentes: e.docentes,
+    actividades: e.instanciasDeEvaluacion,
+    tipoDeAprobacion: e.tipoDeAprobacion,
+    aprobadasParaRendir: e.aprobadasParaRendir?.join(", "),
+    aprobadasParaCursar: e.aprobadasParaCursar?.join(", "),
+    cursadasParaCursar: e.cursadasParaCursar?.join(", "),
+    comentarios: e.comentarios ? e.comentarios.split("\n") : [],
+  }));
+
+  res.json(result);
 }
