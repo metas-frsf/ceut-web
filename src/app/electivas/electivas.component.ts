@@ -36,7 +36,8 @@ export class ElectivasComponent implements OnInit {
   ) {
     this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
-    this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();
+    this.filtroCuatrimestre =
+      this.electivasService.inicializarFiltroCuatrimestre();
     // Inicializamos cargando la carrera de Civil, por default.
     // TODO: Hacer que se guarde en localStorage la última carrera visitada
     this.seleccionarCarrera("civil");
@@ -74,7 +75,7 @@ export class ElectivasComponent implements OnInit {
       .pop();
     this.electivas = [];
     this.electivasFiltradas = [];
-    this.electivasService.getByCarrera(this.carreraElegida.airTable).subscribe(
+    this.electivasService.getByCarrera(this.carreraElegida.carrera).subscribe(
       (response) => {
         this.electivas = response;
         this.filtrarPorCuatrimestre(this.filtroCuatrimestre);

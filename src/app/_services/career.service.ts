@@ -15,7 +15,7 @@ export class CareerService {
         nombreCompleto: "Ingeniería Civil",
         nombreCorto: "Ing. Civil",
         horasTotales: 14,
-        airTable: "Civil",
+        carrera: "Civil",
         contacto: {
           instagram: "consejerosdecivil",
           messenger: "consejeros.civil",
@@ -28,7 +28,7 @@ export class CareerService {
         nombreCompleto: "Ingeniería Eléctrica",
         nombreCorto: "Ing. Eléctrica",
         horasTotales: 20,
-        airTable: "Eléctrica",
+        carrera: "Eléctrica",
         contacto: {
           instagram: "consejeroselectrica",
           messenger: "consejeroselectrica.metas",
@@ -41,7 +41,7 @@ export class CareerService {
         nombreCompleto: "Ingeniería Industrial",
         nombreCorto: "Ing. Industrial",
         horasTotales: 10,
-        airTable: "Industrial",
+        carrera: "Industrial",
         contacto: {
           instagram: "industrialconsejeros",
           messenger: "consejeroselectrica.metas",
@@ -54,7 +54,7 @@ export class CareerService {
         nombreCompleto: "Ingeniería Mecánica",
         nombreCorto: "Ing. Mecánica",
         horasTotales: 10,
-        airTable: "Mecánica",
+        carrera: "Mecánica",
         contacto: {
           instagram: "mecanicametas",
           messenger: "metas.mecanica.frsf",
@@ -67,7 +67,7 @@ export class CareerService {
         nombreCompleto: "Ingeniería en Sistemas",
         nombreCorto: "Ing. en Sistemas",
         horasTotales: 40,
-        airTable: "Sistemas",
+        carrera: "Sistemas",
         contacto: {
           instagram: "sistemas_metas.frsf",
           messenger: "",
