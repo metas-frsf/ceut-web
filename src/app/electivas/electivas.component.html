@@ -105,6 +105,17 @@
         </div>
       </div>
 
+      <!-- Spinner de carga -->
+      <div
+        *ngIf="cargando"
+        class="d-flex justify-content-center align-items-center py-5"
+      >
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Cargando electivas...</span>
+        </div>
+        <span class="ms-3 text-secondary">Cargando electivas...</span>
+      </div>
+
       <!-- Lista de tarjetas -->
       <div
         class="tarjeta-electiva card rounded-0 shadow-sm mb-2"
@@ -400,7 +411,7 @@
     </div>
 
     <hr class="mt-1 mb-1" />
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
       <ng-container *ngIf="contadorAprobadas === 0">
         Para calcular, podés marcar materias como cursadas o aprobadas marcando
         en el botón ▼ a la izquierda de cada electiva
@@ -425,10 +436,10 @@
     class="card rounded-0 shadow mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2 d-none d-lg-block"
     *ngIf="carreraElegida.id === 'basicas' || contadorAprobadas === 0"
   >
-    <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem">
       <b>Cita recomendada:</b>
     </p>
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem;">
+    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
       {{ fraseSeleccionada }}
     </p>
   </div>
@@ -597,13 +608,13 @@
       />
     </h5>
     <p class="text-justify">
-      Consultá a los consejeros METAs de
+      Consultá a METAs
       {{
         carreraElegida.nombreCompleto.split(" ")[
           carreraElegida.nombreCompleto.split(" ").length - 1
         ]
       }}
-      en nuestras redes:
+      vía Instagram:
     </p>
     <div class="row no-gutters mb-2 text-center">
       <div class="col" *ngIf="carreraElegida.contacto.messenger">

@@ -19,6 +19,7 @@ export class ElectivasComponent implements OnInit {
   carreras: Carrera[] = [];
   frases = [];
 
+  cargando: boolean = false;
   contadorCursadas: number = 0;
   contadorAprobadas: number = 0;
 
@@ -75,12 +76,17 @@ export class ElectivasComponent implements OnInit {
       .pop();
     this.electivas = [];
     this.electivasFiltradas = [];
+    this.cargando = true;
     this.electivasService.getByCarrera(this.carreraElegida.carrera).subscribe(
       (response) => {
         this.electivas = response;
         this.filtrarPorCuatrimestre(this.filtroCuatrimestre);
+        this.cargando = false;
       },
-      (error) => console.error(error)
+      (error) => {
+        console.error(error);
+        this.cargando = false;
+      }
     );
     this.fraseSeleccionada = this.frases
       .sort(this.globalService.shuffleOrder)
