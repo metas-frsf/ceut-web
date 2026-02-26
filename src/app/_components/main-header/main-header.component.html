@@ -1,21 +1,19 @@
 @if (activePage()) {
   <section id="main-header">
-    <nav id="navbar" class="flex items-center justify-center bg-gray-100 px-4 py-2">
-      <div class="me-3 flex items-start">
-        <a class="ms-3 p-1" [href]="'https://instagram.com/' + activePage().instagram" title="Contactate vía Instagram">
+    <nav id="navbar" class="flex items-center justify-center bg-gray-100 px-5 py-2 gap-4">
+      <div class="hidden md:flex flex-1 justify-end">
+        <a class="p-1" [href]="'https://instagram.com/' + activePage().instagram" title="Contactate vía Instagram">
           <img id="instagram-icon" class="max-h-[30px]" src="assets/img/instagram-icon.png" alt="Logo Instagram" />
         </a>
       </div>
-      <div class="flex items-center">
-        <a routerLink="/">
-          <img
-            class="max-h-[40px] max-w-[150px] md:max-h-[50px]"
-            [src]="'assets/img/' + activePage().logo"
-            alt="Logo CEUT FRSF"
-          />
-        </a>
-      </div>
-      <div class="flex items-end">
+      <a routerLink="/">
+        <img
+          class="max-h-[40px] max-w-[150px] md:max-h-[50px]"
+          [src]="'assets/img/' + activePage().logo"
+          alt="Logo CEUT FRSF"
+        />
+      </a>
+      <div class="flex flex-1 justify-end">
         <!-- Mobile dropdown -->
         <div class="relative inline-block md:hidden">
           <button
