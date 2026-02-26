@@ -23,7 +23,9 @@ app-tarjeta-generica {
 
 #search-bar {
   top: 74px;
-  position: sticky;
+  position: fixed;
   height: 48px;
   z-index: 3;
+  width: 100%;
+  left: 0;
 }

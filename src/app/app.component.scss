@@ -1,8 +1,10 @@
 $headerbar-height: 74px;
 
 #header-container {
+  width: 100vw;
+  left: 0;
   top: 0;
-  position: sticky;
+  position: fixed;
   z-index: 4;
 }
 
@@ -17,6 +19,7 @@ main {
 }
 
 #outlet-container {
+  padding-top: calc(#{$headerbar-height} + 48px);
   min-height: calc(100vh - #{$headerbar-height});
 }
 
