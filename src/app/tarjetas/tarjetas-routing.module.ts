@@ -1,13 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {TarjetasComponent} from '@app/tarjetas/tarjetas.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TarjetasComponent } from '@app/tarjetas/tarjetas.component';
 
-const routes: Routes = [
-  { path: '', component: TarjetasComponent, pathMatch: 'full'}
-];
+const routes: Routes = [{ path: '', component: TarjetasComponent, pathMatch: 'full' }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TarjetasRoutingModule { }
+export class TarjetasRoutingModule {}

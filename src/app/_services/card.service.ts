@@ -1,18 +1,15 @@
-import { Card } from "@app/_models/card";
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import {
-  filterCardsBySearchText,
-  sortCardsByTitleAsc,
-} from "@app/_functions/card.functions";
+import { Card } from '@app/_models/card';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { filterCardsBySearchText, sortCardsByTitleAsc } from '@app/_functions/card.functions';
 
 // TODO: Hacer globales los headers
 const headers = new HttpHeaders({
-  "Content-Type": "application/x-www-form-urlencoded",
+  'Content-Type': 'application/x-www-form-urlencoded',
 });
 
-const apiPrefix: string = "api/cards";
+const apiPrefix: string = 'api/cards';
 
 @Injectable()
 export class CardService {
@@ -45,16 +42,16 @@ export class CardService {
    */
   public getAll() {
     this.cargando = true;
-    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe(
-      (x) => {
+    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe({
+      next: (x) => {
         this._rawCards = x;
         this.assignLists(this._rawCards);
         this.cargando = false;
       },
-      () => {
+      error: () => {
         this.cargando = false;
-      }
-    );
+      },
+    });
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos
@@ -65,7 +62,7 @@ export class CardService {
   }
 
   public getById(id: number): Observable<Card> {
-    const params = new HttpParams().set("id", id.toString());
+    const params = new HttpParams().set('id', id.toString());
     return this.http.get<Card>(`${apiPrefix}/getById`, {
       headers: headers,
       params: params,
@@ -77,23 +74,15 @@ export class CardService {
    * @param textToSearch substring del texto que se desea buscar en títulos o contenido de tarjetas
    */
   public applyFilter(textToSearch: string): void {
-    this._sortedCards = [].concat(
-      filterCardsBySearchText(getDefaultCards(this._rawCards), textToSearch)
-    );
+    this._sortedCards = [].concat(filterCardsBySearchText(getDefaultCards(this._rawCards), textToSearch));
 
-    this._assortedCards = [].concat(
-      filterCardsBySearchText(getDefaultCards(this._rawCards), textToSearch)
-    );
+    this._assortedCards = [].concat(filterCardsBySearchText(getDefaultCards(this._rawCards), textToSearch));
 
-    this._fixedCards = [].concat(
-      filterCardsBySearchText(getFixedCards(this._rawCards), textToSearch)
-    );
+    this._fixedCards = [].concat(filterCardsBySearchText(getFixedCards(this._rawCards), textToSearch));
   }
 
   private assignLists(cardCollections: ICardCollections) {
-    this._sortedCards = []
-      .concat(cardCollections.default)
-      .sort(sortCardsByTitleAsc);
+    this._sortedCards = [].concat(cardCollections.default).sort(sortCardsByTitleAsc);
     this._fixedCards = getFixedCards(cardCollections);
     this._assortedCards = getDefaultCards(cardCollections);
   }

@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TarjetaGenericaComponent } from './tarjeta-generica.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [TarjetaGenericaComponent],
-  exports: [TarjetaGenericaComponent]
+  exports: [TarjetaGenericaComponent],
 })
-export class TarjetaGenericaModule { }
+export class TarjetaGenericaModule {}

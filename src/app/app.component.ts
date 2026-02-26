@@ -1,29 +1,29 @@
-import { Component, ViewEncapsulation } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
+import { Component, ViewEncapsulation } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: "app-ceut-frsf",
-  templateUrl: "app.component.html",
-  styleUrls: ["./app.component.scss"],
+  selector: 'app-ceut-frsf',
+  templateUrl: 'app.component.html',
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   private paginaCeut = {
-    name: "CEUT",
-    messenger: "ceut.frsf",
-    instagram: "ceut.frsf",
-    logo: "logo-ceut.png",
+    name: 'CEUT',
+    messenger: 'ceut.frsf',
+    instagram: 'ceut.frsf',
+    logo: 'logo-ceut.png',
   };
 
   private paginaMetas = {
-    name: "METAs",
-    messenger: "metas.frsf",
-    instagram: "metas.frsf",
-    logo: "logo-metas.png",
+    name: 'METAs',
+    messenger: 'metas.frsf',
+    instagram: 'metas.frsf',
+    logo: 'logo-metas.png',
   };
 
-  private rutasCeut = ["/home"];
-  private rutasMetas = ["/electivas"];
+  private rutasCeut = ['/home'];
+  private rutasMetas = ['/electivas'];
 
   private _paginaActiva;
 

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpHeaders, HttpParams} from '@angular/common/http';
+import { HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GlobalService {
-
-  private _httpHeaders = new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded'});
+  private _httpHeaders = new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded',
+  });
   private _webApiUrl = ``;
 
-  constructor() { }
+  constructor() {}
 
   get httpHeaders(): HttpHeaders {
     return this._httpHeaders;
@@ -31,8 +32,6 @@ export class GlobalService {
    * Genera un orden aleatorio
    */
   shuffleOrder(): number {
-    return .5 - Math.random();
+    return 0.5 - Math.random();
   }
-
-
 }

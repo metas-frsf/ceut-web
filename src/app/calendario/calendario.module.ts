@@ -1,8 +1,8 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { CalendarioRoutingModule } from "./calendario-routing.module";
-import { CalendarioComponent } from "./calendario.component";
+import { CalendarioRoutingModule } from './calendario-routing.module';
+import { CalendarioComponent } from './calendario.component';
 
 @NgModule({
   declarations: [CalendarioComponent],
