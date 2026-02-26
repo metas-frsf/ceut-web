@@ -20,7 +20,7 @@
 
 @if (!cardService.cargando) {
   <!-- Sección de tarjetas fijas -->
-  <section id="avisos" class="mt-4 columns-1 gap-4 text-center lg:columns-2 xl:columns-3">
+  <section id="avisos" class="mt-4 px-4 md:px-0 columns-1 gap-4 text-center lg:columns-2 xl:columns-3">
     @for (card of cardService.fixedCards; track card) {
       <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
     }
