@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import type { Carrera } from '@app/electivas/electivas.model';
+import type { Carrera } from '@app/_models/electivas.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,14 +1,14 @@
 import { Component, ElementRef, HostListener, OnInit, inject } from '@angular/core';
 import { ElectivasService } from '@app/_services/electivas.service';
 import { GlobalService } from '@app/_services/global.service';
-import type { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
+import type { Carrera, Electiva, Periodo } from '@app/_models/electivas.model';
 import { CareerService } from '@app/_services/career.service';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
-import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from '@app/_components/loading-spinner/loading-spinner.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-ectivas',
+  selector: 'app-electivas',
   templateUrl: './electivas.component.html',
   styleUrls: ['./electivas.component.scss'],
   imports: [NgClass, NgTemplateOutlet, LoadingSpinnerComponent, FormsModule],
