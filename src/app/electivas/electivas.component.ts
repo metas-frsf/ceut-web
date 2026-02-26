@@ -3,7 +3,7 @@ import { ElectivasService } from '@app/_services/electivas.service';
 import { GlobalService } from '@app/_services/global.service';
 import { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
 import { CareerService } from '@app/_services/career.service';
-import { NgIf, NgClass, NgTemplateOutlet, NgFor } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
 import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -13,11 +13,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './electivas.component.html',
   styleUrls: ['./electivas.component.scss'],
   imports: [
-    NgIf,
     NgClass,
     NgTemplateOutlet,
     LoadingSpinnerComponent,
-    NgFor,
     NgbDropdown,
     NgbDropdownToggle,
     NgbDropdownMenu,

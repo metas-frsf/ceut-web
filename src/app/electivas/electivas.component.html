@@ -1,19 +1,14 @@
 <div id="container" class="container-fluid d-sm-flex">
-  <div
-    id="recomendacion-pantalla"
-    class="btn-group mb-5"
-    role="group"
-    *ngIf="recomendacionPantalla && anchoDelDisplay <= 768"
-    (click)="cerrarRecomendacion()"
-  >
-    <button type="button" class="btn btn-secondary text-left">
-      Para una mejor experiencia, te recomendamos visualizar la página en tablet
-      panorámica o PC
-    </button>
-    <button type="button" class="btn btn-secondary">
-      <i class="ms-2 me-2 fas fa-lg fa-times"></i>
-    </button>
-  </div>
+  @if (recomendacionPantalla && anchoDelDisplay <= 768) {
+    <div id="recomendacion-pantalla" class="btn-group mb-5" role="group" (click)="cerrarRecomendacion()">
+      <button type="button" class="btn btn-secondary text-left">
+        Para una mejor experiencia, te recomendamos visualizar la página en tablet panorámica o PC
+      </button>
+      <button type="button" class="btn btn-secondary">
+        <i class="ms-2 me-2 fas fa-lg fa-times"></i>
+      </button>
+    </div>
+  }
 
   <!-- Estructura superior -->
   <div class="card rounded-0">
@@ -29,37 +24,33 @@
           </div>
         </div>
 
-        <ng-container *ngIf="anchoDelDisplay >= 768">
+        @if (anchoDelDisplay >= 768) {
           <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
-        </ng-container>
+        }
       </div>
-      <div
-        class="col-12 col-md-7 order-2 order-md-1 order-lg-2 col-lg-5 col-xl-6"
-      >
+      <div class="col-12 col-md-7 order-2 order-md-1 order-lg-2 col-lg-5 col-xl-6">
         <div class="d-md-block">
           <ng-container *ngTemplateOutlet="filtroCuatrimestres"> </ng-container>
         </div>
 
         <ng-container *ngTemplateOutlet="cuerpo"> </ng-container>
 
-        <ng-container *ngIf="anchoDelDisplay < 768">
+        @if (anchoDelDisplay < 768) {
           <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
-
           <ng-container *ngTemplateOutlet="redesSociales"> </ng-container>
-        </ng-container>
+        }
       </div>
-      <div
-        class="col-12 col-md-5 order-1 order-md-2 order-lg-3 col-lg-4 col-xl-3"
-      >
+      <div class="col-12 col-md-5 order-1 order-md-2 order-lg-3 col-lg-4 col-xl-3">
         <div class="w-100 text-center">
-          <button
-            id="icono-calculadora"
-            *ngIf="carreraElegida.id !== 'basicas'"
-            class="d-block d-md-none btn btn-dark text-white p-1 justify-content-center"
-            (click)="toggleCalculadora()"
-          >
-            <i class="fas fa-2x fa-calculator"></i>
-          </button>
+          @if (carreraElegida.id !== 'basicas') {
+            <button
+              id="icono-calculadora"
+              class="d-block d-md-none btn btn-dark text-white p-1 justify-content-center"
+              (click)="toggleCalculadora()"
+            >
+              <i class="fas fa-2x fa-calculator"></i>
+            </button>
+          }
 
           <ng-container *ngTemplateOutlet="dropdownCarrera"> </ng-container>
 
@@ -71,9 +62,9 @@
             <i class="fas fa-2x fa-question-circle"></i>
           </button>
 
-          <ng-container *ngIf="anchoDelDisplay >= 768">
+          @if (anchoDelDisplay >= 768) {
             <ng-container *ngTemplateOutlet="redesSociales"> </ng-container>
-          </ng-container>
+          }
 
           <!--          <div class="mx-4 d-none d-lg-block">-->
           <!--            <button-->
@@ -85,9 +76,9 @@
           <!--            </button>-->
           <!--          </div>-->
 
-          <ng-container *ngIf="anchoDelDisplay < 992 && anchoDelDisplay >= 768">
+          @if (anchoDelDisplay < 992 && anchoDelDisplay >= 768) {
             <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
-          </ng-container>
+          }
         </div>
       </div>
     </div>
@@ -105,344 +96,267 @@
         </div>
       </div>
 
-      <app-loading-spinner
-        *ngIf="cargando"
-        mensaje="Cargando electivas..."
-      ></app-loading-spinner>
+      @if (cargando) {
+        <app-loading-spinner mensaje="Cargando electivas..."></app-loading-spinner>
+      }
 
       <!-- Lista de tarjetas -->
-      <div
-        class="tarjeta-electiva card rounded-0 shadow-sm mb-2"
-        *ngFor="let electiva of electivasFiltradas"
-      >
-        <div class="row no-gutters">
-          <!-- Botón desplegable y marcador de estado -->
-          <div
-            class="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="btn-group" *ngIf="carreraElegida.id !== 'basicas'">
-              <button
-                type="button"
-                class="btn font-weight-bold"
-                [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
-                (click)="cambiarVista(electiva)"
-              >
-                <i
-                  class="fas"
-                  [ngClass]="{
-                    'fa-plus': !electiva.vistaCompleta,
-                    'fa-minus': electiva.vistaCompleta
-                  }"
-                ></i>
-              </button>
-              <div
-                class="btn-group"
-                ngbDropdown
-                role="group"
-                placement="bottom-left"
-              >
-                <button
-                  class="btn dropdown-toggle-split"
-                  [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
-                  ngbDropdownToggle
-                ></button>
-                <div class="dropdown-menu p-0" ngbDropdownMenu>
-                  <div class="btn-group w-100" role="group">
-                    <button type="button" class="btn rounded-0 bg-light">
-                      &nbsp;
-                    </button>
+      @for (electiva of electivasFiltradas; track electiva) {
+        <div class="tarjeta-electiva card rounded-0 shadow-sm mb-2">
+          <div class="row no-gutters">
+            <!-- Botón desplegable y marcador de estado -->
+            <div class="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column align-items-center justify-content-center">
+              @if (carreraElegida.id !== 'basicas') {
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn font-weight-bold"
+                    [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
+                    (click)="cambiarVista(electiva)"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-plus': !electiva.vistaCompleta,
+                        'fa-minus': electiva.vistaCompleta,
+                      }"
+                    ></i>
+                  </button>
+                  <div class="btn-group" ngbDropdown role="group" placement="bottom-left">
                     <button
-                      type="button"
-                      class="dropdown-item"
-                      (click)="limpiarEstado(electiva)"
-                    >
-                      Limpiar
-                    </button>
-                  </div>
-                  <div class="btn-group w-100" role="group">
-                    <button type="button" class="btn rounded-0 bg-primary">
-                      &nbsp;
-                    </button>
-                    <button
-                      type="button"
-                      class="dropdown-item"
-                      (click)="marcarCursada(electiva)"
-                    >
-                      Cursada
-                    </button>
-                  </div>
-                  <div class="btn-group w-100" role="group">
-                    <button type="button" class="btn rounded-0 bg-success">
-                      &nbsp;
-                    </button>
-                    <button
-                      type="button"
-                      class="dropdown-item"
-                      (click)="marcarAprobada(electiva)"
-                    >
-                      Aprobada
-                    </button>
+                      class="btn dropdown-toggle-split"
+                      [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
+                      ngbDropdownToggle
+                    ></button>
+                    <div class="dropdown-menu p-0" ngbDropdownMenu>
+                      <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn rounded-0 bg-light">&nbsp;</button>
+                        <button type="button" class="dropdown-item" (click)="limpiarEstado(electiva)">Limpiar</button>
+                      </div>
+                      <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn rounded-0 bg-primary">&nbsp;</button>
+                        <button type="button" class="dropdown-item" (click)="marcarCursada(electiva)">Cursada</button>
+                      </div>
+                      <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn rounded-0 bg-success">&nbsp;</button>
+                        <button type="button" class="dropdown-item" (click)="marcarAprobada(electiva)">Aprobada</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              }
+              @if (carreraElegida.id === 'basicas') {
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn font-weight-bold"
+                    [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
+                    (click)="cambiarVista(electiva)"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-plus': !electiva.vistaCompleta,
+                        'fa-minus': electiva.vistaCompleta,
+                      }"
+                    ></i>
+                  </button>
+                </div>
+              }
+              <h5 class="d-md-none text-secondary font-weight-normal mt-2 mb-0">{{ electiva.creditos }} horas</h5>
+            </div>
+            <!-- Nombre. Agrega horarios debajo en vistas pequeñas -->
+            <div class="col-8 col-sm-4 col-md-5 col-lg-5 d-flex flex-column align-items-start justify-content-center">
+              <h5 class="d-md-none font-weight-normal">{{ electiva.nombre }}</h5>
+              <h5 class="d-none d-md-block">{{ electiva.nombre }}</h5>
+              <div class="d-sm-none horario mt-2">
+                @for (horario of electiva.horarios; track horario; let i = $index) {
+                  <p class="mb-1 me-2">
+                    {{ horario }}
+                  </p>
+                }
               </div>
             </div>
-            <div class="btn-group" *ngIf="carreraElegida.id === 'basicas'">
-              <button
-                type="button"
-                class="btn font-weight-bold"
-                [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
-                (click)="cambiarVista(electiva)"
-              >
-                <i
-                  class="fas"
-                  [ngClass]="{
-                    'fa-plus': !electiva.vistaCompleta,
-                    'fa-minus': electiva.vistaCompleta
-                  }"
-                ></i>
-              </button>
+            <!-- Créditos. No se muestra en vista sm y menor -->
+            <div class="col-2 d-none d-md-flex align-items-center justify-content-start">
+              <p class="mb-1">{{ electiva.creditos }} horas</p>
             </div>
-            <h5 class="d-md-none text-secondary font-weight-normal mt-2 mb-0">
-              {{ electiva.creditos }} horas
-            </h5>
-          </div>
-
-          <!-- Nombre. Agrega horarios debajo en vistas pequeñas -->
-          <div
-            class="col-8 col-sm-4 col-md-5 col-lg-5 d-flex flex-column align-items-start justify-content-center"
-          >
-            <h5 class="d-md-none font-weight-normal">{{ electiva.nombre }}</h5>
-            <h5 class="d-none d-md-block">{{ electiva.nombre }}</h5>
-            <div class="d-sm-none horario mt-2">
-              <p
-                class="mb-1 me-2"
-                *ngFor="let horario of electiva.horarios; let i = index"
-              >
-                {{ horario }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Créditos. No se muestra en vista sm y menor -->
-          <div
-            class="col-2 d-none d-md-flex align-items-center justify-content-start"
-          >
-            <p class="mb-1">{{ electiva.creditos }} horas</p>
-          </div>
-
-          <!-- Horarios. No se muestra en vista menor a sm, quedando los horarios debajo de la columna asignada para nombres -->
-          <div
-            class="col-5 col-sm-5 col-md-3 col-lg-3 d-none d-sm-flex align-items-sm-center justify-content-end justify-content-md-start pe-2 pe-md-0"
-          >
-            <div class="d-none d-sm-block horario">
-              <p class="mb-1" *ngFor="let horario of electiva.horarios">
-                {{ horario }}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <ng-container *ngIf="electiva.vistaCompleta">
-          <hr class="mt-1 mb-1" />
-          <div class="row no-gutters">
+            <!-- Horarios. No se muestra en vista menor a sm, quedando los horarios debajo de la columna asignada para nombres -->
             <div
-              class="col-6 col-md-3 col-xl-2 ps-3 pe-1 pe-md-0 ps-lg-3 ps-xl-4"
+              class="col-5 col-sm-5 col-md-3 col-lg-3 d-none d-sm-flex align-items-sm-center justify-content-end justify-content-md-start pe-2 pe-md-0"
             >
-              <div
-                class="mb-2"
-                *ngIf="electiva.docentes && electiva.docentes.length"
-              >
-                <p class="mb-1"><b>Docentes:</b></p>
-                <p *ngFor="let docente of electiva.docentes" class="mb-1">
-                  {{ docente }}
-                </p>
-              </div>
-              <div class="mb-2" *ngIf="electiva.nivel || electiva.cuatrimestre">
-                <p class="mb-1"><b>Se dicta en:</b></p>
-                <p class="mb-1">{{ electiva.nivel }}° Nivel</p>
-                <p class="mb-1">{{ electiva.cuatrimestre }}</p>
-              </div>
-              <div class="mb-2 d-block d-md-none" *ngIf="electiva.area">
-                <p class="mb-1"><b>Área:</b></p>
-                <p class="text-justify">{{ electiva.area }}</p>
-              </div>
-              <div class="mb-2" *ngIf="electiva.tipoDeAprobacion">
-                <p class="mb-1"><b>Tipo de Aprobación:</b></p>
-                <p class="mb-1">{{ electiva.tipoDeAprobacion }}</p>
-              </div>
-              <div
-                class="mb-2 d-block d-md-none"
-                *ngIf="electiva.actividades && electiva.actividades.length"
-              >
-                <p class="mb-1"><b>Instancias de Evaluación:</b></p>
-                <p class="text-justify">{{ electiva.actividades }}</p>
+              <div class="d-none d-sm-block horario">
+                @for (horario of electiva.horarios; track horario) {
+                  <p class="mb-1">
+                    {{ horario }}
+                  </p>
+                }
               </div>
             </div>
-            <div class="col-6 col-md-4 ps-1 ps-md-0 pe-2 pe-md-0 col-xl-5">
-              <ng-container
-                *ngIf="
-                  electiva.cursadasParaCursar &&
-                  electiva.cursadasParaCursar.length
-                "
-              >
-                <p class="mb-1"><b>Cursadas para Cursar:</b></p>
-                <p
-                  *ngFor="let correlativa of electiva.cursadasParaCursar"
-                  class="mb-1"
-                >
-                  {{ correlativa }}
-                </p>
-              </ng-container>
-              <ng-container
-                *ngIf="
-                  electiva.aprobadasParaCursar &&
-                  electiva.aprobadasParaCursar.length
-                "
-              >
-                <p class="mb-1"><b>Aprobadas para Cursar:</b></p>
-                <p
-                  *ngFor="let correlativa of electiva.aprobadasParaCursar"
-                  class="mb-1"
-                >
-                  {{ correlativa }}
-                </p>
-              </ng-container>
-              <ng-container
-                *ngIf="
-                  electiva.aprobadasParaRendir &&
-                  electiva.aprobadasParaRendir.length
-                "
-              >
-                <p class="mb-1"><b>Aprobadas para Rendir:</b></p>
-                <p
-                  *ngFor="let correlativa of electiva.aprobadasParaRendir"
-                  class="mb-1"
-                >
-                  {{ correlativa }}
-                </p>
-              </ng-container>
-            </div>
-            <div class="col-12 col-md-5 col-xl-5 ps-2 pe-2 pe-lg-3 pe-xl-4">
-              <div class="d-none d-md-block" *ngIf="electiva.area">
-                <p class="mb-1"><b>Área:</b></p>
-                <p class="text-justify">{{ electiva.area }}</p>
+          </div>
+          @if (electiva.vistaCompleta) {
+            <hr class="mt-1 mb-1" />
+            <div class="row no-gutters">
+              <div class="col-6 col-md-3 col-xl-2 ps-3 pe-1 pe-md-0 ps-lg-3 ps-xl-4">
+                @if (electiva.docentes && electiva.docentes.length) {
+                  <div class="mb-2">
+                    <p class="mb-1"><b>Docentes:</b></p>
+                    @for (docente of electiva.docentes; track docente) {
+                      <p class="mb-1">
+                        {{ docente }}
+                      </p>
+                    }
+                  </div>
+                }
+                @if (electiva.nivel || electiva.cuatrimestre) {
+                  <div class="mb-2">
+                    <p class="mb-1"><b>Se dicta en:</b></p>
+                    <p class="mb-1">{{ electiva.nivel }}° Nivel</p>
+                    <p class="mb-1">{{ electiva.cuatrimestre }}</p>
+                  </div>
+                }
+                @if (electiva.area) {
+                  <div class="mb-2 d-block d-md-none">
+                    <p class="mb-1"><b>Área:</b></p>
+                    <p class="text-justify">{{ electiva.area }}</p>
+                  </div>
+                }
+                @if (electiva.tipoDeAprobacion) {
+                  <div class="mb-2">
+                    <p class="mb-1"><b>Tipo de Aprobación:</b></p>
+                    <p class="mb-1">{{ electiva.tipoDeAprobacion }}</p>
+                  </div>
+                }
+                @if (electiva.actividades && electiva.actividades.length) {
+                  <div class="mb-2 d-block d-md-none">
+                    <p class="mb-1"><b>Instancias de Evaluación:</b></p>
+                    <p class="text-justify">{{ electiva.actividades }}</p>
+                  </div>
+                }
               </div>
-
-              <div
-                class="d-none d-md-block"
-                *ngIf="electiva.actividades && electiva.actividades.length"
-              >
-                <p class="mb-1"><b>Instancias de Evaluación:</b></p>
-                <p class="text-justify">{{ electiva.actividades }}</p>
+              <div class="col-6 col-md-4 ps-1 ps-md-0 pe-2 pe-md-0 col-xl-5">
+                @if (electiva.cursadasParaCursar && electiva.cursadasParaCursar.length) {
+                  <p class="mb-1"><b>Cursadas para Cursar:</b></p>
+                  @for (correlativa of electiva.cursadasParaCursar; track correlativa) {
+                    <p class="mb-1">
+                      {{ correlativa }}
+                    </p>
+                  }
+                }
+                @if (electiva.aprobadasParaCursar && electiva.aprobadasParaCursar.length) {
+                  <p class="mb-1"><b>Aprobadas para Cursar:</b></p>
+                  @for (correlativa of electiva.aprobadasParaCursar; track correlativa) {
+                    <p class="mb-1">
+                      {{ correlativa }}
+                    </p>
+                  }
+                }
+                @if (electiva.aprobadasParaRendir && electiva.aprobadasParaRendir.length) {
+                  <p class="mb-1"><b>Aprobadas para Rendir:</b></p>
+                  @for (correlativa of electiva.aprobadasParaRendir; track correlativa) {
+                    <p class="mb-1">
+                      {{ correlativa }}
+                    </p>
+                  }
+                }
               </div>
-
-              <ng-container
-                *ngIf="electiva.comentarios && electiva.comentarios.length"
-              >
-                <hr class="d-md-none mt-1 mb-1" />
-                <p class="mb-1"><b>Comentarios de Estudiantes:</b></p>
-                <p
-                  class="mb-1 text-justify"
-                  *ngFor="let comentario of electiva.comentarios"
-                >
-                  {{ comentario }}
-                </p>
-              </ng-container>
+              <div class="col-12 col-md-5 col-xl-5 ps-2 pe-2 pe-lg-3 pe-xl-4">
+                @if (electiva.area) {
+                  <div class="d-none d-md-block">
+                    <p class="mb-1"><b>Área:</b></p>
+                    <p class="text-justify">{{ electiva.area }}</p>
+                  </div>
+                }
+                @if (electiva.actividades && electiva.actividades.length) {
+                  <div class="d-none d-md-block">
+                    <p class="mb-1"><b>Instancias de Evaluación:</b></p>
+                    <p class="text-justify">{{ electiva.actividades }}</p>
+                  </div>
+                }
+                @if (electiva.comentarios && electiva.comentarios.length) {
+                  <hr class="d-md-none mt-1 mb-1" />
+                  <p class="mb-1"><b>Comentarios de Estudiantes:</b></p>
+                  @for (comentario of electiva.comentarios; track comentario) {
+                    <p class="mb-1 text-justify">
+                      {{ comentario }}
+                    </p>
+                  }
+                }
+              </div>
             </div>
-          </div></ng-container
-        >
-      </div>
+          }
+        </div>
+      }
     </div>
   </div>
 </div>
 
 <ng-template #calculadora>
-  <div
-    class="card rounded-0 shadow m-3 mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2"
-    *ngIf="calculadoraVisible && carreraElegida.id !== 'basicas'"
-  >
-    <div class="row no-gutters">
-      <div class="col">
-        <p class="mb-0">
-          <span class="w-100 badge badge-primary font-weight-normal p-1"
-            >Cursadas</span
-          >
-        </p>
+  @if (calculadoraVisible && carreraElegida.id !== 'basicas') {
+    <div class="card rounded-0 shadow m-3 mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2">
+      <div class="row no-gutters">
+        <div class="col">
+          <p class="mb-0">
+            <span class="w-100 badge badge-primary font-weight-normal p-1">Cursadas</span>
+          </p>
+        </div>
+        <div class="col text-center">{{ contadorCursadas }} / {{ carreraElegida.horasTotales }}</div>
+        <div class="col text-center">
+          @if (contadorCursadas > 0) {
+            {{ ((contadorCursadas / carreraElegida.horasTotales) * 100).toFixed(2) }}%
+          }
+          @if (contadorCursadas === 0) {
+            0%
+          }
+        </div>
       </div>
-      <div class="col text-center">
-        {{ contadorCursadas }} / {{ carreraElegida.horasTotales }}
+      <div class="row no-gutters">
+        <div class="col">
+          <p class="mb-0">
+            <span class="w-100 badge badge-success font-weight-normal p-1">Aprobadas</span>
+          </p>
+        </div>
+        <div class="col text-center">{{ contadorAprobadas }} / {{ carreraElegida.horasTotales }}</div>
+        <div class="col text-center">
+          @if (contadorAprobadas > 0) {
+            {{ ((contadorAprobadas / carreraElegida.horasTotales) * 100).toFixed(2) }}%
+          }
+          @if (contadorAprobadas === 0) {
+            0%
+          }
+        </div>
       </div>
-      <div class="col text-center">
-        <ng-container *ngIf="contadorCursadas > 0"
-          >{{
-            ((contadorCursadas / carreraElegida.horasTotales) * 100).toFixed(2)
-          }}%</ng-container
-        >
-        <ng-container *ngIf="contadorCursadas === 0">0%</ng-container>
-      </div>
+      <hr class="mt-1 mb-1" />
+      <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
+        @if (contadorAprobadas === 0) {
+          Para calcular, podés marcar materias como cursadas o aprobadas marcando en el botón ▼ a la izquierda de cada
+          electiva
+        }
+        @if (contadorAprobadas > 0 && contadorAprobadas < carreraElegida.horasTotales) {
+          ¡Estás a solamente {{ carreraElegida.horasTotales - contadorAprobadas }}
+          horas de cumplir con el cupo! ¡A darle átomos!
+        }
+        @if (contadorAprobadas >= carreraElegida.horasTotales) {
+          ¡Felicitaciones! Ya cumpliste con el cupo de horas de electivas. ¡Que venga rápido ese título!
+        }
+      </p>
     </div>
-    <div class="row no-gutters">
-      <div class="col">
-        <p class="mb-0">
-          <span class="w-100 badge badge-success font-weight-normal p-1"
-            >Aprobadas</span
-          >
-        </p>
-      </div>
-      <div class="col text-center">
-        {{ contadorAprobadas }} / {{ carreraElegida.horasTotales }}
-      </div>
-      <div class="col text-center">
-        <ng-container *ngIf="contadorAprobadas > 0"
-          >{{
-            ((contadorAprobadas / carreraElegida.horasTotales) * 100).toFixed(
-              2
-            )
-          }}%</ng-container
-        >
-        <ng-container *ngIf="contadorAprobadas === 0">0%</ng-container>
-      </div>
+  }
+
+  @if (carreraElegida.id === 'basicas' || contadorAprobadas === 0) {
+    <div class="card rounded-0 shadow mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2 d-none d-lg-block">
+      <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem">
+        <b>Cita recomendada:</b>
+      </p>
+      <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
+        {{ fraseSeleccionada }}
+      </p>
     </div>
-
-    <hr class="mt-1 mb-1" />
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
-      <ng-container *ngIf="contadorAprobadas === 0">
-        Para calcular, podés marcar materias como cursadas o aprobadas marcando
-        en el botón ▼ a la izquierda de cada electiva
-      </ng-container>
-      <ng-container
-        *ngIf="
-          contadorAprobadas > 0 &&
-          contadorAprobadas < carreraElegida.horasTotales
-        "
-      >
-        ¡Estás a solamente {{ carreraElegida.horasTotales - contadorAprobadas }}
-        horas de cumplir con el cupo! ¡A darle átomos!
-      </ng-container>
-      <ng-container *ngIf="contadorAprobadas >= carreraElegida.horasTotales">
-        ¡Felicitaciones! Ya cumpliste con el cupo de horas de electivas. ¡Que
-        venga rápido ese título!
-      </ng-container>
-    </p>
-  </div>
-
-  <div
-    class="card rounded-0 shadow mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2 d-none d-lg-block"
-    *ngIf="carreraElegida.id === 'basicas' || contadorAprobadas === 0"
-  >
-    <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem">
-      <b>Cita recomendada:</b>
-    </p>
-    <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
-      {{ fraseSeleccionada }}
-    </p>
-  </div>
+  }
 </ng-template>
 
 <ng-template #filtroCuatrimestres>
-  <div class="pt-2 px-2 pb-0 text-center">
-    Filtrá las electivas según cuándo se dictan:
-  </div>
+  <div class="pt-2 px-2 pb-0 text-center">Filtrá las electivas según cuándo se dictan:</div>
 
   <div id="filtro-cuatrimestres" class="p-2 mt-2 mb-2 mb-md-0 rounded shadow">
     <span class="ms-2 d-none d-xl-inline font-weight-bold me-3">Filtro:</span>
@@ -455,8 +369,12 @@
           [(ngModel)]="filtroCuatrimestre.anual"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
-        <ng-container *ngIf="filtroCuatrimestre.anual">✔️ </ng-container>
-        <ng-container *ngIf="!filtroCuatrimestre.anual">❌ </ng-container>
+        @if (filtroCuatrimestre.anual) {
+          ✔️
+        }
+        @if (!filtroCuatrimestre.anual) {
+          ❌
+        }
         Anual
       </label>
       <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
@@ -466,8 +384,12 @@
           [(ngModel)]="filtroCuatrimestre.primero"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
-        <ng-container *ngIf="filtroCuatrimestre.primero">✔️ </ng-container>
-        <ng-container *ngIf="!filtroCuatrimestre.primero">❌ </ng-container>
+        @if (filtroCuatrimestre.primero) {
+          ✔️
+        }
+        @if (!filtroCuatrimestre.primero) {
+          ❌
+        }
         1er Cuatrimestre
       </label>
       <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
@@ -477,8 +399,12 @@
           [(ngModel)]="filtroCuatrimestre.segundo"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
-        <ng-container *ngIf="filtroCuatrimestre.segundo">✔️ </ng-container>
-        <ng-container *ngIf="!filtroCuatrimestre.segundo">❌ </ng-container>
+        @if (filtroCuatrimestre.segundo) {
+          ✔️
+        }
+        @if (!filtroCuatrimestre.segundo) {
+          ❌
+        }
         2do Cuatrimestre
       </label>
     </div>
@@ -486,62 +412,61 @@
 </ng-template>
 
 <ng-template #cuerpo>
-  <div
-    *ngIf="bienvenidaVisible"
-    class="pt-3 pt-sm-2 ps-3 pe-3 ps-md-3 pe-md-3 ps-xl-5 pe-xl-5"
-  >
-    <ng-container *ngIf="carreraElegida.id === 'basicas'">
+  @if (bienvenidaVisible) {
+    <div class="pt-3 pt-sm-2 ps-3 pe-3 ps-md-3 pe-md-3 ps-xl-5 pe-xl-5">
+      @if (carreraElegida.id === 'basicas') {
+        <p class="text-justify">
+          Estás viendo las electivas de {{ carreraElegida.nombreCompleto }}. Estas electivas pueden ser cursadas por
+          estudiantes de todas las carreras de ingeniería. Podés ver información adicional y consultar las electivas
+          específicas de tu carrera en la lista desplegable de arriba a la derecha.
+        </p>
+      }
+      @if (carreraElegida.id !== 'basicas') {
+        <p class="text-justify">
+          Para completar el plan de estudio de
+          {{ carreraElegida.nombreCompleto }}, necesitás un total de {{ carreraElegida.horasTotales }} créditos en
+          electivas. Podés armar tu plan de cursado de electivas y ver tu total de créditos marcándolas en la lista de
+          abajo. Pulsando en el + podés ver la info completa de cada electiva.
+        </p>
+      }
       <p class="text-justify">
-        Estás viendo las electivas de {{ carreraElegida.nombreCompleto }}. Estas
-        electivas pueden ser cursadas por estudiantes de todas las carreras de
-        ingeniería. Podés ver información adicional y consultar las electivas
-        específicas de tu carrera en la lista desplegable de arriba a la
-        derecha.
+        Podés filtrar la lista de materias por cuatrimestre usando los botones que están arriba.
       </p>
-    </ng-container>
-
-    <ng-container *ngIf="carreraElegida.id !== 'basicas'">
-      <p class="text-justify">
-        Para completar el plan de estudio de
-        {{ carreraElegida.nombreCompleto }}, necesitás un total de
-        {{ carreraElegida.horasTotales }} créditos en electivas. Podés armar tu
-        plan de cursado de electivas y ver tu total de créditos marcándolas en
-        la lista de abajo. Pulsando en el + podés ver la info completa de cada
-        electiva.
+      <p class="mb-1 text-justify d-block d-md-none">
+        Podés visualizar la calculadora de horas clickeando en el botón superior izquierdo. Comunicate con nosotros
+        clickeando en el botón de ? a la derecha.
       </p>
-    </ng-container>
-    <p class="text-justify">
-      Podés filtrar la lista de materias por cuatrimestre usando los botones que
-      están arriba.
-    </p>
-
-    <p class="mb-1 text-justify d-block d-md-none">
-      Podés visualizar la calculadora de horas clickeando en el botón superior
-      izquierdo. Comunicate con nosotros clickeando en el botón de ? a la
-      derecha.
-    </p>
-
-    <hr />
-    <p class="mb-1 text-justify">
-      Desarrollamos esta aplicación con
-      <ng-container *ngIf="carreraElegida.id === 'basicas'">💙</ng-container>
-      <ng-container *ngIf="carreraElegida.id === 'civil'">💜</ng-container>
-      <ng-container *ngIf="carreraElegida.id === 'electrica'">❤️</ng-container>
-      <ng-container *ngIf="carreraElegida.id === 'industrial'">🧡</ng-container>
-      <ng-container *ngIf="carreraElegida.id === 'mecanica'">💚</ng-container>
-      <ng-container *ngIf="carreraElegida.id === 'sistemas'">💛</ng-container>
-      desde las consejeras y los consejeros estudiantiles de METAs, para
-      brindarte una mejor experiencia en tu tránsito por la facu.
-    </p>
-
-    <h4 id="badge-bienvenida" class="text-center font-weight-bold mt-3 mb-3">
-      <span
-        class="w-100 p-2 badge"
-        [ngClass]="estilosDeCarrera(carreraElegida.id)"
-        >¡Te deseamos un excelente segundo cuatrimestre!</span
-      >
-    </h4>
-  </div>
+      <hr />
+      <p class="mb-1 text-justify">
+        Desarrollamos esta aplicación con
+        @if (carreraElegida.id === 'basicas') {
+          💙
+        }
+        @if (carreraElegida.id === 'civil') {
+          💜
+        }
+        @if (carreraElegida.id === 'electrica') {
+          ❤️
+        }
+        @if (carreraElegida.id === 'industrial') {
+          🧡
+        }
+        @if (carreraElegida.id === 'mecanica') {
+          💚
+        }
+        @if (carreraElegida.id === 'sistemas') {
+          💛
+        }
+        desde las consejeras y los consejeros estudiantiles de METAs, para brindarte una mejor experiencia en tu
+        tránsito por la facu.
+      </p>
+      <h4 id="badge-bienvenida" class="text-center font-weight-bold mt-3 mb-3">
+        <span class="w-100 p-2 badge" [ngClass]="estilosDeCarrera(carreraElegida.id)"
+          >¡Te deseamos un excelente segundo cuatrimestre!</span
+        >
+      </h4>
+    </div>
+  }
 </ng-template>
 
 <ng-template #dropdownCarrera>
@@ -568,70 +493,51 @@
         ngbDropdownToggle
       ></button>
       <div class="dropdown-menu p-0" ngbDropdownMenu>
-        <div class="btn-group" role="group" *ngFor="let carrera of carreras">
-          <button
-            type="button"
-            class="btn rounded-0"
-            [ngClass]="estilosDeCarrera(carrera.id)"
-          >
-            &nbsp;
-          </button>
-          <button
-            type="button"
-            class="dropdown-item"
-            (click)="seleccionarCarrera(carrera.id)"
-          >
-            {{ carrera.nombreCompleto }}
-          </button>
-        </div>
+        @for (carrera of carreras; track carrera) {
+          <div class="btn-group" role="group">
+            <button type="button" class="btn rounded-0" [ngClass]="estilosDeCarrera(carrera.id)">&nbsp;</button>
+            <button type="button" class="dropdown-item" (click)="seleccionarCarrera(carrera.id)">
+              {{ carrera.nombreCompleto }}
+            </button>
+          </div>
+        }
       </div>
     </div>
   </div>
 </ng-template>
 
 <ng-template #redesSociales>
-  <div
-    id="redes-sociales"
-    *ngIf="ayudaVisible"
-    class="card rounded-0 shadow m-3 mt-md-3 mb-md-3 ms-md-4 me-md-4 ms-lg-auto me-lg-auto p-2"
-  >
-    <h5 class="text-center font-weight-bold mb-1">
-      ¿Tenés dudas?
-      <img
-        src="https://images.emojiterra.com/google/android-nougat/512px/1f914.png"
-      />
-    </h5>
-    <p class="text-justify">
-      Consultá a METAs
-      {{
-        carreraElegida.nombreCompleto.split(" ")[
-          carreraElegida.nombreCompleto.split(" ").length - 1
-        ]
-      }}
-      vía Instagram:
-    </p>
-    <div class="row no-gutters mb-2 text-center">
-      <div class="col" *ngIf="carreraElegida.contacto.messenger">
-        <img
-          id="messenger-icon"
-          [src]="'assets/img/facebook-messenger.png'"
-          (click)="navegarMessenger()"
-        />
-      </div>
-      <div class="col" *ngIf="carreraElegida.contacto.instagram">
-        <img
-          id="instagram-icon"
-          [src]="'assets/img/instagram-icon.png'"
-          (click)="navegarInstagram()"
-        />
-      </div>
-      <div class="col" *ngIf="carreraElegida.contacto.whatsapp">
-        <img
-          id="whatsapp-icon"
-          [src]="'assets/img/whatsapp-icon.png'"
-          (click)="navegarWhatsapp()"
-        />
+  @if (ayudaVisible) {
+    <div
+      id="redes-sociales"
+      class="card rounded-0 shadow m-3 mt-md-3 mb-md-3 ms-md-4 me-md-4 ms-lg-auto me-lg-auto p-2"
+    >
+      <h5 class="text-center font-weight-bold mb-1">
+        ¿Tenés dudas?
+        <img src="https://images.emojiterra.com/google/android-nougat/512px/1f914.png" />
+      </h5>
+      <p class="text-justify">
+        Consultá a METAs
+        {{ carreraElegida.nombreCompleto.split(' ')[carreraElegida.nombreCompleto.split(' ').length - 1] }}
+        vía Instagram:
+      </p>
+      <div class="row no-gutters mb-2 text-center">
+        @if (carreraElegida.contacto.messenger) {
+          <div class="col">
+            <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'" (click)="navegarMessenger()" />
+          </div>
+        }
+        @if (carreraElegida.contacto.instagram) {
+          <div class="col">
+            <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'" (click)="navegarInstagram()" />
+          </div>
+        }
+        @if (carreraElegida.contacto.whatsapp) {
+          <div class="col">
+            <img id="whatsapp-icon" [src]="'assets/img/whatsapp-icon.png'" (click)="navegarWhatsapp()" />
+          </div>
+        }
       </div>
     </div>
-  </div>
+  }
 </ng-template>

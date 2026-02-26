@@ -16,28 +16,26 @@
   </div>
 </div>
 
-<app-loading-spinner
-  *ngIf="cardService.cargando"
-  mensaje="Cargando tarjetas..."
-></app-loading-spinner>
+@if (cardService.cargando) {
+  <app-loading-spinner mensaje="Cargando tarjetas..."></app-loading-spinner>
+}
 
-<ng-container *ngIf="!cardService.cargando">
+@if (!cardService.cargando) {
   <!-- Sección de tarjetas fijas -->
   <div id="avisos" class="text-center mt-2">
-    <ng-container *ngFor="let card of cardService.fixedCards">
+    @for (card of cardService.fixedCards; track card) {
       <!-- TODO: Refinar feature de cambio de tamaño horizontal de tarjetas, haciéndolo programático -->
       <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
-    </ng-container>
+    }
   </div>
-
-  <hr *ngIf="cardService.fixedCards.length" />
-
+  @if (cardService.fixedCards.length) {
+    <hr />
+  }
   <div id="contenido" class="text-center">
-    <ng-container *ngFor="let card of cardService.assortedCards">
-      <app-tarjeta-generica
-        *ngIf="card.enabled"
-        [card]="card"
-      ></app-tarjeta-generica>
-    </ng-container>
+    @for (card of cardService.assortedCards; track card) {
+      @if (card.enabled) {
+        <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
+      }
+    }
   </div>
-</ng-container>
+}

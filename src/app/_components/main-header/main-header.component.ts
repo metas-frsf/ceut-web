@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, input } from '@angular/core';
+
 import { NgbTooltip, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
 
@@ -7,8 +7,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-main-header',
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.scss'],
-  imports: [NgIf, NgbTooltip, RouterLink, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu],
+  imports: [NgbTooltip, RouterLink, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu],
 })
 export class MainHeaderComponent {
-  @Input() activePage = { name: '', messenger: '', instagram: '', logo: '' };
+  activePage = input({ name: '', messenger: '', instagram: '', logo: '' });
 }
