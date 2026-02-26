@@ -16,7 +16,6 @@ export class Carrera {
 
 export class Contacto {
   instagram: string;
-  messenger: string;
   whatsapp?: string;
 }
 

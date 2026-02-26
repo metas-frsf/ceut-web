@@ -14,14 +14,12 @@ export class AppComponent {
 
   private paginaCeut = {
     name: 'CEUT',
-    messenger: 'ceut.frsf',
     instagram: 'ceut.frsf',
     logo: 'logo-ceut.png',
   };
 
   private paginaMetas = {
     name: 'METAs',
-    messenger: 'metas.frsf',
     instagram: 'metas.frsf',
     logo: 'logo-metas.png',
   };

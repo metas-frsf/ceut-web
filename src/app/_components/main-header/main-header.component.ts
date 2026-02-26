@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 export class MainHeaderComponent {
   private elementRef = inject(ElementRef);
 
-  activePage = input({ name: '', messenger: '', instagram: '', logo: '' });
+  activePage = input({ name: '', instagram: '', logo: '' });
   menuOpen = signal(false);
 
   toggleMenu() {

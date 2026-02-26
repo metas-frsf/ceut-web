@@ -131,10 +131,6 @@ export class ElectivasComponent implements OnInit {
     window.open(`https://instagram.com/${this.carreraElegida.contacto.instagram}`, '_blank');
   }
 
-  navegarMessenger() {
-    window.open(`https://m.me/${this.carreraElegida.contacto.messenger}`, '_blank');
-  }
-
   navegarWhatsapp() {
     window.open(`https://api.whatsapp.com/send?phone=${this.carreraElegida.contacto.whatsapp}`, '_blank');
   }

@@ -469,7 +469,7 @@
     <button
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
-      class="hidden rounded-l px-3 py-1 font-bold sm:inline-block"
+      class="hidden rounded-l px-3 py-1 font-bold sm:inline-block flex-1"
     >
       {{ carreraElegida.nombreCompleto }}
     </button>
@@ -511,16 +511,6 @@
         vía Instagram:
       </p>
       <div class="mb-2 flex justify-center text-center">
-        @if (carreraElegida.contacto.messenger) {
-          <div class="flex-1">
-            <img
-              class="cursor-pointer"
-              id="messenger-icon"
-              src="assets/img/facebook-messenger.png"
-              (click)="navegarMessenger()"
-            />
-          </div>
-        }
         @if (carreraElegida.contacto.instagram) {
           <div class="flex-1">
             <img
