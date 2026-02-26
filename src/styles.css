@@ -88,6 +88,35 @@
   color: #000;
 }
 
+/* ===== Bootstrap legacy colors (used by Sanity CMS card data) ===== */
+.bg-primary {
+  background-color: #0d6efd;
+}
+
+.bg-secondary {
+  background-color: #6c757d;
+}
+
+.bg-success {
+  background-color: #198754;
+}
+
+.bg-info {
+  background-color: #0dcaf0;
+}
+
+.bg-dark {
+  background-color: #212529;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.text-light {
+  color: #f8f9fa;
+}
+
 /* ===== Card custom background colors ===== */
 .bg-indigo {
   background-color: #3f51b5;
