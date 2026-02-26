@@ -1,8 +1,10 @@
-const result = require("dotenv").config();
+import dotenv from 'dotenv';
+
+const result = dotenv.config();
 
 let environment;
 
-if (!("error" in result)) {
+if (!('error' in result)) {
   environment = result.parsed;
   environment.sanity = {};
   environment.sanity.projectId = result.parsed.SANITY_PROJECT_ID;
@@ -14,4 +16,4 @@ if (!("error" in result)) {
   environment.sanity.dataset = process.env.SANITY_DATASET;
 }
 
-module.exports = environment;
+export default environment;
