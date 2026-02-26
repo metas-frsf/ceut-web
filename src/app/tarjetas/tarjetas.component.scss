@@ -13,8 +13,7 @@
   border: none;
 }
 
-app-tarjeta-generica,
-app-tarjeta-avisos {
+app-tarjeta-generica {
   display: grid;
   grid-template-rows: 1fr auto;
   break-inside: avoid;
