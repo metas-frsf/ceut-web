@@ -1,10 +1,10 @@
-const environment = require("./environment");
-const sanityClient = require("@sanity/client");
+const environment = require('./environment');
+const { createClient } = require('@sanity/client');
 
-const client = sanityClient({
+const client = createClient({
   projectId: environment.sanity.projectId,
   dataset: environment.sanity.dataset,
-  apiVersion: "2019-01-29", // use current UTC date - see "specifying API version"!
+  apiVersion: '2019-01-29', // use current UTC date - see "specifying API version"!
   useCdn: false, // `false` if you want to ensure fresh data
 });
 
