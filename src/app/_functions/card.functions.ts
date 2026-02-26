@@ -1,4 +1,4 @@
-import { Card } from '@app/_models';
+import type { Card } from '@app/_models/card';
 
 export function sortCardsByTitleAsc(a: Card, b: Card): number {
   if (a.title > b.title) {
@@ -12,9 +12,7 @@ export function sortCardsByTitleAsc(a: Card, b: Card): number {
 
 export function removeDuplicates(arrayWithDuplicates, propertyToCheck) {
   return arrayWithDuplicates.filter((obj, pos, arr) => {
-    return (
-      arr.map((mapObj) => mapObj[propertyToCheck]).indexOf(obj[propertyToCheck]) === pos
-    );
+    return arr.map((mapObj) => mapObj[propertyToCheck]).indexOf(obj[propertyToCheck]) === pos;
   });
 }
 

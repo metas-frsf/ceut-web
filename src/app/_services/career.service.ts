@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Carrera } from '@app/electivas/electivas.model';
+import type { Carrera } from '@app/_models/electivas.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,6 @@ export class CareerService {
         carrera: 'Civil',
         contacto: {
           instagram: 'consejerosdecivil',
-          messenger: '',
           whatsapp: '',
         },
       },
@@ -31,7 +30,6 @@ export class CareerService {
         carrera: 'Eléctrica',
         contacto: {
           instagram: 'consejeroselectrica',
-          messenger: '',
           whatsapp: '',
         },
       },
@@ -44,7 +42,6 @@ export class CareerService {
         carrera: 'Industrial',
         contacto: {
           instagram: 'industrialconsejeros',
-          messenger: '',
           whatsapp: '',
         },
       },
@@ -57,7 +54,6 @@ export class CareerService {
         carrera: 'Mecánica',
         contacto: {
           instagram: 'mecanicametas',
-          messenger: '',
           whatsapp: '',
         },
       },
@@ -70,7 +66,6 @@ export class CareerService {
         carrera: 'Sistemas',
         contacto: {
           instagram: 'sistemas_metas.frsf',
-          messenger: '',
           whatsapp: '',
         },
       },

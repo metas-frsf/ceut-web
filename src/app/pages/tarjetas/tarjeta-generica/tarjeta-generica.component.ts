@@ -6,12 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tarjeta-generica',
   templateUrl: './tarjeta-generica.component.html',
-  styleUrls: [
-    '../tarjetas.component.scss',
-    '../../../assets/scss/colors.scss',
-    '../../../assets/scss/fonts.scss',
-    './tarjeta-generica.component.scss',
-  ],
+  styleUrls: ['../tarjetas.component.scss', './tarjeta-generica.component.scss'],
   encapsulation: ViewEncapsulation.None,
   imports: [NgClass],
 })

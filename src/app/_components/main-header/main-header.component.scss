@@ -3,56 +3,8 @@
   height: 74px;
 }
 
-.navbar {
-  width: 100%;
-  top: 0;
-  z-index: 4;
-
-  //@media(max-width: 575px){
-  //  height: 70px;
-  //}
-}
-
-.navbar-nav {
-  .nav-item.disabled {
-    cursor: default;
-  }
-}
-
-.navbar-brand {
-  img {
-    max-width: 150px;
-
-    @media (max-width: 420px) {
-      max-height: 40px;
-    }
-    @media (min-width: 420px) {
-      max-height: 50px;
-    }
-  }
-}
-
 #main-header {
   width: 100%;
   z-index: 1040;
   background: #fff;
-}
-
-@media (min-width: 576px) {
-  #main-header .brand-navbar {
-    height: auto;
-    padding: 0.5rem 0 0 0;
-  }
-}
-
-@media (min-width: 575px) {
-  #main-header .brand-navbar .brand-container a.navbar-brand {
-    width: 135px;
-  }
-}
-
-@media (min-width: 768px) {
-  #main-header a.whatsapp span {
-    display: inline;
-  }
 }
