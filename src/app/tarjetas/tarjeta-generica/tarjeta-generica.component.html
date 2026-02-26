@@ -1,44 +1,42 @@
-<div class="card shadow-nohover mx-auto" [ngClass]="{ 'card-link': card().link }">
-  <div class="card-body" [ngClass]="card().class.card" (click)="navigate(card().link)">
-    <div class="row d-flex align-items-center">
-      <div [ngClass]="{ 'col-4': card().title, 'col-12': !card().title }">
-        <img class="w-100" [src]="baseUrl + card().icon" [ngClass]="card().class.image" />
+<div class="mx-auto rounded-lg bg-white shadow" [ngClass]="{ 'cursor-pointer': card().link }">
+  <div class="p-4" [ngClass]="card().class.card" (click)="navigate(card().link)">
+    <div class="flex items-center">
+      <div [ngClass]="{ 'w-1/3': card().title, 'w-full': !card().title }">
+        <img class="w-full" [src]="baseUrl + card().icon" [ngClass]="card().class.image" />
       </div>
       @if (card().title) {
-        <div class="col-8">
-          <h4 class="card-title mb-0" [ngClass]="card().class.title">
+        <div class="w-2/3">
+          <h4 class="mb-0 text-lg font-semibold" [ngClass]="card().class.title">
             {{ card().title }}
           </h4>
         </div>
       }
     </div>
-    <div class="row">
+    <div>
       @if (card().content && card().content.length) {
-        <div class="col-12">
-          <div class="mt-2 card-text text-justify" [ngClass]="card().class.content">
-            @for (line of card().content; track line) {
-              <p class="mb-2">
-                @if (line.title) {
-                  <strong>{{ line.title + ' ' }}</strong>
-                }
-                @if (line.link) {
-                  <a [href]="line.link.url">{{ line.description }}</a>
-                }
-                @if (!line.link) {
-                  {{ line.description }}
-                }
-              </p>
-            }
-          </div>
+        <div class="mt-2 text-justify" [ngClass]="card().class.content">
+          @for (line of card().content; track line) {
+            <p class="mb-2">
+              @if (line.title) {
+                <strong>{{ line.title + ' ' }}</strong>
+              }
+              @if (line.link) {
+                <a [href]="line.link.url">{{ line.description }}</a>
+              }
+              @if (!line.link) {
+                {{ line.description }}
+              }
+            </p>
+          }
         </div>
       }
 
       @if (card().footer && card().footer.content) {
-        <div class="col-12">
+        <div>
           @if (card().footer.separator) {
-            <hr class="mt-1 mb-1" [ngClass]="card().footer.class" />
+            <hr class="my-1" [ngClass]="card().footer.class" />
           }
-          <p class="card-text text-justify" [ngClass]="card().footer.class">
+          <p class="text-justify" [ngClass]="card().footer.class">
             <small>{{ card().footer.content }}</small>
           </p>
         </div>

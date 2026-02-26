@@ -1,61 +1,61 @@
 @if (activePage()) {
   <section id="main-header">
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
-      <div class="align-items-start me-3">
-        <a
-          class="navbar-brand p-1 m-0"
-          [href]="'https://m.me/' + activePage().messenger"
-          ngbTooltip="Escribinos vía Messenger"
-          placement="right"
-        >
-          <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'" [alt]="'Logo Messenger'" />
+    <nav id="navbar" class="flex items-center justify-center bg-gray-100 px-4 py-2">
+      <div class="me-3 flex items-start">
+        <a class="p-1" [href]="'https://m.me/' + activePage().messenger" title="Escribinos vía Messenger">
+          <img id="messenger-icon" src="assets/img/facebook-messenger.png" alt="Logo Messenger" />
         </a>
-        <a
-          class="navbar-brand p-1 m-0 ms-sm-3"
-          [href]="'https://instagram.com/' + activePage().instagram"
-          ngbTooltip="Contactate vía Instagram"
-          placement="right"
-        >
-          <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'" [alt]="'Logo Instagram'" />
+        <a class="ms-3 p-1" [href]="'https://instagram.com/' + activePage().instagram" title="Contactate vía Instagram">
+          <img id="instagram-icon" src="assets/img/instagram-icon.png" alt="Logo Instagram" />
         </a>
       </div>
-      <div class="align-items-start align-items-sm-center">
-        <a class="navbar-brand" routerLink="/"
-          ><img [src]="'assets/img/' + activePage().logo" [alt]="'Logo CEUT FRSF'"
-        /></a>
+      <div class="flex items-center">
+        <a routerLink="/">
+          <img [src]="'assets/img/' + activePage().logo" alt="Logo CEUT FRSF" />
+        </a>
       </div>
-      <div class="align-items-end">
-        <div ngbDropdown class="d-inline-block d-md-none" display="dynamic" placement="bottom-right">
-          <button class="btn btn-outline-primary rounded-0" id="dropdownBasic1" ngbDropdownToggle>
+      <div class="flex items-end">
+        <!-- Mobile dropdown -->
+        <div class="relative inline-block md:hidden">
+          <button
+            class="rounded border border-blue-600 px-3 py-2 text-blue-600 hover:bg-blue-50"
+            (click)="toggleMenu()"
+          >
             <i class="fa fa-bars" aria-hidden="true"></i>
           </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <a
-              class="dropdown-item d-flex align-items-center"
-              [href]="'https://instagram.com/' + activePage().instagram"
-            >
-              <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'" [alt]="'Logo Instagram'" />
-              <label class="ps-3 mb-0">Instagram CEUT FRSF</label>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              [href]="'https://m.me/' + activePage().messenger"
-              ngbTooltip="Escribinos vía Messenger"
-              placement="right"
-            >
-              <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'" [alt]="'Logo Messenger'" />
-              <label class="ps-3 mb-0">Messenger CEUT FRSF</label>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item d-flex align-items-center" routerLink="/electivas">
-              <i class="fa fa-2x fa-sign-in-alt" aria-hidden="true"></i>
-              <label class="ps-3 mb-0">Electivas</label>
-            </a>
-          </div>
+          @if (menuOpen()) {
+            <div class="absolute right-0 z-50 mt-1 min-w-56 rounded border border-gray-200 bg-white shadow-lg">
+              <a
+                class="flex items-center px-4 py-2 hover:bg-gray-100"
+                [href]="'https://instagram.com/' + activePage().instagram"
+              >
+                <img class="h-8 max-h-8" src="assets/img/instagram-icon.png" alt="Logo Instagram" />
+                <span class="ps-3">Instagram CEUT FRSF</span>
+              </a>
+              <hr class="border-gray-200" />
+              <a
+                class="flex items-center px-4 py-2 hover:bg-gray-100"
+                [href]="'https://m.me/' + activePage().messenger"
+                title="Escribinos vía Messenger"
+              >
+                <img class="h-8 max-h-8" src="assets/img/facebook-messenger.png" alt="Logo Messenger" />
+                <span class="ps-3">Messenger CEUT FRSF</span>
+              </a>
+              <hr class="border-gray-200" />
+              <a
+                class="flex items-center px-4 py-2 hover:bg-gray-100"
+                routerLink="/electivas"
+                (click)="menuOpen.set(false)"
+              >
+                <i class="fa fa-2x fa-sign-in-alt" aria-hidden="true"></i>
+                <span class="ps-3">Electivas</span>
+              </a>
+            </div>
+          }
         </div>
-        <div class="d-none d-md-flex">
-          <a class="btn btn-primary me-3" routerLink="/electivas">
+        <!-- Desktop nav -->
+        <div class="hidden md:flex">
+          <a class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" routerLink="/electivas">
             <i class="fa fa-sign-in-alt me-2" aria-hidden="true"></i>Electivas
           </a>
         </div>

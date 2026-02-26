@@ -1,4 +1,4 @@
-@use '../assets/scss/layout';
+$headerbar-height: 74px;
 
 #header-container {
   margin-left: -15px;
@@ -15,11 +15,11 @@
     0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  @extend .viewport-height;
+  min-height: calc(100vh - #{$headerbar-height});
 }
 
 #outlet-container {
-  @extend .viewport-height;
+  min-height: calc(100vh - #{$headerbar-height});
 
   @media (max-width: 576px) {
     padding-left: 0 !important;
@@ -28,17 +28,9 @@
 }
 
 #inner-container {
-  @extend .viewport-height;
+  min-height: calc(100vh - #{$headerbar-height});
 }
 
 body {
   background-color: darkgray;
-}
-
-[ngbDropdownMenu] {
-  img,
-  i {
-    height: 32px;
-    max-height: 32px;
-  }
 }

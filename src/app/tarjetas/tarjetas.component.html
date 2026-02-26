@@ -1,12 +1,10 @@
-<div id="search-bar" class="bg-light shadow ps-3 pe-3 ps-sm-0 pe-sm-0">
-  <div class="input-group mx-auto">
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
+<div id="search-bar" class="bg-gray-100 px-3 shadow sm:px-0">
+  <div class="mx-auto flex">
+    <button class="rounded-l border border-gray-400 px-3 py-2 text-gray-600" type="button">
+      <i class="fas fa-search"></i>
+    </button>
     <input
-      class="form-control"
+      class="w-full rounded-r border border-l-0 border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
       type="search"
       placeholder="Buscar..."
       aria-label="Search"
@@ -22,9 +20,8 @@
 
 @if (!cardService.cargando) {
   <!-- Sección de tarjetas fijas -->
-  <div id="avisos" class="text-center mt-2">
+  <div id="avisos" class="mt-2 text-center">
     @for (card of cardService.fixedCards; track card) {
-      <!-- TODO: Refinar feature de cambio de tamaño horizontal de tarjetas, haciéndolo programático -->
       <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
     }
   </div>

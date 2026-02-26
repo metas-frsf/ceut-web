@@ -1,23 +1,23 @@
-<div id="container" class="container-fluid d-sm-flex">
+<div id="container" class="sm:flex">
   @if (recomendacionPantalla && anchoDelDisplay <= 768) {
-    <div id="recomendacion-pantalla" class="btn-group mb-5" role="group" (click)="cerrarRecomendacion()">
-      <button type="button" class="btn btn-secondary text-left">
+    <div id="recomendacion-pantalla" class="mb-5 flex" role="group" (click)="cerrarRecomendacion()">
+      <button type="button" class="rounded-l bg-gray-600 px-4 py-2 text-left text-white">
         Para una mejor experiencia, te recomendamos visualizar la página en tablet panorámica o PC
       </button>
-      <button type="button" class="btn btn-secondary">
-        <i class="ms-2 me-2 fas fa-lg fa-times"></i>
+      <button type="button" class="rounded-r bg-gray-600 px-3 py-2 text-white">
+        <i class="fas fa-lg fa-times"></i>
       </button>
     </div>
   }
 
   <!-- Estructura superior -->
-  <div class="card rounded-0">
-    <div class="row no-gutters">
-      <div class="d-none order-lg-1 d-lg-block col-lg-3 col-xl-3">
-        <div class="w-100">
+  <div class="rounded-none border border-gray-200 bg-white">
+    <div class="flex flex-wrap">
+      <div class="order-1 hidden w-full lg:block lg:w-3/12 xl:w-3/12">
+        <div class="w-full">
           <div
             id="icono-carrera"
-            class="mx-auto d-flex align-items-center justify-content-center"
+            class="mx-auto flex items-center justify-center"
             [ngClass]="estilosDeCarrera(carreraElegida.id)"
           >
             <i class="fas fa-5x" [ngClass]="carreraElegida.iconClass"></i>
@@ -28,8 +28,8 @@
           <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
         }
       </div>
-      <div class="col-12 col-md-7 order-2 order-md-1 order-lg-2 col-lg-5 col-xl-6">
-        <div class="d-md-block">
+      <div class="order-2 w-full md:order-1 md:w-7/12 lg:order-2 lg:w-5/12 xl:w-6/12">
+        <div class="md:block">
           <ng-container *ngTemplateOutlet="filtroCuatrimestres"> </ng-container>
         </div>
 
@@ -40,12 +40,12 @@
           <ng-container *ngTemplateOutlet="redesSociales"> </ng-container>
         }
       </div>
-      <div class="col-12 col-md-5 order-1 order-md-2 order-lg-3 col-lg-4 col-xl-3">
-        <div class="w-100 text-center">
+      <div class="order-1 w-full md:order-2 md:w-5/12 lg:order-3 lg:w-4/12 xl:w-3/12">
+        <div class="w-full text-center">
           @if (carreraElegida.id !== 'basicas') {
             <button
               id="icono-calculadora"
-              class="d-block d-md-none btn btn-dark text-white p-1 justify-content-center"
+              class="block justify-center bg-gray-800 p-1 text-white md:hidden"
               (click)="toggleCalculadora()"
             >
               <i class="fas fa-2x fa-calculator"></i>
@@ -56,7 +56,7 @@
 
           <button
             id="icono-ayuda"
-            class="d-block d-md-none btn btn-info p-1 justify-content-center"
+            class="block justify-center bg-blue-400 p-1 text-white md:hidden"
             (click)="toggleAyuda()"
           >
             <i class="fas fa-2x fa-question-circle"></i>
@@ -66,16 +66,6 @@
             <ng-container *ngTemplateOutlet="redesSociales"> </ng-container>
           }
 
-          <!--          <div class="mx-4 d-none d-lg-block">-->
-          <!--            <button-->
-          <!--              class="w-100 font-weight-bold btn p-1"-->
-          <!--              [ngClass]="estilosDeCarrera(carreraElegida.id)"-->
-          <!--              (click)="toggleModalPresentacion()"-->
-          <!--            >-->
-          <!--              Vista de Presentación-->
-          <!--            </button>-->
-          <!--          </div>-->
-
           @if (anchoDelDisplay < 992 && anchoDelDisplay >= 768) {
             <ng-container *ngTemplateOutlet="calculadora"> </ng-container>
           }
@@ -83,15 +73,15 @@
       </div>
     </div>
 
-    <div class="card-body card-body-electivas pt-0">
-      <!-- Header de la lista de tarjetas. No se muestran para tamaños menores a sm -->
-      <div class="d-none d-sm-flex row no-gutters bg-light mb-2 ps-2 pe-2">
-        <div class="col-3 col-md-2 col-lg-2">&nbsp;</div>
-        <div class="col-4 col-md-4 col-lg-5"><b>Nombre</b></div>
-        <div class="col-2 col-lg-2 d-none d-md-flex text-center">
+    <div class="flex min-h-[calc(100vh-550px)] flex-col pt-0">
+      <!-- Header de la lista de tarjetas -->
+      <div class="mb-2 hidden flex-wrap bg-gray-100 px-2 sm:flex">
+        <div class="w-3/12 md:w-2/12 lg:w-2/12">&nbsp;</div>
+        <div class="w-4/12 md:w-4/12 lg:w-5/12"><b>Nombre</b></div>
+        <div class="hidden w-2/12 text-center md:flex lg:w-2/12">
           <b>Créditos</b>
         </div>
-        <div class="col-5 col-md-4 col-lg-3 text-center text-md-left">
+        <div class="w-5/12 text-center md:w-4/12 md:text-left lg:w-3/12">
           <b>Horarios</b>
         </div>
       </div>
@@ -101,16 +91,16 @@
       }
 
       <!-- Lista de tarjetas -->
-      @for (electiva of electivasFiltradas; track electiva) {
-        <div class="tarjeta-electiva card rounded-0 shadow-sm mb-2">
-          <div class="row no-gutters">
+      @for (electiva of electivasFiltradas; track electiva; let i = $index) {
+        <div class="mb-2 rounded-none border border-gray-200 shadow-sm">
+          <div class="flex flex-wrap">
             <!-- Botón desplegable y marcador de estado -->
-            <div class="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column align-items-center justify-content-center">
+            <div class="flex w-4/12 flex-col items-center justify-center sm:w-3/12 md:w-2/12 lg:w-2/12">
               @if (carreraElegida.id !== 'basicas') {
-                <div class="btn-group">
+                <div class="relative inline-flex">
                   <button
                     type="button"
-                    class="btn font-weight-bold"
+                    class="btn font-bold"
                     [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                     (click)="cambiarVista(electiva)"
                   >
@@ -122,89 +112,91 @@
                       }"
                     ></i>
                   </button>
-                  <div class="btn-group" ngbDropdown role="group" placement="bottom-left">
-                    <button
-                      class="btn dropdown-toggle-split"
-                      [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
-                      ngbDropdownToggle
-                    ></button>
-                    <div class="dropdown-menu p-0" ngbDropdownMenu>
-                      <div class="btn-group w-100" role="group">
-                        <button type="button" class="btn rounded-0 bg-light">&nbsp;</button>
-                        <button type="button" class="dropdown-item" (click)="limpiarEstado(electiva)">Limpiar</button>
+                  <button
+                    class="btn border-l border-white/30 px-2"
+                    [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
+                    (click)="toggleElectivaDropdown(i, $event)"
+                  >
+                    ▼
+                  </button>
+                  @if (electivaDropdownIndex === i) {
+                    <div
+                      class="absolute top-full left-0 z-50 min-w-40 rounded border border-gray-200 bg-white shadow-lg"
+                    >
+                      <div class="flex w-full">
+                        <span class="w-8 rounded-none bg-gray-100">&nbsp;</span>
+                        <button class="grow px-3 py-1 text-left hover:bg-gray-100" (click)="limpiarEstado(electiva)">
+                          Limpiar
+                        </button>
                       </div>
-                      <div class="btn-group w-100" role="group">
-                        <button type="button" class="btn rounded-0 bg-primary">&nbsp;</button>
-                        <button type="button" class="dropdown-item" (click)="marcarCursada(electiva)">Cursada</button>
+                      <div class="flex w-full">
+                        <span class="w-8 rounded-none bg-blue-600">&nbsp;</span>
+                        <button class="grow px-3 py-1 text-left hover:bg-gray-100" (click)="marcarCursada(electiva)">
+                          Cursada
+                        </button>
                       </div>
-                      <div class="btn-group w-100" role="group">
-                        <button type="button" class="btn rounded-0 bg-success">&nbsp;</button>
-                        <button type="button" class="dropdown-item" (click)="marcarAprobada(electiva)">Aprobada</button>
+                      <div class="flex w-full">
+                        <span class="w-8 rounded-none bg-green-600">&nbsp;</span>
+                        <button class="grow px-3 py-1 text-left hover:bg-gray-100" (click)="marcarAprobada(electiva)">
+                          Aprobada
+                        </button>
                       </div>
                     </div>
-                  </div>
+                  }
                 </div>
               }
               @if (carreraElegida.id === 'basicas') {
-                <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn font-weight-bold"
-                    [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
-                    (click)="cambiarVista(electiva)"
-                  >
-                    <i
-                      class="fas"
-                      [ngClass]="{
-                        'fa-plus': !electiva.vistaCompleta,
-                        'fa-minus': electiva.vistaCompleta,
-                      }"
-                    ></i>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  class="btn font-bold"
+                  [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
+                  (click)="cambiarVista(electiva)"
+                >
+                  <i
+                    class="fas"
+                    [ngClass]="{
+                      'fa-plus': !electiva.vistaCompleta,
+                      'fa-minus': electiva.vistaCompleta,
+                    }"
+                  ></i>
+                </button>
               }
-              <h5 class="d-md-none text-secondary font-weight-normal mt-2 mb-0">{{ electiva.creditos }} horas</h5>
+              <h5 class="mb-0 mt-2 font-normal text-gray-500 md:hidden">{{ electiva.creditos }} horas</h5>
             </div>
-            <!-- Nombre. Agrega horarios debajo en vistas pequeñas -->
-            <div class="col-8 col-sm-4 col-md-5 col-lg-5 d-flex flex-column align-items-start justify-content-center">
-              <h5 class="d-md-none font-weight-normal">{{ electiva.nombre }}</h5>
-              <h5 class="d-none d-md-block">{{ electiva.nombre }}</h5>
-              <div class="d-sm-none horario mt-2">
-                @for (horario of electiva.horarios; track horario; let i = $index) {
-                  <p class="mb-1 me-2">
-                    {{ horario }}
-                  </p>
+            <!-- Nombre -->
+            <div class="flex w-8/12 flex-col items-start justify-center sm:w-4/12 md:w-5/12 lg:w-5/12">
+              <h5 class="font-normal md:hidden">{{ electiva.nombre }}</h5>
+              <h5 class="hidden md:block">{{ electiva.nombre }}</h5>
+              <div class="mt-2 text-sm sm:hidden">
+                @for (horario of electiva.horarios; track horario) {
+                  <p class="mb-1 me-2">{{ horario }}</p>
                 }
               </div>
             </div>
-            <!-- Créditos. No se muestra en vista sm y menor -->
-            <div class="col-2 d-none d-md-flex align-items-center justify-content-start">
+            <!-- Créditos -->
+            <div class="hidden w-2/12 items-center justify-start md:flex">
               <p class="mb-1">{{ electiva.creditos }} horas</p>
             </div>
-            <!-- Horarios. No se muestra en vista menor a sm, quedando los horarios debajo de la columna asignada para nombres -->
+            <!-- Horarios -->
             <div
-              class="col-5 col-sm-5 col-md-3 col-lg-3 d-none d-sm-flex align-items-sm-center justify-content-end justify-content-md-start pe-2 pe-md-0"
+              class="hidden w-5/12 items-center justify-end pe-2 sm:flex sm:w-5/12 md:w-3/12 md:justify-start md:pe-0 lg:w-3/12"
             >
-              <div class="d-none d-sm-block horario">
+              <div class="hidden text-sm sm:block">
                 @for (horario of electiva.horarios; track horario) {
-                  <p class="mb-1">
-                    {{ horario }}
-                  </p>
+                  <p class="mb-1">{{ horario }}</p>
                 }
               </div>
             </div>
           </div>
           @if (electiva.vistaCompleta) {
-            <hr class="mt-1 mb-1" />
-            <div class="row no-gutters">
-              <div class="col-6 col-md-3 col-xl-2 ps-3 pe-1 pe-md-0 ps-lg-3 ps-xl-4">
+            <hr class="my-1" />
+            <div class="flex flex-wrap">
+              <div class="w-6/12 pe-1 ps-3 md:w-3/12 md:pe-0 lg:ps-3 xl:w-2/12 xl:ps-4">
                 @if (electiva.docentes && electiva.docentes.length) {
                   <div class="mb-2">
                     <p class="mb-1"><b>Docentes:</b></p>
                     @for (docente of electiva.docentes; track docente) {
-                      <p class="mb-1">
-                        {{ docente }}
-                      </p>
+                      <p class="mb-1">{{ docente }}</p>
                     }
                   </div>
                 }
@@ -216,7 +208,7 @@
                   </div>
                 }
                 @if (electiva.area) {
-                  <div class="mb-2 d-block d-md-none">
+                  <div class="mb-2 block md:hidden">
                     <p class="mb-1"><b>Área:</b></p>
                     <p class="text-justify">{{ electiva.area }}</p>
                   </div>
@@ -228,58 +220,50 @@
                   </div>
                 }
                 @if (electiva.actividades && electiva.actividades.length) {
-                  <div class="mb-2 d-block d-md-none">
+                  <div class="mb-2 block md:hidden">
                     <p class="mb-1"><b>Instancias de Evaluación:</b></p>
                     <p class="text-justify">{{ electiva.actividades }}</p>
                   </div>
                 }
               </div>
-              <div class="col-6 col-md-4 ps-1 ps-md-0 pe-2 pe-md-0 col-xl-5">
+              <div class="w-6/12 ps-1 pe-2 md:w-4/12 md:ps-0 md:pe-0 xl:w-5/12">
                 @if (electiva.cursadasParaCursar && electiva.cursadasParaCursar.length) {
                   <p class="mb-1"><b>Cursadas para Cursar:</b></p>
                   @for (correlativa of electiva.cursadasParaCursar; track correlativa) {
-                    <p class="mb-1">
-                      {{ correlativa }}
-                    </p>
+                    <p class="mb-1">{{ correlativa }}</p>
                   }
                 }
                 @if (electiva.aprobadasParaCursar && electiva.aprobadasParaCursar.length) {
                   <p class="mb-1"><b>Aprobadas para Cursar:</b></p>
                   @for (correlativa of electiva.aprobadasParaCursar; track correlativa) {
-                    <p class="mb-1">
-                      {{ correlativa }}
-                    </p>
+                    <p class="mb-1">{{ correlativa }}</p>
                   }
                 }
                 @if (electiva.aprobadasParaRendir && electiva.aprobadasParaRendir.length) {
                   <p class="mb-1"><b>Aprobadas para Rendir:</b></p>
                   @for (correlativa of electiva.aprobadasParaRendir; track correlativa) {
-                    <p class="mb-1">
-                      {{ correlativa }}
-                    </p>
+                    <p class="mb-1">{{ correlativa }}</p>
                   }
                 }
               </div>
-              <div class="col-12 col-md-5 col-xl-5 ps-2 pe-2 pe-lg-3 pe-xl-4">
+              <div class="w-full px-2 md:w-5/12 lg:pe-3 xl:w-5/12 xl:pe-4">
                 @if (electiva.area) {
-                  <div class="d-none d-md-block">
+                  <div class="hidden md:block">
                     <p class="mb-1"><b>Área:</b></p>
                     <p class="text-justify">{{ electiva.area }}</p>
                   </div>
                 }
                 @if (electiva.actividades && electiva.actividades.length) {
-                  <div class="d-none d-md-block">
+                  <div class="hidden md:block">
                     <p class="mb-1"><b>Instancias de Evaluación:</b></p>
                     <p class="text-justify">{{ electiva.actividades }}</p>
                   </div>
                 }
                 @if (electiva.comentarios && electiva.comentarios.length) {
-                  <hr class="d-md-none mt-1 mb-1" />
+                  <hr class="my-1 md:hidden" />
                   <p class="mb-1"><b>Comentarios de Estudiantes:</b></p>
                   @for (comentario of electiva.comentarios; track comentario) {
-                    <p class="mb-1 text-justify">
-                      {{ comentario }}
-                    </p>
+                    <p class="mb-1 text-justify">{{ comentario }}</p>
                   }
                 }
               </div>
@@ -293,15 +277,15 @@
 
 <ng-template #calculadora>
   @if (calculadoraVisible && carreraElegida.id !== 'basicas') {
-    <div class="card rounded-0 shadow m-3 mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2">
-      <div class="row no-gutters">
-        <div class="col">
+    <div class="m-3 rounded-none border border-gray-200 bg-white p-2 shadow md:mx-4 lg:ms-3">
+      <div class="flex">
+        <div class="flex-1">
           <p class="mb-0">
-            <span class="w-100 badge badge-primary font-weight-normal p-1">Cursadas</span>
+            <span class="w-full rounded bg-blue-600 p-1 text-sm font-normal text-white">Cursadas</span>
           </p>
         </div>
-        <div class="col text-center">{{ contadorCursadas }} / {{ carreraElegida.horasTotales }}</div>
-        <div class="col text-center">
+        <div class="flex-1 text-center">{{ contadorCursadas }} / {{ carreraElegida.horasTotales }}</div>
+        <div class="flex-1 text-center">
           @if (contadorCursadas > 0) {
             {{ ((contadorCursadas / carreraElegida.horasTotales) * 100).toFixed(2) }}%
           }
@@ -310,14 +294,14 @@
           }
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col">
+      <div class="flex">
+        <div class="flex-1">
           <p class="mb-0">
-            <span class="w-100 badge badge-success font-weight-normal p-1">Aprobadas</span>
+            <span class="w-full rounded bg-green-600 p-1 text-sm font-normal text-white">Aprobadas</span>
           </p>
         </div>
-        <div class="col text-center">{{ contadorAprobadas }} / {{ carreraElegida.horasTotales }}</div>
-        <div class="col text-center">
+        <div class="flex-1 text-center">{{ contadorAprobadas }} / {{ carreraElegida.horasTotales }}</div>
+        <div class="flex-1 text-center">
           @if (contadorAprobadas > 0) {
             {{ ((contadorAprobadas / carreraElegida.horasTotales) * 100).toFixed(2) }}%
           }
@@ -326,8 +310,8 @@
           }
         </div>
       </div>
-      <hr class="mt-1 mb-1" />
-      <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
+      <hr class="my-1" />
+      <p class="mb-0 text-justify text-xs text-gray-500">
         @if (contadorAprobadas === 0) {
           Para calcular, podés marcar materias como cursadas o aprobadas marcando en el botón ▼ a la izquierda de cada
           electiva
@@ -344,11 +328,11 @@
   }
 
   @if (carreraElegida.id === 'basicas' || contadorAprobadas === 0) {
-    <div class="card rounded-0 shadow mt-3 mb-3 ms-md-4 me-md-4 ms-lg-3 p-2 d-none d-lg-block">
-      <p class="mb-1 text-justify text-secondary" style="font-size: 0.8rem">
+    <div class="mt-3 mb-3 hidden rounded-none border border-gray-200 bg-white p-2 shadow md:mx-4 lg:block lg:ms-3">
+      <p class="mb-1 text-justify text-xs text-gray-500">
         <b>Cita recomendada:</b>
       </p>
-      <p class="mb-0 text-justify text-secondary" style="font-size: 0.8rem">
+      <p class="mb-0 text-justify text-xs text-gray-500">
         {{ fraseSeleccionada }}
       </p>
     </div>
@@ -356,53 +340,56 @@
 </ng-template>
 
 <ng-template #filtroCuatrimestres>
-  <div class="pt-2 px-2 pb-0 text-center">Filtrá las electivas según cuándo se dictan:</div>
+  <div class="px-2 pt-2 pb-0 text-center">Filtrá las electivas según cuándo se dictan:</div>
 
-  <div id="filtro-cuatrimestres" class="p-2 mt-2 mb-2 mb-md-0 rounded shadow">
-    <span class="ms-2 d-none d-xl-inline font-weight-bold me-3">Filtro:</span>
+  <div id="filtro-cuatrimestres" class="mx-auto mt-2 mb-2 rounded bg-gray-200 p-2 shadow md:mb-0">
+    <span class="ms-2 me-3 hidden font-bold xl:inline">Filtro:</span>
 
-    <div class="btn-group btn-group-toggle">
-      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
+    <div class="inline-flex rounded border border-gray-400">
+      <label
+        class="cursor-pointer border-r border-gray-400 px-3 py-1 text-sm"
+        [class.bg-gray-300]="filtroCuatrimestre.anual"
+      >
         <input
           type="checkbox"
-          ngbButton
+          class="hidden"
           [(ngModel)]="filtroCuatrimestre.anual"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
         @if (filtroCuatrimestre.anual) {
           ✔️
-        }
-        @if (!filtroCuatrimestre.anual) {
+        } @else {
           ❌
         }
         Anual
       </label>
-      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
+      <label
+        class="cursor-pointer border-r border-gray-400 px-3 py-1 text-sm"
+        [class.bg-gray-300]="filtroCuatrimestre.primero"
+      >
         <input
           type="checkbox"
-          ngbButton
+          class="hidden"
           [(ngModel)]="filtroCuatrimestre.primero"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
         @if (filtroCuatrimestre.primero) {
           ✔️
-        }
-        @if (!filtroCuatrimestre.primero) {
+        } @else {
           ❌
         }
         1er Cuatrimestre
       </label>
-      <label class="btn btn-sm btn-outline-secondary" ngbButtonLabel>
+      <label class="cursor-pointer px-3 py-1 text-sm" [class.bg-gray-300]="filtroCuatrimestre.segundo">
         <input
           type="checkbox"
-          ngbButton
+          class="hidden"
           [(ngModel)]="filtroCuatrimestre.segundo"
           (ngModelChange)="filtrarPorCuatrimestre(filtroCuatrimestre)"
         />
         @if (filtroCuatrimestre.segundo) {
           ✔️
-        }
-        @if (!filtroCuatrimestre.segundo) {
+        } @else {
           ❌
         }
         2do Cuatrimestre
@@ -413,7 +400,7 @@
 
 <ng-template #cuerpo>
   @if (bienvenidaVisible) {
-    <div class="pt-3 pt-sm-2 ps-3 pe-3 ps-md-3 pe-md-3 ps-xl-5 pe-xl-5">
+    <div class="px-3 pt-3 sm:pt-2 xl:px-5">
       @if (carreraElegida.id === 'basicas') {
         <p class="text-justify">
           Estás viendo las electivas de {{ carreraElegida.nombreCompleto }}. Estas electivas pueden ser cursadas por
@@ -432,7 +419,7 @@
       <p class="text-justify">
         Podés filtrar la lista de materias por cuatrimestre usando los botones que están arriba.
       </p>
-      <p class="mb-1 text-justify d-block d-md-none">
+      <p class="mb-1 block text-justify md:hidden">
         Podés visualizar la calculadora de horas clickeando en el botón superior izquierdo. Comunicate con nosotros
         clickeando en el botón de ? a la derecha.
       </p>
@@ -460,8 +447,8 @@
         desde las consejeras y los consejeros estudiantiles de METAs, para brindarte una mejor experiencia en tu
         tránsito por la facu.
       </p>
-      <h4 id="badge-bienvenida" class="text-center font-weight-bold mt-3 mb-3">
-        <span class="w-100 p-2 badge" [ngClass]="estilosDeCarrera(carreraElegida.id)"
+      <h4 id="badge-bienvenida" class="mt-3 mb-3 text-center font-bold">
+        <span class="inline-block w-full p-2 text-lg" [ngClass]="estilosDeCarrera(carreraElegida.id)"
           >¡Te deseamos un excelente segundo cuatrimestre!</span
         >
       </h4>
@@ -470,11 +457,11 @@
 </ng-template>
 
 <ng-template #dropdownCarrera>
-  <div id="dropdown-carrera" class="btn-group">
+  <div id="dropdown-carrera" class="relative inline-flex">
     <button
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
-      class="rounded-left d-sm-none btn font-weight-bold"
+      class="btn rounded-l font-bold sm:hidden"
       (click)="verVistaPrincipal()"
     >
       {{ carreraElegida.nombreCorto }}
@@ -482,27 +469,29 @@
     <button
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
-      class="rounded-left d-none d-sm-inline-block btn font-weight-bold"
+      class="btn hidden rounded-l font-bold sm:inline-block"
     >
       {{ carreraElegida.nombreCompleto }}
     </button>
-    <div class="btn-group" ngbDropdown role="group" placement="bottom-right">
-      <button
-        class="btn dropdown-toggle-split"
-        [ngClass]="estilosDeCarrera(carreraElegida.id)"
-        ngbDropdownToggle
-      ></button>
-      <div class="dropdown-menu p-0" ngbDropdownMenu>
+    <button
+      class="btn border-l border-white/30 px-2"
+      [ngClass]="estilosDeCarrera(carreraElegida.id)"
+      (click)="toggleCarreraDropdown()"
+    >
+      ▼
+    </button>
+    @if (carreraDropdownOpen) {
+      <div class="absolute top-full right-0 z-50 min-w-48 rounded border border-gray-200 bg-white shadow-lg">
         @for (carrera of carreras; track carrera) {
-          <div class="btn-group" role="group">
-            <button type="button" class="btn rounded-0" [ngClass]="estilosDeCarrera(carrera.id)">&nbsp;</button>
-            <button type="button" class="dropdown-item" (click)="seleccionarCarrera(carrera.id)">
+          <div class="flex">
+            <span class="w-8 rounded-none" [ngClass]="estilosDeCarrera(carrera.id)">&nbsp;</span>
+            <button class="grow px-3 py-1 text-left hover:bg-gray-100" (click)="seleccionarCarrera(carrera.id)">
               {{ carrera.nombreCompleto }}
             </button>
           </div>
         }
       </div>
-    </div>
+    }
   </div>
 </ng-template>
 
@@ -510,9 +499,9 @@
   @if (ayudaVisible) {
     <div
       id="redes-sociales"
-      class="card rounded-0 shadow m-3 mt-md-3 mb-md-3 ms-md-4 me-md-4 ms-lg-auto me-lg-auto p-2"
+      class="m-3 rounded-none border border-gray-200 bg-white p-2 shadow md:mx-4 md:mt-3 md:mb-3 lg:mx-auto"
     >
-      <h5 class="text-center font-weight-bold mb-1">
+      <h5 class="mb-1 text-center font-bold">
         ¿Tenés dudas?
         <img src="https://images.emojiterra.com/google/android-nougat/512px/1f914.png" />
       </h5>
@@ -521,20 +510,35 @@
         {{ carreraElegida.nombreCompleto.split(' ')[carreraElegida.nombreCompleto.split(' ').length - 1] }}
         vía Instagram:
       </p>
-      <div class="row no-gutters mb-2 text-center">
+      <div class="mb-2 flex justify-center text-center">
         @if (carreraElegida.contacto.messenger) {
-          <div class="col">
-            <img id="messenger-icon" [src]="'assets/img/facebook-messenger.png'" (click)="navegarMessenger()" />
+          <div class="flex-1">
+            <img
+              class="cursor-pointer"
+              id="messenger-icon"
+              src="assets/img/facebook-messenger.png"
+              (click)="navegarMessenger()"
+            />
           </div>
         }
         @if (carreraElegida.contacto.instagram) {
-          <div class="col">
-            <img id="instagram-icon" [src]="'assets/img/instagram-icon.png'" (click)="navegarInstagram()" />
+          <div class="flex-1">
+            <img
+              class="cursor-pointer"
+              id="instagram-icon"
+              src="assets/img/instagram-icon.png"
+              (click)="navegarInstagram()"
+            />
           </div>
         }
         @if (carreraElegida.contacto.whatsapp) {
-          <div class="col">
-            <img id="whatsapp-icon" [src]="'assets/img/whatsapp-icon.png'" (click)="navegarWhatsapp()" />
+          <div class="flex-1">
+            <img
+              class="cursor-pointer"
+              id="whatsapp-icon"
+              src="assets/img/whatsapp-icon.png"
+              (click)="navegarWhatsapp()"
+            />
           </div>
         }
       </div>

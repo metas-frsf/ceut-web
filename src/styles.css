@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-career-basicas: #0097d0;
+  --color-career-civil: #812893;
+  --color-career-electrica: #ff0000;
+  --color-career-industrial: #f57c00;
+  --color-career-mecanica: #015128;
+  --color-career-sistemas: #ffde01;
+
+  --font-exmouth: 'exmouth', cursive;
+  --font-alte-haas: 'alte-haas-grotesk-bold', sans-serif;
+}
+
+/* ===== Font faces ===== */
+@font-face {
+  font-family: exmouth;
+  src: url(/assets/fonts/exmouth.ttf);
+}
+
+@font-face {
+  font-family: alte-haas-grotesk-regular;
+  src: url(/assets/fonts/alte-haas-grotesk-bold.ttf);
+}
+
+@font-face {
+  font-family: alte-haas-grotesk-bold;
+  src: url(/assets/fonts/alte-haas-grotesk-bold.ttf);
+}
+
+.title-teatro {
+  font-family: exmouth;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.title-carreras {
+  font-family: alte-haas-grotesk-bold;
+}
+
+.title-cafe-tecnologico {
+  font-family: pacifico;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* ===== Career background colors ===== */
+.bg-basicas {
+  background-color: #0097d0;
+  box-shadow:
+    0 4px 20px 0 rgba(0, 151, 208, 0.14),
+    0 7px 10px -5px rgba(0, 151, 208, 0.4);
+  color: #fff;
+}
+
+.bg-civil {
+  background-color: #812893;
+  box-shadow:
+    0 4px 20px 0 rgba(129, 40, 147, 0.14),
+    0 7px 10px -5px rgba(129, 40, 147, 0.4);
+  color: #fff;
+}
+
+.bg-electrica {
+  background-color: #ff0000;
+  box-shadow:
+    0 4px 20px 0 rgba(255, 0, 0, 0.14),
+    0 7px 10px -5px rgba(255, 0, 0, 0.4);
+  color: #fff;
+}
+
+.bg-industrial {
+  background-color: #f57c00;
+  box-shadow:
+    0 4px 20px 0 rgba(245, 124, 0, 0.14),
+    0 7px 10px -5px rgba(245, 124, 0, 0.4);
+  color: #fff;
+}
+
+.bg-mecanica {
+  background-color: #015128;
+  box-shadow:
+    0 4px 20px 0 rgba(34, 164, 56, 0.14),
+    0 7px 10px -5px rgba(34, 164, 56, 0.4);
+  color: #fff;
+}
+
+.bg-sistemas {
+  background-color: #ffde01;
+  box-shadow:
+    0 4px 20px 0 rgba(255, 222, 1, 0.14),
+    0 7px 10px -5px rgba(255, 222, 1, 0.4);
+  color: #000;
+}
+
+/* ===== Card custom background colors ===== */
+.bg-indigo {
+  background-color: #3f51b5;
+}
+
+.bg-elegant {
+  background-color: #2e2e2e;
+}
+
+.bg-unique {
+  background-color: #880e4f;
+}
+
+.bg-argentina-blue {
+  background-color: #0d73ba;
+}
+
+.bg-sbe-purple {
+  background-color: #731e77;
+}
+
+.bg-campus-virtual {
+  background-color: #47b9de;
+}
+
+.bg-donde-curso-app {
+  background-color: #283593;
+}
+
+.bg-donde-curso-web {
+  background-color: #3199ff;
+}
+
+.bg-laboratorios {
+  background-color: #b69ee4;
+}
+
+.bg-elemilio {
+  background-color: #019ae6;
+}
+
+.blue-tutores {
+  background-color: #2bbbad;
+}
+
+.bg-menu-universitario {
+  background-color: #f4de3b;
+}
+
+.bg-libros-prestamos {
+  background-color: #996633;
+}
+
+.bg-purple-horarios {
+  background-color: #814cce;
+}
+
+.bg-ceut {
+  background-color: #249ed1;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-coffee {
+  background-color: #974e2b;
+}
+
+.bg-medio-boleto {
+  background: linear-gradient(to left, #1e579a, #745399);
+}
+
+.bg-movilidad {
+  background: linear-gradient(40deg, #fc6262, #ffd86f);
+}
+
+.bg-guias {
+  background: linear-gradient(40deg, #303f9f, #45cafc);
+}
+
+.bg-pink {
+  background-color: #e23849;
+}
+
+/* ===== Global body ===== */
+body {
+  margin: 0;
+}

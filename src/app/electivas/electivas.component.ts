@@ -1,31 +1,23 @@
-import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, inject } from '@angular/core';
 import { ElectivasService } from '@app/_services/electivas.service';
 import { GlobalService } from '@app/_services/global.service';
 import { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
 import { CareerService } from '@app/_services/career.service';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
-import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ectivas',
   templateUrl: './electivas.component.html',
   styleUrls: ['./electivas.component.scss'],
-  imports: [
-    NgClass,
-    NgTemplateOutlet,
-    LoadingSpinnerComponent,
-    NgbDropdown,
-    NgbDropdownToggle,
-    NgbDropdownMenu,
-    FormsModule,
-  ],
+  imports: [NgClass, NgTemplateOutlet, LoadingSpinnerComponent, FormsModule],
 })
 export class ElectivasComponent implements OnInit {
   private careerService = inject(CareerService);
   private electivasService = inject(ElectivasService);
   private globalService = inject(GlobalService);
+  private elementRef = inject(ElementRef);
 
   anchoDelDisplay: any;
 
@@ -45,14 +37,16 @@ export class ElectivasComponent implements OnInit {
   bienvenidaVisible: boolean = true;
   recomendacionPantalla: boolean = true;
 
-  fraseSeleccionada: string = ''; // Frase motivacional mostrada en displays grandes (mayores a 992px)
+  fraseSeleccionada: string = '';
+
+  // Dropdown states
+  carreraDropdownOpen = false;
+  electivaDropdownIndex: number | null = null;
 
   constructor() {
     this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
     this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();
-    // Inicializamos cargando la carrera de Civil, por default.
-    // TODO: Hacer que se guarde en localStorage la última carrera visitada
     this.seleccionarCarrera('civil');
   }
 
@@ -80,6 +74,23 @@ export class ElectivasComponent implements OnInit {
     }
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.carreraDropdownOpen = false;
+      this.electivaDropdownIndex = null;
+    }
+  }
+
+  toggleCarreraDropdown() {
+    this.carreraDropdownOpen = !this.carreraDropdownOpen;
+  }
+
+  toggleElectivaDropdown(index: number, event: MouseEvent) {
+    event.stopPropagation();
+    this.electivaDropdownIndex = this.electivaDropdownIndex === index ? null : index;
+  }
+
   seleccionarCarrera(idCarrera: string) {
     this.contadorAprobadas = 0;
     this.contadorCursadas = 0;
@@ -87,6 +98,7 @@ export class ElectivasComponent implements OnInit {
     this.electivas = [];
     this.electivasFiltradas = [];
     this.cargando = true;
+    this.carreraDropdownOpen = false;
     this.electivasService.getByCarrera(this.carreraElegida.carrera).subscribe({
       next: (response) => {
         this.electivas = response;
@@ -110,10 +122,10 @@ export class ElectivasComponent implements OnInit {
       return 'bg-' + idCarrera;
     }
     if (electiva.cursada && !electiva.aprobada) {
-      return 'bg-primary text-white';
+      return 'bg-blue-600 text-white';
     }
     if (electiva.cursada && electiva.aprobada) {
-      return 'bg-success text-white';
+      return 'bg-green-600 text-white';
     }
   }
 
@@ -126,12 +138,13 @@ export class ElectivasComponent implements OnInit {
   }
 
   navegarWhatsapp(numero?: string) {
-    window.open(`"https://api.whatsapp.com/send?phone="${this.carreraElegida.contacto.whatsapp}`, '_blank');
+    window.open(`https://api.whatsapp.com/send?phone=${this.carreraElegida.contacto.whatsapp}`, '_blank');
   }
 
   limpiarEstado(electiva: Electiva) {
     electiva.cursada = false;
     electiva.aprobada = false;
+    this.electivaDropdownIndex = null;
     this.calcularCursadas();
     this.calcularAprobadas();
   }
@@ -139,6 +152,7 @@ export class ElectivasComponent implements OnInit {
   marcarCursada(electiva: Electiva) {
     electiva.cursada = true;
     electiva.aprobada = false;
+    this.electivaDropdownIndex = null;
     this.calcularCursadas();
     this.calcularAprobadas();
   }
@@ -146,6 +160,7 @@ export class ElectivasComponent implements OnInit {
   marcarAprobada(electiva: Electiva) {
     electiva.cursada = true;
     electiva.aprobada = true;
+    this.electivaDropdownIndex = null;
     this.calcularCursadas();
     this.calcularAprobadas();
   }
@@ -187,7 +202,6 @@ export class ElectivasComponent implements OnInit {
       );
     }
 
-    // Ordeno alfabéticamente según el nombre de la electiva
     this.electivasFiltradas.sort((a, b) => a.nombre.localeCompare(b.nombre));
   }
 

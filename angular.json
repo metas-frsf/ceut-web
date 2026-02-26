@@ -24,7 +24,7 @@
             "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.css"],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,

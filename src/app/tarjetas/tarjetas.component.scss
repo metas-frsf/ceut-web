@@ -4,25 +4,11 @@
   min-height: calc(100vh - 150px);
 }
 
-.card-body {
-  border-radius: 1rem;
-}
-
-.card {
-  border-radius: 1rem;
-  border: none;
-}
-
 app-tarjeta-generica {
   display: grid;
   grid-template-rows: 1fr auto;
   break-inside: avoid;
   margin-bottom: 16px;
-}
-
-.p-0 img {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
 }
 
 .bg-teatro {
@@ -42,16 +28,6 @@ app-tarjeta-generica {
   z-index: 3;
   margin-left: -15px;
   margin-right: -15px;
-
-  .input-group {
-    background-color: white;
-    position: sticky;
-    z-index: 3;
-
-    @media (min-width: 576px) {
-      max-width: 350px;
-    }
-  }
 }
 
 #avisos,
