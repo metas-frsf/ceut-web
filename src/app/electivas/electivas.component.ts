@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, inject } from '@angular/core';
 import { ElectivasService } from '@app/_services/electivas.service';
 import { GlobalService } from '@app/_services/global.service';
-import { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
+import type { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
 import { CareerService } from '@app/_services/career.service';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
@@ -19,7 +19,7 @@ export class ElectivasComponent implements OnInit {
   private globalService = inject(GlobalService);
   private elementRef = inject(ElementRef);
 
-  anchoDelDisplay: any;
+  anchoDelDisplay: number;
 
   filtroCuatrimestre: Periodo;
   electivas = [];
@@ -59,8 +59,8 @@ export class ElectivasComponent implements OnInit {
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  @HostListener('window:resize')
+  onResize() {
     this.anchoDelDisplay = window.innerWidth;
 
     if (window.innerWidth >= 768) {
@@ -113,31 +113,29 @@ export class ElectivasComponent implements OnInit {
     this.fraseSeleccionada = this.frases.sort(this.globalService.shuffleOrder).pop();
   }
 
-  estilosDeCarrera(idCarrera: string, element?: string) {
+  estilosDeCarrera(idCarrera: string) {
     return 'bg-' + idCarrera;
   }
 
   estilosDeElectiva(idCarrera: string, electiva: Electiva) {
-    if (!electiva.cursada && !electiva.aprobada) {
-      return 'bg-' + idCarrera;
-    }
-    if (electiva.cursada && !electiva.aprobada) {
-      return 'bg-blue-600 text-white';
-    }
     if (electiva.cursada && electiva.aprobada) {
       return 'bg-green-600 text-white';
     }
+    if (electiva.cursada) {
+      return 'bg-blue-600 text-white';
+    }
+    return 'bg-' + idCarrera;
   }
 
-  navegarInstagram(id?: string) {
+  navegarInstagram() {
     window.open(`https://instagram.com/${this.carreraElegida.contacto.instagram}`, '_blank');
   }
 
-  navegarMessenger(id?: string) {
+  navegarMessenger() {
     window.open(`https://m.me/${this.carreraElegida.contacto.messenger}`, '_blank');
   }
 
-  navegarWhatsapp(numero?: string) {
+  navegarWhatsapp() {
     window.open(`https://api.whatsapp.com/send?phone=${this.carreraElegida.contacto.whatsapp}`, '_blank');
   }
 

@@ -100,7 +100,7 @@
                 <div class="relative inline-flex">
                   <button
                     type="button"
-                    class="btn font-bold"
+                    class="px-3 py-1 font-bold"
                     [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                     (click)="cambiarVista(electiva)"
                   >
@@ -113,7 +113,7 @@
                     ></i>
                   </button>
                   <button
-                    class="btn border-l border-white/30 px-2"
+                    class="border-l border-white/30 px-2 py-1"
                     [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                     (click)="toggleElectivaDropdown(i, $event)"
                   >
@@ -148,7 +148,7 @@
               @if (carreraElegida.id === 'basicas') {
                 <button
                   type="button"
-                  class="btn font-bold"
+                  class="px-3 py-1 font-bold"
                   [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                   (click)="cambiarVista(electiva)"
                 >
@@ -461,7 +461,7 @@
     <button
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
-      class="btn rounded-l font-bold sm:hidden"
+      class="rounded-l px-3 py-1 font-bold sm:hidden"
       (click)="verVistaPrincipal()"
     >
       {{ carreraElegida.nombreCorto }}
@@ -469,12 +469,12 @@
     <button
       type="button"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
-      class="btn hidden rounded-l font-bold sm:inline-block"
+      class="hidden rounded-l px-3 py-1 font-bold sm:inline-block"
     >
       {{ carreraElegida.nombreCompleto }}
     </button>
     <button
-      class="btn border-l border-white/30 px-2"
+      class="border-l border-white/30 px-2 py-1"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
       (click)="toggleCarreraDropdown()"
     >
