@@ -1,5 +1,5 @@
 import { CardService } from '@app/_services/card.service';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgFor } from '@angular/common';
 import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
@@ -12,7 +12,7 @@ import { TarjetaGenericaComponent } from './tarjeta-generica/tarjeta-generica.co
   imports: [FormsModule, NgIf, LoadingSpinnerComponent, NgFor, TarjetaGenericaComponent],
 })
 export class TarjetasComponent {
-  barraDeBusqueda: string = '';
+  cardService = inject(CardService);
 
-  constructor(public cardService: CardService) {}
+  barraDeBusqueda: string = '';
 }

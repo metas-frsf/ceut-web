@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MainHeaderComponent } from './_components/main-header/main-header.component';
 
@@ -10,6 +10,8 @@ import { MainHeaderComponent } from './_components/main-header/main-header.compo
   imports: [MainHeaderComponent, RouterOutlet],
 })
 export class AppComponent {
+  private router = inject(Router);
+
   private paginaCeut = {
     name: 'CEUT',
     messenger: 'ceut.frsf',
@@ -29,7 +31,9 @@ export class AppComponent {
 
   private _paginaActiva;
 
-  constructor(private router: Router) {
+  constructor() {
+    const router = this.router;
+
     router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
         if (this.rutasMetas.includes(route.urlAfterRedirects)) {

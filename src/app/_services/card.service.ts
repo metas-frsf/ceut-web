@@ -1,6 +1,6 @@
 import { Card } from '@app/_models/card';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filterCardsBySearchText, sortCardsByTitleAsc } from '@app/_functions/card.functions';
 
@@ -13,6 +13,8 @@ const apiPrefix: string = 'api/cards';
 
 @Injectable()
 export class CardService {
+  http = inject(HttpClient);
+
   // TODO: Extraer manejo de las tarjetas hacia otro service. Este debería sólo proveer de la funcionalidad para CRUD.
   // TODO: Extraer las tarjetas ordenadas hacia otro service.
   get sortedCards(): any[] {
@@ -33,7 +35,7 @@ export class CardService {
   private _assortedCards = [];
   cargando: boolean = false;
 
-  constructor(public http: HttpClient) {
+  constructor() {
     this.getAll();
   }
 

@@ -1,5 +1,5 @@
-import { Component, Inject, Input, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT, NgClass, NgIf, NgFor } from '@angular/common';
+import { Component, Input, ViewEncapsulation, DOCUMENT, inject } from '@angular/core';
+import { NgClass, NgIf, NgFor } from '@angular/common';
 import { Card, Link } from '@app/_models/card';
 import { Router } from '@angular/router';
 
@@ -16,13 +16,11 @@ import { Router } from '@angular/router';
   imports: [NgClass, NgIf, NgFor],
 })
 export class TarjetaGenericaComponent {
+  private document = inject(DOCUMENT);
+  private router = inject(Router);
+
   @Input() card: Card;
   baseUrl = '';
-
-  constructor(
-    @Inject(DOCUMENT) private document: any,
-    private router: Router,
-  ) {}
 
   navigate(link: string | Link) {
     if (link) {
