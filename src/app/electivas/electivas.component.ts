@@ -1,13 +1,13 @@
-import { Component, HostListener, OnInit } from "@angular/core";
-import { ElectivasService } from "@app/_services/electivas.service";
-import { GlobalService } from "@app/_services/global.service";
-import { Carrera, Electiva, Periodo } from "@app/electivas/electivas.model";
-import { CareerService } from "@app/_services/career.service";
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ElectivasService } from '@app/_services/electivas.service';
+import { GlobalService } from '@app/_services/global.service';
+import { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
+import { CareerService } from '@app/_services/career.service';
 
 @Component({
-  selector: "app-ectivas",
-  templateUrl: "./electivas.component.html",
-  styleUrls: ["./electivas.component.scss"],
+  selector: 'app-ectivas',
+  templateUrl: './electivas.component.html',
+  styleUrls: ['./electivas.component.scss'],
 })
 export class ElectivasComponent implements OnInit {
   anchoDelDisplay: any;
@@ -28,20 +28,19 @@ export class ElectivasComponent implements OnInit {
   bienvenidaVisible: boolean = true;
   recomendacionPantalla: boolean = true;
 
-  fraseSeleccionada: string = ""; // Frase motivacional mostrada en displays grandes (mayores a 992px)
+  fraseSeleccionada: string = ''; // Frase motivacional mostrada en displays grandes (mayores a 992px)
 
   constructor(
     private careerService: CareerService,
     private electivasService: ElectivasService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
   ) {
     this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
-    this.filtroCuatrimestre =
-      this.electivasService.inicializarFiltroCuatrimestre();
+    this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();
     // Inicializamos cargando la carrera de Civil, por default.
     // TODO: Hacer que se guarde en localStorage la última carrera visitada
-    this.seleccionarCarrera("civil");
+    this.seleccionarCarrera('civil');
   }
 
   ngOnInit() {
@@ -53,7 +52,7 @@ export class ElectivasComponent implements OnInit {
     }
   }
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.anchoDelDisplay = window.innerWidth;
 
@@ -71,9 +70,7 @@ export class ElectivasComponent implements OnInit {
   seleccionarCarrera(idCarrera: string) {
     this.contadorAprobadas = 0;
     this.contadorCursadas = 0;
-    this.carreraElegida = this.carreras
-      .filter((carrera) => carrera.id === idCarrera)
-      .pop();
+    this.carreraElegida = this.carreras.filter((carrera) => carrera.id === idCarrera).pop();
     this.electivas = [];
     this.electivasFiltradas = [];
     this.cargando = true;
@@ -86,48 +83,37 @@ export class ElectivasComponent implements OnInit {
       (error) => {
         console.error(error);
         this.cargando = false;
-      }
+      },
     );
-    this.fraseSeleccionada = this.frases
-      .sort(this.globalService.shuffleOrder)
-      .pop();
+    this.fraseSeleccionada = this.frases.sort(this.globalService.shuffleOrder).pop();
   }
 
   estilosDeCarrera(idCarrera: string, element?: string) {
-    return "bg-" + idCarrera;
+    return 'bg-' + idCarrera;
   }
 
   estilosDeElectiva(idCarrera: string, electiva: Electiva) {
     if (!electiva.cursada && !electiva.aprobada) {
-      return "bg-" + idCarrera;
+      return 'bg-' + idCarrera;
     }
     if (electiva.cursada && !electiva.aprobada) {
-      return "bg-primary text-white";
+      return 'bg-primary text-white';
     }
     if (electiva.cursada && electiva.aprobada) {
-      return "bg-success text-white";
+      return 'bg-success text-white';
     }
   }
 
   navegarInstagram(id?: string) {
-    window.open(
-      `https://instagram.com/${this.carreraElegida.contacto.instagram}`,
-      "_blank"
-    );
+    window.open(`https://instagram.com/${this.carreraElegida.contacto.instagram}`, '_blank');
   }
 
   navegarMessenger(id?: string) {
-    window.open(
-      `https://m.me/${this.carreraElegida.contacto.messenger}`,
-      "_blank"
-    );
+    window.open(`https://m.me/${this.carreraElegida.contacto.messenger}`, '_blank');
   }
 
   navegarWhatsapp(numero?: string) {
-    window.open(
-      `"https://api.whatsapp.com/send?phone="${this.carreraElegida.contacto.whatsapp}`,
-      "_blank"
-    );
+    window.open(`"https://api.whatsapp.com/send?phone="${this.carreraElegida.contacto.whatsapp}`, '_blank');
   }
 
   limpiarEstado(electiva: Electiva) {
@@ -174,21 +160,17 @@ export class ElectivasComponent implements OnInit {
 
     if (filtro.primero) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter(
-          (card) => card.cuatrimestre === "1er Cuatrimestre"
-        )
+        this.electivas.filter((card) => card.cuatrimestre === '1er Cuatrimestre'),
       );
     }
     if (filtro.segundo) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter(
-          (card) => card.cuatrimestre === "2do Cuatrimestre"
-        )
+        this.electivas.filter((card) => card.cuatrimestre === '2do Cuatrimestre'),
       );
     }
     if (filtro.anual) {
       this.electivasFiltradas = this.electivasFiltradas.concat(
-        this.electivas.filter((card) => card.cuatrimestre === "Anual")
+        this.electivas.filter((card) => card.cuatrimestre === 'Anual'),
       );
     }
 
