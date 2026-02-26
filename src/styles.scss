@@ -1,4 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-/* Importing Bootstrap SCSS file. */
-@import "bootstrap/scss/bootstrap";
+@theme {
+  --color-career-basicas: #0097d0;
+  --color-career-civil: #812893;
+  --color-career-electrica: #ff0000;
+  --color-career-industrial: #f57c00;
+  --color-career-mecanica: #015128;
+  --color-career-sistemas: #ffde01;
+
+  --font-exmouth: 'exmouth', cursive;
+  --font-alte-haas: 'alte-haas-grotesk-bold', sans-serif;
+}
+
+/* Keep Bootstrap temporarily during migration */
+@import 'bootstrap/scss/bootstrap';
