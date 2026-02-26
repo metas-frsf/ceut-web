@@ -38,6 +38,7 @@ export class ElectivasComponent implements OnInit {
   recomendacionPantalla: boolean = true;
 
   fraseSeleccionada: string = '';
+  mensajeCuatrimestre: string = '';
 
   // Dropdown states
   carreraDropdownOpen = false;
@@ -47,6 +48,7 @@ export class ElectivasComponent implements OnInit {
     this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
     this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();
+    this.mensajeCuatrimestre = this.electivasService.getMensajeCuatrimestre();
     this.seleccionarCarrera('civil');
   }
 

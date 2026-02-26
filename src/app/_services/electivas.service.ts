@@ -2,8 +2,6 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GlobalService } from '@app/_services/global.service';
 import { Periodo } from '@app/_models/electivas.model';
-import dayjs from 'dayjs';
-import type { Dayjs } from 'dayjs';
 
 const apiPrefix: string = 'api/courses';
 
@@ -44,19 +42,13 @@ export class ElectivasService {
    * En caso de que la fecha actual sea del segundo semestre, filtra las electivas del segundo cuatrimestre
    */
   inicializarFiltroCuatrimestre(): Periodo {
-    const fechaDeHoy: Dayjs = dayjs();
-
-    // fechaBisagra representa el primero de julio del año actual, pivote para saber si estamos en el primer o segundo cuatrimestre
-    const fechaBisagra: Dayjs = dayjs(`07/01/${fechaDeHoy.year()}`);
-    const estamosEnPrimerSemestre: boolean = fechaDeHoy.isBefore(fechaBisagra);
-
     const filtroInicial: Periodo = {
       anual: false,
       primero: false,
       segundo: false,
     };
 
-    if (estamosEnPrimerSemestre) {
+    if (this.esPrimerSemestre()) {
       filtroInicial.anual = true;
       filtroInicial.primero = true;
     } else {
@@ -64,5 +56,16 @@ export class ElectivasService {
     }
 
     return filtroInicial;
+  }
+
+  getMensajeCuatrimestre(): string {
+    return this.esPrimerSemestre()
+      ? '¡Te deseamos un excelente primer cuatrimestre!'
+      : '¡Te deseamos un excelente segundo cuatrimestre!';
+  }
+
+  /** Antes del 1ro de julio se considera primer semestre */
+  private esPrimerSemestre(): boolean {
+    return new Date().getMonth() < 6;
   }
 }
