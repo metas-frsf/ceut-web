@@ -4,5 +4,5 @@
     "outDir": "../out-tsc/app",
     "types": ["@angular/localize"]
   },
-  "files": ["main.ts", "polyfills.ts"]
+  "files": ["main.ts"]
 }

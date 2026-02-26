@@ -1,34 +1,18 @@
 /// <reference types="@angular/localize" />
 
-import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode, provideZoneChangeDetection } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { CareerService } from '@app/_services/career.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbDropdownModule, NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { routing } from './app/app.routing';
 import { AppComponent } from './app/app.component';
+import { appRoutes } from './app/app.routing';
 
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    provideZoneChangeDetection(),
-    importProvidersFrom(
-      BrowserModule,
-      FormsModule,
-      NgbDropdownModule,
-      NgbModule,
-      NgbTooltipModule,
-      ReactiveFormsModule,
-      routing,
-    ),
-    CareerService,
-    provideHttpClient(withInterceptorsFromDi()),
-  ],
+  providers: [provideZoneChangeDetection(), provideRouter(appRoutes), provideHttpClient()],
 }).catch((err) => console.error(err));
