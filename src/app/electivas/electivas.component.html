@@ -100,7 +100,7 @@
                 <div class="relative inline-flex">
                   <button
                     type="button"
-                    class="px-3 py-1 font-bold"
+                    class="rounded-l px-3 py-1 font-bold"
                     [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                     (click)="cambiarVista(electiva)"
                   >
@@ -113,7 +113,7 @@
                     ></i>
                   </button>
                   <button
-                    class="border-l border-white/30 px-2 py-1"
+                    class="rounded-r border-l border-white/30 px-2 py-1"
                     [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                     (click)="toggleElectivaDropdown(i, $event)"
                   >
@@ -148,7 +148,7 @@
               @if (carreraElegida.id === 'basicas') {
                 <button
                   type="button"
-                  class="px-3 py-1 font-bold"
+                  class="rounded px-3 py-1 font-bold"
                   [ngClass]="estilosDeElectiva(carreraElegida.id, electiva)"
                   (click)="cambiarVista(electiva)"
                 >
@@ -345,7 +345,7 @@
   <div id="filtro-cuatrimestres" class="mx-auto mt-2 mb-2 rounded bg-gray-200 p-2 shadow md:mb-0">
     <span class="ms-2 me-3 hidden font-bold xl:inline">Filtro:</span>
 
-    <div class="inline-flex rounded border border-gray-400">
+    <div class="inline-flex overflow-hidden rounded border border-gray-400">
       <label
         class="cursor-pointer border-r border-gray-400 px-3 py-1 text-sm"
         [class.bg-gray-300]="filtroCuatrimestre.anual"
@@ -474,7 +474,7 @@
       {{ carreraElegida.nombreCompleto }}
     </button>
     <button
-      class="border-l border-white/30 px-2 py-1"
+      class="rounded-r border-l border-white/30 px-2 py-1"
       [ngClass]="estilosDeCarrera(carreraElegida.id)"
       (click)="toggleCarreraDropdown()"
     >

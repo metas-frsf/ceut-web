@@ -3,15 +3,19 @@
     <nav id="navbar" class="flex items-center justify-center bg-gray-100 px-4 py-2">
       <div class="me-3 flex items-start">
         <a class="p-1" [href]="'https://m.me/' + activePage().messenger" title="Escribinos vía Messenger">
-          <img id="messenger-icon" src="assets/img/facebook-messenger.png" alt="Logo Messenger" />
+          <img id="messenger-icon" class="max-h-[30px]" src="assets/img/facebook-messenger.png" alt="Logo Messenger" />
         </a>
         <a class="ms-3 p-1" [href]="'https://instagram.com/' + activePage().instagram" title="Contactate vía Instagram">
-          <img id="instagram-icon" src="assets/img/instagram-icon.png" alt="Logo Instagram" />
+          <img id="instagram-icon" class="max-h-[30px]" src="assets/img/instagram-icon.png" alt="Logo Instagram" />
         </a>
       </div>
       <div class="flex items-center">
         <a routerLink="/">
-          <img [src]="'assets/img/' + activePage().logo" alt="Logo CEUT FRSF" />
+          <img
+            class="max-h-[40px] max-w-[150px] md:max-h-[50px]"
+            [src]="'assets/img/' + activePage().logo"
+            alt="Logo CEUT FRSF"
+          />
         </a>
       </div>
       <div class="flex items-end">
