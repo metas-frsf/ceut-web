@@ -1,6 +1,6 @@
-import { Component, Inject, Input, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { Card, Link } from '@app/_models/card';
+import { Component, ViewEncapsulation, DOCUMENT, inject, input } from '@angular/core';
+import { NgClass } from '@angular/common';
+import type { Card, Link } from '@app/_models/card';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,15 +13,14 @@ import { Router } from '@angular/router';
     './tarjeta-generica.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
+  imports: [NgClass],
 })
 export class TarjetaGenericaComponent {
-  @Input() card: Card;
-  baseUrl = '';
+  private document = inject(DOCUMENT);
+  private router = inject(Router);
 
-  constructor(
-    @Inject(DOCUMENT) private document: any,
-    private router: Router,
-  ) {}
+  card = input.required<Card>();
+  baseUrl = '';
 
   navigate(link: string | Link) {
     if (link) {

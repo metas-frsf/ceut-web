@@ -1,15 +1,32 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { ElectivasService } from '@app/_services/electivas.service';
 import { GlobalService } from '@app/_services/global.service';
 import { Carrera, Electiva, Periodo } from '@app/electivas/electivas.model';
 import { CareerService } from '@app/_services/career.service';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { LoadingSpinnerComponent } from '../_components/loading-spinner/loading-spinner.component';
+import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ectivas',
   templateUrl: './electivas.component.html',
   styleUrls: ['./electivas.component.scss'],
+  imports: [
+    NgClass,
+    NgTemplateOutlet,
+    LoadingSpinnerComponent,
+    NgbDropdown,
+    NgbDropdownToggle,
+    NgbDropdownMenu,
+    FormsModule,
+  ],
 })
 export class ElectivasComponent implements OnInit {
+  private careerService = inject(CareerService);
+  private electivasService = inject(ElectivasService);
+  private globalService = inject(GlobalService);
+
   anchoDelDisplay: any;
 
   filtroCuatrimestre: Periodo;
@@ -30,11 +47,7 @@ export class ElectivasComponent implements OnInit {
 
   fraseSeleccionada: string = ''; // Frase motivacional mostrada en displays grandes (mayores a 992px)
 
-  constructor(
-    private careerService: CareerService,
-    private electivasService: ElectivasService,
-    private globalService: GlobalService,
-  ) {
+  constructor() {
     this.carreras = this.careerService.get();
     this.frases = this.electivasService.getFrasesMotivacionales();
     this.filtroCuatrimestre = this.electivasService.inicializarFiltroCuatrimestre();

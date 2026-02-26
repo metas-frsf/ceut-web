@@ -1,13 +1,17 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { MainHeaderComponent } from './_components/main-header/main-header.component';
 
 @Component({
   selector: 'app-ceut-frsf',
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  imports: [MainHeaderComponent, RouterOutlet],
 })
 export class AppComponent {
+  private router = inject(Router);
+
   private paginaCeut = {
     name: 'CEUT',
     messenger: 'ceut.frsf',
@@ -27,7 +31,9 @@ export class AppComponent {
 
   private _paginaActiva;
 
-  constructor(private router: Router) {
+  constructor() {
+    const router = this.router;
+
     router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
         if (this.rutasMetas.includes(route.urlAfterRedirects)) {

@@ -1,15 +1,18 @@
 /// <reference types="@angular/localize" />
 
-import { enableProdMode } from "@angular/core";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { enableProdMode, provideZoneChangeDetection } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
-import { AppModule } from "@app/app.module";
-import { environment } from "@environments/environment";
+import { environment } from '@environments/environment';
+import { AppComponent } from './app/app.component';
+import { appRoutes } from './app/app.routing';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideZoneChangeDetection(), provideRouter(appRoutes), provideHttpClient()],
+}).catch((err) => console.error(err));

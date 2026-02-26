@@ -1,24 +1,25 @@
-import { RouterModule, Routes } from '@angular/router';
+import type { Routes } from '@angular/router';
+import { CardService } from '@app/_services/card.service';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./tarjetas/tarjetas.module').then((m) => m.TarjetasModule),
+    loadComponent: () => import('./tarjetas/tarjetas.component').then((m) => m.TarjetasComponent),
+    providers: [CardService],
   },
   {
     path: 'electivas',
-    loadChildren: () => import('./electivas/electivas.module').then((m) => m.ElectivasModule),
+    loadComponent: () => import('./electivas/electivas.component').then((m) => m.ElectivasComponent),
   },
   {
     path: 'manual-ingresante',
-    loadChildren: () => import('./manual-ingresante/manual-ingresante.module').then((m) => m.ManualIngresanteModule),
+    loadComponent: () =>
+      import('./manual-ingresante/manual-ingresante.component').then((m) => m.ManualIngresanteComponent),
   },
   {
     path: 'calendario',
-    loadChildren: () => import('./calendario/calendario.module').then((m) => m.CalendarioModule),
+    loadComponent: () => import('./calendario/calendario.component').then((m) => m.CalendarioComponent),
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },
 ];
-
-export const routing = RouterModule.forRoot(appRoutes);

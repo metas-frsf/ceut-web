@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GlobalService } from '@app/_services/global.service';
 import { Periodo } from '@app/electivas/electivas.model';
@@ -11,10 +11,8 @@ const apiPrefix: string = 'api/courses';
   providedIn: 'root',
 })
 export class ElectivasService {
-  constructor(
-    private http: HttpClient,
-    private global: GlobalService,
-  ) {}
+  private http = inject(HttpClient);
+  private global = inject(GlobalService);
 
   getByCarrera(carrera: string) {
     const headers = this.global.httpHeaders;
