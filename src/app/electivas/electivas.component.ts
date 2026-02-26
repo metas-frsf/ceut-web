@@ -74,17 +74,17 @@ export class ElectivasComponent implements OnInit {
     this.electivas = [];
     this.electivasFiltradas = [];
     this.cargando = true;
-    this.electivasService.getByCarrera(this.carreraElegida.carrera).subscribe(
-      (response) => {
+    this.electivasService.getByCarrera(this.carreraElegida.carrera).subscribe({
+      next: (response) => {
         this.electivas = response;
         this.filtrarPorCuatrimestre(this.filtroCuatrimestre);
         this.cargando = false;
       },
-      (error) => {
+      error: (error) => {
         console.error(error);
         this.cargando = false;
       },
-    );
+    });
     this.fraseSeleccionada = this.frases.sort(this.globalService.shuffleOrder).pop();
   }
 

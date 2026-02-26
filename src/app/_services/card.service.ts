@@ -42,16 +42,16 @@ export class CardService {
    */
   public getAll() {
     this.cargando = true;
-    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe(
-      (x) => {
+    this.http.get<ICardCollections>(`${apiPrefix}/active`).subscribe({
+      next: (x) => {
         this._rawCards = x;
         this.assignLists(this._rawCards);
         this.cargando = false;
       },
-      () => {
+      error: () => {
         this.cargando = false;
       },
-    );
+    });
   }
 
   /** Envía una tarjeta al servidor para actualizar sus datos

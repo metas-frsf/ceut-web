@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GlobalService } from '@app/_services/global.service';
 import { Periodo } from '@app/electivas/electivas.model';
-import * as dayjs from 'dayjs';
-import { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 const apiPrefix: string = 'api/courses';
 
