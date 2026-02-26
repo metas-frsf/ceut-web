@@ -1,0 +1,46 @@
+<div class="mx-auto w-full rounded-2xl border-0 bg-white shadow" [ngClass]="{ 'cursor-pointer': card().link }">
+  <div class="rounded-2xl p-4" [ngClass]="card().class.card" (click)="navigate(card().link)">
+    <div class="flex items-center">
+      <div [ngClass]="{ 'w-1/4': card().title, 'w-full': !card().title }">
+        <img class="w-full" [src]="baseUrl + card().icon" [ngClass]="card().class.image" />
+      </div>
+      @if (card().title) {
+        <div class="w-3/4">
+          <h4 class="mb-0 text-2xl md:text-xl font-semibold" [ngClass]="card().class.title">
+            {{ card().title }}
+          </h4>
+        </div>
+      }
+    </div>
+    <div>
+      @if (card().content && card().content.length) {
+        <div class="mt-2 text-justify" [ngClass]="card().class.content">
+          @for (line of card().content; track line) {
+            <p class="mb-2">
+              @if (line.title) {
+                <strong>{{ line.title + ' ' }}</strong>
+              }
+              @if (line.link) {
+                <a [href]="line.link.url">{{ line.description }}</a>
+              }
+              @if (!line.link) {
+                {{ line.description }}
+              }
+            </p>
+          }
+        </div>
+      }
+
+      @if (card().footer && card().footer.content) {
+        <div>
+          @if (card().footer.separator) {
+            <hr class="my-1" [ngClass]="card().footer.class" />
+          }
+          <p class="text-justify" [ngClass]="card().footer.class">
+            <small>{{ card().footer.content }}</small>
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

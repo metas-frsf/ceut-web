@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 150px);
+}
+
+app-tarjeta-generica {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+.bg-teatro {
+  background-size: cover;
+  background-image: url('../../../assets/img/teatro-fondo.png');
+}
+
+.jeut-d {
+  background-size: cover;
+  background-image: url('../../../assets/img/jeut-d.jpeg');
+}
+
+#search-bar {
+  top: 74px;
+  position: fixed;
+  height: 48px;
+  z-index: 3;
+  width: 100%;
+  left: 0;
+}

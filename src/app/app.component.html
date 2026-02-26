@@ -1,16 +1,10 @@
-﻿<div id="main-container" class="container">
-  <div id="header-container">
+<main class="container mx-auto">
+  <header id="header-container">
     <app-main-header [activePage]="paginaActiva"></app-main-header>
-  </div>
-  <div
-    id="outlet-container"
-    class="d-flex justify-content-center align-items-center"
-  >
-    <div id="inner-container" class="d-block w-100">
+  </header>
+  <section id="outlet-container" class="mx-auto flex max-w-5xl items-center justify-center">
+    <div id="inner-container" class="block w-full">
       <router-outlet></router-outlet>
     </div>
-  </div>
-  <!--  <div id="footer-container">-->
-  <!--    <app-footer></app-footer>-->
-  <!--  </div>-->
-</div>
+  </section>
+</main>

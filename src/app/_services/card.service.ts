@@ -1,4 +1,4 @@
-import { Card } from '@app/_models/card';
+import type { Card } from '@app/_models/card';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -17,22 +17,22 @@ export class CardService {
 
   // TODO: Extraer manejo de las tarjetas hacia otro service. Este debería sólo proveer de la funcionalidad para CRUD.
   // TODO: Extraer las tarjetas ordenadas hacia otro service.
-  get sortedCards(): any[] {
+  get sortedCards(): Card[] {
     return this._sortedCards;
   }
 
-  get fixedCards(): any[] {
+  get fixedCards(): Card[] {
     return this._fixedCards;
   }
 
-  get assortedCards(): any[] {
+  get assortedCards(): Card[] {
     return this._assortedCards;
   }
 
   private _rawCards: ICardCollections = { fixed: [], default: [] };
-  private _sortedCards = [];
-  private _fixedCards = [];
-  private _assortedCards = [];
+  private _sortedCards: Card[] = [];
+  private _fixedCards: Card[] = [];
+  private _assortedCards: Card[] = [];
   cargando: boolean = false;
 
   constructor() {
