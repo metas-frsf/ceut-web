@@ -5,7 +5,6 @@ import { CalendarioRoutingModule } from './calendario-routing.module';
 import { CalendarioComponent } from './calendario.component';
 
 @NgModule({
-  declarations: [CalendarioComponent],
-  imports: [CommonModule, CalendarioRoutingModule],
+  imports: [CommonModule, CalendarioRoutingModule, CalendarioComponent],
 })
 export class CalendarioModule {}

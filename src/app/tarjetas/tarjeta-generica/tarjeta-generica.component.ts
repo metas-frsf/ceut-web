@@ -1,5 +1,5 @@
 import { Component, Inject, Input, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgClass, NgIf, NgFor } from '@angular/common';
 import { Card, Link } from '@app/_models/card';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
     './tarjeta-generica.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
+  imports: [NgClass, NgIf, NgFor],
 })
 export class TarjetaGenericaComponent {
   @Input() card: Card;

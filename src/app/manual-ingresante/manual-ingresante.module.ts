@@ -5,7 +5,6 @@ import { ManualIngresanteRoutingModule } from './manual-ingresante-routing.modul
 import { ManualIngresanteComponent } from './manual-ingresante.component';
 
 @NgModule({
-  declarations: [ManualIngresanteComponent],
-  imports: [CommonModule, ManualIngresanteRoutingModule],
+  imports: [CommonModule, ManualIngresanteRoutingModule, ManualIngresanteComponent],
 })
 export class ManualIngresanteModule {}
