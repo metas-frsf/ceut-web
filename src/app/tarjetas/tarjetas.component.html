@@ -20,19 +20,19 @@
 
 @if (!cardService.cargando) {
   <!-- Sección de tarjetas fijas -->
-  <div id="avisos" class="mt-2 text-center">
+  <section id="avisos" class="mt-4 columns-1 gap-4 text-center lg:columns-2 xl:columns-3">
     @for (card of cardService.fixedCards; track card) {
       <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
     }
-  </div>
+  </section>
   @if (cardService.fixedCards.length) {
-    <hr />
+    <hr class="my-4" />
   }
-  <div id="contenido" class="text-center">
+  <section id="contenido" class="columns-1 gap-4 text-center lg:columns-2 xl:columns-3">
     @for (card of cardService.assortedCards; track card) {
       @if (card.enabled) {
         <app-tarjeta-generica [card]="card"></app-tarjeta-generica>
       }
     }
-  </div>
+  </section>
 }

@@ -27,17 +27,3 @@ app-tarjeta-generica {
   height: 48px;
   z-index: 3;
 }
-
-#avisos,
-#contenido {
-  column-gap: 10px;
-  @media (max-width: 991px) {
-    column-count: 1;
-  }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    column-count: 2;
-  }
-  @media (min-width: 1200px) {
-    column-count: 3;
-  }
-}
