@@ -25,12 +25,10 @@
     "@popperjs/core": "^2.10.2",
     "@sanity/client": "^2.7.1",
     "bootstrap": "^5.3.0",
-    "core-js": "^3.22.5",
-    "dayjs": "^1.11.2",
-    "dotenv": "^8.2.0",
-    "popper.js": "^1.16.1",
+    "dayjs": "^1.11.19",
+    "dotenv": "^16.6.1",
     "rxjs": "^6.5.4",
-    "tslib": "^2.0.0",
+    "tslib": "^2.8.1",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
