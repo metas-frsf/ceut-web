@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 
+// In Vercel, environment variables are injected by the runtime; dotenv is only used locally.
 dotenv.config();
 
 interface SanityConfig {

@@ -42,24 +42,8 @@ const TIPO_APROBACION_LABELS = Object.freeze({
   soloPromocion: 'Sólo Promoción directa',
 } as const);
 
-const ELECTIVE_QUERY = `*[_type == "materia" && esElectiva == true && carrera->nombre == $carrera]{
-  nombre,
-  nivel,
-  "area": area->nombre,
-  creditos,
-  cuatrimestre,
-  horarios,
-  docentes,
-  instanciasDeEvaluacion,
-  tipoDeAprobacion,
-  "cursadasParaCursar": cursadasParaCursar[]->nombre,
-  "aprobadasParaCursar": aprobadasParaCursar[]->nombre,
-  "aprobadasParaRendir": aprobadasParaRendir[]->nombre,
-  comentarios
-}`;
-
 function mapElectivaToResponse(e: SanityElectiva): ElectivaResponse {
-  const labelKey = e.tipoDeAprobacion as keyof typeof TIPO_APROBACION_LABELS;
+  const labels: Record<string, string> = TIPO_APROBACION_LABELS;
 
   return {
     vistaCompleta: false,
@@ -73,7 +57,7 @@ function mapElectivaToResponse(e: SanityElectiva): ElectivaResponse {
     horarios: e.horarios ? e.horarios.split('\n') : [],
     docentes: e.docentes ? e.docentes.split(', ') : [],
     actividades: e.instanciasDeEvaluacion,
-    tipoDeAprobacion: TIPO_APROBACION_LABELS[labelKey] ?? e.tipoDeAprobacion,
+    tipoDeAprobacion: labels[e.tipoDeAprobacion] ?? e.tipoDeAprobacion,
     aprobadasParaRendir: e.aprobadasParaRendir ?? [],
     aprobadasParaCursar: e.aprobadasParaCursar ?? [],
     cursadasParaCursar: e.cursadasParaCursar ?? [],
@@ -81,10 +65,26 @@ function mapElectivaToResponse(e: SanityElectiva): ElectivaResponse {
   };
 }
 
-export default async function getElectives(req: VercelRequest, res: VercelResponse): Promise<VercelResponse> {
+export default async function getElectives(req: VercelRequest, res: VercelResponse): Promise<void> {
   const carrera = Array.isArray(req.query.carrera) ? req.query.carrera[0] : req.query.carrera;
   const carreraElegida = carrera ?? 'Sistemas';
 
-  const electivas = await client.fetch<SanityElectiva[]>(ELECTIVE_QUERY, { carrera: carreraElegida });
-  return res.json(electivas.map(mapElectivaToResponse));
+  const query = `*[_type == "materia" && esElectiva == true && carrera->nombre == $carrera]{
+    nombre,
+    nivel,
+    "area": area->nombre,
+    creditos,
+    cuatrimestre,
+    horarios,
+    docentes,
+    instanciasDeEvaluacion,
+    tipoDeAprobacion,
+    "cursadasParaCursar": cursadasParaCursar[]->nombre,
+    "aprobadasParaCursar": aprobadasParaCursar[]->nombre,
+    "aprobadasParaRendir": aprobadasParaRendir[]->nombre,
+    comentarios
+  }`;
+
+  const electivas = await client.fetch<SanityElectiva[]>(query, { carrera: carreraElegida });
+  res.json(electivas.map(mapElectivaToResponse));
 }
